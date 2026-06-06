@@ -1108,10 +1108,10 @@ window.SEERAH_DB = {
     ],
     "steps": [
       {
-        "ayah": "﴿ إِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا ﴾",
-        "ayahRef": "سورة التوبة — الآية ٤٠",
-        "ayahEn": "\"Do not grieve; indeed Allah is with us\"",
-        "ayahRefEn": "Surah At-Tawbah — 9:40",
+        "ayah": "﴿ وَإِذْ يَمْكُرُ بِكَ الَّذِينَ كَفَرُوا لِيُثْبِتُوكَ أَوْ يَقْتُلُوكَ أَوْ يُخْرِجُوكَ ۚ وَيَمْكُرُونَ وَيَمْكُرُ اللَّهُ ۖ وَاللَّهُ خَيْرُ الْمَاكِرِينَ ﴾",
+        "ayahRef": "سورة الأنفال — الآية ٣٠",
+        "ayahEn": "\"And [remember] when those who disbelieved plotted against you to imprison you, or kill you, or expel you [from Makkah]. They plan, and Allah plans. And Allah is the best of planners.\"",
+        "ayahRefEn": "Surah Al-Anfal — 8:30",
         "dateAr": "٢٧ صفر سنة ١٤ من البعثة",
         "dateEn": "27 Safar, Year 14 of the Prophethood",
         "titleAr": "ليلة الخروج والتمويه العسكري الذكي",
@@ -1186,10 +1186,10 @@ window.SEERAH_DB = {
         }
       },
       {
-        "ayah": "﴿ وَإِذْ يَمْكُرُ بِكَ الَّذِينَ كَفَرُوا لِيُثْبِتُوكَ أَوْ يَقْتُلُوكَ وَاللَّهُ خَيْرُ الْمَاكِرِينَ ﴾",
-        "ayahRef": "سورة الأنفال — الآية ٣٠",
-        "ayahEn": "\"Allah was planning. And Allah is the best of planners\"",
-        "ayahRefEn": "Surah Al-Anfal — 8:30",
+        "ayah": "﴿ إِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا ۖ فَأَنزَلَ اللَّهُ سَكِينَتَهُ عَلَيْهِ وَأَيَّدَهُ بِجُنُودٍ لَّمْ تَرَوْهَا ﴾",
+        "ayahRef": "سورة التوبة — الآية ٤٠",
+        "ayahEn": "\"[Remember] when he said to his companion, 'Do not grieve; indeed Allah is with us.' And Allah sent down His tranquility upon him and supported him with soldiers [i.e., angels] you did not see.\"",
+        "ayahRefEn": "Surah At-Tawbah — 9:40",
         "dateAr": "٢٧ صفر — ١ ربيع الأول ١ هـ",
         "dateEn": "27 Safar — 1 Rabi al-Awwal, 1 AH",
         "titleAr": "غار ثور — ثلاثة أيام من اليقين المطلق",

@@ -1141,3 +1141,62 @@ body::after {
   .lesson-ar, .lesson-en { font-size: .85rem; }
   .map-svg { max-height: 50vh; }
 }
+
+/* ─────────────────────────────────────────────────────────
+   Diagnostic banners — confirm step ↔ map focus ↔ audio sync.
+   Small, unobtrusive, dismissible. Essential for debugging
+   the recurring "map shows wrong step" issue.
+   ───────────────────────────────────────────────────────── */
+.focus-diag {
+  position: fixed;
+  bottom: 12px;
+  left: 12px;
+  z-index: 9999;
+  background: rgba(6, 53, 41, 0.85);
+  color: #C5A059;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font: 600 0.72rem/1.4 ui-monospace, "Cascadia Mono", Menlo, monospace;
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  pointer-events: none;
+  max-width: 70vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: ltr;
+}
+[dir="rtl"] .focus-diag {
+  left: auto;
+  right: 12px;
+  direction: rtl;
+}
+
+.diag {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  z-index: 10000;
+  max-width: 320px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font: 600 0.78rem/1.45 "Cairo", "Inter", system-ui, sans-serif;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  direction: rtl;
+  text-align: right;
+  animation: diagSlide 0.32s ease-out;
+}
+[dir="ltr"] .diag { direction: ltr; text-align: left; }
+.diag-ok   { background: #064e3b; color: #6ee7b7; border: 1px solid #6ee7b7; }
+.diag-warn { background: #78350f; color: #fde68a; border: 1px solid #f59e0b; }
+.diag-info { background: #1e293b; color: #cbd5e1; border: 1px solid #64748b; }
+
+@keyframes diagSlide {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 720px) {
+  .focus-diag { font-size: 0.62rem; padding: 4px 8px; max-width: 55vw; }
+  .diag { font-size: 0.7rem; max-width: 80vw; bottom: 50px; }
+}

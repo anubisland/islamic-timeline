@@ -4,6 +4,19 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.2] — 2026-06-07
+
+### Fixed
+- **Hijra step 0/1 Quranic verse swap (asbāb al-nuzul error from v2.4.1)**: ʿĀt-Tawbah 9:40 ("إِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا") was incorrectly assigned to the **night of departure** (هجرة:0). This verse was revealed about the **cave of Thawr** (the Prophet ﷺ speaking to Abū Bakr رضي الله عنه), so it has been moved to hijra:1. The night of departure (هجرة:0) now carries **Al-Anfal 8:30** — the verse that directly describes Quraysh's conspiracy at the Prophet's house ("وَإِذْ يَمْكُرُ بِكَ الَّذِينَ كَفَرُوا لِيُثْبِتُوكَ أَوْ يَقْتُلُوكَ أَوْ يُخْرِجُوكَ ۚ وَيَمْكُرُونَ وَيَمْكُرُ اللَّهُ"), which is the literal night of hijra's start. Sahih International EN translation cross-checked.
+- **Audio (TTS) silent-failure detection**: the previous heuristic (`Date.now() - __ttsStart < 600ms`) was never triggered when Web Speech failed silently — because `__ttsStart` was only set inside `onstart`, and on silent failure `onstart` never fires (so `__ttsStart` stays `0` and the delta is the current epoch in ms, not 600). Replaced with a boolean `__ttsStarted` flag: if `onend` fires without `onstart` having fired, we now correctly detect silent failure and try the Google TTS fallback. This is the most common cause of "I press play and nothing happens" on Windows Chrome, where no Arabic voice is installed.
+- **English voice fallback**: added `pickEnglishVoice()` (Microsoft Zira / David / Google US English / any `en-*` lang) so the English narration path has the same resilience as the Arabic path. Previously, English narration could also fail silently on systems with no matching voice.
+- **User-gesture warm-up**: first click on the play button now issues a zero-volume `SpeechSynthesisUtterance(' ')` inside the click handler. This unlocks Chrome's TTS engine on configurations that otherwise ignore the very first `speak()` call (a known Chromium quirk on cold start).
+- **Map ↔ step ↔ audio sync diagnostics**:
+  - The active focus `<circle>` now carries `data-step` and `data-evt` attributes so it can be inspected in DevTools.
+  - A small live readout (`#focus-diag`) in the bottom-left shows the current `Step N — title (x, y)` so the user can verify at a glance that the pulse and the timeline step agree.
+  - A bilingual diagnostic banner (`#diag`) surfaces Web Speech status, the picked voice name, and the fallback path. It will explicitly say "No Arabic voice installed on this system" if that is the cause, with the actionable hint to install the Arabic language pack in Windows Settings.
+  - All focus changes and TTS transitions are logged to the browser console (`[focus] …`, `[TTS] …`) for easier diagnosis.
+
 ## [2.4.1] — 2026-06-06
 
 ### Fixed

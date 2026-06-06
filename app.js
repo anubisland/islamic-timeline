@@ -140,6 +140,8 @@
       if (pulse) {
         pulse.setAttribute('cx', focus.x);
         pulse.setAttribute('cy', focus.y);
+        pulse.setAttribute('data-step', STEP);
+        pulse.setAttribute('data-evt', EVT);
       }
       if (star) {
         const r = 22;
@@ -157,6 +159,16 @@
         star.classList.add('on');
       }
     }
+
+    // Live diagnostic — shows the current focus coordinates + step number
+    const d = $('focus-diag');
+    if (d) {
+      d.textContent = '🎯 ' + (LANG === 'AR'
+        ? 'الخطوة ' + arNum(STEP + 1) + ' — ' + (s.titleAr || '')
+        : 'Step ' + (STEP + 1) + ' — ' + (s.titleEn || ''))
+        + '  ·  (' + focus.x + ', ' + focus.y + ')';
+    }
+    console.log('[focus]', EVT, 'step=' + STEP, 'pos=(' + focus.x + ',' + focus.y + ')', s[t('title')]);
   }
 
   // ── Pulse on/off helpers (linked to audio state) ────────
@@ -194,8 +206,9 @@
       .trim();
   }
 
-  // Pick the best available Arabic voice for the system
+  // ── Voice pickers ───────────────────────────────────────
   let cachedArVoice = null;
+  let cachedEnVoice = null;
   function pickArabicVoice() {
     if (cachedArVoice) return cachedArVoice;
     if (!('speechSynthesis' in window)) return null;
@@ -206,44 +219,99 @@
     cachedArVoice = ar;
     return ar;
   }
+  function pickEnglishVoice() {
+    if (cachedEnVoice) return cachedEnVoice;
+    if (!('speechSynthesis' in window)) return null;
+    const voices = window.speechSynthesis.getVoices() || [];
+    const en = voices.find(v => /^en(-|_)/i.test(v.lang))
+            || voices.find(v => /microsoft (zira|david)|google us english/i.test(v.name))
+            || voices.find(v => /en/i.test(v.lang))
+            || null;
+    cachedEnVoice = en;
+    return en;
+  }
   if ('speechSynthesis' in window) {
-    window.speechSynthesis.onvoiceschanged = pickArabicVoice;
+    window.speechSynthesis.onvoiceschanged = () => {
+      cachedArVoice = null;
+      cachedEnVoice = null;
+      pickArabicVoice();
+      pickEnglishVoice();
+    };
+  }
+
+  // ── Diagnostic banner ───────────────────────────────────
+  function diag(msg, kind) {
+    const el = $('diag');
+    if (!el) return;
+    el.className = 'diag diag-' + (kind || 'info');
+    el.textContent = msg;
+    el.style.display = msg ? 'block' : 'none';
+  }
+  function diagTTS(state, detail) {
+    const map = {
+      ok:        { en: 'Audio playing',                       ar: 'جاري تشغيل الصوت' },
+      fallback:  { en: 'No system Arabic voice — using Google', ar: 'لا يوجد صوت عربي — استخدام Google' },
+      noar:      { en: 'No Arabic voice installed on this system', ar: 'لا يوجد صوت عربي مثبت على النظام' },
+      none:      { en: 'Web Speech API unavailable',          ar: 'الصوت غير متاح في هذا المتصفح' },
+      error:     { en: 'Audio error',                          ar: 'خطأ في الصوت' }
+    };
+    const m = map[state] || map.none;
+    diag(m[LANG === 'AR' ? 'ar' : 'en'] + (detail ? ' — ' + detail : ''), state === 'ok' ? 'ok' : 'warn');
   }
 
   function playVerse() {
     stopAudio();
 
     const s = DB[EVT].steps[STEP];
-    // Choose text: verse (Quran ayah) or description narration
     const raw = TTS_MODE === 'narrate' ? s[t('desc')] : s.ayah;
     const text = cleanForTTS(raw);
-    if (!text) { finishPlayback(); return; }
+    if (!text) { finishPlayback('no text to read'); return; }
 
     $('btn-play').classList.add('on');
     $('btn-play').textContent = '⏸';
     isPlaying = true;
     setAudioPulse(true);
 
-    function finishPlayback() {
+    function finishPlayback(reason) {
       isPlaying = false;
       setAudioPulse(false);
       resetPlayBtn();
+      if (reason) console.log('[TTS] finish:', reason);
     }
     window.__ttsFinish = finishPlayback;
 
     function sysTTS(t, onDone) {
-      if (!('speechSynthesis' in window)) { onDone && onDone(); return; }
+      if (!('speechSynthesis' in window)) {
+        diagTTS('none', 'no API');
+        onDone && onDone(false); return;
+      }
       try { window.speechSynthesis.cancel(); } catch (e) {}
       const u = new SpeechSynthesisUtterance(t);
-      u.lang = LANG === 'AR' ? 'ar-SA' : 'en-US';
+      const isAr = LANG === 'AR';
+      u.lang = isAr ? 'ar-SA' : 'en-US';
       u.rate = 0.6;
       u.volume = 0.95;
-      const v = pickArabicVoice();
+      const v = isAr ? pickArabicVoice() : pickEnglishVoice();
       if (v) u.voice = v;
-      u.onstart = () => { window.__ttsStart = Date.now(); };
-      u.onend = () => onDone && onDone();
-      u.onerror = () => onDone && onDone();
-      window.speechSynthesis.speak(u);
+      let started = false;
+      u.onstart = () => {
+        started = true;
+        window.__ttsStarted = true;
+        window.__ttsStart = Date.now();
+        diagTTS('ok', isAr ? (v ? v.name : 'default ar') : (v ? v.name : 'default en'));
+      };
+      u.onend = () => onDone && onDone(started);
+      u.onerror = (ev) => {
+        console.warn('[TTS] onerror', ev);
+        onDone && onDone(started);
+      };
+      try {
+        window.speechSynthesis.speak(u);
+      } catch (e) {
+        console.error('[TTS] speak threw', e);
+        onDone && onDone(false);
+        return;
+      }
     }
 
     function googleTTS(t, onDone, onFail) {
@@ -259,26 +327,38 @@
         a.onended = () => { currentAudio = null; onDone && onDone(); };
         a.onerror = () => { currentAudio = null; onFail && onFail(); };
         const p = a.play();
-        if (p && p.catch) p.catch(() => { currentAudio = null; onFail && onFail(); });
+        if (p && p.catch) p.catch((err) => {
+          console.warn('[TTS] google play rejected', err);
+          currentAudio = null; onFail && onFail();
+        });
       } catch (e) {
         onFail && onFail();
       }
     }
 
-    // Use Web Speech API first (no CORS, no network). If onend fires within
-    // 600ms of onstart, the engine failed silently — fall back to Google.
+    // Use Web Speech API first. If onend fires WITHOUT onstart having fired,
+    // the engine failed silently (typical when no matching voice is installed) —
+    // fall back to Google TTS.
     window.__ttsStart = 0;
-    sysTTS(text, () => {
-      const dur = Date.now() - (window.__ttsStart || 0);
-      if (dur > 0 && dur < 600) {
-        // Web Speech failed silently — try Google TTS
-        googleTTS(text, finishPlayback, () => finishPlayback());
+    window.__ttsStarted = false;
+    sysTTS(text, (started) => {
+      if (!started) {
+        const isAr = LANG === 'AR';
+        if (isAr && !pickArabicVoice()) {
+          diagTTS('noar', 'install Arabic language pack in Windows Settings');
+        } else {
+          diagTTS('fallback', 'no native voice → trying Google');
+        }
+        googleTTS(text,
+          () => { diag(''); finishPlayback('google ok'); },
+          () => { diagTTS('error', 'Google TTS blocked — install Arabic voice'); finishPlayback('all failed'); }
+        );
       } else {
-        finishPlayback();
+        diag('');
+        finishPlayback('sys ok');
       }
     });
-    // Safety timeout — if neither engine fires onend within 30s, finish
-    setTimeout(() => { if (isPlaying) finishPlayback(); }, 30000);
+    setTimeout(() => { if (isPlaying) finishPlayback('30s timeout'); }, 30000);
   }
 
   function stopAudio() {
@@ -457,7 +537,19 @@
     // Navigation
     $('btn-prev').addEventListener('click', () => step(-1));
     $('btn-next').addEventListener('click', () => step(1));
-    $('btn-play').addEventListener('click', togglePlay);
+    $('btn-play').addEventListener('click', () => {
+      // First-click "warm-up" — Chrome on some configurations requires an
+      // explicit speak() call inside a user gesture before the engine
+      // will produce any sound at all. This is a no-op if the API is healthy.
+      if ('speechSynthesis' in window) {
+        try {
+          const w = new SpeechSynthesisUtterance(' ');
+          w.volume = 0;
+          window.speechSynthesis.speak(w);
+        } catch (e) { /* ignore */ }
+      }
+      togglePlay();
+    });
 
     // TTS mode toggle: verse <-> narration
     const modeBtn = $('btn-mode');
