@@ -50,6 +50,7 @@
     }
 
     localStorage.setItem(STORAGE.lang, LANG);
+    buildTimeline();
     render();
   }
 
@@ -599,7 +600,9 @@
       if (e.key === 'l' || e.key === 'L') { e.preventDefault(); LANG = LANG === 'AR' ? 'EN' : 'AR'; applyLanguage(); }
     });
 
-    // Initial mount
+    // Initial mount — build the timeline strip FIRST (it depends on the
+    // current EVT/STEP only, not on language), then apply language.
+    buildTimeline();
     applyLanguage();
   }
 

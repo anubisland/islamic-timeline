@@ -959,7 +959,7 @@ body::after {
 .tl-foot {
   background: rgba(1, 8, 5, .95);
   border-top: 1px solid rgba(197, 160, 89, .2);
-  padding: .55rem 1rem;
+  padding: .65rem 1rem .85rem;
   position: sticky;
   bottom: 0;
   z-index: 50;
@@ -997,7 +997,7 @@ body::after {
 
 [lang="en"] .tl-counter { font-family: "Inter", sans-serif; }
 
-.tl-wrap { position: relative; padding: .22rem 0; }
+.tl-wrap { position: relative; padding: 1.4rem 0 .9rem; min-height: 56px; }
 
 .tl-track {
   position: absolute;
@@ -1021,8 +1021,10 @@ body::after {
 .tl-nodes {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   position: relative;
   z-index: 2;
+  min-height: 50px;
 }
 
 .tl-nd {
@@ -1034,19 +1036,20 @@ body::after {
 }
 
 .tl-dot {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  border: 2px solid rgba(6, 78, 59, .7);
+  border: 2px solid rgba(197, 160, 89, .55);
   background: #010e09;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: "Cairo", sans-serif;
-  font-size: .68rem;
+  font-size: .72rem;
   font-weight: 700;
-  color: #334155;
+  color: #94a3b8;
   transition: var(--t);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .4);
 }
 
 [lang="en"] .tl-dot { font-family: "Inter", sans-serif; }
@@ -1066,16 +1069,17 @@ body::after {
 }
 
 .tl-lbl {
-  font-size: .6rem;
-  color: #334155;
-  max-width: 130px;
-  min-width: 80px;
+  font-size: .62rem;
+  color: #cbd5e1;
+  max-width: 110px;
+  min-width: 60px;
   text-align: center;
   line-height: 1.25;
-  display: none;
+  display: block;
   font-family: "Cairo", "Inter", sans-serif;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  margin-top: 4px;
 }
 [lang="en"] .tl-lbl { font-family: "Inter", "Cairo", sans-serif; }
 
@@ -1101,11 +1105,10 @@ body::after {
 .tl-nd.now .tl-lbl-main { color: var(--gold); }
 .tl-nd.done .tl-lbl-main { color: #6ee7b7; }
 
-@media (min-width: 520px) { .tl-lbl { display: block; } }
-
-@media (max-width: 519px) {
-  .tl-nd.now .tl-lbl { display: block; }  /* always show the current step's label */
-  .tl-lbl { max-width: 90px; min-width: 60px; }
+/* On very small screens, show only the current step's full label to save space */
+@media (max-width: 480px) {
+  .tl-lbl { max-width: 64px; min-width: 0; font-size: .56rem; }
+  .tl-lbl-sub { display: none; }
 }
 
 /* ===================== SCROLLBARS ===================== */

@@ -4,6 +4,22 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.3] — 2026-06-07
+
+### Fixed
+- **CRITICAL: Timeline strip (numbered dots + per-step labels) was missing on initial page load.** `buildTimeline()` was only called from `switchEv()`, so on first load the `#tl-nodes` container was empty — only the track + footer counter were visible. The user has reported this missing-strip issue repeatedly; the root cause was that navigating to a step via prev/next buttons does NOT rebuild the timeline (it should have been built once on mount and rebuilt on event switch). `init()` now calls `buildTimeline()` before `applyLanguage()`, and `applyLanguage()` also calls it so language toggles refresh the label text.
+- **CRITICAL: `mapFocus` coordinates were wrong for many steps across all four maps**, so the focus pulse on the map appeared at a different visual position than the step it represented (the most visible symptom: the gold ring would appear near the wrong landmark). This was the underlying cause of every "the map and the narration don't match" report. Every one of the 36 `mapFocus` values has been re-anchored to the actual SVG node centers, verified against `index.html`:
+  - **hijra (all 6 steps)**: e.g. step 0 (night of departure) was `(290, 320)` — now `(350, 480)` to sit on the Makkah node; step 4 (Suraqah) was `(370, 240)` — now `(300, 120)` to sit on the Suraqah node; step 5 (Madinah) was `(560, 110)` — now `(560, 80)`.
+  - **meccan (steps 2, 7, 8, 10, 13 corrected)**: e.g. step 2 (shaq al-sadr at Hira) and step 7 (ʿibāda in Hira) now correctly point to the Mount Hira group at `(440, 200)` instead of the Makkah center; step 8 (Waraqa) now points to Makkah instead of Hira.
+  - **badr (step 1)**: now `(350, 175)` to sit on the main well (`#b-cistern`) instead of `(350, 200)`.
+  - **medinan (step 1)**: market area adjusted to `(430, 230)`.
+- **Timeline strip visibility strengthened**:
+  - The default for `.tl-lbl` is now `display: block` (was `display: none` with a `min-width: 520px` media query that suppressed labels on smaller screens — confusingly inconsistent with the visible footer counter).
+  - `.tl-foot` padding increased (`.65rem 1rem .85rem`), `.tl-wrap` `min-height: 56px`, `.tl-nodes` `min-height: 50px` to ensure the strip has enough vertical space even when the labels are two lines.
+  - Dot border switched to gold `rgba(197, 160, 89, .55)` for higher contrast against the dark footer background; dot text colour brightened to `#94a3b8`; a subtle `box-shadow` added for separation.
+  - Label default color brightened to `#cbd5e1` (was `#334155` which was nearly invisible on the dark footer).
+  - New small-screen rule (`max-width: 480px`) trims labels to 64 px and hides the `.tl-lbl-sub` second line.
+
 ## [2.4.2] — 2026-06-07
 
 ### Fixed
