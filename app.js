@@ -19,6 +19,10 @@
   let LANG = (localStorage.getItem(STORAGE.lang) || 'AR').toUpperCase();
   let currentAudio = null;
   let isPlaying = false;
+  let onAudioEnd = null; // callback to fire when TTS completes (for pulse cleanup)
+
+  // ── Map viewBoxes ──────────────────────────────────────
+  const MAP_VB = { hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560] };
 
   // ── Helpers ─────────────────────────────────────────────
   const $ = (id) => document.getElementById(id);
@@ -97,6 +101,69 @@
 
     buildTimeline();
     render();
+    applyMapFocus(false);  // instant (no transition) on event switch
+  }
+
+  // ── Pan/zoom the active map to the active step's focus point ──
+  function applyMapFocus(animate = true) {
+    const s = DB[EVT].steps[STEP];
+    if (!s) return;
+    const focus = s.mapFocus || { x: MAP_VB[EVT][0] / 2, y: MAP_VB[EVT][1] / 2, scale: 1.0 };
+    const [vbW, vbH] = MAP_VB[EVT];
+    const cx = vbW / 2, cy = vbH / 2;
+    const scale = focus.scale || 1.0;
+
+    const pan = $('pan-' + EVT);
+    if (pan) {
+      // transform: translate(cx,cy) scale(s) translate(-focus.x,-focus.y)
+      // keeps (focus.x, focus.y) pinned at center while scaling by s.
+      pan.style.transformOrigin = '0 0';
+      pan.style.transform = `translate(${cx}px, ${cy}px) scale(${scale}) translate(${-focus.x}px, ${-focus.y}px)`;
+    }
+
+    // Show & position the focus layer (pulse + 8-point star wake)
+    const focusLayer = $('focus-' + EVT);
+    if (focusLayer) {
+      focusLayer.style.display = '';
+      const pulse = focusLayer.querySelector('.focus-pulse');
+      const star = focusLayer.querySelector('.star-wake');
+      if (pulse) {
+        pulse.setAttribute('cx', focus.x);
+        pulse.setAttribute('cy', focus.y);
+      }
+      if (star) {
+        const r = 22;
+        const pts = [
+          [focus.x, focus.y - r],
+          [focus.x + r * Math.sin(Math.PI / 4), focus.y - r * Math.cos(Math.PI / 4)],
+          [focus.x + r, focus.y],
+          [focus.x + r * Math.sin(Math.PI / 4), focus.y + r * Math.cos(Math.PI / 4)],
+          [focus.x, focus.y + r],
+          [focus.x - r * Math.sin(Math.PI / 4), focus.y + r * Math.cos(Math.PI / 4)],
+          [focus.x - r, focus.y],
+          [focus.x - r * Math.sin(Math.PI / 4), focus.y - r * Math.cos(Math.PI / 4)]
+        ].map(p => p.join(',')).join(' ');
+        star.setAttribute('points', pts);
+        star.classList.add('on');
+      }
+    }
+
+    // On event switch (animate=false), remove the transition for a snap
+    if (pan && !animate) {
+      const oldT = pan.style.transition;
+      pan.style.transition = 'none';
+      // force reflow then restore
+      void pan.getBoundingClientRect();
+      requestAnimationFrame(() => { pan.style.transition = ''; });
+    }
+  }
+
+  // ── Pulse on/off helpers (linked to audio state) ────────
+  function setAudioPulse(on) {
+    const focusLayer = $('focus-' + EVT);
+    if (!focusLayer) return;
+    const pulse = focusLayer.querySelector('.focus-pulse');
+    if (pulse) pulse.classList.toggle('speaking', !!on);
   }
 
   // ── Navigation ──────────────────────────────────────────
@@ -106,6 +173,7 @@
     STEP = i;
     stopAudio();
     render();
+    applyMapFocus(true);
   }
 
   function step(d) { goTo(STEP + d); }
@@ -130,6 +198,13 @@
     $('btn-play').classList.add('on');
     $('btn-play').textContent = '⏸';
     isPlaying = true;
+    setAudioPulse(true); // map pulse starts now
+
+    function finishPlayback() {
+      isPlaying = false;
+      setAudioPulse(false);
+      resetPlayBtn();
+    }
 
     function googleTTS(text, onDone, onFail) {
       try {
@@ -161,10 +236,10 @@
 
     googleTTS(
       verseClean,
-      () => { isPlaying = false; resetPlayBtn(); },
+      finishPlayback,
       () => {
         // Fallback to speechSynthesis
-        sysTTS(verseClean, () => { isPlaying = false; resetPlayBtn(); });
+        sysTTS(verseClean, finishPlayback);
       }
     );
   }
@@ -181,6 +256,7 @@
       try { window.speechSynthesis.cancel(); } catch (e) { /* ignore */ }
     }
     isPlaying = false;
+    setAudioPulse(false);
     resetPlayBtn();
   }
 
@@ -323,6 +399,9 @@
     // Nav buttons
     $('btn-prev').disabled = STEP === 0;
     $('btn-next').disabled = STEP === tot - 1;
+
+    // Map focus pan/zoom (slight delay so layout has settled)
+    requestAnimationFrame(() => applyMapFocus(true));
   }
 
   // ── Wire up DOM ─────────────────────────────────────────

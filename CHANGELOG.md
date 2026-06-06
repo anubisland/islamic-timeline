@@ -4,6 +4,43 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] — 2026-06-06
+
+### Added
+- **Islamic ornament system & extended palette**:
+  - 4 new colour tokens: `--lapis` (Islamic tile blue), `--parchment` (manuscript cream), `--crimson` (Andalusian red), `--royal` (Fatimid purple).
+  - 8-point Islamic star pattern as fixed background on `body` (low-opacity tile).
+  - Arabesque corner ornaments on `.ornament-card`, `.story-panel`, and SVG map corners (`.map-frame`).
+  - Parchment dashed inner border on the `.ayah-box`; second pseudo-element keeps the giant quote mark.
+  - Section-title divider helper (`.ornament-title`) with gold gradient lines.
+- **Map–step & audio–map synchronization**:
+  - Every step in `data.js` now carries a `mapFocus: {x, y, scale}` (36/36 steps).
+  - `applyMapFocus()` in `app.js` pans/zooms the active SVG to the step's focus point, with a 0.95s cubic-bezier transition.
+  - Each SVG gained a `<g class="map-pan">` wrapper and a focus layer (`#focus-<era>`) with a circular pulse and 8-point star wake.
+  - When audio starts, `.focus-pulse.speaking` is added → the pin pulses faster (1.1s); on end (or step change) it reverts to the slow 2.2s idle pulse.
+- **Map enhancements**:
+  - Compass rose upgraded to a proper 8-point Islamic star with NESW cardinal labels.
+  - Decorative 8-point star corners added to all 4 maps (`.map-frame` group at SVG root).
+- **Narration enrichment**:
+  - Every step now has **at least 3 key characters** (was 1–4; min enforced at 3) with role blurbs.
+  - Added figures to previously-thin steps: Bahira, Waraqa, Halimah, Khadijah, Abu Talib, the Angels, Arqam, Suraqah, Abu Dharr, Umm Mabad, Al-Hubab, Al-Mut'im, Al-Baqi' market, and more.
+- **Tests**: new `validate_v22.js` smoke test covering all 4 map-pan, 4 focus layers, 4 star-wakes, ornament system classes, audio-pulse hooks, and `applyMapFocus` wiring.
+
+### Changed
+- `app.js` `render()` now schedules `applyMapFocus(true)` via `requestAnimationFrame` so the SVG pan runs after DOM reflow.
+- `goTo()` calls `applyMapFocus(true)` so prev/next step syncs the map.
+- `switchEv()` calls `applyMapFocus(false)` for an instant snap on era change.
+- `playVerse()` now passes through a `finishPlayback()` closure that always clears the audio-pulse — preventing stuck "speaking" rings when the user changes steps mid-recitation.
+- `stopAudio()` now also calls `setAudioPulse(false)`.
+
+### Technical
+- No new runtime dependencies. Pure static site.
+- All `data-ar` / `data-en` bilingual pairs preserved.
+- Maps use CSS `transition: transform 0.95s` on `.map-pan` for hardware-accelerated pan/zoom.
+- Bumped version `2.1.0` → `2.2.0`.
+
+---
+
 ## [2.1.0] — 2026-06-06
 
 ### Added
