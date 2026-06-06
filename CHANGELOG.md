@@ -4,6 +4,42 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] — 2026-06-06
+
+### Added
+- **Ahl al-Sunnah wal-Jama'ah sourcing rule (HARD RULE)**:
+  - Codified in `AGENTS.md` rule #4, `CLAUDE.md` rule #4, and a banner header on `docs/SOURCES.md`.
+  - Accepted sources: the Six Books (Bukhari, Muslim, Abu Dawud, Tirmidhi, Nasa'i, Ibn Majah) + Musnad Ahmad + Muwatta Malik; classical Sirah (Ibn Hisham, Ibn Ishaq, al-Waqidi, al-Tabari, Ibn Kathir's *al-Bidayah*); later Sunni scholars (Ibn al-Qayyim's *Zad al-Ma'ad*, al-Bayhaqi's *Dala'il al-Nubuwwah*, al-Qadi Iyad's *al-Shifa*, Ibn Hajar, al-Nawawi); modern Sunni scholarship (Mubarakpuri's *al-Rahiq al-Makhtum*, Zurqani on *al-Mawahib*, Dr. Hamidullah).
+  - **Forbidden:** Shi'a-only collections (e.g. *al-Kafi*, *al-Sahifa al-Sajjadiyya*, *Bihar al-Anwar*). Weak (da'if) hadith must be graded; fabricated (mawdu') narrations are not permitted.
+- **Language-correct Quran display**:
+  - The `.ayah-box` in `index.html` now contains two parallel blocks: `.ayah-content-ar` (Arabic ayah + reference) and `.ayah-content-en` (English translation + reference).
+  - CSS uses `[lang="ar"] .ayah-content-en { display:none }` and `[lang="en"] .ayah-content-ar { display:none }` so only the active language's content is visible — no more mixed-script quotes.
+  - New `.ayah-text-en` (italic Amiri/Crimson serif) and `.ayah-ref-en` (Inter) styles.
+- **Edge ornaments & calligraphic watermark**:
+  - Two new CSS tokens: `--edge-ornament` (vertical 8-point Islamic star strip) and `--bismillah-watermark` (Bismillah calligraphy, RTL).
+  - `body::before` paints the Bismillah watermark as a fixed-position background layer (`pointer-events: none`).
+  - `body::after` paints 8-point star strips on the left and right screen edges.
+  - Both layers are hidden on screens ≤880px to preserve touch usability.
+  - `.wrap` padded `60px` left/right so content never collides with the edge ornaments.
+  - Brand logo replaced with an inline 8-point star SVG (emerald gradient + gold stroke + gold center dot); brand subtitle now enumerates all 4 eras in both languages.
+- **Richer timeline labels**:
+  - Each numbered timeline dot now carries a main title (`.tl-lbl-main`, ~22 chars) and a 1-line explanation subtitle (`.tl-lbl-sub`, ~28 chars, em-dash-split from the original long title).
+  - `.tl-lbl` widened to 110px; new typography styles for main/sub with proper "now" and "done" state colours.
+- **Desert map elements**:
+  - New shared SVG `<symbol>` library at the top of the map panel: `#sym-tent` (Bedouin tent), `#sym-camel` (walking silhouette), `#sym-dune` (sand dune), `#sym-mountain` (ridge), `#sym-palm` (date palm), `#sym-stars` (8-point star cluster).
+  - **Meccan map**: 2 sand dune groups in the foreground, a 2-camel trade caravan heading north toward Syria, 2 Bedouin tents at Bani Sa'd, 3 date palms in the Makkah oasis.
+  - **Hijra map**: 3 sand dunes, a 3-camel caravan along the migration route, 2 Bedouin tents near Qudayd.
+  - **Badr map**: 4 dune groups framing the battlefield, 5 enemy tents south (Quraysh), 4 Muslim tents north, 2 baggage camels on the flanks.
+  - **Medinan map**: 3 dune groups, 4 date palms flanking Madinah (the "City of Date Palms"), 2 travel camels.
+
+### Changed
+- `app.js` `buildTimeline()` now emits `.tl-lbl-main` + `.tl-lbl-sub` for every dot; added `escHtml()` helper for safe insertion of step titles.
+- `app.js` number rendering centralised through the `arNum()` helper for all user-facing counters (stage badge, `STEP / total` counter, timeline dot labels).
+- 104 source citations audited and confirmed Sunni-classical.
+
+### Tests
+- New `validate_v23.js` (29 checks) covers: hard-rule language in all 3 docs, language-correct Quran blocks, CSS display toggles, `arNum` integration, `tl-lbl-main`/`tl-lbl-sub` rendering, watermark + edge-ornament CSS tokens + pseudo-elements, shared SVG `<symbol>` library, and per-map desert element usage.
+
 ## [2.2.0] — 2026-06-06
 
 ### Added

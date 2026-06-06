@@ -17,10 +17,21 @@
   <header class="site-header">
     <div class="hdr-inner">
       <div class="brand">
-        <div class="brand-logo">🌙</div>
+        <div class="brand-logo">
+          <svg viewBox="0 0 40 40" width="32" height="32" aria-hidden="true">
+            <defs>
+              <linearGradient id="brandg" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#6ee7b7"/>
+                <stop offset="100%" stop-color="#064e3b"/>
+              </linearGradient>
+            </defs>
+            <polygon points="20,4 24,15 36,15 26,22 30,33 20,26 10,33 14,22 4,15 16,15" fill="url(#brandg)" stroke="#C5A059" stroke-width="1"/>
+            <circle cx="20" cy="20" r="3" fill="#C5A059"/>
+          </svg>
+        </div>
         <div class="brand-text">
           <div class="brand-title" data-ar="الخط الزمني للسيرة النبوية" data-en="The Madani Era Timeline">الخط الزمني للسيرة النبوية</div>
-          <div class="brand-sub" data-ar="رحلة الهجرة وغزوة بدر — تفاعلي وثنائي اللغة" data-en="The Hijra & Battle of Badr — Interactive & Bilingual">رحلة الهجرة وغزوة بدر — تفاعلي وثنائي اللغة</div>
+          <div class="brand-sub" data-ar="العهد المكي · الهجرة · بدر · العهد المدني — تفاعلي وثنائي اللغة" data-en="Meccan · Hijra · Badr · Medinan — Interactive & Bilingual">العهد المكي · الهجرة · بدر · العهد المدني — تفاعلي وثنائي اللغة</div>
         </div>
       </div>
       <div class="hdr-actions">
@@ -43,6 +54,67 @@
 
     <!-- MAP PANEL -->
     <section class="map-panel">
+      <div class="map-topbar">
+        <span class="map-label">🗺️ <span id="map-label">خريطة رحلة الهجرة النبوية</span></span>
+        <div class="map-badges">
+          <span class="mb mb-t" id="badge-time">🌙 ليلاً</span>
+          <span class="mb mb-d" id="badge-dist">نقطة الانطلاق</span>
+        </div>
+      </div>
+
+      <!-- Shared SVG symbol library (camel, tent, dune, palm) -->
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+          <!-- Bedouin tent -->
+          <symbol id="sym-tent" viewBox="0 0 60 40">
+            <path d="M 4 36 L 30 6 L 56 36 Z" fill="#3a2e1c" stroke="#C5A059" stroke-width="1"/>
+            <line x1="4" y1="36" x2="56" y2="36" stroke="#1a140a" stroke-width="2"/>
+            <rect x="22" y="26" width="16" height="10" fill="#0a0a0a"/>
+            <line x1="14" y1="22" x2="46" y2="22" stroke="#1a140a" stroke-width=".6" opacity=".5"/>
+            <line x1="20" y1="14" x2="40" y2="14" stroke="#1a140a" stroke-width=".6" opacity=".5"/>
+          </symbol>
+          <!-- Camel (silhouette, walking right) -->
+          <symbol id="sym-camel" viewBox="0 0 70 40">
+            <path d="M 8 30
+                     Q 6 18 14 16
+                     L 18 8
+                     Q 22 14 22 18
+                     L 32 14
+                     Q 36 6 40 14
+                     L 50 14
+                     Q 54 6 58 14
+                     L 62 22
+                     Q 66 24 66 30
+                     L 60 32 L 60 36 L 56 36 L 56 32
+                     L 38 32 L 38 36 L 34 36 L 34 32
+                     L 14 32 L 14 36 L 10 36 L 10 32 Z"
+                  fill="#2a1e10" stroke="#C5A059" stroke-width=".8" opacity=".85"/>
+            <circle cx="62" cy="20" r="1.5" fill="#C5A059"/>
+          </symbol>
+          <!-- Sand dune -->
+          <symbol id="sym-dune" viewBox="0 0 100 30">
+            <path d="M 0 30 Q 25 4 50 18 Q 75 30 100 12 L 100 30 Z" fill="#5a4a32" opacity=".75"/>
+            <path d="M 0 30 Q 25 4 50 18 Q 75 30 100 12" fill="none" stroke="#7a5e3a" stroke-width=".5" opacity=".4"/>
+          </symbol>
+          <!-- Mountain ridge -->
+          <symbol id="sym-mountain" viewBox="0 0 120 50">
+            <path d="M 0 50 L 30 14 L 50 30 L 80 8 L 120 50 Z" fill="#3a2e1c" stroke="#5a4a32" stroke-width="1" opacity=".7"/>
+            <path d="M 30 14 L 38 22 M 80 8 L 90 18" stroke="#1a140a" stroke-width=".8" fill="none" opacity=".5"/>
+          </symbol>
+          <!-- Date palm -->
+          <symbol id="sym-palm" viewBox="0 0 30 60">
+            <path d="M 14 60 L 14 32" stroke="#3a2e1c" stroke-width="2" fill="none"/>
+            <path d="M 14 32 Q 4 24 2 14 M 14 32 Q 24 24 26 14 M 14 32 Q 6 30 0 22 M 14 32 Q 22 30 28 22 M 14 32 Q 14 22 12 8 M 14 32 Q 14 22 16 8" stroke="#0d3a1c" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <ellipse cx="14" cy="32" rx="3" ry="2" fill="#5a3a1c"/>
+          </symbol>
+          <!-- Stars cluster -->
+          <symbol id="sym-stars" viewBox="0 0 30 12">
+            <polygon points="6,2 7,5 10,5 7.5,7 8.5,10 6,8 3.5,10 4.5,7 2,5 5,5" fill="#C5A059" opacity=".7"/>
+            <polygon points="20,4 21,7 24,7 21.5,9 22.5,12 20,10 17.5,12 18.5,9 16,7 19,7" fill="#C5A059" opacity=".5"/>
+          </symbol>
+        </defs>
+      </svg>
+
       <div class="map-topbar">
         <span class="map-label">🗺️ <span id="map-label">خريطة رحلة الهجرة النبوية</span></span>
         <div class="map-badges">
@@ -87,6 +159,24 @@
           <path d="M 0 200 Q 30 270 25 340 Q 30 410 15 480 L 0 500 Z" fill="#041d2e" stroke="#063a55" stroke-width="1.5" opacity=".85"/>
           <text data-ar="البحر الأحمر" data-en="Red Sea" x="18" y="360" fill="#0d4a6e" font-size="9" font-family="Tajawal,sans-serif"
                 transform="rotate(-90,18,360)" text-anchor="middle" opacity=".8">البحر الأحمر</text>
+
+          <!-- Sand dunes (foreground) -->
+          <use href="#sym-dune" x="100" y="460" width="180" height="54" opacity=".55"/>
+          <use href="#sym-dune" x="380" y="470" width="220" height="60" opacity=".55"/>
+          <use href="#sym-dune" x="560" y="455" width="140" height="50" opacity=".5"/>
+
+          <!-- Camel caravan (mid-route) -->
+          <g opacity=".8">
+            <use href="#sym-camel" x="170" y="380" width="40" height="22"/>
+            <use href="#sym-camel" x="215" y="385" width="38" height="20"/>
+            <use href="#sym-camel" x="258" y="382" width="40" height="22"/>
+          </g>
+
+          <!-- Bedouin tents near Qudayd -->
+          <g opacity=".85">
+            <use href="#sym-tent" x="130" y="245" width="40" height="26"/>
+            <use href="#sym-tent" x="172" y="248" width="36" height="24"/>
+          </g>
 
           <!-- Mountains -->
           <g fill="#0d2e1e" opacity=".65">
@@ -255,6 +345,35 @@
           <path id="b-march-m" d="M 350 82 L 350 175" fill="none" stroke="#10b981" stroke-width="4.5" stroke-dasharray="7 5" marker-end="url(#ag)" opacity=".8"/>
           <path id="b-march-q" d="M 350 440 L 350 352" fill="none" stroke="#ef4444" stroke-width="4.5" stroke-dasharray="7 5" marker-end="url(#ar2)" opacity=".8"/>
 
+          <!-- Sand dunes + a few tents around the battlefield -->
+          <use href="#sym-dune" x="40"  y="180" width="100" height="34" opacity=".5"/>
+          <use href="#sym-dune" x="560" y="180" width="100" height="34" opacity=".5"/>
+          <use href="#sym-dune" x="40"  y="380" width="100" height="34" opacity=".5"/>
+          <use href="#sym-dune" x="560" y="380" width="100" height="34" opacity=".5"/>
+
+          <!-- Enemy camp tents (south, Quraysh) -->
+          <g opacity=".75">
+            <use href="#sym-tent" x="270" y="405" width="32" height="22"/>
+            <use href="#sym-tent" x="310" y="408" width="30" height="20"/>
+            <use href="#sym-tent" x="352" y="405" width="32" height="22"/>
+            <use href="#sym-tent" x="395" y="408" width="30" height="20"/>
+            <use href="#sym-tent" x="430" y="405" width="32" height="22"/>
+          </g>
+
+          <!-- Muslim camp tents (north) -->
+          <g opacity=".75">
+            <use href="#sym-tent" x="285" y="125" width="30" height="20"/>
+            <use href="#sym-tent" x="320" y="128" width="28" height="18"/>
+            <use href="#sym-tent" x="355" y="125" width="30" height="20"/>
+            <use href="#sym-tent" x="390" y="128" width="28" height="18"/>
+          </g>
+
+          <!-- Camels for baggage -->
+          <g opacity=".75">
+            <use href="#sym-camel" x="55"  y="295" width="36" height="20"/>
+            <use href="#sym-camel" x="610" y="295" width="36" height="20"/>
+          </g>
+
           <!-- Main well -->
           <g transform="translate(350,265)">
             <circle r="30" fill="#0c2840" stroke="#0284c7" stroke-width="2.5"/>
@@ -370,6 +489,29 @@
           <path d="M 0 80 Q 200 50 400 90 T 700 70 L 700 0 L 0 0Z" fill="#0d1a14" opacity=".55"/>
           <path d="M 0 480 Q 220 510 440 480 T 700 490 L 700 560 L 0 560Z" fill="#0d1a14" opacity=".55"/>
 
+          <!-- Sand dunes across the foreground -->
+          <use href="#sym-dune" x="60"  y="350" width="220" height="60" opacity=".5"/>
+          <use href="#sym-dune" x="430" y="370" width="220" height="58" opacity=".5"/>
+
+          <!-- Trade caravan (north toward Syria) -->
+          <g opacity=".8">
+            <use href="#sym-camel" x="370" y="125" width="36" height="20"/>
+            <use href="#sym-camel" x="410" y="128" width="34" height="18"/>
+          </g>
+
+          <!-- Bedouin tents at Bani Sa'd (northeast) -->
+          <g opacity=".85">
+            <use href="#sym-tent" x="555" y="195" width="34" height="22"/>
+            <use href="#sym-tent" x="592" y="198" width="30" height="20"/>
+          </g>
+
+          <!-- Date palms in Makkah oasis -->
+          <g opacity=".75">
+            <use href="#sym-palm" x="395" y="320" width="14" height="28"/>
+            <use href="#sym-palm" x="415" y="318" width="14" height="28"/>
+            <use href="#sym-palm" x="380" y="350" width="14" height="28"/>
+          </g>
+
           <!-- direction to Abyssinia (West / South across Red Sea) -->
           <path d="M 350 320 Q 200 380 90 470" fill="none" stroke="#7dd3fc" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#ar4)" opacity=".75"/>
           <text data-ar="← الهجرة إلى الحبشة" data-en="← Migration to Abyssinia" x="92" y="455" fill="#7dd3fc" font-size="12" font-weight="bold" font-family="Cairo,sans-serif">← الهجرة إلى الحبشة</text>
@@ -469,6 +611,25 @@
           <path d="M 0 70 Q 200 45 400 80 T 700 65 L 700 0 L 0 0Z" fill="#0d1e14" opacity=".5"/>
           <path d="M 0 490 Q 220 520 440 490 T 700 500 L 700 560 L 0 560Z" fill="#0d1e14" opacity=".5"/>
 
+          <!-- Sand dunes -->
+          <use href="#sym-dune" x="20"  y="200" width="120" height="40" opacity=".45"/>
+          <use href="#sym-dune" x="540" y="220" width="140" height="44" opacity=".45"/>
+          <use href="#sym-dune" x="100" y="420" width="180" height="48" opacity=".45"/>
+
+          <!-- Date palms around Madinah (the "Date-palm capital" — مدينة النخل) -->
+          <g opacity=".75">
+            <use href="#sym-palm" x="335" y="240" width="14" height="28"/>
+            <use href="#sym-palm" x="402" y="240" width="14" height="28"/>
+            <use href="#sym-palm" x="335" y="340" width="14" height="28"/>
+            <use href="#sym-palm" x="402" y="340" width="14" height="28"/>
+          </g>
+
+          <!-- Camels for travel to/from Madinah -->
+          <g opacity=".75">
+            <use href="#sym-camel" x="270" y="360" width="36" height="20"/>
+            <use href="#sym-camel" x="490" y="370" width="36" height="20"/>
+          </g>
+
           <!-- Khandaq trench arc (north of Madinah) -->
           <g id="mednode-5" transform="translate(390,170)">
             <path d="M -55 30 A 65 30 0 0 1 55 30" fill="none" stroke="#C5A059" stroke-width="6" opacity=".7"/>
@@ -566,8 +727,14 @@
     <section class="story-panel">
       <div class="story-scroll" id="story-scroll">
         <div class="ayah-box">
-          <div class="ayah-text" id="ayah-text">—</div>
-          <div class="ayah-ref" id="ayah-ref">—</div>
+          <div class="ayah-content ayah-content-ar" id="ayah-content-ar">
+            <div class="ayah-text" id="ayah-text">—</div>
+            <div class="ayah-ref" id="ayah-ref">—</div>
+          </div>
+          <div class="ayah-content ayah-content-en" id="ayah-content-en">
+            <div class="ayah-text-en" id="ayah-text-en">—</div>
+            <div class="ayah-ref-en" id="ayah-ref-en">—</div>
+          </div>
         </div>
 
         <div class="stg-row">

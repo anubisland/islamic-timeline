@@ -69,13 +69,22 @@
 
       const lbl = document.createElement('div');
       lbl.className = 'tl-lbl';
-      const title = s[t('title')];
-      lbl.textContent = title.split('—')[0].split('-')[0].trim().slice(0, 16);
+      // Full title (cleaned of em-dashes), with the "extra" half of "Title — Subtitle" as a separate line
+      const rawTitle = s[t('title')] || '';
+      const parts = rawTitle.split(/\s*[—–-]\s*/);
+      const main = parts[0] || rawTitle;
+      const sub = parts.slice(1).join(' — ');
+      lbl.innerHTML = '<span class="tl-lbl-main">' + escHtml(main.slice(0, 22)) + '</span>'
+                    + (sub ? '<span class="tl-lbl-sub">' + escHtml(sub.slice(0, 28)) + '</span>' : '');
 
       n.appendChild(dot);
       n.appendChild(lbl);
       wrap.appendChild(n);
     });
+  }
+
+  function escHtml(s) {
+    return String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
   }
 
   // ── Switch event (hijra / badr) ─────────────────────────

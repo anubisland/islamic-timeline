@@ -1,5 +1,7 @@
 # Islamic Sources
 
+> **HARD RULE (v2.3.0+):** Every claim in the app MUST be sourced from the **Ahl al-Sunnah wal-Jama'ah** canon. This is non-negotiable. Do not introduce narrations that are weak (da'if) without grading, fabricated (mawdu'), or sourced from non-Sunni collections.
+
 Every claim in the app is anchored in classical, well-known Sunni sources. This document lists them in the form cited in the application, with brief context.
 
 > How the sources are used in the data model: see [`DATA_SCHEMA.md`](DATA_SCHEMA.md) (`Step.srcs`).

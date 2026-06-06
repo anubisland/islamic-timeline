@@ -43,6 +43,15 @@
 
   /* Arabesque corner — used in cards */
   --corner-tr: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><g fill='none' stroke='%23C5A059' stroke-width='1' opacity='.45'><path d='M 40 4 L 40 28 Q 40 8 16 8 L 4 8'/><path d='M 40 12 L 40 24 Q 40 16 28 16 L 12 16'/><circle cx='40' cy='40' r='2.5' fill='%23C5A059' opacity='.6'/><circle cx='40' cy='40' r='5' fill='none'/></g></svg>");
+
+  /* Edge ornament — vertical 8-point star strip */
+  --edge-ornament: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><g fill='none' stroke='%23C5A059' stroke-width='1' opacity='.35'><polygon points='30,5 35,21 53,17 41,33 55,45 38,46 42,62 30,52 18,62 22,46 5,45 19,33 7,17 25,21'/><circle cx='30' cy='30' r='2' fill='%23C5A059' opacity='.7'/></g></svg>");
+
+  /* Calligraphy watermark — بسم الله الرحمن الرحيم stylised */
+  --bismillah-watermark: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 200'><text x='400' y='120' text-anchor='middle' font-family='Amiri,Cairo,serif' font-size='120' font-weight='700' fill='%23C5A059' opacity='.045' direction='rtl'>بسم الله الرحمن الرحيم</text></svg>");
+
+  /* Single 8-point star for header decoration */
+  --header-star: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><polygon points='12,2 14,9 21,9 15.5,13 17.5,20 12,16 6.5,20 8.5,13 3,9 10,9' fill='%23C5A059'/></svg>");
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -52,6 +61,7 @@ html { font-size: 16px; }
 body {
   font-family: "Cairo", "Inter", "Tajawal", "Segoe UI", "Tahoma", "Arial", sans-serif;
   background:
+    var(--bismillah-watermark) center 30vh / 90% no-repeat,
     var(--star-8) 0 0 / 120px 120px,
     radial-gradient(circle at top, #0a4a3a 0%, #063529 55%, #021a13 100%);
   background-attachment: fixed;
@@ -63,6 +73,33 @@ body {
 }
 
 [lang="en"] body { font-family: "Inter", "Cairo", "Segoe UI", sans-serif; }
+
+/* Bismillah watermark — additional large calligraphy behind story panel */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--bismillah-watermark) center 40vh / 80% no-repeat;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .9;
+}
+
+/* Edge ornaments — fixed 8-point star strips on left and right */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 6px;
+  right: 6px;
+  background:
+    var(--edge-ornament) left center / 60px 60px repeat-y,
+    var(--edge-ornament) right center / 60px 60px repeat-y;
+  pointer-events: none;
+  z-index: 1;
+  opacity: .9;
+}
 
 /* ===================== ISLAMIC ORNAMENT SYSTEM ===================== */
 
@@ -262,14 +299,20 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   padding: .7rem;
+  padding-left: 60px;
+  padding-right: 60px;
   display: grid;
   grid-template-columns: 3fr 2fr;
   gap: .7rem;
   min-height: calc(100vh - 60px - 70px);
+  position: relative;
+  z-index: 2;
 }
 
 @media (max-width: 880px) {
-  .wrap { grid-template-columns: 1fr; min-height: auto; padding: .5rem; }
+  .wrap { grid-template-columns: 1fr; min-height: auto; padding: .5rem; padding-left: .5rem; padding-right: .5rem; }
+  body::after { display: none; }
+  body::before { display: none; }
 }
 
 /* ===================== MAP PANEL ===================== */
@@ -564,6 +607,11 @@ body {
 }
 [lang="en"] .ayah-box::after { left: .6rem; right: auto; }
 
+/* Language-correct Quran display: show Arabic in AR, English in EN */
+.ayah-content { display: block; }
+[lang="ar"] .ayah-content-en { display: none; }
+[lang="en"] .ayah-content-ar { display: none; }
+
 .ayah-box::before {
   content: "❝";
   position: absolute;
@@ -593,6 +641,23 @@ body {
 }
 
 [lang="en"] .ayah-ref { font-family: "Inter", sans-serif; }
+
+.ayah-text-en {
+  font-family: "Amiri", "Crimson Text", "Georgia", serif;
+  font-size: clamp(.92rem, 2vw, 1.05rem);
+  color: var(--gold-2);
+  line-height: 1.8;
+  margin-bottom: .3rem;
+  font-style: italic;
+}
+
+.ayah-ref-en {
+  font-family: "Inter", sans-serif;
+  font-size: .68rem;
+  font-weight: 700;
+  color: var(--gold-d);
+  letter-spacing: .04em;
+}
 
 .stg-row {
   display: flex;
@@ -979,11 +1044,35 @@ body {
 .tl-lbl {
   font-size: .6rem;
   color: #334155;
-  max-width: 70px;
+  max-width: 110px;
   text-align: center;
   line-height: 1.2;
   display: none;
+  font-family: "Cairo", "Inter", sans-serif;
 }
+[lang="en"] .tl-lbl { font-family: "Inter", "Cairo", sans-serif; }
+
+.tl-lbl-main {
+  display: block;
+  color: #94a3b8;
+  font-weight: 700;
+  font-size: .62rem;
+}
+
+.tl-lbl-sub {
+  display: block;
+  color: #475569;
+  font-size: .55rem;
+  font-weight: 500;
+  margin-top: 1px;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tl-nd.now .tl-lbl-main { color: var(--gold); }
+.tl-nd.done .tl-lbl-main { color: #6ee7b7; }
 
 @media (min-width: 520px) { .tl-lbl { display: block; } }
 

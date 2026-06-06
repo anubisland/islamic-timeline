@@ -40,11 +40,12 @@ Sera/
 1. **No build step, no framework, no npm runtime dependency.** The site must work from `file://` AND from any static host.
 2. **No new files unless necessary.** Edit existing files; add files only when adding a new era/map with its own SVG.
 3. **Every UI string has a `data-ar` and `data-en` pair.** Verify with a regex sweep after editing `index.html`.
-4. **MIT license for code; classical Seerah content stays public domain with citations.** Never remove a `srcs[]` entry.
-5. **Single state object** in `app.js`: `{ EVT, STEP, LANG }`. No new globals.
-6. **Commit format: Conventional Commits.** `feat:` / `fix:` / `docs:` / `style:` / `refactor:`.
-7. **Update `CHANGELOG.md` and bump `package.json` version** in the same commit that changes behaviour.
-8. **Do not commit secrets, .env files, or `node_modules/`.**
+4. **All content must be sourced from the Ahl al-Sunnah wal-Jama'ah canon.** This is non-negotiable. The accepted reference list (see `docs/SOURCES.md`) includes: the Six Books (Bukhari, Muslim, Abu Dawud, Tirmidhi, Nasa'i, Ibn Majah) + Musnad Ahmad + Muwatta Malik; classical Sirah (Ibn Hisham, Ibn Ishaq, al-Waqidi, al-Tabari, Ibn Kathir's al-Bidayah); later Sunni scholars (Ibn al-Qayyim's Zad al-Ma'ad, al-Bayhaqi's Dala'il al-Nubuwwah, al-Qadi Iyad's al-Shifa, Ibn Hajar, al-Nawawi); modern Sunni scholarship (Mubarakpuri's al-Rahiq al-Makhtum, Zurqani on al-Mawahib, Dr. Hamidullah). **Do not** introduce narrations that are weak (da'if) without grading, fabricated (mawdu'), or sourced from non-Sunni collections (e.g. al-Kafi, al-Sahifa al-Sajjadiyya, Bihar al-Anwar). If a hadith is graded weak, the source chip must note the grade.
+5. **MIT license for code; classical Seerah content stays public domain with citations.** Never remove a `srcs[]` entry.
+6. **Single state object** in `app.js`: `{ EVT, STEP, LANG }`. No new globals.
+7. **Commit format: Conventional Commits.** `feat:` / `fix:` / `docs:` / `style:` / `refactor:`.
+8. **Update `CHANGELOG.md` and bump `package.json` version** in the same commit that changes behaviour.
+9. **Do not commit secrets, .env files, or `node_modules/`.**
 
 ## Adding a step (most common task)
 
