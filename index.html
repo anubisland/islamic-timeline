@@ -2,57 +2,375 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#063529" />
-  <title data-ar="الخط الزمني للعهد المدني" data-en="The Madani Era Timeline">الخط الزمني للعهد المدني</title>
+  <meta name="description" content="Interactive bilingual timeline of the Madani Era — the Hijra and the Battle of Badr." />
+  <title data-ar="الخط الزمني للسيرة النبوية — العهد المدني" data-en="The Madani Era — Seerah Timeline">الخط الزمني للسيرة النبوية — العهد المدني</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Islamic ornaments in corners -->
-  <div class="ornament ornament--tl" aria-hidden="true">
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-      <path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9Z" fill="#C5A059" opacity="0.3" />
-      <path d="M12 5L14 10L19 12L14 14L12 19L10 14L5 12L10 10Z" fill="#C5A059" />
-    </svg>
-  </div>
-  <div class="ornament ornament--tr" aria-hidden="true">
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-      <path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9Z" fill="#C5A059" opacity="0.3" />
-      <path d="M12 5L14 10L19 12L14 14L12 19L10 14L5 12L10 10Z" fill="#C5A059" />
-    </svg>
-  </div>
 
-  <main class="container">
-    <div class="header">
-      <button id="langToggle" class="lang-button" type="button" aria-label="Toggle language">
-        <span data-ar="English" data-en="العربية">English</span>
-      </button>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="hdr-inner">
+      <div class="brand">
+        <div class="brand-logo">🌙</div>
+        <div class="brand-text">
+          <div class="brand-title" data-ar="الخط الزمني للسيرة النبوية" data-en="The Madani Era Timeline">الخط الزمني للسيرة النبوية</div>
+          <div class="brand-sub" data-ar="رحلة الهجرة وغزوة بدر — تفاعلي وثنائي اللغة" data-en="The Hijra & Battle of Badr — Interactive & Bilingual">رحلة الهجرة وغزوة بدر — تفاعلي وثنائي اللغة</div>
+        </div>
+      </div>
+      <div class="hdr-actions">
+        <div class="event-switch" role="tablist">
+          <button class="ev-btn on" data-ev="hijra" data-ar="🧭 رحلة الهجرة" data-en="🧭 The Hijra">🧭 رحلة الهجرة</button>
+          <button class="ev-btn" data-ev="badr" data-ar="⚔️ غزوة بدر" data-en="⚔️ Battle of Badr">⚔️ غزوة بدر</button>
+        </div>
+        <button id="langToggle" class="lang-button" type="button" aria-label="Toggle language">
+          <span data-ar="English" data-en="العربية">English</span>
+        </button>
+      </div>
     </div>
+    <div class="hdr-progress"><div id="hdr-prog"></div></div>
+  </header>
 
-    <header class="title-container">
-      <h1 class="app-title" data-ar="الخط الزمني للعهد المدني" data-en="The Madani Era Timeline">
-        الخط الزمني للعهد المدني
-      </h1>
-      <div class="gold-divider" aria-hidden="true"></div>
-    </header>
+  <!-- MAIN GRID -->
+  <main class="wrap">
 
-    <article class="event-card">
-      <h2 class="event-title" data-ar="١. بناء المسجد النبوي الشريف" data-en="1. Building of Al-Masjid an-Nabawi">
-        ١. بناء المسجد النبوي الشريف
-      </h2>
-      <p class="quran-verse"
-         data-ar="﴿ لَّمَسْجِدٌ أُسِّسَ عَلَى التَّقْوَىٰ مِنْ أَوَّلِ يَوْمٍ أَحَقُّ أَن تَقُومَ فِيهِ ﴾"
-         data-en="…A mosque founded on righteousness from the first day is more worthy for you to stand in…">
-        ﴿ لَّمَسْجِدٌ أُسِّسَ عَلَى التَّقْوَىٰ مِنْ أَوَّلِ يَوْمٍ أَحَقُّ أَن تَقُومَ فِيهِ ﴾
-      </p>
-      <p class="event-description"
-         data-ar="اللبنة الأولى لتأسيس الدولة الإسلامية وبناء المجتمع بالمدينة المنورة."
-         data-en="The very first pillar in establishing the Islamic state and community in Madinah.">
-        اللبنة الأولى لتأسيس الدولة الإسلامية وبناء المجتمع بالمدينة المنورة.
-      </p>
-    </article>
+    <!-- MAP PANEL -->
+    <section class="map-panel">
+      <div class="map-topbar">
+        <span class="map-label">🗺️ <span id="map-label">خريطة رحلة الهجرة النبوية</span></span>
+        <div class="map-badges">
+          <span class="mb mb-t" id="badge-time">🌙 ليلاً</span>
+          <span class="mb mb-d" id="badge-dist">نقطة الانطلاق</span>
+        </div>
+      </div>
+
+      <div class="svg-wrap" id="map-svg-wrap">
+
+        <!-- HIJRA MAP -->
+        <svg id="svg-hijra" class="map-svg" viewBox="0 0 700 560" preserveAspectRatio="xMidYMid meet" style="direction:ltr" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="hbg" cx="50%" cy="45%" r="62%">
+              <stop offset="0%" stop-color="#041e14"/><stop offset="100%" stop-color="#010e09"/>
+            </radialGradient>
+            <filter id="gf"><feGaussianBlur stdDeviation="1.5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect width="700" height="500" fill="url(#hbg)"/>
+
+          <!-- Stars -->
+          <g opacity=".45">
+            <circle cx="80"  cy="35" r="1"   fill="#fff"/>
+            <circle cx="155" cy="22" r="1.2" fill="#fff"/>
+            <circle cx="260" cy="48" r="1"   fill="#fff"/>
+            <circle cx="400" cy="28" r="1.4" fill="#fff"/>
+            <circle cx="520" cy="16" r="1"   fill="#fff"/>
+            <circle cx="620" cy="42" r="1.2" fill="#fff"/>
+            <circle cx="40"  cy="72" r=".8"  fill="#fff"/>
+          </g>
+
+          <!-- Red Sea -->
+          <path d="M 0 200 Q 30 270 25 340 Q 30 410 15 480 L 0 500 Z" fill="#041d2e" stroke="#063a55" stroke-width="1.5" opacity=".85"/>
+          <text data-ar="البحر الأحمر" data-en="Red Sea" x="18" y="360" fill="#0d4a6e" font-size="9" font-family="Tajawal,sans-serif"
+                transform="rotate(-90,18,360)" text-anchor="middle" opacity=".8">البحر الأحمر</text>
+
+          <!-- Mountains -->
+          <g fill="#0d2e1e" opacity=".65">
+            <polygon points="295,520 315,490 335,520"/>
+            <polygon points="315,520 340,482 365,520"/>
+            <polygon points="340,520 360,488 380,520"/>
+            <polygon points="362,520 380,494 398,520"/>
+          </g>
+
+          <!-- Land -->
+          <path d="M 0 510 Q 175 500 350 508 Q 525 516 700 506 L700 560 L0 560Z" fill="#041a0f" opacity=".7"/>
+          <path d="M 0 535 Q 200 525 400 532 Q 580 538 700 530 L700 560 L0 560Z" fill="#021208" opacity=".85"/>
+
+          <!-- Usual route (dashed) -->
+          <path d="M 350 480 Q 400 380 460 280 Q 500 200 540 140 Q 555 110 560 80"
+                fill="none" stroke="#1a3828" stroke-width="1.5" stroke-dasharray="6 9" opacity=".5"/>
+          <text data-ar="الطريق المعتاد" data-en="The Usual Route" x="490" y="300" fill="#213d2a" font-size="9" font-family="Tajawal,sans-serif"
+                text-anchor="middle" opacity=".65">الطريق المعتاد</text>
+
+          <!-- Actual Hijra route -->
+          <path id="h-route-base" class="route-base"
+                d="M 350 480 C 250 480 180 480 160 470 C 100 450 70 400 72 340 C 74 280 95 235 115 200 C 138 162 160 140 200 125 C 240 110 270 115 300 120 C 380 125 450 100 500 90 C 530 83 545 80 560 80"/>
+          <path id="h-route-anim" class="route-anim"
+                d="M 350 480 C 250 480 180 480 160 470 C 100 450 70 400 72 340 C 74 280 95 235 115 200 C 138 162 160 140 200 125 C 240 110 270 115 300 120 C 380 125 450 100 500 90 C 530 83 545 80 560 80"/>
+
+          <!-- Node 0: Makkah -->
+          <g class="cdn act" id="hnode-0">
+            <circle class="pr" cx="350" cy="480" r="10"/>
+            <circle class="cd" cx="350" cy="480" r="13" fill="#022c22" stroke="#C5A059" stroke-width="2.5"/>
+            <circle cx="350" cy="480" r="5.5" fill="#C5A059"/>
+            <text data-ar="مكة المكرمة 🕋" data-en="Makkah 🕋" x="350" y="458" fill="#f8fafc" font-size="12" font-weight="bold"
+                  text-anchor="middle" font-family="Cairo,sans-serif">مكة المكرمة 🕋</text>
+            <text data-ar="نقطة الانطلاق" data-en="Starting point" x="350" y="447" fill="#94a3b8" font-size="8.5" text-anchor="middle" font-family="Tajawal,sans-serif">نقطة الانطلاق</text>
+          </g>
+
+          <!-- Node 1: Cave of Thawr -->
+          <g class="cdn" id="hnode-1">
+            <circle class="pr" cx="180" cy="480" r="8"/>
+            <circle class="cd" cx="180" cy="480" r="9" fill="#022c22" stroke="#C5A059" stroke-width="2"/>
+            <circle cx="180" cy="480" r="4" fill="#064e3b"/>
+            <text data-ar="غار ثور 🪨" data-en="Cave of Thawr 🪨" x="180" y="458" fill="#e2e8f0" font-size="10" text-anchor="middle" font-family="Cairo,sans-serif">غار ثور 🪨</text>
+            <text data-ar="٣ أيام اختباء" data-en="3 days of hiding" x="180" y="447" fill="#64748b" font-size="8" text-anchor="middle" font-family="Tajawal,sans-serif">٣ أيام اختباء</text>
+          </g>
+
+          <!-- Node 2: Coastal route -->
+          <g class="cdn" id="hnode-2">
+            <circle class="pr" cx="80" cy="340" r="8"/>
+            <circle class="cd" cx="80" cy="340" r="9" fill="#022c22" stroke="#C5A059" stroke-width="2"/>
+            <circle cx="80" cy="340" r="4" fill="#064e3b"/>
+            <text data-ar="الطريق الساحلي 🧭" data-en="Coastal Route 🧭" x="100" y="332" fill="#e2e8f0" font-size="10" text-anchor="start" font-family="Cairo,sans-serif">الطريق الساحلي 🧭</text>
+            <text data-ar="مع ابن أُريقط" data-en="With Ibn Urayqit" x="100" y="344" fill="#64748b" font-size="8" text-anchor="start" font-family="Tajawal,sans-serif">مع ابن أُريقط</text>
+          </g>
+
+          <!-- Node 3: Qudayd / Umm Mabad -->
+          <g class="cdn" id="hnode-3">
+            <circle class="pr" cx="130" cy="200" r="8"/>
+            <circle class="cd" cx="130" cy="200" r="9" fill="#022c22" stroke="#C5A059" stroke-width="2"/>
+            <circle cx="130" cy="200" r="4" fill="#064e3b"/>
+            <text data-ar="⛺ قُديد — أم معبد" data-en="⛺ Qudayd — Umm Mabad" x="152" y="194" fill="#e2e8f0" font-size="10" text-anchor="start" font-family="Cairo,sans-serif">⛺ قُديد — أم معبد</text>
+            <text data-ar="معجزة الشاة الهزيلة" data-en="Miracle of the frail ewe" x="152" y="206" fill="#64748b" font-size="8" text-anchor="start" font-family="Tajawal,sans-serif">معجزة الشاة الهزيلة</text>
+          </g>
+
+          <!-- Node 4: Suraqah -->
+          <g class="cdn" id="hnode-4">
+            <circle class="pr" cx="300" cy="120" r="8"/>
+            <circle class="cd" cx="300" cy="120" r="9" fill="#022c22" stroke="#C5A059" stroke-width="2"/>
+            <circle cx="300" cy="120" r="4" fill="#064e3b"/>
+            <text data-ar="🐎 مطاردة سراقة" data-en="🐎 Suraqah's Chase" x="320" y="114" fill="#e2e8f0" font-size="10" text-anchor="start" font-family="Cairo,sans-serif">🐎 مطاردة سراقة</text>
+            <text data-ar="سوخ فرسه ٣ مرات" data-en="Horse sank 3 times" x="320" y="126" fill="#64748b" font-size="8" text-anchor="start" font-family="Tajawal,sans-serif">سوخ فرسه ٣ مرات</text>
+          </g>
+
+          <!-- Node 5: Madinah -->
+          <g class="cdn" id="hnode-5">
+            <circle class="pr" cx="560" cy="80" r="14"/>
+            <circle class="cd" cx="560" cy="80" r="13" fill="#022c22" stroke="#6ee7b7" stroke-width="2.5"/>
+            <circle cx="560" cy="80" r="5.5" fill="#6ee7b7"/>
+            <text data-ar="المدينة المنورة 🕌" data-en="Madinah 🕌" x="560" y="56" fill="#f8fafc" font-size="12" font-weight="bold"
+                  text-anchor="middle" font-family="Cairo,sans-serif">المدينة المنورة 🕌</text>
+            <text data-ar="الوصول والتأسيس" data-en="Arrival & Founding" x="560" y="45" fill="#6ee7b7" font-size="8.5" text-anchor="middle" font-family="Tajawal,sans-serif">الوصول والتأسيس</text>
+          </g>
+
+          <!-- Quba -->
+          <g class="cdn-quba" id="hnode-quba">
+            <circle cx="500" cy="95" r="5.5" fill="#022c22" stroke="#6ee7b7" stroke-width="1.5"/>
+            <text data-ar="قُباء" data-en="Quba" x="500" y="112" fill="#6ee7b7" font-size="8.5" text-anchor="middle" font-family="Cairo,sans-serif">قُباء</text>
+          </g>
+
+          <!-- Legend -->
+          <g transform="translate(10,10)">
+            <rect width="120" height="62" rx="8" fill="rgba(1,10,7,.88)" stroke="rgba(197,160,89,.28)" stroke-width="1"/>
+            <line x1="10" y1="18" x2="30" y2="18" stroke="#C5A059" stroke-width="2.5" stroke-dasharray="5 3"/>
+            <text data-ar="مسار الهجرة" data-en="Hijra Route" x="34" y="22" fill="#94a3b8" font-size="8.5" font-family="Tajawal,sans-serif">مسار الهجرة</text>
+            <line x1="10" y1="34" x2="30" y2="34" stroke="#1e3a28" stroke-width="1.5" stroke-dasharray="6 8"/>
+            <text data-ar="الطريق المعتاد" data-en="Usual Route" x="34" y="38" fill="#475569" font-size="8.5" font-family="Tajawal,sans-serif">الطريق المعتاد</text>
+            <circle cx="18" cy="52" r="4.5" fill="#C5A059"/>
+            <text data-ar="محطة رئيسية" data-en="Main Station" x="34" y="56" fill="#94a3b8" font-size="8.5" font-family="Tajawal,sans-serif">محطة رئيسية</text>
+          </g>
+
+          <!-- Compass -->
+          <g transform="translate(645,500)">
+            <circle r="18" fill="rgba(6,78,59,.45)" stroke="rgba(197,160,89,.3)" stroke-width="1"/>
+            <text data-ar="ش" data-en="N" y="5" text-anchor="middle" fill="#C5A059" font-size="12" font-family="Cairo,sans-serif" font-weight="bold">ش</text>
+            <line x1="0" y1="-12" x2="0" y2="-6" stroke="#C5A059" stroke-width="1.5"/>
+          </g>
+
+          <!-- Scale -->
+          <g transform="translate(520,540)" opacity=".55">
+            <line x1="0" y1="0" x2="72" y2="0" stroke="#334155" stroke-width="1"/>
+            <line x1="0" y1="-3" x2="0" y2="3" stroke="#334155" stroke-width="1"/>
+            <line x1="72" y1="-3" x2="72" y2="3" stroke="#334155" stroke-width="1"/>
+            <text data-ar="١٠٠ كم" data-en="100 km" x="36" y="-5" fill="#334155" font-size="8" text-anchor="middle" font-family="Tajawal,sans-serif">١٠٠ كم</text>
+          </g>
+        </svg>
+
+        <!-- BADR MAP -->
+        <svg id="svg-badr" class="map-svg hidden" viewBox="0 0 700 500" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="bbg" cx="50%" cy="50%" r="65%">
+              <stop offset="0%" stop-color="#1a0808" stop-opacity=".38"/>
+              <stop offset="100%" stop-color="#010e09" stop-opacity="1"/>
+            </radialGradient>
+            <linearGradient id="mg" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#6ee7b7"/><stop offset="100%" stop-color="#064e3b"/>
+            </linearGradient>
+            <linearGradient id="qg" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#7f1d1d"/><stop offset="100%" stop-color="#3f0606"/>
+            </linearGradient>
+            <marker id="ag" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto">
+              <polygon points="0,0 8,4 0,8" fill="#10b981"/></marker>
+            <marker id="ar2" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto">
+              <polygon points="0,0 8,4 0,8" fill="#ef4444"/></marker>
+            <filter id="gf2"><feGaussianBlur stdDeviation="1.2" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect width="700" height="500" fill="#010e09"/>
+          <rect width="700" height="500" fill="url(#bbg)"/>
+
+          <path d="M 0 82  Q 350 58 700 76  L 700 0   L 0 0Z" fill="#0d1e14" opacity=".6"/>
+          <path d="M 0 418 Q 350 442 700 425 L 700 500 L 0 500Z" fill="#0d1e14" opacity=".6"/>
+
+          <rect x="155" y="28" width="390" height="32" rx="8" fill="rgba(5,150,105,.1)" stroke="rgba(5,150,105,.22)" stroke-width="1"/>
+          <text data-ar="العدوة الدُّنيا — معسكر المسلمين" data-en="Near Side — Muslims' Camp" x="350" y="50" fill="#34d399" font-size="13" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">العدوة الدُّنيا — معسكر المسلمين</text>
+
+          <rect x="155" y="440" width="390" height="32" rx="8" fill="rgba(239,68,68,.1)" stroke="rgba(239,68,68,.22)" stroke-width="1"/>
+          <text data-ar="العدوة القُصوى — جيش قريش" data-en="Far Side — Quraysh Army" x="350" y="462" fill="#fca5a5" font-size="13" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">العدوة القُصوى — جيش قريش</text>
+
+          <path id="b-march-m" d="M 350 82 L 350 175" fill="none" stroke="#10b981" stroke-width="4.5" stroke-dasharray="7 5" marker-end="url(#ag)" opacity=".8"/>
+          <path id="b-march-q" d="M 350 440 L 350 352" fill="none" stroke="#ef4444" stroke-width="4.5" stroke-dasharray="7 5" marker-end="url(#ar2)" opacity=".8"/>
+
+          <!-- Main well -->
+          <g transform="translate(350,265)">
+            <circle r="30" fill="#0c2840" stroke="#0284c7" stroke-width="2.5"/>
+            <circle r="14" fill="#0369a1" opacity=".55"/><circle r="7" fill="#38bdf8"/>
+            <text data-ar="بئر بدر الكبرى 💧" data-en="Badr Main Well 💧" y="46" fill="#e2e8f0" font-size="11.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">بئر بدر الكبرى 💧</text>
+          </g>
+
+          <!-- Aux wells -->
+          <g id="bwell-1" transform="translate(210,248)">
+            <circle r="14" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+            <circle r="5" fill="#334155"/>
+            <text data-ar="بئر" data-en="Well" y="26" fill="#475569" font-size="9" text-anchor="middle" font-family="Cairo,sans-serif">بئر</text>
+          </g>
+          <g id="bblock-1" class="hidden" transform="translate(210,248)">
+            <line x1="-11" y1="-11" x2="11" y2="11" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="11"  y1="-11" x2="-11" y2="11" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round"/>
+            <circle r="16" fill="rgba(239,68,68,.08)" stroke="rgba(239,68,68,.45)" stroke-width="1.5"/>
+          </g>
+          <g id="bwell-2" transform="translate(490,250)">
+            <circle r="14" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+            <circle r="5" fill="#334155"/>
+            <text data-ar="بئر" data-en="Well" y="26" fill="#475569" font-size="9" text-anchor="middle" font-family="Cairo,sans-serif">بئر</text>
+          </g>
+          <g id="bblock-2" class="hidden" transform="translate(490,250)">
+            <line x1="-11" y1="-11" x2="11" y2="11" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="11"  y1="-11" x2="-11" y2="11" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round"/>
+            <circle r="16" fill="rgba(239,68,68,.08)" stroke="rgba(239,68,68,.45)" stroke-width="1.5"/>
+          </g>
+
+          <!-- Cistern (step 1+) -->
+          <g id="b-cistern" class="hidden" transform="translate(350,175)">
+            <rect x="-55" y="-18" width="110" height="36" rx="11" fill="rgba(5,150,105,.22)" stroke="rgba(5,150,105,.55)" stroke-width="1.5"/>
+            <text data-ar="حوض المسلمين 🫙" data-en="Muslims' Cistern 🫙" y="5" fill="#6ee7b7" font-size="10.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">حوض المسلمين 🫙</text>
+          </g>
+
+          <!-- Battle clash (step 2) -->
+          <g id="b-clash" class="hidden" transform="translate(350,265)">
+            <circle r="70" fill="rgba(255,200,0,.03)" stroke="rgba(255,200,0,.16)" stroke-width="1" stroke-dasharray="5 5"/>
+            <text y="8" fill="rgba(255,210,0,.45)" font-size="26" text-anchor="middle">⚔️</text>
+          </g>
+
+          <!-- Muslim camp -->
+          <g class="cdn act" id="bnode-0" transform="translate(350,76)">
+            <circle class="pr" cx="0" cy="0" r="16"/>
+            <polygon points="0,-20 22,14 -22,14" fill="url(#mg)" stroke="#6ee7b7" stroke-width="1.5"/>
+            <text data-ar="المسلمون ٣١٣" data-en="Muslims · 313" y="-28" fill="#fff" font-size="12" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" filter="url(#gf2)">المسلمون ٣١٣</text>
+          </g>
+
+          <!-- Quraysh army -->
+          <g class="cdn" id="bnode-2" transform="translate(350,454)">
+            <circle class="pr" cx="0" cy="0" r="16"/>
+            <polygon points="0,20 22,-14 -22,-14" fill="url(#qg)" stroke="#fca5a5" stroke-width="1.5"/>
+            <text data-ar="قريش ٩٥٠" data-en="Quraysh · 950" y="38" fill="#fca5a5" font-size="12" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">قريش ٩٥٠</text>
+          </g>
+
+          <!-- Strength box -->
+          <g transform="translate(556,248)">
+            <rect x="-62" y="-68" width="124" height="136" rx="12" fill="rgba(1,10,7,.9)" stroke="rgba(197,160,89,.32)" stroke-width="1"/>
+            <text data-ar="ميزان القوى" data-en="Balance of Power" x="0" y="-52" fill="#475569" font-size="9" text-anchor="middle" font-family="Tajawal,sans-serif">ميزان القوى</text>
+            <rect x="-50" y="-44" width="100" height="24" rx="5" fill="rgba(5,150,105,.14)"/>
+            <text data-ar="🟢 ٣١٣ مسلم" data-en="🟢 313 Muslims" x="0" y="-28" fill="#6ee7b7" font-size="11.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">🟢 ٣١٣ مسلم</text>
+            <line x1="-48" y1="-15" x2="48" y2="-15" stroke="#1e293b" stroke-width=".5"/>
+            <rect x="-50" y="-10" width="100" height="24" rx="5" fill="rgba(239,68,68,.14)"/>
+            <text data-ar="🔴 ٩٥٠ مشرك" data-en="🔴 950 Polytheists" x="0" y="4" fill="#fca5a5" font-size="11.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">🔴 ٩٥٠ مشرك</text>
+            <line x1="-48" y1="18" x2="48" y2="18" stroke="#1e293b" stroke-width=".5"/>
+            <text data-ar="النصر: ١ : ٣" data-en="Victory: 1 : 3" x="0" y="34" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">النصر: ١ : ٣</text>
+            <text data-ar="﴿وَمَا النَّصْرُ إِلَّا مِنْ عِندِ اللَّهِ﴾" data-en="﴿Victory comes only from Allah﴾" x="0" y="52" fill="#334155" font-size="8.5" text-anchor="middle" font-family="Tajawal,sans-serif">﴿وَمَا النَّصْرُ إِلَّا مِنْ عِندِ اللَّهِ﴾</text>
+          </g>
+
+          <!-- Compass -->
+          <g transform="translate(648,430)">
+            <circle r="18" fill="rgba(6,78,59,.45)" stroke="rgba(197,160,89,.3)" stroke-width="1"/>
+            <text data-ar="ش" data-en="N" y="5" text-anchor="middle" fill="#C5A059" font-size="12" font-family="Cairo,sans-serif" font-weight="bold">ش</text>
+            <line x1="0" y1="-12" x2="0" y2="-6" stroke="#C5A059" stroke-width="1.5"/>
+          </g>
+        </svg>
+
+        <div class="map-amb amb-night" id="map-amb"></div>
+
+        <div class="map-card" id="map-card">
+          <div class="mc-title" id="mc-title">—</div>
+          <div class="mc-desc" id="mc-desc">—</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY PANEL -->
+    <section class="story-panel">
+      <div class="story-scroll" id="story-scroll">
+        <div class="ayah-box">
+          <div class="ayah-text" id="ayah-text">—</div>
+          <div class="ayah-ref" id="ayah-ref">—</div>
+        </div>
+
+        <div class="stg-row">
+          <span class="stage-badge" id="stage-badge">المرحلة ١ من ٦</span>
+          <span class="date-chip">📅 <span id="ev-date">—</span></span>
+        </div>
+
+        <h2 class="ev-title" id="ev-title">—</h2>
+        <div class="desc-wrap"><p id="ev-desc">—</p></div>
+
+        <div>
+          <div class="sec-lbl" data-ar="👥 شخصيات مؤثرة" data-en="👥 Key Figures">👥 شخصيات مؤثرة</div>
+          <div class="chars-list" id="chars-grid"></div>
+        </div>
+
+        <div class="lesson-box">
+          <div class="lesson-lbl" data-ar="💡 الذكاء القيادي — الدرس المستفاد" data-en="💡 Leadership Insight — The Lesson">💡 الذكاء القيادي — الدرس المستفاد</div>
+          <p id="lesson-text">—</p>
+        </div>
+
+        <div>
+          <div class="sec-lbl sec-lbl-muted" data-ar="📚 المصادر الموثوقة" data-en="📚 Authoritative Sources">📚 المصادر الموثوقة</div>
+          <div class="srcs-list" id="src-list"></div>
+        </div>
+      </div>
+
+      <div class="story-nav">
+        <button class="nbtn n-prev" id="btn-prev">
+          <span data-ar="▶ السابق" data-en="◀ Previous">▶ السابق</span>
+        </button>
+        <button class="nbtn n-play" id="btn-play" title="Play verse (P)">▶</button>
+        <button class="nbtn n-next" id="btn-next">
+          <span data-ar="التالي ◀" data-en="Next ▶">التالي ◀</span>
+        </button>
+      </div>
+    </section>
   </main>
 
+  <!-- TIMELINE FOOTER -->
+  <footer class="tl-foot">
+    <div class="tl-in">
+      <div class="tl-row">
+        <span class="tl-name" id="tl-name">—</span>
+        <span class="tl-counter" id="tl-counter">—</span>
+      </div>
+      <div class="tl-wrap">
+        <div class="tl-track"><div id="tl-fill"></div></div>
+        <div class="tl-nodes" id="tl-nodes"></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

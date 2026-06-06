@@ -4,12 +4,109 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "masjid_nabawi",
-        "name_ar": "المسجد النبوي الشريف",
-        "name_en": "Al-Masjid an-Nabawi",
+        "id": "makkah",
+        "event_id": "hijra_0",
+        "name_ar": "مكة المكرمة",
+        "name_en": "Makkah Al-Mukarramah",
+        "year_ah": "نقطة الانطلاق",
+        "event_title_ar": "ليلة الخروج",
+        "event_title_en": "The Night of Departure"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.8262, 21.4225]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cave_thawr",
+        "event_id": "hijra_1",
+        "name_ar": "غار ثور",
+        "name_en": "Cave of Thawr",
         "year_ah": "1 AH",
-        "description_ar": "نواة التأسيس الثقافي والسياسي والاجتماعي للدولة الجديدة.",
-        "description_en": "The spiritual and political core of the newly established state."
+        "event_title_ar": "غار ثور — ثلاثة أيام",
+        "event_title_en": "Cave of Thawr — Three Days"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.8500, 21.3700]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "coastal_route",
+        "event_id": "hijra_2",
+        "name_ar": "الطريق الساحلي",
+        "name_en": "The Coastal Route",
+        "year_ah": "1 AH",
+        "event_title_ar": "مع ابن أريقط",
+        "event_title_en": "With Ibn Urayqit"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.4000, 22.0000]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "qudayd",
+        "event_id": "hijra_3",
+        "name_ar": "قُديد — خيمة أم معبد",
+        "name_en": "Qudayd — Tent of Umm Mabad",
+        "year_ah": "1 AH",
+        "event_title_ar": "معجزة أم معبد",
+        "event_title_en": "The Miracle of Umm Mabad"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.5000, 22.7000]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "suraqah_chase",
+        "event_id": "hijra_4",
+        "name_ar": "مطاردة سراقة",
+        "name_en": "Suraqah's Chase",
+        "year_ah": "1 AH",
+        "event_title_ar": "سواري كسرى",
+        "event_title_en": "The Bracelets of Kisra"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.3000, 23.5000]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "quba",
+        "event_id": "hijra_5",
+        "name_ar": "مسجد قُباء",
+        "name_en": "Quba Mosque",
+        "year_ah": "1 AH",
+        "event_title_ar": "أول مسجد في الإسلام",
+        "event_title_en": "The First Mosque in Islam"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.6200, 24.4500]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "madinah",
+        "event_id": "hijra_5",
+        "name_ar": "المدينة المنورة",
+        "name_en": "Madinah Al-Munawwarah",
+        "year_ah": "1 AH",
+        "event_title_ar": "تأسيس الدولة والحضارة",
+        "event_title_en": "Founding a Nation"
       },
       "geometry": {
         "type": "Point",
@@ -19,16 +116,33 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "badr_battlefield",
-        "name_ar": "موقع غزوة بدر الكبرى",
-        "name_en": "Badr Battlefield",
+        "id": "badr_main_well",
+        "event_id": "badr_0",
+        "name_ar": "بئر بدر الكبرى",
+        "name_en": "Main Well of Badr",
         "year_ah": "2 AH",
-        "description_ar": "الفرقان والمعركة الأولى التي غيرت مجرى التاريخ الإسلامي.",
-        "description_en": "The decisive first major battle that shaped Islamic history."
+        "event_title_ar": "رصد القافلة",
+        "event_title_en": "The Caravan Transforms"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [38.7844, 23.7436]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "badr_battlefield",
+        "event_id": "badr_2",
+        "name_ar": "ساحة بدر الكبرى",
+        "name_en": "Battlefield of Badr",
+        "year_ah": "2 AH",
+        "event_title_ar": "يوم الفرقان",
+        "event_title_en": "The Day of Distinction"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [38.7950, 23.7500]
       }
     }
   ]

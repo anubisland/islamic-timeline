@@ -1,8 +1,8 @@
 {
   "name": "madani-era-timeline-app",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "Bilingual (AR/EN) static website visualizing the Madani Era in Islamic history.",
+  "description": "Interactive bilingual (AR/EN) timeline of the Madani Era — the Hijra (6 stages) and the Battle of Badr (3 stages), with SVG maps, Google TTS verse recitation, and full language toggle.",
   "scripts": {
     "start": "npx --yes serve .",
     "dev": "npx --yes serve ."
