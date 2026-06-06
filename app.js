@@ -110,11 +110,16 @@
     const sd = $('svg-medinan'); if (sd) sd.classList.toggle('hidden', key !== 'medinan');
 
     // Update map label — set BOTH data-ar and data-en so applyLanguage()
-    // can pick the right one based on the current LANG.
+    // can pick the right one based on the current LANG, AND immediately
+    // set textContent to the right language so it shows up now
+    // (applyLanguage is not called on event switch, only on language toggle).
     const ml = $('map-label');
     if (ml) {
-      ml.setAttribute('data-ar', DB[key].mapLabelAr);
-      ml.setAttribute('data-en', DB[key].mapLabelEn);
+      const labelAr = DB[key].mapLabelAr;
+      const labelEn = DB[key].mapLabelEn;
+      ml.setAttribute('data-ar', labelAr);
+      ml.setAttribute('data-en', labelEn);
+      ml.textContent = LANG === 'AR' ? labelAr : labelEn;
     }
 
     buildTimeline();

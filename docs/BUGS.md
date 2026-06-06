@@ -99,6 +99,19 @@ The user reported "the map and the narration don't match" **five times** in a ro
   - The "initial mount" must invoke every public function that maps `state → DOM` and that is also called on user interaction. The public functions in this project are: `switchEv`, `goTo`, `applyLanguage`, `buildTimeline`, `applyMapFocus`, `render`. All five must run on mount at least once.
   - **Do not** rely on `render()` being called from one place and not another. If `render()` is what produces the correct DOM for state X, it must run on mount with state X.
 
+### B3b. `switchEv()` set `data-ar` / `data-en` attributes on `#map-label` but did **not** update `textContent` (recurring variant of B1)
+
+- **Symptom (reported again after v2.4.5)**: clicking the event-switch buttons (Meccan / Medinan / Badr / Hijra) updated the *map image* correctly but the **map title stayed as "خريطة رحلة الهجرة النبوية"** (or its English equivalent) for every event.
+- **Root cause**: v2.4.5 changed `switchEv()` to set the `data-ar` and `data-en` attributes on `#map-label` so that `applyLanguage()` would translate the label. The assumption was that `applyLanguage()` would run. **It does not run on event switch — only on language toggle.** So the attributes were updated, but `textContent` was never re-derived, and the user saw the previous event's label (which on first switch from Hijra is always "خريطة رحلة الهجرة النبوية" because that is the hardcoded initial value).
+- **Fix (v2.4.5 patch)**: `switchEv()` now sets `data-ar` / `data-en` **and** sets `textContent` directly, picking `mapLabelAr` or `mapLabelEn` based on the current `LANG`. This guarantees the label is correct on every event switch regardless of whether `applyLanguage()` runs.
+- **Rule — must-follow**:
+  - When changing an element's `data-ar` / `data-en` attributes, you have two choices:
+    1. Call `applyLanguage()` immediately after, **OR**
+    2. Set `textContent` directly in the same function.
+  - Mixing the two is a footgun: setting attributes without `applyLanguage` leaves stale text; setting `textContent` directly without also setting attributes leaves the language toggle (which calls `applyLanguage`) working with stale data.
+  - The current pattern in this project is option 2: set **both** the attributes and the `textContent` in `switchEv()`. Keep them in sync.
+  - **Add this case to the mobile-visual review checklist**: click every event button, confirm the map title changes for both languages.
+
 ### B4. `.svg-wrap` used `padding-top: 80%` (clipping on small viewports)
 
 - **Symptom**: the map appeared cut off at the top or bottom on some mobile / tablet portrait orientations. The full 700×560 viewBox was not rendered.
