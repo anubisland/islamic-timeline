@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "masjid_nabawi",
+        "name_ar": "المسجد النبوي الشريف",
+        "name_en": "Al-Masjid an-Nabawi",
+        "year_ah": "1 AH",
+        "description_ar": "نواة التأسيس الثقافي والسياسي والاجتماعي للدولة الجديدة.",
+        "description_en": "The spiritual and political core of the newly established state."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.6122, 24.4686]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "badr_battlefield",
+        "name_ar": "موقع غزوة بدر الكبرى",
+        "name_en": "Badr Battlefield",
+        "year_ah": "2 AH",
+        "description_ar": "الفرقان والمعركة الأولى التي غيرت مجرى التاريخ الإسلامي.",
+        "description_en": "The decisive first major battle that shaped Islamic history."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [38.7844, 23.7436]
+      }
+    }
+  ]
+}
