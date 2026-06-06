@@ -4,6 +4,20 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.7] — 2026-06-07
+
+### Changed
+- **Mobile sizing tightened further (per user feedback: "تأخذ حيز كبير")**:
+  - Timeline dots: `28×28` → `22×22` (mobile) / `24×24` → `20×20` (very small)
+  - Dot font: `.7rem` → `.62rem` (mobile) / `.65rem` → `.58rem` (very small)
+  - Footer padding: `.55rem .8rem .65rem` → `.35rem .55rem .4rem` (mobile) — saves ~10 px vertical
+  - `.tl-wrap` padding: `1.1rem .7rem` → `.55rem .35rem` (mobile)
+  - `.tl-wrap` min-height: `38 px` → `28 px` (mobile)
+  - `.tl-name` (current-step title): `.82rem` → `.74rem` (mobile)
+  - `.tl-counter`: `.72rem` → `.62rem` (mobile)
+  - Zoom buttons: `36×34` → `28×26` (mobile); reset button: `44px` → `36px` min-width
+  - Zoom button font: `.68rem` → `.58rem` for reset (mobile)
+
 ## [2.4.6] — 2026-06-07
 
 ### Added

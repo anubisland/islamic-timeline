@@ -1137,7 +1137,7 @@ body::after {
 @media (max-width: 480px) {
   .tl-lbl { font-size: .54rem; line-height: 1.15; padding: 0 1px; }
   .tl-lbl-sub { display: none; }
-  .tl-dot { width: 24px; height: 24px; font-size: .65rem; }
+  .tl-dot { width: 20px; height: 20px; font-size: .58rem; }
 }
 
 /* On mobile, the per-dot labels wrap into unreadable fragments (each node
@@ -1146,13 +1146,18 @@ body::after {
    primary navigation affordance. */
 @media (max-width: 720px) {
   .tl-lbl { display: none; }
-  .tl-wrap { padding: 1.1rem 0 .7rem; min-height: 38px; }
-  .tl-dot { width: 28px; height: 28px; font-size: .7rem; }
+  .tl-wrap { padding: .55rem 0 .35rem; min-height: 28px; }
+  .tl-dot { width: 22px; height: 22px; font-size: .62rem; }
   .tl-nd { gap: 0; }
   /* Bump the prominent current-step title so it stays readable on mobile */
-  .tl-name { font-size: .82rem; max-width: 78%; }
-  .tl-counter { font-size: .72rem; }
-  .tl-foot { padding: .55rem .8rem .65rem; }
+  .tl-name { font-size: .74rem; max-width: 76%; }
+  .tl-counter { font-size: .62rem; }
+  .tl-foot { padding: .35rem .55rem .4rem; }
+  .tl-row { margin-bottom: .2rem; }
+  /* Also tighten the zoom controls — they were 36×34 on mobile, now 28×26 */
+  .z-btn { min-width: 28px; height: 26px; font-size: .7rem; padding: 0 5px; }
+  .z-btn.z-rst { font-size: .58rem; min-width: 36px; }
+  .map-zoom { gap: 2px; }
 }
 
 /* ===================== SCROLLBARS ===================== */
