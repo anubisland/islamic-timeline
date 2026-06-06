@@ -1,0 +1,124 @@
+:root {
+  --emerald: #063529;
+  --emerald-dark: #042019;
+  --gold: #C5A059;
+  --gold-soft: #d9b673;
+  --paper: #ffffff;
+  --ink: #1f2a26;
+  --muted: #555;
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: radial-gradient(circle at top, #0a4a3a 0%, var(--emerald) 60%, var(--emerald-dark) 100%);
+  color: var(--paper);
+  font-family: "Segoe UI", "Tahoma", "Arial", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.ornament {
+  position: fixed;
+  top: 24px;
+  z-index: 10;
+  opacity: 0.95;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+.ornament--tl { left: 16px; }
+.ornament--tr { right: 16px; }
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 80px 24px 48px;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.lang-button {
+  background: var(--gold);
+  color: var(--emerald);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+.lang-button:hover { background: var(--gold-soft); transform: translateY(-1px); }
+.lang-button:active { transform: translateY(0); }
+.lang-button:focus-visible { outline: 2px solid var(--paper); outline-offset: 2px; }
+
+.title-container {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.app-title {
+  color: var(--gold);
+  font-size: clamp(22px, 4vw, 30px);
+  margin: 0;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.gold-divider {
+  width: 110px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 14px auto 0;
+}
+
+.event-card {
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border-inline-start: 4px solid var(--gold);
+}
+
+[dir="rtl"] .event-card { border-left: none; border-right: 4px solid var(--gold); }
+
+.event-title {
+  color: var(--emerald);
+  font-size: 20px;
+  margin: 0 0 12px;
+}
+
+.quran-verse {
+  color: var(--gold);
+  font-style: italic;
+  text-align: center;
+  margin: 14px 0;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.event-description {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .ornament svg { width: 36px; height: 36px; }
+  .container { padding-top: 64px; }
+  .event-card { padding: 18px; }
+}

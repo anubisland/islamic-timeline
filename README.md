@@ -1,41 +1,45 @@
 # Madani Era Timeline (الخط الزمني للعهد المدني)
 
-A bilingual (Arabic / English) React Native application that visualizes the key events of the **Madani Era** in Islamic history, presented with an emerald and gold Islamic visual identity.
+A bilingual (Arabic / English) **static website** that visualizes the key events of the **Madani Era** in Islamic history, presented with an emerald and gold Islamic visual identity.
+
+> Pure HTML / CSS / vanilla JavaScript. **No build step.** Open `index.html` in a browser, or serve the folder with any static server.
 
 ## Features
 
 - Emerald royal palette (`#063529`) with gold accents (`#C5A059`)
 - Islamic eight-pointed star ornament in the corners
-- Bilingual UI: Arabic (RTL) / English (LTR) toggle
-- Event cards with Quranic verse references
+- Bilingual UI: Arabic (RTL) / English (LTR) toggle, with `localStorage` persistence
+- Event card with Quranic verse reference
 - GeoJSON dataset of historical landmarks ready for map integration
+- Responsive layout (mobile → desktop)
 
 ## Project Structure
 
 ```
 Sera/
-├── App.js                  # Main React Native entry point
+├── index.html              # Web entry point
+├── style.css               # All styling
+├── app.js                  # Language toggle (vanilla JS)
 ├── timeline_data.geojson   # Geographic dataset of historical events
-├── package.json            # Dependencies and scripts
+├── package.json            # Optional, only for `npm start` (uses npx serve)
 ├── .gitignore
 └── README.md
 ```
 
 ## Getting Started
 
-### Prerequisites
-- Node.js 18+
-- Expo CLI (installed automatically via `npx`)
-- Expo Go app on your phone (iOS / Android) for quick testing
+### Option 1 — Open directly
+Double-click `index.html`. The site works fully from the `file://` protocol.
 
-### Install & Run
-
+### Option 2 — Local static server (recommended)
 ```bash
-npm install
-npx expo start
+npm start
+# or
+npx serve .
 ```
+Then open the printed URL (usually http://localhost:3000).
 
-Scan the QR code with **Expo Go** to launch the app on your device.
+> A static server is only needed if you later want to `fetch('timeline_data.geojson')` from JavaScript.
 
 ## Data Schema
 
@@ -53,7 +57,7 @@ Scan the QR code with **Expo Go** to launch the app on your device.
 
 ## Roadmap
 
-- [ ] Integrate `react-native-maps` to plot `timeline_data.geojson`
-- [ ] Add full chronological dataset (Hijri 1 AH → 11 AH)
-- [ ] Persist language preference with `AsyncStorage`
-- [ ] Use `I18nManager.forceRTL` for full layout mirroring
+- [ ] Add Leaflet map to plot `timeline_data.geojson`
+- [ ] Expand chronological dataset (Hijri 1 AH → 11 AH)
+- [ ] Add a scrollable timeline rail with year markers
+- [ ] Add deep links / URL params for language: `?lang=en`
