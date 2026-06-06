@@ -352,6 +352,38 @@ body::after {
 
 .map-badges { display: flex; gap: .35rem; flex-wrap: wrap; }
 
+.map-zoom {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-inline-start: auto;
+  padding-inline-start: .5rem;
+}
+.z-btn {
+  font: 700 .75rem/1 "Cairo", "Inter", sans-serif;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: 7px;
+  border: 1px solid rgba(197, 160, 89, .35);
+  background: rgba(6, 53, 41, .55);
+  color: #C5A059;
+  cursor: pointer;
+  transition: background .15s, color .15s, transform .12s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.z-btn:hover { background: rgba(197, 160, 89, .18); color: #fde68a; }
+.z-btn:active { transform: scale(.94); }
+.z-btn.z-rst { font-size: .68rem; min-width: 44px; color: #94a3b8; }
+.z-btn.z-rst:hover { color: #fff; }
+[lang="en"] .z-btn { font-family: "Inter", sans-serif; }
+@media (max-width: 720px) {
+  .z-btn { min-width: 36px; height: 34px; }
+  .map-zoom { gap: 3px; }
+}
+
 .mb {
   font-family: "Cairo", sans-serif;
   font-size: .65rem;
@@ -997,7 +1029,7 @@ body::after {
 
 [lang="en"] .tl-counter { font-family: "Inter", sans-serif; }
 
-.tl-wrap { position: relative; padding: 1.4rem 0 .9rem; min-height: 56px; }
+.tl-wrap { position: relative; padding: 1rem 0 .55rem; min-height: 38px; }
 
 .tl-track {
   position: absolute;
@@ -1021,10 +1053,10 @@ body::after {
 .tl-nodes {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   z-index: 2;
-  min-height: 50px;
+  min-height: 36px;
 }
 
 .tl-nd {
@@ -1073,19 +1105,9 @@ body::after {
 }
 
 .tl-lbl {
-  font-size: .58rem;
-  color: #cbd5e1;
-  max-width: 100px;
-  min-width: 0;
-  width: 100%;
-  text-align: center;
-  line-height: 1.22;
-  display: block;
-  font-family: "Cairo", "Inter", sans-serif;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  margin-top: 4px;
-  padding: 0 2px;
+  display: none;  /* Per user feedback: keep only numbering, no words under dots.
+                     The prominent #tl-name in the row above already shows
+                     the current step's title. */
 }
 [lang="en"] .tl-lbl { font-family: "Inter", "Cairo", sans-serif; }
 

@@ -607,6 +607,34 @@
     if (bn0) bn0.addEventListener('click', () => goTo(0));
     if (bn2) bn2.addEventListener('click', () => goTo(2));
 
+    // Map zoom controls — change the SVG viewBox to zoom in/out of the
+    // currently visible map. The default viewBox is "0 0 700 560".
+    // Zoom-in  shrinks width/height (content grows).
+    // Zoom-out expands width/height (content shrinks, fits in frame on small screens).
+    const MAP_BASE = { w: 700, h: 560 };
+    const ZOOM_LEVELS = [0.5, 0.75, 1.0, 1.5, 2.0];
+    let zoomIdx = 2; // 1.0x
+    const zRst = $('z-rst');
+    const zIn  = $('z-in');
+    const zOut = $('z-out');
+    function applyZoom() {
+      const z = ZOOM_LEVELS[zoomIdx];
+      const w = MAP_BASE.w / z;
+      const h = MAP_BASE.h / z;
+      const x = (MAP_BASE.w - w) / 2;
+      const y = (MAP_BASE.h - h) / 2;
+      const vb = x + ' ' + y + ' ' + w + ' ' + h;
+      ['svg-hijra', 'svg-badr', 'svg-meccan', 'svg-medinan'].forEach((id) => {
+        const svg = $(id);
+        if (svg) svg.setAttribute('viewBox', vb);
+      });
+      if (zRst) zRst.textContent = Math.round(z * 100) + '%';
+    }
+    if (zIn)  zIn.addEventListener('click',  () => { if (zoomIdx > 0) { zoomIdx--; applyZoom(); } });
+    if (zOut) zOut.addEventListener('click', () => { if (zoomIdx < ZOOM_LEVELS.length - 1) { zoomIdx++; applyZoom(); } });
+    if (zRst) zRst.addEventListener('click', () => { zoomIdx = 2; applyZoom(); });
+    applyZoom();
+
     // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
       if (['INPUT', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) return;

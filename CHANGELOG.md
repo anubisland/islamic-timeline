@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.6] — 2026-06-07
+
+### Added
+- **Map zoom controls** (− / 100% / +) in the map topbar. Changes the SVG `viewBox` of the currently visible map. Levels: 0.5× (zoom-in 2×), 0.75×, 1.0× (default), 1.5×, 2.0× (zoom-out, fits whole map in frame on small screens). On mobile portrait this is the difference between scrolling and seeing the whole map at a glance.
+
+### Changed
+- **Timeline strip simplified to numbering only** (per user feedback): the per-dot labels (`<span class="tl-lbl-main">`, `.tl-lbl-sub`) are now `display: none` on **all** screen sizes — they were wrapping into unreadable fragments on mobile and added visual clutter on desktop. The prominent `#tl-name` in the row above the strip already shows the current step's full title in both languages, so the per-dot labels were redundant. `.tl-wrap` vertical padding reduced to match (1.4 rem → 1 rem top, 0.9 rem → 0.55 rem bottom); `.tl-nodes` min-height reduced to 36 px.
+
 ## [2.4.5] — 2026-06-07
 
 ### Fixed
