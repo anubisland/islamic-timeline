@@ -4,6 +4,23 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.0] — 2026-06-06
+
+### Fixed
+- **Maps fully contained in their frame**: `applyMapFocus()` no longer applies a CSS scale to the `map-pan` group (which was pushing content outside the viewBox). The map is now always shown fully and the focus indicator (pulse + 8-point star) simply re-positions to the step's `(focus.x, focus.y)`. This eliminates the "cut off" / "clipped" appearance that happened when `scale > 1`.
+- **Audio (TTS) reliability**: `playVerse()` now tries the browser's built-in **Web Speech API** first (no CORS, no network, no rate limits), with a 30s safety timeout. If `onend` fires within 600 ms of `onstart` (i.e. the engine failed silently) the playback automatically falls back to Google Translate TTS. The previous version led with Google TTS which is often blocked or fails CORS, leaving the user with no audio.
+- **All 13 previously-missing Quranic verses** (ayahs) are now populated: 12 in the Meccan era (Birth / Year of the Elephant, Breastfeeding, Shedding of the Chest, Mother's death, Grandfather's death, Trade-trip to Syria, Trade & marriage to Khadijah, Waraqa confirms prophethood, Secret da'wah in Dar al-Arqam, First migration to Abyssinia, Year of Sorrow, Two Pledges of Aqabah) and 1 in the Medinan era (Founding of Madinah's market). Each has both Arabic + English + reference, all from Ahl al-Sunnah-canonical sources.
+- **`preserveAspectRatio="xMidYMid meet"`** explicitly set on all four SVG maps (was missing on the meccan, badr and medinan SVGs), preventing any aspect-ratio distortion.
+
+### Added
+- **Step ↔ narration sync (auto-narrate toggle)**: a new `🔁` button in the nav bar toggles `AUTO_NARRATE` mode. When on, navigating to a new step (via the timeline dots, prev/next, or map node clicks) automatically plays the audio for that step after a short delay (850 ms — synced with the map pulse animation). State is persisted in `localStorage`.
+- **TTS mode toggle (verse ↔ narration)**: a new `آية / Narr.` button switches between playing the Quran ayah (default) and the full step description. State is persisted in `localStorage`.
+- **Map Islamic ornament library** (shared `<symbol>` defs): added `#sym-arabesque` (corner arabesque), `#sym-pendant` (mihrab drop), `#sym-star8-lg` (large ornamental 8-point star), `#sym-crescent` (Islamic crescent + star), and `#sym-arch` (mihrab arched gate). All four maps are now populated with: corner arabesques, pendants, large 8-point stars, and crescents (with corner-positioned duplicates to mirror the design).
+- **Arabic voice selection**: `pickArabicVoice()` automatically picks the best available Arabic voice from `speechSynthesis.getVoices()` (cached after first selection); on `onvoiceschanged` it re-picks. The selected voice is applied to every `SpeechSynthesisUtterance` for clearer, more natural Arabic recitation.
+- **Timeline label visibility on mobile**: `.tl-lbl` is now always shown for the current step on small screens (`< 520px`), with `min-width: 60px` / `max-width: 130px` and `overflow-wrap: break-word` so labels never overflow the dot.
+- **New `.n-mode` and `.n-auto` button styles** in `style.css` (44 px tap targets; auto-narrate button shows a green "on" ring when active).
+- **Tests**: new `validate_v24.js` (26 checks) covers: file parse integrity, all 36 steps have ayahs, `applyMapFocus` no longer transforms the pan group, Web-Speech-First TTS flow, new buttons in HTML & CSS, `preserveAspectRatio` on all 4 SVGs, per-map ornament usage, and `data-ar`/`data-en` parity (68/68).
+
 ## [2.3.0] — 2026-06-06
 
 ### Added

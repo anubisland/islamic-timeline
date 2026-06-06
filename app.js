@@ -1,6 +1,6 @@
 /* ============================================================
    Madani Era Timeline — Bilingual App Logic
-   State + render + navigation + audio (Google TTS) + language
+   State + render + navigation + audio (Web Speech + Google TTS) + language
    ============================================================ */
 
 (function () {
@@ -13,13 +13,15 @@
   }
 
   // ── State ──────────────────────────────────────────────
-  const STORAGE = { lang: 'sera.lang' };
+  const STORAGE = { lang: 'sera.lang', ttsMode: 'sera.tts', auto: 'sera.auto' };
   let EVT = 'hijra';
   let STEP = 0;
   let LANG = (localStorage.getItem(STORAGE.lang) || 'AR').toUpperCase();
   let currentAudio = null;
   let isPlaying = false;
   let onAudioEnd = null; // callback to fire when TTS completes (for pulse cleanup)
+  let TTS_MODE = localStorage.getItem(STORAGE.ttsMode) || 'verse';   // 'verse' | 'narrate'
+  let AUTO_NARRATE = localStorage.getItem(STORAGE.auto) === '1';        // auto-play on step change
 
   // ── Map viewBoxes ──────────────────────────────────────
   const MAP_VB = { hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560] };
@@ -113,24 +115,23 @@
     applyMapFocus(false);  // instant (no transition) on event switch
   }
 
-  // ── Pan/zoom the active map to the active step's focus point ──
+  // ── Highlight the active step's focus point on the map ──
+  // Strategy: the map stays fully visible at all times (no pan, no zoom).
+  // We just position the focus pulse + 8-point star wake at the step's
+  // (focus.x, focus.y) so the user can see which location is active.
   function applyMapFocus(animate = true) {
     const s = DB[EVT].steps[STEP];
     if (!s) return;
     const focus = s.mapFocus || { x: MAP_VB[EVT][0] / 2, y: MAP_VB[EVT][1] / 2, scale: 1.0 };
-    const [vbW, vbH] = MAP_VB[EVT];
-    const cx = vbW / 2, cy = vbH / 2;
-    const scale = focus.scale || 1.0;
 
+    // No transform on map-pan — the full map is always visible inside the frame
     const pan = $('pan-' + EVT);
     if (pan) {
-      // transform: translate(cx,cy) scale(s) translate(-focus.x,-focus.y)
-      // keeps (focus.x, focus.y) pinned at center while scaling by s.
-      pan.style.transformOrigin = '0 0';
-      pan.style.transform = `translate(${cx}px, ${cy}px) scale(${scale}) translate(${-focus.x}px, ${-focus.y}px)`;
+      pan.style.transform = '';
+      pan.style.transformOrigin = '';
     }
 
-    // Show & position the focus layer (pulse + 8-point star wake)
+    // Show & position the focus layer (pulse + 8-point star wake) at (focus.x, focus.y)
     const focusLayer = $('focus-' + EVT);
     if (focusLayer) {
       focusLayer.style.display = '';
@@ -156,15 +157,6 @@
         star.classList.add('on');
       }
     }
-
-    // On event switch (animate=false), remove the transition for a snap
-    if (pan && !animate) {
-      const oldT = pan.style.transition;
-      pan.style.transition = 'none';
-      // force reflow then restore
-      void pan.getBoundingClientRect();
-      requestAnimationFrame(() => { pan.style.transition = ''; });
-    }
   }
 
   // ── Pulse on/off helpers (linked to audio state) ────────
@@ -183,74 +175,110 @@
     stopAudio();
     render();
     applyMapFocus(true);
+    if (AUTO_NARRATE) {
+      // Wait for the map pan/zoom transition (~950ms) to start, then narrate
+      setTimeout(() => { if (AUTO_NARRATE) playVerse(); }, 850);
+    }
   }
 
   function step(d) { goTo(STEP + d); }
 
-  // ── Audio (Google TTS with speechSynthesis fallback) ────
+  // ── Audio (Web Speech first, Google TTS as fallback) ───
+  // ── TTS mode: 'verse' (Quran ayah only) or 'narrate' (description) ──
   function cleanForTTS(text) {
-    return text
+    return String(text || '')
       .replace(/[﴿﴾]/g, ' ')
       .replace(/[،؛؟!.]/g, ' ')
+      .replace(/[\u064B-\u0652]/g, '')  // strip tashkil for natural speech
       .replace(/\s+/g, ' ')
-      .trim()
-      .slice(0, 180);
+      .trim();
+  }
+
+  // Pick the best available Arabic voice for the system
+  let cachedArVoice = null;
+  function pickArabicVoice() {
+    if (cachedArVoice) return cachedArVoice;
+    if (!('speechSynthesis' in window)) return null;
+    const voices = window.speechSynthesis.getVoices() || [];
+    const ar = voices.find(v => /ar(-|_)/i.test(v.lang))
+            || voices.find(v => /arabic/i.test(v.name))
+            || null;
+    cachedArVoice = ar;
+    return ar;
+  }
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.onvoiceschanged = pickArabicVoice;
   }
 
   function playVerse() {
     stopAudio();
 
     const s = DB[EVT].steps[STEP];
-    const verse = s.ayah;
-    const verseClean = cleanForTTS(verse);
+    // Choose text: verse (Quran ayah) or description narration
+    const raw = TTS_MODE === 'narrate' ? s[t('desc')] : s.ayah;
+    const text = cleanForTTS(raw);
+    if (!text) { finishPlayback(); return; }
 
     $('btn-play').classList.add('on');
     $('btn-play').textContent = '⏸';
     isPlaying = true;
-    setAudioPulse(true); // map pulse starts now
+    setAudioPulse(true);
 
     function finishPlayback() {
       isPlaying = false;
       setAudioPulse(false);
       resetPlayBtn();
     }
+    window.__ttsFinish = finishPlayback;
 
-    function googleTTS(text, onDone, onFail) {
-      try {
-        const url = 'https://translate.google.com/translate_tts?ie=UTF-8&q='
-                  + encodeURIComponent(text) + '&tl=ar&client=tw-ob';
-        const a = new Audio(url);
-        currentAudio = a;
-        a.volume = 0.92;
-        a.playbackRate = 0.7;
-        a.onended = () => { currentAudio = null; onDone && onDone(); };
-        a.onerror = () => { currentAudio = null; onFail && onFail(); };
-        a.play().catch(() => { currentAudio = null; onFail && onFail(); });
-      } catch (e) {
-        onFail && onFail();
-      }
-    }
-
-    function sysTTS(text, onDone) {
+    function sysTTS(t, onDone) {
       if (!('speechSynthesis' in window)) { onDone && onDone(); return; }
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'ar-SA';
+      try { window.speechSynthesis.cancel(); } catch (e) {}
+      const u = new SpeechSynthesisUtterance(t);
+      u.lang = LANG === 'AR' ? 'ar-SA' : 'en-US';
       u.rate = 0.6;
-      u.volume = 0.92;
+      u.volume = 0.95;
+      const v = pickArabicVoice();
+      if (v) u.voice = v;
+      u.onstart = () => { window.__ttsStart = Date.now(); };
       u.onend = () => onDone && onDone();
       u.onerror = () => onDone && onDone();
       window.speechSynthesis.speak(u);
     }
 
-    googleTTS(
-      verseClean,
-      finishPlayback,
-      () => {
-        // Fallback to speechSynthesis
-        sysTTS(verseClean, finishPlayback);
+    function googleTTS(t, onDone, onFail) {
+      try {
+        const url = 'https://translate.google.com/translate_tts?ie=UTF-8'
+                  + '&q=' + encodeURIComponent(t)
+                  + '&tl=' + (LANG === 'AR' ? 'ar' : 'en')
+                  + '&client=tw-ob';
+        const a = new Audio(url);
+        currentAudio = a;
+        a.volume = 0.95;
+        a.playbackRate = 0.75;
+        a.onended = () => { currentAudio = null; onDone && onDone(); };
+        a.onerror = () => { currentAudio = null; onFail && onFail(); };
+        const p = a.play();
+        if (p && p.catch) p.catch(() => { currentAudio = null; onFail && onFail(); });
+      } catch (e) {
+        onFail && onFail();
       }
-    );
+    }
+
+    // Use Web Speech API first (no CORS, no network). If onend fires within
+    // 600ms of onstart, the engine failed silently — fall back to Google.
+    window.__ttsStart = 0;
+    sysTTS(text, () => {
+      const dur = Date.now() - (window.__ttsStart || 0);
+      if (dur > 0 && dur < 600) {
+        // Web Speech failed silently — try Google TTS
+        googleTTS(text, finishPlayback, () => finishPlayback());
+      } else {
+        finishPlayback();
+      }
+    });
+    // Safety timeout — if neither engine fires onend within 30s, finish
+    setTimeout(() => { if (isPlaying) finishPlayback(); }, 30000);
   }
 
   function stopAudio() {
@@ -430,6 +458,35 @@
     $('btn-prev').addEventListener('click', () => step(-1));
     $('btn-next').addEventListener('click', () => step(1));
     $('btn-play').addEventListener('click', togglePlay);
+
+    // TTS mode toggle: verse <-> narration
+    const modeBtn = $('btn-mode');
+    if (modeBtn) {
+      const refresh = () => {
+        modeBtn.classList.toggle('narrate', TTS_MODE === 'narrate');
+        modeBtn.querySelector('span').textContent = TTS_MODE === 'narrate'
+          ? (LANG === 'AR' ? 'سرد' : 'Narr.')
+          : (LANG === 'AR' ? 'آية' : 'Verse');
+      };
+      refresh();
+      modeBtn.addEventListener('click', () => {
+        TTS_MODE = TTS_MODE === 'verse' ? 'narrate' : 'verse';
+        localStorage.setItem(STORAGE.ttsMode, TTS_MODE);
+        refresh();
+      });
+    }
+
+    // Auto-narrate on step change
+    const autoBtn = $('btn-auto');
+    if (autoBtn) {
+      const refresh = () => autoBtn.classList.toggle('on', AUTO_NARRATE);
+      refresh();
+      autoBtn.addEventListener('click', () => {
+        AUTO_NARRATE = !AUTO_NARRATE;
+        localStorage.setItem(STORAGE.auto, AUTO_NARRATE ? '1' : '0');
+        refresh();
+      });
+    }
 
     // Map node clicks
     for (let i = 0; i <= 5; i++) {

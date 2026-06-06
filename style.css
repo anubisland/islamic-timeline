@@ -379,9 +379,10 @@ body::after {
 .svg-wrap {
   position: relative;
   width: 100%;
-  padding-top: 75%;
+  padding-top: 80%;
   overflow: hidden;
   background: #010e09;
+  isolation: isolate;
 }
 
 .map-svg {
@@ -389,9 +390,8 @@ body::after {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  /* viewBox transitions for step-sync pan/zoom */
-  transition: viewBox 0.9s cubic-bezier(.4, 0, .2, 1);
+  display: block;
+  overflow: hidden;
 }
 
 .map-svg.hidden { display: none; }
@@ -435,11 +435,12 @@ body::after {
   100% { opacity: 0;   transform: scale(2.4) rotate(45deg); }
 }
 
-/* Map pan/zoom wrapper — JS sets transform for step sync */
+/* Map pan wrapper — no transform applied; the map is always fully
+   visible. The focus indicator (pulse + 8-point star) is positioned
+   in absolute viewBox coordinates via JS. */
 .map-pan {
-  transform-origin: center center;
+  transform-origin: 0 0;
   transform-box: view-box;
-  transition: transform 0.95s cubic-bezier(.4, 0, .2, 1);
 }
 
 .map-amb {
@@ -921,6 +922,29 @@ body::after {
 .n-play:hover { background: rgba(197, 160, 89, .5); }
 .n-play.on { background: var(--gold); color: var(--emerald-4); }
 
+.n-mode {
+  height: 38px;
+  padding: .4rem .7rem;
+  background: rgba(99, 102, 241, .15);
+  border: 1px solid rgba(99, 102, 241, .35);
+  color: #c7d2fe;
+  font-size: .72rem;
+  white-space: nowrap;
+}
+.n-mode:hover { background: rgba(99, 102, 241, .3); }
+.n-mode.narrate { background: rgba(99, 102, 241, .5); color: #fff; border-color: rgba(199, 210, 254, .7); }
+
+.n-auto {
+  width: 38px;
+  height: 38px;
+  background: rgba(6, 78, 59, .35);
+  border: 1px solid rgba(6, 78, 59, .6);
+  color: #6ee7b7;
+  font-size: 1rem;
+}
+.n-auto:hover { background: rgba(6, 78, 59, .6); }
+.n-auto.on { background: var(--emerald-3); color: #fff; box-shadow: 0 0 0 2px rgba(110, 231, 183, .35); }
+
 .n-next {
   flex: 1;
   background: linear-gradient(135deg, var(--gold-d), var(--gold));
@@ -1044,11 +1068,14 @@ body::after {
 .tl-lbl {
   font-size: .6rem;
   color: #334155;
-  max-width: 110px;
+  max-width: 130px;
+  min-width: 80px;
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.25;
   display: none;
   font-family: "Cairo", "Inter", sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 [lang="en"] .tl-lbl { font-family: "Inter", "Cairo", sans-serif; }
 
@@ -1075,6 +1102,11 @@ body::after {
 .tl-nd.done .tl-lbl-main { color: #6ee7b7; }
 
 @media (min-width: 520px) { .tl-lbl { display: block; } }
+
+@media (max-width: 519px) {
+  .tl-nd.now .tl-lbl { display: block; }  /* always show the current step's label */
+  .tl-lbl { max-width: 90px; min-width: 60px; }
+}
 
 /* ===================== SCROLLBARS ===================== */
 
