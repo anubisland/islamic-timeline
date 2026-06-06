@@ -112,6 +112,16 @@ The user reported "the map and the narration don't match" **five times** in a ro
   - The current pattern in this project is option 2: set **both** the attributes and the `textContent` in `switchEv()`. Keep them in sync.
   - **Add this case to the mobile-visual review checklist**: click every event button, confirm the map title changes for both languages.
 
+### B3c. Campaign arrows pointing to empty space (orphan arrow)
+
+- **Symptom**: on the Medinan map, the red arrow (`#ef4444`) pointed to a small empty rectangle near the bottom of the map. The user could not recognise what it represented because no landmark label was at the destination.
+- **Root cause**: the red arrow was drawn from Madinah at (380, 300) to (380, 470), but **no node exists at (380, 470)**. The nearest real nodes are `mednode-9 Arafat` at (490, 460) and `mednode-8 Makkah` at (360, 500). The other four campaign arrows (green to Badr / Khandaq, amber to Hudaybiyyah / Arafat) all land on actual nodes whose labels speak for the arrow's destination; the red one was the only orphan.
+- **Fix (v2.4.5 patch)**: re-routed the red arrow to (360, 500) — the centre of `mednode-8 Makkah` — so the existing "🕋 Makkah" label serves as its caption. Added a small red label "فتح مكة · ٨ هـ" / "Fath Makkah · 8 AH" near the midpoint of the arrow to disambiguate that the arrow is the *Conquest of Makkah* (not just a generic Makkah marker).
+- **Rule — must-follow**:
+  - **Every** map annotation (arrow, line, halo, focus pulse, wake) must end on a real node, or must carry its own label. An arrow that points into empty space is a UX bug — the user cannot infer its meaning.
+  - When adding campaign arrows, list the target node id *first* (`mednode-3`, `mednode-6`, `mednode-8`, etc.), then read its `transform="translate(x,y)"` and use those exact coordinates as the arrow's `L x y` destination. Do not pick coordinates by eye.
+  - When auditing a map, walk every `<path>` and every `<line>` and confirm its endpoint is either a known node or has an explicit `<text>` caption within ~25 px.
+
 ### B4. `.svg-wrap` used `padding-top: 80%` (clipping on small viewports)
 
 - **Symptom**: the map appeared cut off at the top or bottom on some mobile / tablet portrait orientations. The full 700×560 viewBox was not rendered.
