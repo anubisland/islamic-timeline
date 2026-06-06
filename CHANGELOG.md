@@ -20,6 +20,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Label default color brightened to `#cbd5e1` (was `#334155` which was nearly invisible on the dark footer).
   - New small-screen rule (`max-width: 480px`) trims labels to 64 px and hides the `.tl-lbl-sub` second line.
 
+## [2.4.4] — 2026-06-07
+
+### Changed
+- **Repeating 8-point Islamic star pattern as a full-page watermark** (the green star tile background visible behind content). The tile is composed in `style.css` as the `--star-8` variable and applied via `body { background: ..., var(--star-8) 0 0 / 120px 120px, radial-gradient(...) }` with `background-attachment: fixed` so the pattern stays in place while the user scrolls. Each 120×120 tile contains:
+  - One large 8-point gold star (fill-opacity 0.10, stroke-opacity 0.18)
+  - One smaller 8-point emerald star nested inside
+  - One centre dot
+  - Four corner mini-stars (tessellating across tile boundaries)
+  - Four edge-midpoint circles + four corner dots (filling the grid)
+  Together this produces a rich green star-pattern backdrop like the reference image the user supplied.
+- **Timeline strip and event-switch buttons tightened for tablet portrait (≤ 720 px)**:
+  - `.tl-nd` now uses `flex: 1 1 0` and `min-width: 0` so all six timeline nodes share the row width evenly and never overflow.
+  - `.tl-lbl` `width: 100%`, `min-width: 0`, font 0.58 rem so every node's label fits on a 720 px viewport without truncation.
+  - `.ev-btn` on ≤ 720 px is `flex: 1 1 0` (no longer `50%`) so the four event buttons stay on a single row.
+  - New `(min-width: 721px) and (max-width: 980px)` media query shrinks the event buttons for small laptops so the row never wraps to two lines.
+
 ## [2.4.2] — 2026-06-07
 
 ### Fixed
