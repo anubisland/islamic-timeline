@@ -4,6 +4,20 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.5] — 2026-06-07
+
+### Fixed
+- **Wrong map title on Medinan / Meccan / Badr maps in any language (duplicate `#map-label` bug).** Two elements shared the id `map-label` in `index.html`: the first inside the proper `.map-topbar` (line 63) and a *second* one further down (the orphan in the page body). Because `document.getElementById('map-label')` returns the *first* match only, the second (hardcoded "خريطة رحلة الهجرة النبوية") was the one the user actually saw — regardless of the active era. Removed the duplicate. Only the first `#map-label` remains, and `switchEv()` now updates it through `data-ar` / `data-en` attributes (it also persists the active era to `localStorage` as `sera.evt`, so the user's last selected event is restored on next visit).
+- **Map area was being cut off in some viewports.** `.svg-wrap` used `padding-top: 80%` (a width-based padding hack that interacts unpredictably with `aspect-ratio` on responsive containers). Replaced with `aspect-ratio: 700 / 560` and changed `.map-svg` from `overflow: hidden` to `overflow: visible` so the full map (including any node wake that extends past the viewBox edge) is always rendered unclipped.
+- **`#map-label` not bilingual on initial mount.** The label was set by `switchEv()` only (which used `t('mapLabel')` at the moment of switch — but the LANG it picked was the *runtime* LANG, not the *saved* one). The label now carries `data-ar` / `data-en` attributes that are refreshed by `switchEv()` and re-translated by `applyLanguage()`, so the saved language is always reflected even on cold load.
+- **English screens contained Arabic words inside the Medinan map SVG.** Five `<text>` elements (`🕋 مكة المكرمة`, `🪓 الخندق`, `⛰️ أحد`, `🕋 مكة`, `🕌 المدينة المنورة`) and their subtitles were hardcoded in Arabic without `data-ar` / `data-en` pairs — so they would have remained in Arabic even when the user toggled to English. All five now carry bilingual attribute pairs; their EN equivalents are: `🕋 Makkah Al-Mukarramah`, `🪓 The Trench`, `⛰️ Mount Uhud`, `🕋 Makkah`, `🕌 Madinah Al-Munawwarah`. Subtitles (e.g. `Battle of the Trench · 5 AH`) are now bilingual too. **Verified 79/79 `data-ar` ↔ `data-en` balance across `index.html`.**
+- **Audio error banner was permanent.** When no Arabic voice was installed, the `#diag` banner would show "Google TTS blocked — install Arabic voice" and stay on screen indefinitely. The banner now **auto-dismisses after 5.5 seconds** and is **click-to-dismiss** (cursor pointer, click anywhere on the banner to hide it immediately). The error text is now also more actionable: "No voice available — install Arabic voice in Windows Settings → Time & Language → Language".
+- **`init()` did not invoke `switchEv()` on mount.** As a result, the map-label kept its hardcoded Arabic initial value, the map focus pulse was not positioned, and the timeline-strip initial focus dot was missing. `init()` now calls `switchEv(EVT)` first (which sets the map label, switches the visible SVG, calls `buildTimeline()`, positions the focus pulse, and renders the step), then `buildTimeline()`, then `applyLanguage()`. This is also what made the duplicate-`#map-label` bug visible to the user.
+
+### Changed
+- **`EVT` is now persisted** to `localStorage` as `sera.evt`, alongside `LANG`, `TTS_MODE`, and `AUTO_NARRATE`. Reload now restores the user's last active event.
+- **Diagnostic banner UX**: new auto-dismiss after 5.5s, click-to-dismiss, "stays put" only on sticky success states.
+
 ## [2.4.3] — 2026-06-07
 
 ### Fixed

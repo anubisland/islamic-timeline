@@ -13,8 +13,8 @@
   }
 
   // ── State ──────────────────────────────────────────────
-  const STORAGE = { lang: 'sera.lang', ttsMode: 'sera.tts', auto: 'sera.auto' };
-  let EVT = 'hijra';
+  const STORAGE = { lang: 'sera.lang', ttsMode: 'sera.tts', auto: 'sera.auto', evt: 'sera.evt' };
+  let EVT = localStorage.getItem(STORAGE.evt) || 'hijra';
   let STEP = 0;
   let LANG = (localStorage.getItem(STORAGE.lang) || 'AR').toUpperCase();
   let currentAudio = null;
@@ -94,6 +94,7 @@
   function switchEv(key) {
     if (!DB[key]) return;
     EVT = key;
+    localStorage.setItem(STORAGE.evt, key);
     STEP = 0;
     stopAudio();
 
@@ -108,8 +109,13 @@
     const sm = $('svg-meccan'); if (sm) sm.classList.toggle('hidden', key !== 'meccan');
     const sd = $('svg-medinan'); if (sd) sd.classList.toggle('hidden', key !== 'medinan');
 
-    // Update map label
-    $('map-label').textContent = DB[key][t('mapLabel')];
+    // Update map label — set BOTH data-ar and data-en so applyLanguage()
+    // can pick the right one based on the current LANG.
+    const ml = $('map-label');
+    if (ml) {
+      ml.setAttribute('data-ar', DB[key].mapLabelAr);
+      ml.setAttribute('data-en', DB[key].mapLabelEn);
+    }
 
     buildTimeline();
     render();
@@ -241,12 +247,17 @@
   }
 
   // ── Diagnostic banner ───────────────────────────────────
-  function diag(msg, kind) {
+  let diagTimer = null;
+  function diag(msg, kind, sticky) {
     const el = $('diag');
     if (!el) return;
     el.className = 'diag diag-' + (kind || 'info');
     el.textContent = msg;
     el.style.display = msg ? 'block' : 'none';
+    if (diagTimer) { clearTimeout(diagTimer); diagTimer = null; }
+    if (msg && !sticky) {
+      diagTimer = setTimeout(() => { el.style.display = 'none'; }, 5500);
+    }
   }
   function diagTTS(state, detail) {
     const map = {
@@ -346,13 +357,13 @@
       if (!started) {
         const isAr = LANG === 'AR';
         if (isAr && !pickArabicVoice()) {
-          diagTTS('noar', 'install Arabic language pack in Windows Settings');
+          diagTTS('noar', 'install Arabic language pack in Windows Settings → Time & Language → Language');
         } else {
           diagTTS('fallback', 'no native voice → trying Google');
         }
         googleTTS(text,
           () => { diag(''); finishPlayback('google ok'); },
-          () => { diagTTS('error', 'Google TTS blocked — install Arabic voice'); finishPlayback('all failed'); }
+          () => { diagTTS('error', 'No voice available — install Arabic voice in Windows Settings'); finishPlayback('all failed'); }
         );
       } else {
         diag('');
@@ -600,10 +611,21 @@
       if (e.key === 'l' || e.key === 'L') { e.preventDefault(); LANG = LANG === 'AR' ? 'EN' : 'AR'; applyLanguage(); }
     });
 
-    // Initial mount — build the timeline strip FIRST (it depends on the
-    // current EVT/STEP only, not on language), then apply language.
+    // Initial mount — switch to the saved event FIRST (this updates the
+    // map-label, map visibility, focus pulse), then build the timeline strip
+    // and apply the saved language.
+    switchEv(EVT);
     buildTimeline();
     applyLanguage();
+
+    // Diag banner: click to dismiss
+    const diagEl = $('diag');
+    if (diagEl) {
+      diagEl.addEventListener('click', () => {
+        diagEl.style.display = 'none';
+        if (diagTimer) { clearTimeout(diagTimer); diagTimer = null; }
+      });
+    }
   }
 
   // Wait for DOM + data.js

@@ -379,7 +379,7 @@ body::after {
 .svg-wrap {
   position: relative;
   width: 100%;
-  padding-top: 80%;
+  aspect-ratio: 700 / 560;
   overflow: hidden;
   background: #010e09;
   isolation: isolate;
@@ -391,7 +391,7 @@ body::after {
   width: 100%;
   height: 100%;
   display: block;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .map-svg.hidden { display: none; }
@@ -1199,6 +1199,8 @@ body::after {
   direction: rtl;
   text-align: right;
   animation: diagSlide 0.32s ease-out;
+  cursor: pointer;
+  user-select: none;
 }
 [dir="ltr"] .diag { direction: ltr; text-align: left; }
 .diag-ok   { background: #064e3b; color: #6ee7b7; border: 1px solid #6ee7b7; }

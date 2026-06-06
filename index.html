@@ -60,7 +60,7 @@
     <!-- MAP PANEL -->
     <section class="map-panel">
       <div class="map-topbar">
-        <span class="map-label">🗺️ <span id="map-label">خريطة رحلة الهجرة النبوية</span></span>
+        <span class="map-label">🗺️ <span id="map-label" data-ar="خريطة رحلة الهجرة النبوية" data-en="Map of the Hijra Journey">خريطة رحلة الهجرة النبوية</span></span>
         <div class="map-badges">
           <span class="mb mb-t" id="badge-time">🌙 ليلاً</span>
           <span class="mb mb-d" id="badge-dist">نقطة الانطلاق</span>
@@ -158,14 +158,6 @@
           </symbol>
         </defs>
       </svg>
-
-      <div class="map-topbar">
-        <span class="map-label">🗺️ <span id="map-label">خريطة رحلة الهجرة النبوية</span></span>
-        <div class="map-badges">
-          <span class="mb mb-t" id="badge-time">🌙 ليلاً</span>
-          <span class="mb mb-d" id="badge-dist">نقطة الانطلاق</span>
-        </div>
-      </div>
 
       <div class="svg-wrap" id="map-svg-wrap">
 
@@ -615,8 +607,8 @@
             <circle class="pr" cx="0" cy="0" r="28"/>
             <rect x="-16" y="-18" width="32" height="36" fill="#0a0a0a" stroke="#C5A059" stroke-width="2"/>
             <rect x="-16" y="-6" width="32" height="3" fill="#C5A059"/>
-            <text y="-25" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" filter="url(#gf3)">🕋 مكة المكرمة</text>
-            <text y="34" fill="#C5A059" font-size="11" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">Makkah</text>
+            <text y="-25" fill="#fff" font-size="13" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" filter="url(#gf3)" data-ar="🕋 مكة المكرمة" data-en="🕋 Makkah Al-Mukarramah">🕋 مكة المكرمة</text>
+            <text y="34" fill="#C5A059" font-size="11" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="الكعبة المشرفة" data-en="The Sacred Ka'bah">Makkah</text>
           </g>
 
           <!-- Ta'if (southeast, siege) -->
@@ -710,15 +702,15 @@
           <!-- Khandaq trench arc (north of Madinah) -->
           <g id="mednode-5" transform="translate(390,170)">
             <path d="M -55 30 A 65 30 0 0 1 55 30" fill="none" stroke="#C5A059" stroke-width="6" opacity=".7"/>
-            <text y="-8" fill="#fde68a" font-size="12" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">🪓 الخندق</text>
-            <text y="6" fill="#fde68a" font-size="9.5" text-anchor="middle" font-family="Cairo,sans-serif">Khandaq Trench</text>
+            <text y="-8" fill="#fde68a" font-size="12" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="🪓 الخندق" data-en="🪓 The Trench">🪓 الخندق</text>
+            <text y="6" fill="#fde68a" font-size="9.5" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="غزوة الأحزاب · ٥ هـ" data-en="Battle of the Trench · 5 AH">Khandaq Trench</text>
           </g>
 
           <!-- Uhud (north) -->
           <g id="mednode-4" transform="translate(360,90)">
             <polygon points="0,-18 22,12 -22,12" fill="#3a2e1c" stroke="#10b981" stroke-width="1.5"/>
-            <text y="-26" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">⛰️ أحد</text>
-            <text y="26" fill="#34d399" font-size="9" text-anchor="middle" font-family="Cairo,sans-serif">Mount Uhud</text>
+            <text y="-26" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="⛰️ أحد" data-en="⛰️ Mount Uhud">⛰️ أحد</text>
+            <text y="26" fill="#34d399" font-size="9" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="غزوة أحد · ٣ هـ" data-en="Battle of Uhud · 3 AH">Mount Uhud</text>
           </g>
 
           <!-- Badr (southwest) -->
@@ -741,8 +733,8 @@
           <g id="mednode-8" transform="translate(360,500)">
             <rect x="-14" y="-16" width="28" height="32" fill="#0a0a0a" stroke="#C5A059" stroke-width="2"/>
             <rect x="-14" y="-5" width="28" height="3" fill="#C5A059"/>
-            <text y="32" fill="#C5A059" font-size="11" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">🕋 مكة</text>
-            <text y="46" fill="#C5A059" font-size="9" text-anchor="middle" font-family="Cairo,sans-serif">Makkah</text>
+            <text y="32" fill="#C5A059" font-size="11" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="🕋 مكة" data-en="🕋 Makkah">🕋 مكة</text>
+            <text y="46" fill="#C5A059" font-size="9" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="فتح مكة · ٨ هـ" data-en="Conquest of Makkah · 8 AH">Makkah</text>
           </g>
 
           <!-- Arafat (southeast) -->
@@ -765,8 +757,8 @@
             <circle class="pr" cx="0" cy="0" r="32"/>
             <path d="M -18 0 a 18 14 0 0 1 36 0 z" fill="#10b981" stroke="#6ee7b7" stroke-width="1.5"/>
             <rect x="-18" y="0" width="36" height="6" fill="#fff" opacity=".7"/>
-            <text y="-26" fill="#fff" font-size="12.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" filter="url(#gf4)">🕌 المدينة المنورة</text>
-            <text y="46" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">Madinah · Capital</text>
+            <text y="-26" fill="#fff" font-size="12.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" filter="url(#gf4)" data-ar="🕌 المدينة المنورة" data-en="🕌 Madinah Al-Munawwarah">🕌 المدينة المنورة</text>
+            <text y="46" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="عاصمة الدولة الإسلامية" data-en="Capital of the Islamic State">Madinah · Capital</text>
           </g>
 
           <!-- Era badge -->
