@@ -1,43 +1,43 @@
 # Madani Era Timeline (الخط الزمني للعهد المدني)
 
-A **bilingual (Arabic / English) interactive website** that walks through the key events of the **Madani Era** in Islamic history: the **Hijra** (٦ مراحل) and the **Battle of Badr** (٣ مراحل). Each step presents a unique Quranic verse, the historical narrative, key figures, leadership lessons, and authoritative sources from the classical Seerah literature.
+> **Interactive bilingual (Arabic / English) timeline of the Hijra and the Battle of Badr.**
 
-> Pure HTML / CSS / vanilla JavaScript. **No build step.** Open `index.html` in a browser, or serve the folder with any static server.
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-anubisland.github.io-0a6b58?style=for-the-badge&logo=github)](https://anubisland.github.io/madani-era-timeline-app/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-C5A059?style=for-the-badge)](LICENSE)
+[![Version](https://img.shields.io/badge/Version-2.0.0-063529?style=for-the-badge)](CHANGELOG.md)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
-## Live Demo
+A **single-page, no-build, vanilla-JS** website that walks through **9 chronological stages** of the early Islamic state — the **Hijra** (٦ مراحل) and the **Battle of Badr** (٣ مراحل). Each step presents a unique Quranic verse, the historical narrative, key figures, leadership lessons, and authoritative sources from the classical Seerah literature.
 
-**https://anubisland.github.io/madani-era-timeline-app/**
+## ✨ Features
 
-## Features
+- 🟢 **Emerald + gold** Islamic visual identity (`#063529` / `#C5A059`).
+- 🗺️ **Two interactive SVG maps** — animated Hijra route + tactical Badr battlefield.
+- 🌐 **Full bilingual UI** — Arabic (RTL) ↔ English (LTR) with `localStorage` persistence.
+- 🔊 **Audio recitation** of each verse via Google TTS, with `speechSynthesis` fallback.
+- 📖 **9 unique Quranic verses** in Arabic + English translation, with Surah references.
+- 👥 **Key figures** with names, roles, and historical context.
+- 💡 **Leadership lessons** drawn from each event.
+- 📚 **Authoritative sources** — Sahih al-Bukhari, Sahih Muslim, Ibn Hisham, *Al-Rahiq Al-Makhtum*, *Zad al-Maad*, *Dala'il al-Nubuwwah*.
+- ⌨️ **Keyboard shortcuts** — arrows, space, `L` for language.
+- 📱 **Fully responsive** — mobile / tablet / desktop.
+- 🌍 **GeoJSON dataset** of all 9 event locations (ready for any map library).
 
-- 🟢 **Emerald + gold** Islamic visual identity (`#063529` / `#C5A059`)
-- 🗺️ **Two interactive SVG maps** — the Hijra route and the tactical Badr battlefield — with animated route drawing
-- 🌐 **Full bilingual UI** — Arabic (RTL) and English (LTR) toggle, persists in `localStorage`
-- 📖 **Per-step Quranic verse** in Arabic + English translation, with Surah reference
-- 🔊 **Audio recitation** — Google TTS reads each verse aloud (Arabic), with `speechSynthesis` fallback
-- 🎯 **9 chronological stages** across 2 events (6 Hijra + 3 Badr)
-- 👥 **Key figures** for each stage — names, roles, historical context
-- 💡 **Leadership lessons** drawn from each event
-- 📚 **Authoritative sources** — Sahih al-Bukhari, Sahih Muslim, Ibn Hisham's *Sirah*, *Al-Rahiq Al-Makhtum*, *Zad al-Maad*, *Dala'il al-Nubuwwah*
-- 🗺️ **GeoJSON dataset** of all 9 event locations (ready for any map library)
-- ⌨️ **Keyboard shortcuts** — arrow keys, space (play), L (language)
-- 📱 **Fully responsive** — mobile / tablet / desktop
+## 📑 Table of Contents
 
-## Project Structure
+- [Live Demo](#-live-demo)
+- [Features](#-features)
+- [Quick Start](#-quick-start)
+- [Keyboard Shortcuts](#-keyboard-shortcuts)
+- [Project Structure](#-project-structure)
+- [Documentation](#-documentation)
+- [Data Schema](#-data-schema)
+- [Sources](#-sources)
+- [Roadmap](#-roadmap)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-```
-Sera/
-├── index.html              # Main app entry point
-├── style.css               # All styling (emerald + gold theme)
-├── app.js                  # State, render, navigation, audio, language toggle
-├── data.js                 # Bilingual data module (window.SEERAH_DB)
-├── timeline_data.geojson   # 9 event locations with coordinates
-├── package.json            # Optional, for `npm start` (uses npx serve)
-├── .gitignore
-└── README.md
-```
-
-## Getting Started
+## 🚀 Quick Start
 
 ### Option 1 — Open directly
 Double-click `index.html`. The site works fully from the `file://` protocol.
@@ -48,76 +48,102 @@ npm start
 # or
 npx serve .
 ```
-Then open the printed URL (usually http://localhost:3000).
+Then open the printed URL (usually `http://localhost:3000`).
 
 > A static server is recommended so Google TTS requests aren't blocked by some browser file:// policies.
 
-## Keyboard Shortcuts
+## ⌨️ Keyboard Shortcuts
 
 | Key | Action |
-|-----|--------|
-| `←` / `→` | Previous / Next step (auto-flips with RTL) |
+|---|---|
+| `←` / `→` | Previous / Next step (auto-flips for RTL) |
 | `↑` / `↓` | Previous / Next step |
 | `Space` | Play / pause verse recitation |
 | `L` | Toggle language (AR ↔ EN) |
 
-## Data Schema
+## 📁 Project Structure
+
+```
+Sera/
+├── .editorconfig                # editor style consistency
+├── .gitignore
+├── CHANGELOG.md                 # version history
+├── CONTRIBUTING.md              # how to contribute
+├── LICENSE                      # MIT (code) + public domain (content)
+├── README.md                    # ← you are here
+├── index.html                   # main app entry (inlines 2 SVG maps)
+├── style.css                    # all styling (emerald + gold theme)
+├── app.js                       # state, render, nav, audio, language toggle
+├── data.js                      # bilingual content module (window.SEERAH_DB)
+├── timeline_data.geojson        # 9 event locations with coordinates
+├── package.json                 # optional, for `npm start` (uses npx serve)
+└── docs/
+    ├── ARCHITECTURE.md          # how the app is put together
+    ├── DATA_SCHEMA.md           # all data shapes
+    └── SOURCES.md               # Islamic sources used
+```
+
+## 📖 Documentation
+
+The project keeps deeper documentation in `docs/`:
+
+| Document | Purpose |
+|---|---|
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | How the app is built — file responsibilities, render pipeline, audio system, keyboard shortcuts, SVG map internals, performance notes. |
+| [`docs/DATA_SCHEMA.md`](docs/DATA_SCHEMA.md) | All data shapes — `SEERAH_DB` step type, `timeline_data.geojson` features, `data-*` attribute conventions. |
+| [`docs/SOURCES.md`](docs/SOURCES.md) | Islamic sources used in the app — Sahih al-Bukhari, Sahih Muslim, Ibn Hisham, *Al-Rahiq Al-Makhtum*, *Zad al-Maad*, *Dala'il al-Nubuwwah*, *Al-Mustadrak*, *Al-Shifa*. |
+
+## 🗃️ Data Schema
+
+Two data files are at the heart of the project:
 
 ### `data.js` — `window.SEERAH_DB`
 ```js
 SEERAH_DB = {
-  hijra: {
-    labelAr, labelEn,
-    mapLabelAr, mapLabelEn,
-    offsets: [1400, 1150, 820, 500, 220, 0],   // SVG route dashoffset per step
-    steps: [
-      {
-        ayah, ayahRef,         // Arabic Quranic verse + Surah ref
-        ayahEn, ayahRefEn,     // English translation + ref
-        titleAr, titleEn,
-        descAr, descEn,
-        dateAr, dateEn,
-        charsAr, charsEn,      // [{i, n, r}]  icon, name, role
-        lessonAr, lessonEn,
-        mtAr, mtEn,            // map card title
-        mdAr, mdEn,            // map card description
-        amb,                   // 'night' | 'dawn' | 'day'
-        timeAr, timeEn,
-        distAr, distEn,
-        srcs: []               // sources (same both languages)
-      }
-    ]
-  },
-  badr: { /* same structure, 3 steps */ }
+  hijra: { labelAr, labelEn, steps: [Step, ...] },
+  badr:  { labelAr, labelEn, steps: [Step, ...] }
+}
+
+Step = {
+  ayah, ayahRef, ayahEn, ayahRefEn,    // verse (bilingual)
+  dateAr, dateEn,                       // Hijri date
+  titleAr, titleEn, descAr, descEn,     // title + narrative
+  mtAr, mtEn, mdAr, mdEn,               // map card overlay
+  timeAr, timeEn, distAr, distEn,       // time + distance badges
+  amb: 'night' | 'dawn' | 'day',        // map ambient gradient
+  charsAr, charsEn,                     // [{ i, n, r }, ...]
+  lessonAr, lessonEn,                   // leadership insight
+  srcs: [string, ...]                   // Arabic source citations
 }
 ```
 
 ### `timeline_data.geojson`
-Standard GeoJSON `FeatureCollection`. Each feature has:
+Standard GeoJSON `FeatureCollection` of all 9 event locations with bilingual `name_ar` / `name_en` and `coordinates: [lng, lat]`.
 
-| Field            | Description                            |
-|------------------|----------------------------------------|
-| `id`             | Unique location identifier             |
-| `event_id`       | Links to a step (e.g. `hijra_0`, `badr_2`) |
-| `name_ar`        | Arabic location name                   |
-| `name_en`        | English location name                  |
-| `year_ah`        | Hijri year                             |
-| `event_title_ar` | Arabic event title                     |
-| `event_title_en` | English event title                    |
-| `coordinates`    | `[longitude, latitude]`                |
+> See [`docs/DATA_SCHEMA.md`](docs/DATA_SCHEMA.md) for the full type definitions and the meaning of `offsets[]`.
 
-## Roadmap
+## 📚 Sources
 
-- [ ] Add a Leaflet map layer that reads `timeline_data.geojson`
-- [ ] Add more events: Uhud, Khandaq, Hudaybiyah, Conquest of Makkah
-- [ ] PWA manifest + service worker for offline use
-- [ ] Print / PDF export of a single step
-- [ ] Share button (copy link with `?event=badr&step=2`)
+Every claim in the app is anchored in classical Sunni sources — Bukhari, Muslim, Ibn Hisham, *Al-Rahiq Al-Makhtum*, *Zad al-Maad*, *Dala'il al-Nubuwwah*, *Al-Mustadrak*, and *Al-Shifa*. See [`docs/SOURCES.md`](docs/SOURCES.md) for a full bibliography and the citation methodology.
 
-## License
+## 🛣️ Roadmap
 
-Content (verses, narratives, lessons) is in the public domain — derived from classical Islamic sources.
-Code is open-source; feel free to fork, modify, and re-publish with attribution.
+- [ ] Add a Leaflet map layer that reads `timeline_data.geojson` and links each marker to its step.
+- [ ] Add more events: Battle of Uhud, Battle of the Trench (Khandaq), Treaty of Hudaybiyah, Conquest of Makkah.
+- [ ] PWA manifest + service worker for offline use.
+- [ ] Print / PDF export of a single step.
+- [ ] Share button — copy a link like `?event=badr&step=2`.
+- [ ] URL routing (deep links) and back/forward navigation.
+
+## 🤝 Contributing
+
+PRs are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) for the contribution guide, code style, and the recipe for adding a new event or a new language.
+
+## 📜 License
+
+This project is released under the **MIT License** for the code (see [`LICENSE`](LICENSE)).
+The bilingual narrative content is derived from classical Islamic sources that are themselves in the public domain — see [`docs/SOURCES.md`](docs/SOURCES.md) for the full attribution.
+Quranic verses are the word of Allah and are not subject to copyright.
 
 ---
 

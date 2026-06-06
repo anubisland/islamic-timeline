@@ -1,0 +1,43 @@
+MIT License
+
+Copyright (c) 2026 anubisland
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+NOTE ON CONTENT (non-code material)
+
+The bilingual narrative content in `data.js` (Arabic and English descriptions,
+leadership lessons, character notes) is derived from classical Islamic sources
+that are themselves in the public domain. The original sources are attributed
+in the application under each step's "Sources" section and listed in detail in
+[`docs/SOURCES.md`](docs/SOURCES.md).
+
+Quranic verses are the word of Allah and are not subject to copyright.
+
+Classical Seerah and Hadith compilations referenced include:
+  - Sahih al-Bukhari (صحيح البخاري)
+  - Sahih Muslim (صحيح مسلم)
+  - Ibn Hisham's *Al-Sirah al-Nabawiyyah* (السيرة النبوية)
+  - Al-Mubarakfuri's *Al-Rahiq Al-Makhtum* (الرحيق المختوم)
+  - Ibn al-Qayyim's *Zad al-Maad* (زاد المعاد)
+  - Al-Bayhaqi's *Dala'il al-Nubuwwah* (دلائل النبوة)
+  - Al-Hakim's *Al-Mustadrak* (المستدرك)
+  - Qadi Iyad's *Al-Shifa* (الشفا)
