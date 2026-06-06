@@ -1118,6 +1118,21 @@ body::after {
   .tl-dot { width: 24px; height: 24px; font-size: .65rem; }
 }
 
+/* On mobile, the per-dot labels wrap into unreadable fragments (each node
+   gets only ~30 px of horizontal space). Hide them — the prominent current-
+   step title in #tl-name is enough context; the dots themselves are the
+   primary navigation affordance. */
+@media (max-width: 720px) {
+  .tl-lbl { display: none; }
+  .tl-wrap { padding: 1.1rem 0 .7rem; min-height: 38px; }
+  .tl-dot { width: 28px; height: 28px; font-size: .7rem; }
+  .tl-nd { gap: 0; }
+  /* Bump the prominent current-step title so it stays readable on mobile */
+  .tl-name { font-size: .82rem; max-width: 78%; }
+  .tl-counter { font-size: .72rem; }
+  .tl-foot { padding: .55rem .8rem .65rem; }
+}
+
 /* ===================== SCROLLBARS ===================== */
 
 ::-webkit-scrollbar { width: 5px; height: 5px; }

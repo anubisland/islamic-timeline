@@ -575,11 +575,27 @@
           <!-- direction to Abyssinia (West / South across Red Sea) -->
           <path d="M 350 320 Q 200 380 90 470" fill="none" stroke="#7dd3fc" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#ar4)" opacity=".75"/>
           <text data-ar="← الهجرة إلى الحبشة" data-en="← Migration to Abyssinia" x="92" y="455" fill="#7dd3fc" font-size="12" font-weight="bold" font-family="Cairo,sans-serif">← الهجرة إلى الحبشة</text>
+          <!-- Directional anchor: Abyssinia (so the focus pulse can land on it) -->
+          <g id="mnode-abyssinia" transform="translate(90,470)" opacity="0">
+            <circle r="6" fill="none" stroke="#7dd3fc" stroke-width="2"/>
+          </g>
 
           <!-- direction to Syria / Sham (North) -->
           <path d="M 350 320 L 350 70" fill="none" stroke="#C5A059" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#ar3)" opacity=".8"/>
           <text data-ar="↑ رحلتي торговлة إلى الشام" data-en="↑ Trade journeys to Syria (Sham)" x="350" y="55" fill="#C5A059" font-size="12" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">↑ رحلتي торговлة إلى الشام</text>
 
+          <!-- Directional anchor: Syria (so the focus pulse can land on it) -->
+          <g id="mnode-syria" transform="translate(350,72)" opacity="0">
+            <circle r="6" fill="none" stroke="#C5A059" stroke-width="2"/>
+          </g>
+          <!-- Directional anchor: Jerusalem (for Isra wal-Mi'raj) -->
+          <g id="mnode-jerusalem" transform="translate(350,140)" opacity="0">
+            <circle r="5" fill="none" stroke="#fcd34d" stroke-width="2"/>
+          </g>
+          <!-- Directional anchor: Aqabah (Bay'ah al-Aqabah happened in Mina, near Makkah) -->
+          <g id="mnode-aqaba" transform="translate(290,360)" opacity="0">
+            <circle r="5" fill="none" stroke="#34d399" stroke-width="2"/>
+          </g>
           <!-- Jabal Noor (Cave Hira) -->
           <g id="mnode-1" transform="translate(440,200)">
             <polygon points="0,-22 30,18 -30,18" fill="#3a2e1c" stroke="#C5A059" stroke-width="1.5"/>

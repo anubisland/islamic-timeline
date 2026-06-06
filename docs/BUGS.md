@@ -122,6 +122,20 @@ The user reported "the map and the narration don't match" **five times** in a ro
   - When adding campaign arrows, list the target node id *first* (`mednode-3`, `mednode-6`, `mednode-8`, etc.), then read its `transform="translate(x,y)"` and use those exact coordinates as the arrow's `L x y` destination. Do not pick coordinates by eye.
   - When auditing a map, walk every `<path>` and every `<line>` and confirm its endpoint is either a known node or has an explicit `<text>` caption within ~25 px.
 
+### B3d. Steps whose `mapFocus` did not match any node (after v2.4.3 partial fix)
+
+- **Symptom (reported again after v2.4.5)**: the user said "the sync is still not achieved". The audit revealed 5 of the 36 steps still had `mapFocus` values that landed in empty space.
+- **Root cause (compound)**: v2.4.3 fixed the *visible* steps but missed two classes:
+  1. **Meccan "directional" events**: the Syria arrow's tip is at (350, 70) and the Abyssinia arrow's tip is at (90, 470), but there were no `<g>` nodes at those positions. The pulse had nowhere to land. v2.4.3 treated (350, 110) as "close enough" — it was not, 127 px from the nearest node.
+  2. **Meccan Makkah-adjacent events**: the Bay'ah al-Aqabah happened near Makkah (in Mina), but its `mapFocus` was 200 px north of Makkah. Step 14 (Isra wal-Mi'raj) needed a Jerusalem / heaven direction anchor that did not exist.
+  3. **Medinan step 1 (market)**: focus was at (430, 230) — 72 px from the nearest node — but the market is in Madinah (the city centre), so it should land on `mednode-0` at (370, 290).
+- **Fix (v2.4.5 patch)**: added four invisible directional anchor nodes to the meccan map (`mnode-syria`, `mnode-abyssinia`, `mnode-jerusalem`, `mnode-aqaba`) — `<g>` elements at the tip of each directional arrow, `opacity="0"` so they don't show, but the focus pulse can land on them. Updated the corresponding `mapFocus` values in `data.js`. Re-ran the audit script — **all 36 steps now land at 0 px from a real node** (Total desyncs: 0).
+- **Rule — must-follow**:
+  - When a step describes a *directional* event (Travel to X, Migration to Y, heavenly ascent), the focus MUST land on a node. If no existing landmark exists at the relevant direction, **add an invisible anchor node** at the tip of the directional arrow. Do not leave the pulse floating in empty space.
+  - Use the same `<g id="mnode-X" transform="translate(x,y)" opacity="0">` template as the visible nodes — same id naming convention, same transform style — so the focus-pulse logic does not need to special-case it.
+  - **Audit after every mapFocus change** with the script in `C:\Users\melwa\AppData\Local\Temp\opencode\audit_final.js`. It must print `Total desyncs: 0`. If it prints anything else, the change is not mergeable.
+  - The Medinan map had a similar pattern: the focus was within 50 px of a node but not exactly on one. Always re-run the audit before claiming "the sync is fixed".
+
 ### B4. `.svg-wrap` used `padding-top: 80%` (clipping on small viewports)
 
 - **Symptom**: the map appeared cut off at the top or bottom on some mobile / tablet portrait orientations. The full 700×560 viewBox was not rendered.
