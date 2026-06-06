@@ -89,6 +89,8 @@
     // Toggle maps
     $('svg-hijra').classList.toggle('hidden', key !== 'hijra');
     $('svg-badr').classList.toggle('hidden', key !== 'badr');
+    const sm = $('svg-meccan'); if (sm) sm.classList.toggle('hidden', key !== 'meccan');
+    const sd = $('svg-medinan'); if (sd) sd.classList.toggle('hidden', key !== 'medinan');
 
     // Update map label
     $('map-label').textContent = DB[key][t('mapLabel')];

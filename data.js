@@ -1,11 +1,528 @@
 // ============================================================
 // SEERAH TIMELINE — Bilingual Data Module
-// Hijra (6 steps) + Badr (3 steps)
+// Meccan (16) + Hijra (6) + Badr (3) + Medinan (11) = 36 stages
 // Each step has Arabic + English parallel fields
 // Loaded into window.SEERAH_DB
 // ============================================================
 
 window.SEERAH_DB = {
+  "meccan": {
+    "labelAr": "العهد المكي",
+    "labelEn": "The Meccan Era",
+    "mapLabelAr": "خريطة العهد المكي",
+    "mapLabelEn": "The Meccan Era — Early Life & Prophethood",
+    "stepCountAr": "محطات",
+    "stepCountEn": "stages",
+    "offsets": [],
+    "steps": [
+      {
+        "ayah": "",
+        "ayahRef": "",
+        "ayahEn": "",
+        "ayahRefEn": "",
+        "dateAr": "٥٧٠ م — ٢٠ أبريل ٥٧١ م",
+        "dateEn": "570 CE — 20 April 571 CE",
+        "titleAr": "مولده ﷺ — عام الفيل وموت أبيه",
+        "titleEn": "His Birth ﷺ — Year of the Elephant",
+        "mtAr": "مكة المكرمة",
+        "mtEn": "Makkah Al-Mukarramah",
+        "mdAr": "مولده يتيم الأب — قَدَرٌ رباني افتتح به النبي ﷺ حياته",
+        "mdEn": "Born an orphan by his father — a divine destiny that opened his blessed life.",
+        "amb": "day",
+        "timeAr": "🌅 فجر الإثنين",
+        "timeEn": "🌅 Monday Dawn",
+        "distAr": "مكة المكرمة",
+        "distEn": "Makkah",
+        "descAr": "وُلد النبي محمد ﷺ في مكة المكرمة يتيم الأب، إذ توفي والده عبدالله بن عبدالمطلب وهو لا يزال جنيناً في بطن أمه آمنة بنت وهب. جاء مولده في عام الفيل — العام الذي حاول فيه أبرهة الأشرم هدم الكعبة فردّه الله بجنود من السماء — ليشأ النبي ﷺ في رعاية الله وعنايته منذ اللحظة الأولى.",
+        "descEn": "The Prophet Muhammad ﷺ was born in Makkah without a father — his father Abdullah ibn Abd al-Muttalib had died while he was still in the womb of his mother Amina bint Wahb. He was born in the Year of the Elephant, the year Abraha al-Ashram marched on the Kaaba and was repelled by divine aerial forces. From his very first breath, the Prophet ﷺ was under the protection and care of Allah.",
+        "charsAr": [
+          { "i": "👩", "n": "آمنة بنت وهب", "r": "أم النبي ﷺ — حملته ورَبّته حتى السادسة" },
+          { "i": "👴", "n": "عبدالمطلب", "r": "جده — كفيله بعد موت أمه" }
+        ],
+        "charsEn": [
+          { "i": "👩", "n": "Amina bint Wahb", "r": "His mother — carried him and nursed him until age six" },
+          { "i": "👴", "n": "Abdul-Muttalib", "r": "His grandfather — guardian after his mother's death" }
+        ],
+        "lessonAr": "القدَر الإلهي يَبدأ قبل الوعي: في مولده يتيمَ الأب كان إيذاناً بأن رازقه هو الله وحده.",
+        "lessonEn": "Divine destiny precedes awareness: being born an orphan was a sign that his Sustainer was Allah alone.",
+        "srcs": ["ابن هشام (١/١٥٨)", "الرحيق المختوم ص٣١"]
+      },
+      {
+        "ayah": "",
+        "ayahRef": "",
+        "ayahEn": "",
+        "ayahRefEn": "",
+        "dateAr": "حوالي ٥٧٣-٥٧٥ م",
+        "dateEn": "c. 573–575 CE",
+        "titleAr": "الرضاعة في بادية بني سعد",
+        "titleEn": "Nursing in the Desert of Bani Sa'd",
+        "mtAr": "بادية بني سعد — شمال مكة",
+        "mtEn": "Desert of Bani Sa'd — north of Makkah",
+        "mdAr": "بادية نقية — حيث نزلت البركة على حليمة وذويها",
+        "mdEn": "Pure desert — where barakah descended on Halima and her household.",
+        "amb": "day",
+        "timeAr": "☀️ نهاراً",
+        "timeEn": "☀️ Day",
+        "distAr": "نحو ١٠٠ كم شمال مكة",
+        "distEn": "~100 km north of Makkah",
+        "descAr": "أرسلته أمه إلى بادية بني سعد ليرضع في ديارهم كعادة أشراف مكة لتقوية بنيانه وفصاحة لسانه. رضعته حليمة السعدية، وحلّت البركة على أهلها: ناقتها المعطّلة امتلأت لبناً، وأرضهم الجدباء اخضرّت، وعاشوا في رخاء لم يعرفوه من قبل. كان حليبُه شفاءً لِما أصاب حليمة من ضعف.",
+        "descEn": "His mother sent him to the desert of Bani Sa'd to be nursed, following the custom of Makkah's noble families to strengthen his body and eloquence. Halima al-Sa'diyya nursed him, and barakah (divine blessing) descended upon her household: her ailing camel produced abundant milk, their barren land turned green, and they enjoyed a prosperity they had never known. His nursing was a cure for Halima's own frailty.",
+        "charsAr": [
+          { "i": "👩", "n": "حليمة السعدية", "r": "مرضعته — حلّت بركتها في بيتها بسببه" }
+        ],
+        "charsEn": [
+          { "i": "👩", "n": "Halima al-Sa'diyya", "r": "His wet-nurse — her household was blessed because of him" }
+        ],
+        "lessonAr": "البركة تسبق العطاء: من استضاف نورَ الله حَلّ في أهله قبل أن يطلب.",
+        "lessonEn": "Barakah precedes giving: whoever hosts Allah's light receives blessing before asking.",
+        "srcs": ["ابن هشام (١/١٦٧)", "الرحيق المختوم ص٣٦"]
+      },
+      {
+        "ayah": "",
+        "ayahRef": "",
+        "ayahEn": "",
+        "ayahRefEn": "",
+        "dateAr": "حوالي ٥٧٤ م (سن ٤)",
+        "dateEn": "c. 574 CE (age 4)",
+        "titleAr": "حادثة شق الصدر",
+        "titleEn": "The Incident of the Chest Being Opened",
+        "mtAr": "بادية بني سعد",
+        "mtEn": "Desert of Bani Sa'd",
+        "mdAr": "جبريل عليه السلام يفتح صدره ويغسله بماء زمزم",
+        "mdEn": "Jibreel (AS) opens his chest and washes it with Zamzam water.",
+        "amb": "night",
+        "timeAr": "🌙 ليلاً",
+        "timeEn": "🌙 Night",
+        "distAr": "بادية بني سعد",
+        "distEn": "Desert of Bani Sa'd",
+        "descAr": "جاءه الملك جبريل عليه السلام وهو غلام يلعب مع الغلمان، فاستخرج قلبه وشقه وغسله بماء زمزم في طست من ذهب، ونزع منه علقةً سوداء وقال: «هذا حِظُّ الشيطان منك». ثم أعاده مكانه. خافت حليمة وأعادته لأمه بمكة حمايةً له من شرّ لاحق.",
+        "descEn": "The angel Jibreel (AS) came to him while he was playing with the other children, opened his chest, washed his heart with Zamzam water in a golden basin, removed a black clot saying 'This is the share of Satan from you,' and then placed his heart back. Halima was frightened and returned him to his mother in Makkah for protection.",
+        "charsAr": [
+          { "i": "👼", "n": "جبريل عليه السلام", "r": "الملَك الذي شقّ صدره وطهّره" }
+        ],
+        "charsEn": [
+          { "i": "👼", "n": "Jibreel (AS)", "r": "The angel who opened his chest and purified it" }
+        ],
+        "lessonAr": "التطهير قبل التكليف: الله يهيئ عباده لما سيُكلَّفون به تهيئةً ربانية.",
+        "lessonEn": "Purification precedes obligation: Allah prepares His servants divinely for what they will be tasked with.",
+        "srcs": ["البخاري (٣٢٠)", "مسلم (١٦٢)", "الرحيق المختوم ص٤٢"]
+      },
+      {
+        "ayah": "",
+        "ayahRef": "",
+        "ayahEn": "",
+        "ayahRefEn": "",
+        "dateAr": "٥٧٧ م (سن ٦)",
+        "dateEn": "577 CE (age 6)",
+        "titleAr": "وفاة أمه آمنة وكفالة جدّه",
+        "titleEn": "Death of His Mother & Grandfather's Guardianship",
+        "mtAr": "الأبواء — بين مكة والمدينة",
+        "mtEn": "Al-Abwa — between Makkah and Madinah",
+        "mdAr": "يتيم الأمّ ثم يتيم الأبَين — بيد الله وحده",
+        "mdEn": "Motherless, then doubly fatherless — in Allah's hand alone.",
+        "amb": "day",
+        "timeAr": "☀️ نهاراً",
+        "timeEn": "☀️ Day",
+        "distAr": "الأبواء",
+        "distEn": "Al-Abwa",
+        "descAr": "توفيت والدته السيدة آمنة بنت وهب في منطقة الأبواء أثناء عودتها من المدينة المنورة (حيث كانت قد زارت قبر زوجها). انتقلت كفالته مباشرة إلى جدّه عبدالمطلب الذي أحبّه حبّاً شديداً وقربه من حاشيته، وكان يأخذه معه إلى الكعبة ويُجلسه على فراشه.",
+        "descEn": "His mother Amina bint Wahb died at Al-Abwa on her return from Madinah, where she had visited her husband's grave. His guardianship passed to his grandfather Abdul-Muttalib, who loved him dearly and kept him close, taking him to the Kaaba and seating him on his own mat.",
+        "charsAr": [
+          { "i": "👴", "n": "عبدالمطلب", "r": "جدّه — قَدَّمه على أولاده وأحبّه حبّاً شديداً" }
+        ],
+        "charsEn": [
+          { "i": "👴", "n": "Abdul-Muttalib", "r": "His grandfather — favoured him above his own children" }
+        ],
+        "lessonAr": "اليُتم ليس نهاية الطريق: من ربّاه الله فقد أوصله.",
+        "lessonEn": "Orphanhood is not the end of the road: whoever Allah raises, He delivers.",
+        "srcs": ["ابن هشام (١/١٧٠)", "الرحيق المختوم ص٤٤"]
+      },
+      {
+        "ayah": "",
+        "ayahRef": "",
+        "ayahEn": "",
+        "ayahRefEn": "",
+        "dateAr": "٥٧٩ م (سن ٨)",
+        "dateEn": "579 CE (age 8)",
+        "titleAr": "وفاة جدّه وكفالة أبي طالب",
+        "titleEn": "Death of His Grandfather & Abu Talib's Guardianship",
+        "mtAr": "مكة المكرمة",
+        "mtEn": "Makkah Al-Mukarramah",
+        "mdAr": "أبو طالب يتولّى كفالته رغم فقره — حُبٌّ يتخطّى المصلحة",
+        "mdEn": "Abu Talib took custody despite his poverty — love beyond self-interest.",
+        "amb": "day",
+        "timeAr": "☀️ نهاراً",
+        "timeEn": "☀️ Day",
+        "distAr": "مكة المكرمة",
+        "distEn": "Makkah",
+        "descAr": "توفي جدّه عبدالمطلب، وأوصى بكفالته لابنه أبي طالب رغم قلة ماله. ضمّه أبو طالب إلى أولاده، وقدمه على نفسه، وأمر زوجته فاطمة بنت أسد ألا تُفضّل عليه أحداً من أبنائها. ظلّ النبي ﷺ في كنف عمّه حتى شبابه.",
+        "descEn": "His grandfather Abdul-Muttalib died and entrusted his guardianship to his son Abu Talib, despite Abu Talib's modest means. Abu Talib took him in as his own, preferred him above himself, and instructed his wife Fatimah bint Asad not to favour any of her own children over him. The Prophet ﷺ remained under Abu Talib's care throughout his youth.",
+        "charsAr": [
+          { "i": "🛡️", "n": "أبو طالب", "r": "عمّه وكافله — ضحّى بنفسه وماله حمايته" },
+          { "i": "👩", "n": "فاطمة بنت أسد", "r": "زوجة أبي طالب — ربّته كأحد أبنائها" }
+        ],
+        "charsEn": [
+          { "i": "🛡️", "n": "Abu Talib", "r": "His uncle and guardian — sacrificed himself and his wealth to protect him" },
+          { "i": "👩", "n": "Fatimah bint Asad", "r": "Abu Talib's wife — raised him as one of her own children" }
+        ],
+        "lessonAr": "القرابة الحقيقية بالحبّ لا بالدمّ: أبو طالب لم يكن أباه بالدم لكنه كان أبا بالقلب.",
+        "lessonEn": "True kinship is of love, not blood: Abu Talib was not his father by blood but was a father by heart.",
+        "srcs": ["ابن هشام (١/١٧٢)", "الرحيق المختوم ص٤٥"]
+      },
+      {
+        "ayah": "",
+        "ayahRef": "",
+        "ayahEn": "",
+        "ayahRefEn": "",
+        "dateAr": "٥٨٣ م (سن ١٢)",
+        "dateEn": "583 CE (age 12)",
+        "titleAr": "السفر إلى الشام وقصة بحيرا الراهب",
+        "titleEn": "Journey to Syria & the Monk Bahira",
+        "mtAr": "بُصرى — جنوب الشام",
+        "mtEn": "Bosra — southern Syria",
+        "mdAr": "بحيرا الراهب يكتشف علامات النبوة في الغلام",
+        "mdEn": "The monk Bahira recognises the signs of prophethood in the boy.",
+        "amb": "day",
+        "timeAr": "☀️ نهاراً",
+        "timeEn": "☀️ Day",
+        "distAr": "بُصرى — الشام",
+        "distEn": "Bosra, Syria",
+        "descAr": "خرج النبي ﷺ في تجارة إلى الشام مع عمّه أبي طالب. عند وصولهم إلى بُصرى، لاحظ بحيرا الراهب علامات النبوة في الغلام — تظليل الغمام له وانحناء الشجر سجوداً — فاستضاف القافلة وأطعمهم ثم أخذ عمّه على حدة ونصحه بالعودة به فوراً، خوفاً عليه من أذى يهود الذين عرفوا علامات النبي المنتظر.",
+        "descEn": "The Prophet ﷺ travelled to Syria on trade with his uncle Abu Talib. At Bosra, the monk Bahira noticed the signs of prophethood in the boy — a cloud shading him and trees bending in prostration. He hosted the caravan, fed them, then took Abu Talib aside and urged him to return with the boy at once, fearing the Jews who knew the signs of the awaited Prophet.",
+        "charsAr": [
+          { "i": "🛡️", "n": "أبو طالب", "r": "عمّه — عاد به فوراً حمايةً له" },
+          { "i": "✝️", "n": "بحيرا الراهب", "r": "نصراني عارف بالكتب السابقة — اكتشف نبوته" }
+        ],
+        "charsEn": [
+          { "i": "🛡️", "n": "Abu Talib", "r": "His uncle — returned immediately for his protection" },
+          { "i": "✝️", "n": "Bahira the Monk", "r": "A Christian versed in previous scriptures — recognised his prophethood" }
+        ],
+        "lessonAr": "العلامات الصادقة لا تُخفى على أهل البصيرة: بحيرا رأى الحقّ رغم اختلاف دينه.",
+        "lessonEn": "True signs are not hidden from the discerning: Bahira saw the truth despite his different faith.",
+        "srcs": ["ابن هشام (١/١٨٠)", "الرحيق المختوم ص٤٨"]
+      },
+      {
+        "ayah": "",
+        "ayahRef": "",
+        "ayahEn": "",
+        "ayahRefEn": "",
+        "dateAr": "حوالي ٥٩٥ م (سن ٢٥)",
+        "dateEn": "c. 595 CE (age 25)",
+        "titleAr": "التجارة والزواج من السيدة خديجة",
+        "titleEn": "Trade & Marriage to Lady Khadijah",
+        "mtAr": "مكة المكرمة",
+        "mtEn": "Makkah Al-Mukarramah",
+        "mdAr": "الصادق الأمين — لقب يسبق النبوة ويؤهّل لها",
+        "mdEn": "Al-Sadiq al-Amin — a title that preceded and qualified prophethood.",
+        "amb": "day",
+        "timeAr": "☀️ نهاراً",
+        "timeEn": "☀️ Day",
+        "distAr": "مكة المكرمة",
+        "distEn": "Makkah",
+        "descAr": "عُرف النبي ﷺ في شبابه بالصادق الأمين. سمعت خديجة بنت خويلد — سيدة ثرية من قريش — بأمانته وعفّته فاستأجرته ليتجر بأموالها إلى الشام مع غلامها ميسرة. رأت مضاعفة رأس المال ورأت من ميسرة قصة ظلّ الغمام وانحناء الشجر، فبعثت تخطبه لنفسها. تمّ الزواج المبارك وأنجبت له أولاده (القاسم، عبدالله، زينب، رقية، أم كلثوم، فاطمة).",
+        "descEn": "The Prophet ﷺ was known in his youth as Al-Sadiq al-Amin (the Truthful, the Trustworthy). Khadijah bint Khuwaylid, a wealthy Qurayshi noblewoman, heard of his trustworthiness and integrity and hired him to trade her capital in Syria with her servant Maysara. She saw her capital doubled and heard from Maysara the story of the shading cloud and the bending trees — so she sent to propose to him. The blessed marriage took place, and she bore him his children (al-Qasim, Abdullah, Zaynab, Ruqayyah, Umm Kulthum, and Fatimah).",
+        "charsAr": [
+          { "i": "👩", "n": "خديجة بنت خويلد", "r": "أول زوجاته — سيدة نساء العالمين" },
+          { "i": "🧑", "n": "ميسرة", "r": "غلام خديجة — شاهد البركة في تجارته" }
+        ],
+        "charsEn": [
+          { "i": "👩", "n": "Khadijah bint Khuwaylid", "r": "His first wife — the lady of all the women of the worlds" },
+          { "i": "🧑", "n": "Maysara", "r": "Khadijah's servant — witnessed the barakah in his trade" }
+        ],
+        "lessonAr": "الأمانة قبل النبوة: لم يكن نبياً حين لُقّب بالصادق الأمين — لكن الصدق صنَع له مجداً بشرياً قبل الرسالة.",
+        "lessonEn": "Trustworthiness precedes prophethood: he was not yet a Prophet when given the title Al-Sadiq al-Amin — but honesty built him a human reputation before the Message.",
+        "srcs": ["ابن هشام (١/١٨٧)", "الرحيق المختوم ص٥٤"]
+      },
+      {
+        "ayah": "﴿ اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ ﴾",
+        "ayahRef": "سورة العلق — الآية ١",
+        "ayahEn": "\"Read in the name of your Lord who created\"",
+        "ayahRefEn": "Surah Al-Alaq — 96:1",
+        "dateAr": "٦١٠ م (سن ٤٠) — رمضان",
+        "dateEn": "610 CE (age 40) — Ramadan",
+        "titleAr": "التعبّد في غار حِراء ونزول الوحي",
+        "titleEn": "Worship in Cave Hira & the First Revelation",
+        "mtAr": "غار حِراء — جبل النور، شمال مكة",
+        "mtEn": "Cave Hira — Mount Noor, north of Makkah",
+        "mdAr": "جبريل ينزل بأول آية — نقطة تحوّل تاريخ البشرية",
+        "mdEn": "Jibreel descends with the first verse — the turning point of human history.",
+        "amb": "dawn",
+        "timeAr": "🌅 فجراً",
+        "timeEn": "🌅 Dawn",
+        "distAr": "جبل النور — ٤ كم شمال مكة",
+        "distEn": "Mount Noor — 4 km north of Makkah",
+        "descAr": "حُبّب إلى النبي ﷺ الخلوة في غار حِراء، فكان يتحنّث فيه الليالي ذوات العدد، يتفكّر في خلق السماوات والأرض. في ليلة القدر من رمضان، فاجأه الملك جبريل وقال: «اقرأ». قال: «ما أنا بقارئ». فضمّه ضمةً شديدة حتى بلغ منه الجهد، ثم أفرج عنه وأعادها ثلاثاً. ثم نزلت أول خمس آيات من سورة العلق. رجع النبي ﷺ إلى خديجة يرجف فؤاده فطمأنته وصدّقت نبأه.",
+        "descEn": "The Prophet ﷺ loved seclusion, retreating to Cave Hira for nights on end, contemplating the creation of the heavens and earth. On the Night of Power in Ramadan, the angel Jibreel appeared and said: 'Read!' He replied: 'I am not a reader.' Jibreel pressed him tightly until he reached his limit, then released him and repeated it three times. Then the first five verses of Surah Al-Alaq descended. The Prophet ﷺ returned to Khadijah trembling — she calmed him and confirmed his tidings.",
+        "charsAr": [
+          { "i": "👼", "n": "جبريل عليه السلام", "r": "الملَك الموكّل بالوحي" },
+          { "i": "👩", "n": "خديجة بنت خويلد", "r": "صدّقت الوحي وطمأنته — أول من آمن" }
+        ],
+        "charsEn": [
+          { "i": "👼", "n": "Jibreel (AS)", "r": "The angel entrusted with revelation" },
+          { "i": "👩", "n": "Khadijah bint Khuwaylid", "r": "Believed and reassured him — the first to embrace Islam" }
+        ],
+        "lessonAr": "التأمّل قبل الرسالة: سنوات من التفكّر هيّأت النبي ﷺ لاستقبال أعظم أمانة.",
+        "lessonEn": "Contemplation precedes the Message: years of reflection prepared the Prophet ﷺ to receive the greatest trust.",
+        "srcs": ["البخاري (٣)", "مسلم (١٦٠)", "ابن هشام (١/٢٣٧)", "الرحيق المختوم ص٧٢"]
+      },
+      {
+        "ayah": "",
+        "ayahRef": "",
+        "ayahEn": "",
+        "ayahRefEn": "",
+        "dateAr": "بعد الوحي مباشرة",
+        "dateEn": "Immediately after the first revelation",
+        "titleAr": "ورقة بن نوفل — تثبيت النبوة",
+        "titleEn": "Waraqa ibn Nawfal — Confirmation of Prophethood",
+        "mtAr": "دار خديجة — مكة",
+        "mtEn": "Khadijah's House — Makkah",
+        "mdAr": "عالمٌ نصرانيٌّ يقرأ الكتب السابقة ويُصدّق الوحي",
+        "mdEn": "A Christian scholar versed in previous scriptures confirms the revelation.",
+        "amb": "day",
+        "timeAr": "☀️ نهاراً",
+        "timeEn": "☀️ Day",
+        "distAr": "مكة المكرمة",
+        "distEn": "Makkah",
+        "descAr": "انطلقت خديجة بالنبي ﷺ إلى ابن عمّها ورقة بن نوفل — شيخ كبير أعمى كان يقرأ الكتب السابقة بالعبرية — فلما سمع قصّة الغار قال: «هذا الناموس الذي نزل الله به على موسى. يا ليتني أكون حياً إذ يُخرجك قومك!» ثم قال: «إن يُدركني يومك ينصرنك الله نصراً عزيزاً». ولم يلبث ورقة أن تُوفّي.",
+        "descEn": "Khadijah took the Prophet ﷺ to her cousin Waraqa ibn Nawfal — a blind old scholar who read the previous scriptures in Hebrew. Upon hearing the story of Hira, he said: 'This is the Namus (the great messenger) that Allah sent down to Moses. If only I could be alive when your people expel you!' He added: 'If I live to see your day, I will support you with mighty support.' Waraqa died shortly after.",
+        "charsAr": [
+          { "i": "📜", "n": "ورقة بن نوفل", "r": "عالم نصراني — أول من صدّق نبوته من خارج بيته" }
+        ],
+        "charsEn": [
+          { "i": "📜", "n": "Waraqa ibn Nawfal", "r": "A Christian scholar — the first outside his household to confirm his prophethood" }
+        ],
+        "lessonAr": "الحقيقة تتخطّى المذاهب: ورقة النصراني أيّد الإسلام بالكتب التي عنده.",
+        "lessonEn": "Truth transcends sects: the Christian Waraqa supported Islam from his own scriptures.",
+        "srcs": ["البخاري (٤٩٥٣)", "مسلم (٢٢٨)", "ابن هشام (١/٢٤١)"]
+      },
+      {
+        "ayah": "",
+        "ayahRef": "",
+        "ayahEn": "",
+        "ayahRefEn": "",
+        "dateAr": "السنة ١-٣ من البعثة",
+        "dateEn": "Years 1–3 of the Prophethood",
+        "titleAr": "الدعوة السرّية — تأسيس النواة",
+        "titleEn": "The Secret Call — Building the Core",
+        "mtAr": "دار الأرقم — مكة",
+        "mtEn": "Dar al-Arqam — Makkah",
+        "mdAr": "ثلاث سنوات من السرّية — بناء القاعدة الصلبة قبل الجهر",
+        "mdEn": "Three years of secrecy — building the solid base before public preaching.",
+        "amb": "day",
+        "timeAr": "☀️ نهاراً",
+        "timeEn": "☀️ Day",
+        "distAr": "مكة المكرمة",
+        "distEn": "Makkah",
+        "descAr": "بعد الوحي، أمر الله نبيّه ﷺ بالدعوة سرّاً. اختار النبي ﷺ دار الأرقم بن أبي الأرقم — وهو فتىً شابّ من بني مخزوم — مركزاً للدعوة، حيث كان يلتقي بالمسلمين الأوائل سرّاً ليُعلّمهم القرآن ومبادئ الإسلام. أسلم خلال هذه المرحلة كبار الصحابة: أبو بكر، علي بن أبي طالب (وهو طفل)، زيد بن حارثة، خديجة، عثمان، الزبير، طلحة، سعد، عبد الرحمن بن عوف.",
+        "descEn": "After the revelation, Allah commanded His Prophet ﷺ to call secretly. He chose the house of al-Arqam ibn Abi al-Arqam, a young man from Banu Makhzum, as a secret meeting place where he would teach the early Muslims the Quran and the principles of Islam. During this period the great Companions embraced Islam: Abu Bakr, Ali (as a child), Zayd ibn Harithah, Khadijah, Uthman, al-Zubayr, Talhah, Sa'd, and Abd al-Rahman ibn Awf.",
+        "charsAr": [
+          { "i": "🏠", "n": "الأرقم بن أبي الأرقم", "r": "صاحب الدار — استضاف الدعوة السرّية" },
+          { "i": "🤝", "n": "أبو بكر الصديق", "r": "أوّل من أسلم من الرجال الأحرار" }
+        ],
+        "charsEn": [
+          { "i": "🏠", "n": "Al-Arqam ibn Abi al-Arqam", "r": "Owner of the house — hosted the secret call" },
+          { "i": "🤝", "n": "Abu Bakr al-Siddiq", "r": "First free adult man to embrace Islam" }
+        ],
+        "lessonAr": "بناء القاعدة قبل الإعلان: ٣ سنوات سرّية مهّدت لجيل قويّ قادر على تحمّل الجهر.",
+        "lessonEn": "Build the base before announcing: 3 secret years prepared a strong generation able to bear the public call.",
+        "srcs": ["ابن هشام (١/٢٥٧)", "الرحيق المختوم ص١٠٢"]
+      },
+      {
+        "ayah": "﴿ فَاصْدَعْ بِمَا تُؤْمَرُ وَأَعْرِضْ عَنِ الْمُشْرِكِينَ ﴾",
+        "ayahRef": "سورة الحجر — الآية ٩٤",
+        "ayahEn": "\"Then proclaim what you have been commanded and turn away from the polytheists\"",
+        "ayahRefEn": "Surah Al-Hijr — 15:94",
+        "dateAr": "السنة ٤ من البعثة",
+        "dateEn": "Year 4 of the Prophethood",
+        "titleAr": "الجهر بالدعوة — المواجهة الأولى",
+        "titleEn": "The Public Call — First Confrontation",
+        "mtAr": "جبل الصفا — مكة",
+        "mtEn": "Mount Safa — Makkah",
+        "mdAr": "إعلان التحدّي العلني — وأبو لهب يتصدّر الرفض",
+        "mdEn": "A public declaration of challenge — and Abu Lahab leads the rejection.",
+        "amb": "day",
+        "timeAr": "☀️ نهاراً",
+        "timeEn": "☀️ Day",
+        "distAr": "جبل الصفا — مكة",
+        "distEn": "Mount Safa — Makkah",
+        "descAr": "نزل الأمر الإلهي: «فَاصْدَعْ بِمَا تُؤْمَرُ». صعد النبي ﷺ على جبل الصفا ونادى بطون قريش: «يا بني فهر! يا بني عدي! ... أرأيتكم لو أخبرتكم أن خيلاً تُصيحكم أُصدِّقونني؟». قالوا: نعم. قال: «فإني نذير لكم بين يدي عذاب شديد». فقام أبو لهب عمّه يقول: «تبّاً لك سائر اليوم!». فأنزل الله سورة المسد تبرأه.",
+        "descEn": "The divine command came: 'Proclaim what you have been commanded.' The Prophet ﷺ ascended Mount Safa and called out to the clans of Quraysh: 'O Banu Fihr! O Banu Adi! … If I told you that cavalry were about to attack you, would you believe me?' They said: Yes. He said: 'Then I am a warner to you of a severe punishment.' His uncle Abu Lahab stood up and said: 'May you perish for the rest of the day!' Allah then revealed Surah Al-Masad disowning him.",
+        "charsAr": [
+          { "i": "🔥", "n": "أبو لهب", "r": "عمّه — أول من تصدّى علناً للدعوة" }
+        ],
+        "charsEn": [
+          { "i": "🔥", "n": "Abu Lahab", "r": "His uncle — the first to publicly oppose the call" }
+        ],
+        "lessonAr": "الجهر في وقته شجاعة: الإعلان العلني قرار رباني بوقته، لا قرار بشري بتسرّعه.",
+        "lessonEn": "Public proclamation at its time is courage: the public announcement is a divine decision in its time, not a human rush.",
+        "srcs": ["البخاري (٤٩٥٤)", "ابن هشام (١/٢٦٤)", "الرحيق المختوم ص١١٢"]
+      },
+      {
+        "ayah": "",
+        "ayahRef": "",
+        "ayahEn": "",
+        "ayahRefEn": "",
+        "dateAr": "السنة ٥ من البعثة",
+        "dateEn": "Year 5 of the Prophethood",
+        "titleAr": "الهجرة الأولى إلى الحبشة",
+        "titleEn": "The First Migration to Abyssinia",
+        "mtAr": "أرض الحبشة — إثيوبيا",
+        "mtEn": "The Land of Abyssinia — Ethiopia",
+        "mdAr": "الملِك النجاشي — أول حماية سياسية خارجية للمسلمين",
+        "mdEn": "The Negus — first external political protection for Muslims.",
+        "amb": "day",
+        "timeAr": "☀️ نهاراً",
+        "timeEn": "☀️ Day",
+        "distAr": "الحبشة — جنوب غرب الجزيرة",
+        "distEn": "Abyssinia — southwest of Arabia",
+        "descAr": "اشتدّ تعذيب قريش للمسلمين الضعفاء، فأمرهم النبي ﷺ بالهجرة إلى الحبشة عند الملِك النجاشي — ملك مسيحي عادل لا يُظلم عنده أحد. هاجر سرّاً اثنا عشر رجلاً وأربع نسوة، ثم تبعهم آخرون حتى بلغوا ما يقارب مئة. أرسلت قريش عمرو بن العاص وعمارة بن الوليد بهدايا لردّ المهاجرين، لكنّ النجاشي استمع لجعفر بن أبي طالب وقرأ عليه سورة مريم فأبى تسليمهم.",
+        "descEn": "Quraysh's torture of the weak Muslims intensified, so the Prophet ﷺ ordered them to migrate to Abyssinia under the Negus — a just Christian king where no one was wronged. Twelve men and four women migrated secretly at first, then others followed until they numbered about a hundred. Quraysh sent Amr ibn al-As and Amarah ibn al-Walid with gifts to return the migrants, but the Negus listened to Ja'far ibn Abi Talib reciting Surah Maryam and refused to surrender them.",
+        "charsAr": [
+          { "i": "👑", "n": "النجاشي أصحمة", "r": "ملِك الحبشة — أنصف المسلمين وردّ قريشاً" },
+          { "i": "🦁", "n": "جعفر بن أبي طالب", "r": "أمير المهاجرين — قرأ على النجاشي سورة مريم" },
+          { "i": "🦊", "n": "عمرو بن العاص", "r": "سفير قريش — فشلت مهمّته" }
+        ],
+        "charsEn": [
+          { "i": "👑", "n": "The Negus (Ashama)", "r": "King of Abyssinia — favoured the Muslims and rebuffed Quraysh" },
+          { "i": "🦁", "n": "Ja'far ibn Abi Talib", "r": "Leader of the migrants — recited Surah Maryam to the Negus" },
+          { "i": "🦊", "n": "Amr ibn al-As", "r": "Quraysh's envoy — his mission failed" }
+        ],
+        "lessonAr": "البحث عن حليف في أصعب الظروف: الهجرة للحبشة كانت أوّل تحالف دوليّ للمسلمين.",
+        "lessonEn": "Seek an ally in the hardest times: the Abyssinian migration was the first international alliance for Muslims.",
+        "srcs": ["ابن هشام (١/٣٣٧)", "الرحيق المختوم ص١٣٢"]
+      },
+      {
+        "ayah": "﴿ فَاصْبِرْ إِنَّ وَعْدَ اللَّهِ حَقٌّ ﴾",
+        "ayahRef": "سورة الروم — الآية ٦٠",
+        "ayahEn": "\"So be patient; indeed the promise of Allah is truth\"",
+        "ayahRefEn": "Surah Ar-Rum — 30:60",
+        "dateAr": "السنوات ٧-٩ من البعثة",
+        "dateEn": "Years 7–9 of the Prophethood",
+        "titleAr": "حصار شعب أبي طالب",
+        "titleEn": "The Siege of Shi'b Abi Talib",
+        "mtAr": "شعب أبي طالب — مكة",
+        "mtEn": "Shi'b Abi Talib — Makkah",
+        "mdAr": "حصارٌ اقتصاديٌّ واجتماعيّ — ومعه ثباتٌ ربّانيّ",
+        "mdEn": "An economic and social siege — met with divine steadfastness.",
+        "amb": "night",
+        "timeAr": "🌙 ليلاً ونهاراً",
+        "timeEn": "🌙 Day & Night",
+        "distAr": "شعب أبي طالب — مكة",
+        "distEn": "Shi'b Abi Talib, Makkah",
+        "descAr": "بعد موت أبي طالب وتشديد قريش، أَلّبت قريش على بني هاشم وبني عبدالمطلب ونقضت صحيفة كتبوها تحرمهم الزواج والمتاجرة. عزلوا النبي ﷺ ومن تبعه في الشِّعب ثلاث سنوات، عانوا فيها من جوع شديد حتى أكلوا أوراق الشجر والجلود. لكنّ خمسة من بني هاشم نقضوا الصحيفة سرّاً وأخبروا أهل مكة بمضمونها، فانهارت المقاطعة.",
+        "descEn": "After Abu Talib's death and Quraysh's increased pressure, Quraysh rallied against Banu Hashim and Banu Abd al-Muttalib and wrote a boycott document banning marriage and trade with them. The Prophet ﷺ and his followers were besieged in Shi'b for three years, suffering such severe hunger that they ate leaves and hides. Five of the Hashimites secretly violated the pact and disclosed its contents to Makkah, and the boycott collapsed.",
+        "charsAr": [
+          { "i": "✍️", "n": "هشام بن عمرو", "r": "من نقض الصحيفة سرّاً" }
+        ],
+        "charsEn": [
+          { "i": "✍️", "n": "Hisham ibn Amr", "r": "One of those who secretly broke the boycott" }
+        ],
+        "lessonAr": "الحصار يَكشف الجوهر: في الشدّة يَبقى من ثَبَتَ ويزول من كان للمصلحة.",
+        "lessonEn": "Siege reveals the essence: in hardship, the steadfast remain while the opportunists leave.",
+        "srcs": ["ابن هشام (١/٣٥١)", "الرحيق المختوم ص١٤٠"]
+      },
+      {
+        "ayah": "",
+        "ayahRef": "",
+        "ayahEn": "",
+        "ayahRefEn": "",
+        "dateAr": "السنة ١٠ من البعثة",
+        "dateEn": "Year 10 of the Prophethood",
+        "titleAr": "عام الحزن",
+        "titleEn": "The Year of Sorrow",
+        "mtAr": "مكة المكرمة",
+        "mtEn": "Makkah Al-Mukarramah",
+        "mdAr": "فقدان الحامي والسند في عام واحد",
+        "mdEn": "Losing the protector and the supporter in a single year.",
+        "amb": "day",
+        "timeAr": "☀️ عامٌ كامل",
+        "timeEn": "☀️ A whole year",
+        "distAr": "مكة المكرمة",
+        "distEn": "Makkah",
+        "descAr": "في عام واحد فَقد النبي ﷺ أكبر حامٍ سياسي وقبليّ له — عمّه أبا طالب — وبعده بأيام قليلة توفيت زوجته السيدة خديجة السند العاطفي والمالي الداخلي. سُمّي هذا العام «عام الحزن» لاجتماع المصيبتين، واشتدّ أذى قريش فخرج النبي ﷺ إلى الطائف يطلب النصرة، فأُذي وأُجْلِي منها، لكنّ الله هيّأ له من تَبِعَه من الجنّ.",
+        "descEn": "In a single year the Prophet ﷺ lost his greatest political and tribal protector — his uncle Abu Talib — and a few days later his wife Khadijah, his emotional and financial support. This year was named 'the Year of Sorrow' for the twin calamities, and Quraysh's persecution intensified. The Prophet ﷺ went to Ta'if seeking support but was hurt and driven out, yet Allah prepared for him a hearing from among the jinn.",
+        "charsAr": [
+          { "i": "🛡️", "n": "أبو طالب", "r": "الحامي القبلي الذي رحل" },
+          { "i": "👩", "n": "خديجة بنت خويلد", "r": "السند العاطفي والمالي الذي رحل" }
+        ],
+        "charsEn": [
+          { "i": "🛡️", "n": "Abu Talib", "r": "The tribal protector who passed" },
+          { "i": "👩", "n": "Khadijah bint Khuwaylid", "r": "The emotional and financial support who passed" }
+        ],
+        "lessonAr": "من رزئه الله يصطفيه: في أشدّ لحظات الحزن يأتي الفرج الإلهي.",
+        "lessonEn": "Whoever Allah tests, He chooses: in the deepest sorrow comes divine relief.",
+        "srcs": ["ابن هشام (١/٤١٠)", "الرحيق المختوم ص١٥٠"]
+      },
+      {
+        "ayah": "﴿ سُبْحَانَ الَّذِي أَسْرَى بِعَبْدِهِ لَيْلاً مِنَ الْمَسْجِدِ الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَى ﴾",
+        "ayahRef": "سورة الإسراء — الآية ١",
+        "ayahEn": "\"Exalted is He who took His servant by night from Al-Masjid Al-Haram to Al-Masjid Al-Aqsa\"",
+        "ayahRefEn": "Surah Al-Isra — 17:1",
+        "dateAr": "السنة ١١ من البعثة",
+        "dateEn": "Year 11 of the Prophethood",
+        "titleAr": "الإسراء والمعراج",
+        "titleEn": "The Night Journey & Ascension (Isra & Mi'raj)",
+        "mtAr": "مكة ← القدس ← السماء السابعة",
+        "mtEn": "Makkah → Jerusalem → the Seventh Heaven",
+        "mdAr": "رحلة السماء — حيث فُرضت الصلوات الخمس",
+        "mdEn": "The heavenly journey — where the five daily prayers were ordained.",
+        "amb": "night",
+        "timeAr": "🌙 ليلة واحدة",
+        "timeEn": "🌙 One Night",
+        "distAr": "مكة ← القدس ← السماوات",
+        "distEn": "Makkah → Jerusalem → the Heavens",
+        "descAr": "تَسريةً وتكريماً من الله لنبيّه بعد حزنه الشديد، أُسري بالنبي ﷺ ليلاً من المسجد الحرام إلى المسجد الأقصى راكباً البراق، فَصَلّى بالأنبياء إماماً، ثم عُرج به إلى السماوات العُلى. كلّ سماء استقبله ملَك من ملائكة الله، حتى سدرة المنتهى، حيث كلّمه الله وفرض عليه الصلوات الخمس — خمسين صلاة خفّفها الله إلى خمس بوساطة النبي ﷺ بقوله: «يا ربّ خفّف عن أمتي».",
+        "descEn": "As a comfort and honour from Allah to His Prophet after his deep sorrow, the Prophet ﷺ was taken by night from Al-Masjid Al-Haram to Al-Masjid Al-Aqsa on the Buraq, where he led the prophets in prayer. Then he was raised through the heavens — each heaven's angel greeting him — until he reached Sidrat al-Muntaha, where Allah spoke to him and ordained fifty daily prayers. The Prophet ﷺ kept returning to ask for reduction until Allah settled the number at five, saying: 'O Lord, lighten my ummah's burden.'",
+        "charsAr": [
+          { "i": "🕌", "n": "المسجد الأقصى", "r": "محطّة الإسراء — حيث صلى بالأنبياء" },
+          { "i": "🌳", "n": "سدرة المنتهى", "r": "أعلى نقطة في المعراج" },
+          { "i": "👼", "n": "جبريل عليه السلام", "r": "المرشد في رحلة السماوات" }
+        ],
+        "charsEn": [
+          { "i": "🕌", "n": "Al-Masjid Al-Aqsa", "r": "Station of the Night Journey — where he led the prophets in prayer" },
+          { "i": "🌳", "n": "Sidrat al-Muntaha", "r": "The highest point of the Ascension" },
+          { "i": "👼", "n": "Jibreel (AS)", "r": "The guide through the heavenly journey" }
+        ],
+        "lessonAr": "الكرامة قبل النصرة: في الليل جاء الفتح قبل أن يأتي أي دعم بشري.",
+        "lessonEn": "Honour before support: by night came the opening before any human aid arrived.",
+        "srcs": ["البخاري (٣٤٩)", "مسلم (١٦٢)", "ابن هشام (٢/٢٢)", "الرحيق المختوم ص١٥٧"]
+      },
+      {
+        "ayah": "",
+        "ayahRef": "",
+        "ayahEn": "",
+        "ayahRefEn": "",
+        "dateAr": "السنوات ١٢-١٣ من البعثة",
+        "dateEn": "Years 12–13 of the Prophethood",
+        "titleAr": "بيعتا العقبة — تأسيس جبهة يثرب",
+        "titleEn": "The Two Pledges of Aqabah — Yathrib's Pledge",
+        "mtAr": "منى — العقبة قرب مكة",
+        "mtEn": "Mina — Aqabah near Makkah",
+        "mdAr": "بيعة الأنصار — التي غيّرت خريطة التاريخ",
+        "mdEn": "The Pledge of the Ansar — that changed the map of history.",
+        "amb": "night",
+        "timeAr": "🌙 ليلاً",
+        "timeEn": "🌙 Night",
+        "distAr": "العقبة — قرب منى",
+        "distEn": "Aqabah — near Mina",
+        "descAr": "بعد أن أسلم ستة من الخزرج من يثرب في موسم الحج، عادوا فدعوا قومهم، ثم جاؤوا في العام التالي ومعهم اثنا عشر نقيباً، فبايعوا النبي ﷺ بيعة العقبة الكبرى سرّاً عند العقبة: «على السمع والطاعة في العسر واليسر والمنشط والمكره، وعلى الأمر بالمعروف والنهي عن المنكر، وأن لا ننازع الأمر أهله، وأن نقول بالحقّ أينما كنا، ولا نخاف في الله لومة لائم». هذه البيعة مَهّدت لهجرة المسلمين إلى يثرب وتأسيس الدولة.",
+        "descEn": "After six men from Khazraj of Yathrib embraced Islam during Hajj and returned to invite their people, they came the following year with twelve leaders and pledged the Second Pledge of Aqabah in secret: 'To hear and obey in hardship and ease, in energy and lethargy; to enjoin good and forbid evil; to speak for truth wherever we are; and to fear no blame in Allah's cause.' This pledge paved the way for the Muslim migration to Yathrib and the founding of the state.",
+        "charsAr": [
+          { "i": "🤝", "n": "أبو الهيثم بن التيهان", "r": "أول من بايع من الأنصار" },
+          { "i": "🤝", "n": "أسعد بن زرارة", "r": "نقيب الخزرج في البيعة الأولى" },
+          { "i": "🤝", "n": "أسيد بن حضير", "r": "نقيب الأوس في البيعة الأولى" }
+        ],
+        "charsEn": [
+          { "i": "🤝", "n": "Abu al-Haytham ibn al-Tayyihan", "r": "First of the Ansar to pledge" },
+          { "i": "🤝", "n": "As'ad ibn Zurarah", "r": "Naqib of Khazraj in the first pledge" },
+          { "i": "🤝", "n": "Asid ibn Hudayr", "r": "Naqib of Aws in the first pledge" }
+        ],
+        "lessonAr": "التخطيط طويل المدى للخلاص: قبل الهجرة بأعوام بدأت القاعدة تنتشر وتنظيم.",
+        "lessonEn": "Long-term planning for deliverance: years before the Hijra, the base was spreading and organising.",
+        "srcs": ["البخاري (٧٢١)", "ابن هشام (٢/٥٩)", "الرحيق المختوم ص١٧٥"]
+      }
+    ]
+  },
   "hijra": {
     "labelAr": "رحلة الهجرة النبوية الشريفة",
     "labelEn": "The Prophet's Migration (Hijra)",
@@ -325,6 +842,396 @@ window.SEERAH_DB = {
         "lessonAr": "الابتكار + التوكل معاً: نظام الصفوف ثورة عسكرية، والدعاء الليلي قمة التوكل.",
         "lessonEn": "Innovation plus reliance on Allah: the fixed ranks were a military revolution; the night of supplication was the pinnacle of trust in Allah. Pairing complete preparation with sincere reliance on God — that is the Quranic method.",
         "srcs": ["البخاري (٣٩٦٢)", "مسلم (١٧٦٣)", "ابن هشام (٢/٢٨٠)", "الرحيق المختوم ص٢٣٤"]
+      }
+    ]
+  },
+  "medinan": {
+    "labelAr": "العهد المدني",
+    "labelEn": "The Medinan Era",
+    "mapLabelAr": "خريطة العهد المدني واتساع الدولة",
+    "mapLabelEn": "The Medinan Era — The Expanding State",
+    "stepCountAr": "محطات",
+    "stepCountEn": "stages",
+    "offsets": [
+      { "id": "badr", "nameAr": "بدر", "nameEn": "Badr", "x": 250, "y": 220 },
+      { "id": "uhud", "nameAr": "أحد", "nameEn": "Uhud", "x": 380, "y": 100 },
+      { "id": "khandaq", "nameAr": "الخندق", "nameEn": "Khandaq", "x": 380, "y": 60 },
+      { "id": "hudaybiyyah", "nameAr": "الحديبية", "nameEn": "Hudaybiyyah", "x": 360, "y": 270 },
+      { "id": "makkah", "nameAr": "مكة", "nameEn": "Makkah", "x": 360, "y": 360 },
+      { "id": "arafat", "nameAr": "عرفة", "nameEn": "Arafat", "x": 410, "y": 410 }
+    ],
+    "steps": [
+      {
+        "ayah": "وَأَنَّ الْمَسَاجِدَ لِلَّهِ فَلَا تَدْعُوا مَعَ اللَّهِ أَحَدًا",
+        "ayahRef": "الجن — ٧٢:١٨",
+        "ayahEn": "The mosques are for Allah, so do not call upon anyone else with Allah.",
+        "ayahRefEn": "Surah Al-Jinn — 72:18",
+        "dateAr": "سنة ١ هـ",
+        "dateEn": "1 AH",
+        "titleAr": "بناء المسجد النبوي وتأسيس أركان الدولة",
+        "titleEn": "Building the Prophet's Mosque & Founding the State",
+        "mtAr": "المدينة المنورة",
+        "mtEn": "Madinah Al-Munawwarah",
+        "mdAr": "أول دستور مدني مكتوب — ومؤاخاة المهاجرين والأنصار",
+        "mdEn": "First written civil constitution — and the brotherhood of Migrants and Helpers",
+        "amb": "day",
+        "timeAr": "🌅 نهاراً",
+        "timeEn": "🌅 Daytime",
+        "distAr": "المدينة المنورة",
+        "distEn": "Madinah",
+        "descAr": "وضع النبي ﷺ حجر الأساس للمسجد النبوي بنفسه، وشارك في البناء. كان المسكن والمجلس والمدرسة ومحكمة القضاء ومركز القيادة في بيت واحد. وآخى بين المهاجرين والأنصار ليحلّ أزمة السكن والتمويل، وكتب وثيقة المدينة التي تُعدّ أول دستور مدني مكتوب في التاريخ تضمن حقوق الجميع — مسلمين ويهود وأقباط — وحرية الاعتقاد وحق اللجوء السياسي.",
+        "descEn": "The Prophet ﷺ laid the foundation stone of the Prophet's Mosque with his own hands and worked in the construction. The mosque served as residence, council, school, court, and command centre — all in one. He established the brotherhood (mu'akhat) between the Migrants and Helpers to solve housing and financing, then wrote the Charter of Madinah — widely considered the first written civil constitution in history — guaranteeing rights for all: Muslims, Jews, and others, including freedom of belief and the right of political asylum.",
+        "charsAr": [
+          { "i": "🕌", "n": "المسجد النبوي", "r": "أول مؤسسة جامعة في الإسلام" },
+          { "i": "🤝", "n": "أبو بكر وعمر", "r": "آخى النبي بين أبي بكر وخارجة بن زيد، وعمر وعبد الرحمن بن عوف" },
+          { "i": "📜", "n": "وثيقة المدينة", "r": "نص من ٤٧ بنداً يضمن التعايش والعدالة" }
+        ],
+        "charsEn": [
+          { "i": "🕌", "n": "The Prophet's Mosque", "r": "The first comprehensive institution in Islam" },
+          { "i": "🤝", "n": "Abu Bakr & Umar", "r": "The Prophet paired Abu Bakr with Kharijah ibn Zayd, and Umar with Abd al-Rahman ibn Awf" },
+          { "i": "📜", "n": "Charter of Madinah", "r": "A 47-article text guaranteeing coexistence and justice" }
+        ],
+        "lessonAr": "المسجد مؤسسة دولة: قبل أن تبني اقتصاداً أو جيشاً، ابدأ بمكان يجمع القلوب على ذكر الله.",
+        "lessonEn": "The mosque is a state institution: before economy or army, start with a place that gathers hearts upon the remembrance of Allah.",
+        "srcs": ["ابن هشام (١/٣٣٧)", "الزرقاني على المواهب (١/١١٨)", "وثيقة المدينة — بحث د.حميد الله"]
+      },
+      {
+        "ayah": "",
+        "ayahRef": "",
+        "ayahEn": "",
+        "ayahRefEn": "",
+        "dateAr": "أواخر سنة ١ هـ",
+        "dateEn": "Late 1 AH",
+        "titleAr": "تأسيس سوق المدينة الإسلامي المستقل",
+        "titleEn": "Founding the Independent Islamic Market of Madinah",
+        "mtAr": "البقيع — المدينة المنورة",
+        "mtEn": "Al-Baqi' — Madinah",
+        "mdAr": "كسر هيمنة الأسواق اليهودية بدون ضرائب",
+        "mdEn": "Breaking the monopoly of Jewish markets — tax-free",
+        "amb": "day",
+        "timeAr": "☀️ ضحى",
+        "timeEn": "☀️ Forenoon",
+        "distAr": "البقيع",
+        "distEn": "Al-Baqi'",
+        "descAr": "خصص النبي ﷺ منطقة البقيع سوقاً مستقلة للمسلمين، يحكمها قواعد صارمة: لا غشّ، ولا احتكار، ولا ربا، ولا ضرائب على البائع. هكذا حقّق الاستقلال الاقتصادي الكامل للدولة الناشئة، وفكّ احتكار يهود المدينة لاقتصاد المنطقة. قال: لا يبيع في سوقنا إلا من كان مسلماً أو ذمّياً ذا ذمة. وقال: البيعان بالخيار ما لم يتفرقا.",
+        "descEn": "The Prophet ﷺ designated the Al-Baqi' area as an independent market for Muslims, governed by strict rules: no fraud, no monopoly, no usury, and no taxes on sellers. This achieved full economic independence for the nascent state and broke the monopoly of Madinah's Jews over the regional economy. He said: 'None shall trade in our market except a Muslim or a covenanted non-Muslim.' He also said: 'The seller and buyer have the option (to cancel) as long as they have not parted.'",
+        "charsAr": [
+          { "i": "💰", "n": "سوق البقيع", "r": "أول سوق إسلامي مستقل خالٍ من الربا" },
+          { "i": "⚖️", "n": "النبي ﷺ المشرّع الاقتصادي", "r": "وضع أول قوانين السوق الحر النزيهة" }
+        ],
+        "charsEn": [
+          { "i": "💰", "n": "Al-Baqi' Market", "r": "The first independent Islamic market free of usury" },
+          { "i": "⚖️", "n": "The Prophet ﷺ — economic legislator", "r": "Established the first laws of fair free markets" }
+        ],
+        "lessonAr": "الاستقلال الاقتصادي ركن الاستقلال السياسي: دولة بلا سوق حر نظيف أسيرة لمن يطعمها.",
+        "lessonEn": "Economic independence is a pillar of political independence: a state without a clean free market is captive to whoever feeds it.",
+        "srcs": ["ابن ماجه (٢١٧٣)", "أبو داود (٣٤٧١)", "الرحيق المختوم ص١٧٦"]
+      },
+      {
+        "ayah": "قَدْ نَرَىٰ تَقَلُّبَ وَجْهِكَ فِي السَّمَاءِ ۖ فَلَنُوَلِيَنَّكَ قِبْلَةً تَرْضَاهَا ۚ فَوَلِّ وَجْهَكَ شَطْرَ الْمَسْجِدِ الْحَرَامِ",
+        "ayahRef": "البقرة — ٢:١٤٤",
+        "ayahEn": "We have seen the turning of your face toward the heaven, so We will turn you to a qiblah that you will be pleased with. So turn your face toward the Sacred Mosque.",
+        "ayahRefEn": "Surah Al-Baqarah — 2:144",
+        "dateAr": "نصف شعبان — سنة ٢ هـ",
+        "dateEn": "Mid-Sha'ban — 2 AH",
+        "titleAr": "التحول الإستراتيجي: تحويل القبلة",
+        "titleEn": "The Strategic Pivot: Change of Qiblah",
+        "mtAr": "المدينة المنورة — مسجد قباء",
+        "mtEn": "Madinah — Masjid Quba'",
+        "mdAr": "تحوّل من بيت المقدس إلى الكعبة — استقلال هوية",
+        "mdEn": "From Jerusalem to the Kaaba — assertion of identity",
+        "amb": "day",
+        "timeAr": "🌅 فجر",
+        "timeEn": "🌅 Dawn",
+        "distAr": "المدينة المنورة",
+        "distEn": "Madinah",
+        "descAr": "في صلاة الظهر، بينما الناس في الركعة الثانية، أمر جبريل النبي ﷺ بتحويل القبلة من الشام إلى المسجد الحرام بمكة. فالتفت النبي ﷺ عن يمينه وشماله، فاستدار الرجال بالنساء والنساء بالرجال حتى صار من كان يستقبل الشام مستقبلاً الكعبة. تحوّل رمزي عميق: من التأسي بالأنبياء السابقين إلى الاستقلال بهوية خاصة، ومن جوار اليهود الذين تقرّبوا ببيت المقدس إلى قطيعة روحية كاملة معهم.",
+        "descEn": "During the noon prayer, while the people were in the second rak'ah, Gabriel ﷺ commanded the Prophet ﷺ to turn the qiblah from Jerusalem (al-Sham) to the Sacred Mosque in Makkah. The Prophet ﷺ turned his face to the right and left; the men turned with the women and the women with the men — whoever had been facing the north now faced the south. A deep symbolic shift: from emulating earlier prophets to asserting a distinct identity, and from cultural proximity to the Jews (who revered Jerusalem) to a complete spiritual parting of ways with them.",
+        "charsAr": [
+          { "i": "🕋", "n": "الكعبة المشرفة", "r": "القبلة الجديدة — رمز التوحيد منذ إبراهيم" },
+          { "i": "😢", "n": "السيدة أسماء بنت يزيد", "r": "قُتل أبوها وعمّها وجوّعوا — قصة الإيثار في التحول" },
+          { "i": "🤔", "n": "المنافقون", "r": "استهزأوا: ما ولاّهم عن قبلتهم التي كانوا عليها" }
+        ],
+        "charsEn": [
+          { "i": "🕋", "n": "The Sacred Kaaba", "r": "The new qiblah — symbol of monotheism since Abraham" },
+          { "i": "😢", "n": "Asma bint Yazid", "r": "Her father and uncle were killed — the story of sacrifice during the transition" },
+          { "i": "🤔", "n": "The Hypocrites", "r": "Mocked: 'What turned them away from the qiblah they were on?'" }
+        ],
+        "lessonAr": "الهوية قبل التفاصيل: حين تختار قبلك تختار من تنتمي إليه روحياً وحضارياً.",
+        "lessonEn": "Identity precedes detail: when you choose your qiblah, you choose the spiritual and civilisational family you belong to.",
+        "srcs": ["البخاري (٤٠٠٧)", "مسلم (٥٢٧)", "ابن هشام (١/٣٢٦)"]
+      },
+      {
+        "ayah": "وَلَقَدْ نَصَرَكُمُ اللَّهُ بِبَدْرٍ وَأَنتُمْ أَذِلَّةٌ",
+        "ayahRef": "آل عمران — ٣:١٢٣",
+        "ayahEn": "And Allah had already given you a victory at Badr while you were weak.",
+        "ayahRefEn": "Surah Al-Imran — 3:123",
+        "dateAr": "رمضان — سنة ٢ هـ",
+        "dateEn": "Ramadan — 2 AH",
+        "titleAr": "غزوة بدر الكبرى — يوم الفرقان",
+        "titleEn": "The Great Battle of Badr — Day of the Criterion",
+        "mtAr": "بدر — على بعد ١٣٠ كم جنوب غرب المدينة",
+        "mtEn": "Badr — 130 km SW of Madinah",
+        "mdAr": "٣١٣ ضد ١٠٠٠ — يوم الحق الأكبر",
+        "mdEn": "313 vs 1,000 — the day of supreme truth",
+        "amb": "day",
+        "timeAr": "🌅 فجر",
+        "timeEn": "🌅 Dawn",
+        "distAr": "ساحة بدر",
+        "distEn": "Badr battlefield",
+        "descAr": "موقع استراتيجي بين مكة والمدينة على طريق القوافل التجارية. نزل النبي ﷺ أدنى بدر واستشار الصحابة — وخاصة سعد بن معاذ — فأشاروا بالرأي الذي أراده الله. أمطر الله المطر، وألقى في قلوب المشركين الرعب، وأمدّ المسلمين بثلاثة آلاف من الملائكة. سقط طاغوت مكة أبو جهل بسيف عبدالله بن رواحة، وفتّل سبعون من أشراف قريش، وأُسّر سبعون.",
+        "descEn": "A strategic position between Makkah and Madinah on the caravan route. The Prophet ﷺ camped at the closer well of Badr and consulted the Companions — especially Sa'd ibn Mu'adh — who gave the opinion that Allah had willed. Allah sent rain, cast terror into the disbelievers' hearts, and reinforced the Muslims with three thousand angels. The tyrant of Makkah, Abu Jahl, fell to the sword of Abdullah ibn Rawahah. Seventy of Quraysh's leaders were killed and seventy captured.",
+        "charsAr": [
+          { "i": "🦁", "n": "حمزة بن عبدالمطلب", "r": "فتح صدر أبي جهل بسهم، وأجهز عليه عبدالله بن مسعود" },
+          { "i": "⚔️", "n": "علي بن أبي طالب", "r": "بارز الوليد بن عتبة وعتبة بن ربيعة وقتلهما" },
+          { "i": "🤲", "n": "النبي ﷺ في العريش", "r": "يدعو حتى قال: اللهم أنجز لي ما وعدتني" }
+        ],
+        "charsEn": [
+          { "i": "🦁", "n": "Hamza ibn Abd al-Muttalib", "r": "Pierced Abu Jahl's chest with an arrow; Abdullah ibn Mas'ud finished him" },
+          { "i": "⚔️", "n": "Ali ibn Abi Talib (RA)", "r": "Dueled and killed al-Walid ibn Utbah and Utbah ibn Rabi'ah" },
+          { "i": "🤲", "n": "The Prophet ﷺ in the arish (shelter)", "r": "Supplicating until he said: 'O Allah, fulfil what You promised me'" }
+        ],
+        "lessonAr": "التخطيط البشري + التوفيق الإلهي: استدراج القافلة، اختيار الموقع، حفر الآبار، استشارة الصحابة، ثم الدعاء حتى ينزل المدد.",
+        "lessonEn": "Human planning + divine success: luring the caravan, choosing the site, seizing the wells, consulting the Companions, then supplication until heavenly reinforcement descended.",
+        "srcs": ["البخاري (٣٩٥٢)", "مسلم (١٧٦٣)", "ابن هشام (٢/٢٦٤)", "الرحيق المختوم ص٢١٠"]
+      },
+      {
+        "ayah": "إِذْ تُصْعِدُونَ وَلَا تَلْوُونَ عَلَىٰ أَحَدٍ وَالرَّسُولُ يَدْعُوكُمْ فِي أُخْرَاكُمْ",
+        "ayahRef": "آل عمران — ٣:١٥٣",
+        "ayahEn": "When you were fleeing and not looking back, while the Messenger was calling you from behind.",
+        "ayahRefEn": "Surah Al-Imran — 3:153",
+        "dateAr": "شوال — سنة ٣ هـ",
+        "dateEn": "Shawwal — 3 AH",
+        "titleAr": "غزوة أحد — الاختبار والدرس العسكري",
+        "titleEn": "The Battle of Uhud — The Test and Military Lesson",
+        "mtAr": "جبل أحد — شمال المدينة المنورة",
+        "mtEn": "Mount Uhud — North of Madinah",
+        "mdAr": "خيانة الرماة — وانتقام خالد بن الوليد",
+        "mdEn": "Betrayal of the archers — and Khalid ibn al-Walid's counter-attack",
+        "amb": "day",
+        "timeAr": "☀️ منتصف النهار",
+        "timeEn": "☀️ Midday",
+        "distAr": "سفح جبل أحد",
+        "distEn": "Slopes of Mount Uhud",
+        "descAr": "خرج النبي ﷺ بـ٧٠٠ مقاتل وعسكر عند جبل أحد. وضع خمسين رامياً على قمة الجبل وأمرهم ألا يتركوا مواقعهم مهما حدث. اشتد القتال لصالح المسلمين، فلما رأى الرماة الغنائم نزلوا. التفت خالد بن الوليد — وكان مشركاً في ذلك اليوم — بفرقته حول الجبل وهاجم المسلمين من الخلف. انتُشر المسلمون واستُشهد حمزة أسد الله. كان درساً قاسياً: أوّل من ينتصرون لا ينتصرون دائماً، والانضباط صمام الأمان.",
+        "descEn": "The Prophet ﷺ set out with 700 fighters and camped at the foot of Mount Uhud. He placed fifty archers on the mountain's peak and ordered them never to leave their positions no matter what. The battle went in favour of the Muslims; when the archers saw the spoils, they descended. Khalid ibn al-Walid — still a polytheist that day — led his cavalry around the mountain and struck the Muslims from behind. They scattered, and Hamza, the Lion of Allah, was martyred. A harsh lesson: those who win early don't always win, and discipline is the safety valve.",
+        "charsAr": [
+          { "i": "🦁", "n": "حمزة بن عبدالمطلب", "r": "استُشهد بيد وحشي بن حرب — سيد الشهداء عند الله" },
+          { "i": "🗡️", "n": "خالد بن الوليد", "r": "سيف الله المسلول — قاد الهجوم المضاد وعمره ٢٥ سنة" },
+          { "i": "🏹", "n": "الرماة الخمسةون", "r": "تركوا الجبل طمعاً في الغنيمة — غيّروا نتيجة المعركة" }
+        ],
+        "charsEn": [
+          { "i": "🦁", "n": "Hamza ibn Abd al-Muttalib", "r": "Martyred by the hand of Wahshi ibn Harb — 'Sayyid al-Shuhada'' (master of martyrs) with Allah" },
+          { "i": "🗡️", "n": "Khalid ibn al-Walid", "r": "The unsheathed Sword of Allah — led the counter-attack aged 25" },
+          { "i": "🏹", "n": "The Fifty Archers", "r": "Left the mountain for spoils — changed the battle's outcome" }
+        ],
+        "lessonAr": "طاعة القيادة العسكرية فوق الطمع الفردي: انضباط الرماة لو بقي لكان النصر حليفهم.",
+        "lessonEn": "Obedience to military command above personal greed: had the archers held, victory would have remained theirs.",
+        "srcs": ["البخاري (٤٠٣٨)", "مسلم (١٧٨٦)", "ابن هشام (٢/٣٠٠)", "الرحيق المختوم ص٢٤٢"]
+      },
+      {
+        "ayah": "إِذْ جَاءُوكُم مِّن فَوْقِكُمْ وَمِنْ أَسْفَلَ مِنكُمْ وَإِذْ زَاغَتِ الْأَبْصَارُ وَبَلَغَتِ الْقُلُوبُ الْحَنَاجِرَ",
+        "ayahRef": "الأحزاب — ٣٣:١٠",
+        "ayahEn": "When they came at you from above and from below, and when eyesight was distracted and hearts reached the throats.",
+        "ayahRefEn": "Surah Al-Ahzab — 33:10",
+        "dateAr": "شوال — سنة ٥ هـ",
+        "dateEn": "Shawwal — 5 AH",
+        "titleAr": "غزوة الخندق (الأحزاب) — الأزمة الوجودية",
+        "titleEn": "The Battle of the Trench (Confederates) — The Existential Crisis",
+        "mtAr": "شمال المدينة المنورة",
+        "mtEn": "North of Madinah",
+        "mdAr": "خندق بمشورة سلمان الفارسي — عبقرية دفاعية",
+        "mdEn": "A trench on Salman al-Farisi's advice — defensive brilliance",
+        "amb": "winter",
+        "timeAr": "🌨️ بارد قارس",
+        "timeEn": "🌨️ Bitterly cold",
+        "distAr": "محيط المدينة من الشمال",
+        "distEn": "Northern perimeter of Madinah",
+        "descAr": "تكاتلت قريش وغطفان وبنو قريظة واليهود — عشرة آلاف مقاتل — لحصار المدينة واقتلاع المسلمين. لم يعرف العرب خندقاً من قبل. جاءت الفكرة من سلمان الفارسي: يحفر خندق يصدّ الخيالة والجمال. حفر المسلمون في شدة البرد والجوع، وثبتوا في مكانهم رغم محاولات العدو اختراق الخندق، حتى أرسل الله ريحاً عاتية قلبت قدورهم وقلوبهم، وانهزم الحلفاء. بعدها قال النبي ﷺ: الآن نغزوهم ولا يغزوننا.",
+        "descEn": "Quraysh, Ghatafan, Banu Qurayza and other Jews — ten thousand warriors in total — confederated to besiege Madinah and root out the Muslims. The Arabs had never known a trench before. The idea came from Salman al-Farisi: dig a trench to repel cavalry and camels. The Muslims dug in bitter cold and hunger, held their ground despite the enemy's attempts to cross, until Allah sent a violent wind that overturned their cooking pots and their hearts. The confederates broke. Afterwards the Prophet ﷺ said: 'Now we shall go on the offensive; no longer shall they come against us.'",
+        "charsAr": [
+          { "i": "🇮🇷", "n": "سلمان الفارسي", "r": "مفخرة فارس في الإسلام — مهندس الخندق الدفاعي" },
+          { "i": "🌪️", "n": "جند الله من الريح", "r": "ريح الصبا أرسلها الله فنسفت خيام المشركين" },
+          { "i": "🗡️", "n": "علي بن أبي طالب", "r": "خرج وحده لبارزة عمرو بن ود العامري فقتله" }
+        ],
+        "charsEn": [
+          { "i": "🇮🇷", "n": "Salman al-Farisi", "r": "Persia's pride in Islam — engineer of the defensive trench" },
+          { "i": "🌪️", "n": "Allah's wind-borne troops", "r": "An easterly gale that tore up the confederates' tents" },
+          { "i": "🗡️", "n": "Ali ibn Abi Talib (RA)", "r": "Went out alone to duel and kill Amr ibn Abd al-Wudd" }
+        ],
+        "lessonAr": "العبقرية الدفاعية: قلعة من خندق أنقذت دولة، وأعادت الثقة بالنفس لجيل كامل.",
+        "lessonEn": "Defensive genius: a fortification of a trench saved a state, and restored self-confidence to a whole generation.",
+        "srcs": ["البخاري (٤١٠١)", "مسلم (١٨٠٩)", "ابن هشام (٢/٣٣٧)", "الرحيق المختوم ص٢٧٥"]
+      },
+      {
+        "ayah": "إِنَّا فَتَحْنَا لَكَ فَتْحًا مُّبِينًا",
+        "ayahRef": "الفتح — ٤٨:١",
+        "ayahEn": "Indeed, We have granted you a clear victory.",
+        "ayahRefEn": "Surah Al-Fath — 48:1",
+        "dateAr": "ذو القعدة — سنة ٦ هـ",
+        "dateEn": "Dhul-Qa'dah — 6 AH",
+        "titleAr": "صلح الحديبية — الفتح السياسي المبين",
+        "titleEn": "The Treaty of Hudaybiyyah — The Clear Political Victory",
+        "mtAr": "الحديبية — على بعد ٢٠ كم من مكة",
+        "mtEn": "Hudaybiyyah — 20 km from Makkah",
+        "mdAr": "هدنة لـ١٠ سنوات اعترفت فيها قريش بدولة المدينة",
+        "mdEn": "A 10-year truce in which Quraysh recognised the Madinan state",
+        "amb": "day",
+        "timeAr": "☀️ ضحى",
+        "timeEn": "☀️ Forenoon",
+        "distAr": "الحديبية",
+        "distEn": "Hudaybiyyah",
+        "descAr": "خرج النبي ﷺ بآلاف المسلمين معتمرين، فاعترضتهم قريش عند الحديبية. بادر النبي ﷺ بالتفاوض، وأرسل عثمان بن عفان مبعوثاً، وقبل شروط الصلح التي بدت مجحفة: ردّ المهاجرين الجدد، وعقد هدنة لـ١٠ سنوات. قال الصحابة: أهذا فتح؟ فنزلت: إنا فتحنا لك فتحاً مبيناً. خلال سنتين دخل الإسلام أكثر مما دخل في عشرين سنة. وفتحت قريشٌ المعركة التي نقضت الصلح، فكانت سبب فتح مكة.",
+        "descEn": "The Prophet ﷺ set out with thousands of Muslims as pilgrims, but Quraysh intercepted them at Hudaybiyyah. He initiated negotiations, sent Uthman ibn Affan as envoy, and accepted terms that seemed harsh: returning new migrants and a 10-year truce. The Companions said: 'Is this a victory?' Then was revealed: 'Indeed We have granted you a clear victory.' Within two years, more people embraced Islam than in the previous twenty. Quraysh themselves broke the treaty, which became the cause of the Conquest of Makkah.",
+        "charsAr": [
+          { "i": "✍️", "n": "علي بن أبي طالب الكاتب", "r": "كتب نص الصلح بيده وهو ساخط" },
+          { "i": "🕊️", "n": "سهيل بن عمرو", "r": "المفاوض القرشي — وقع الصلح بعد إغماء ابنه أبي جندل" },
+          { "i": "🕊️", "n": "بيعة الرضوان", "r": "تحت الشجرة — ١٤٠٠ صحابي بايعوا على الموت" }
+        ],
+        "charsEn": [
+          { "i": "✍️", "n": "Ali ibn Abi Talib, the scribe", "r": "Wrote the treaty's text with his own hand, angry" },
+          { "i": "🕊️", "n": "Suhayl ibn Amr", "r": "The Qurayshi negotiator — signed as his son Abu Jandal fainted" },
+          { "i": "🕊️", "n": "Pledge of Ridwan", "r": "Under the tree — 1,400 Companions pledged themselves to death" }
+        ],
+        "lessonAr": "السلام الذكي أقوى من الحرب الظافرة: صلح يفتح آفاقاً أنفع من معركة تكسح عقولاً.",
+        "lessonEn": "A wise peace is stronger than a victorious war: a treaty that opens horizons is more beneficial than a battle that crushes minds.",
+        "srcs": ["البخاري (٢٦٩٩)", "مسلم (١٧٨٥)", "ابن هشام (٢/٣١٩)", "الرحيق المختوم ص٢٨٧"]
+      },
+      {
+        "ayah": "قُلْ يَا أَهْلَ الْكِتَابِ تَعَالَوْا إِلَىٰ كَلِمَةٍ سَوَاءٍ بَيْنَنَا وَبَيْنَكُمْ",
+        "ayahRef": "آل عمران — ٣:٦٤",
+        "ayahEn": "Say: O People of the Book, come to a word common between us and you.",
+        "ayahRefEn": "Surah Al-Imran — 3:64",
+        "dateAr": "أواخر سنة ٧ هـ",
+        "dateEn": "Late 7 AH",
+        "titleAr": "المراسلات الملكية والامتداد الدولي",
+        "titleEn": "Royal Correspondence and the International Reach",
+        "mtAr": "المدينة المنورة — عاصمة الدولة",
+        "mtEn": "Madinah — capital of the state",
+        "mdAr": "سفارات ورسائل بخاتم النبوة لملوك العالم",
+        "mdEn": "Embassies and letters under the Seal of Prophethood to the kings of the world",
+        "amb": "day",
+        "timeAr": "☀️ نهاراً",
+        "timeEn": "☀️ Daytime",
+        "distAr": "المدينة المنورة",
+        "distEn": "Madinah",
+        "descAr": "بعد صلح الحديبية، أرسل النبي ﷺ ستة سفراء يحملون الرسائل الرسمية بخاتم النبوة الفضي (الذي نحته الصحابة) إلى كبار ملوك عصره: هرقل إمبراطور الروم، كسرى ملك فارس، المقوقس حاكم مصر، النجاشي ملك الحبشة، ملوك غسان، حمير، اليمن، والبحرين. دعوتهم للإسلام. كان تأسيساً للدبلوماسية الدولية الإسلامية بمفهومها الحديث، ومساواة سياسية في مواجهة أكبر إمبراطوريتين.",
+        "descEn": "After Hudaybiyyah, the Prophet ﷺ sent six envoys bearing official letters under the silver Seal of Prophethood (crafted by the Companions) to the great kings of his age: Heraclius, Emperor of Byzantium; Chosroes, King of Persia; the Muqawqis, Governor of Egypt; the Negus, King of Abyssinia; the kings of Ghassan, Himyar, Yemen and Bahrain. The invitation to Islam was a founding moment of Islamic international diplomacy in its modern sense, and political parity in the face of the two greatest empires.",
+        "charsAr": [
+          { "i": "👑", "n": "هرقل قيصر الروم", "r": "قرأ رسالة النبي وبكى — عرف صدقها من كتب أهل الكتاب" },
+          { "i": "🔥", "n": "كسرى أنوشروان", "r": "مزّق رسالة النبي فدعا عليه النبي فمُزّق ملكه" },
+          { "i": "📜", "n": "النجاشي أصحمة", "r": "أسلم سراً وأخفى إسلامه حماية لوفد جعفر" }
+        ],
+        "charsEn": [
+          { "i": "👑", "n": "Heraclius, Caesar of Rome", "r": "Read the Prophet's letter and wept — recognised its truth from prior scriptures" },
+          { "i": "🔥", "n": "Chosroes Anushirvan", "r": "Tore up the Prophet's letter; the Prophet prayed against him and his kingdom was torn asunder" },
+          { "i": "📜", "n": "Negus Ashamah", "r": "Accepted Islam secretly and protected Ja'far's delegation" }
+        ],
+        "lessonAr": "الدعوة بالحجة لا بالسلاح: أن ترسل رسالة قبل أن ترسل جيشاً أبلغ في الأمد البعيد.",
+        "lessonEn": "Invitation by argument, not by sword: sending a letter before sending an army is more eloquent in the long run.",
+        "srcs": ["البخاري (٧)", "مسلم (١٧٧٣)", "الرحيق المختوم ص٣٠٧", "سيرة ابن كثير (٤/٣٨٠)"]
+      },
+      {
+        "ayah": "إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ",
+        "ayahRef": "النصر — ١١٠:١",
+        "ayahEn": "When Allah's help comes and the victory [of Makkah]",
+        "ayahRefEn": "Surah An-Nasr — 110:1",
+        "dateAr": "رمضان — سنة ٨ هـ",
+        "dateEn": "Ramadan — 8 AH",
+        "titleAr": "فتح مكة — الفتح الأعظم وسقوط الوثنية",
+        "titleEn": "The Conquest of Makkah — The Greatest Victory & Fall of Idolatry",
+        "mtAr": "مكة المكرمة",
+        "mtEn": "Makkah Al-Mukarramah",
+        "mdAr": "عفو عام — ٣٦٠ صنماً تحطمت",
+        "mdEn": "General amnesty — 360 idols smashed",
+        "amb": "dawn",
+        "timeAr": "🌅 فجراً",
+        "timeEn": "🌅 Dawn",
+        "distAr": "مكة المكرمة",
+        "distEn": "Makkah",
+        "descAr": "نقضت قريش صلح الحديبية بتحالفها مع بني بكر ضد خزاعة حلفاء النبي. خرج النبي ﷺ بجيش قوامه ١٠ آلاف مقاتل — وأخفى وجهته حتى وصل مكة. دخل سلماً بدون قتال. طاف بالكعبة، وأمر بتحطيم الأصنام — ٣٦٠ صنماً — بيد علي بن أبي طالب. ثم وقف في الناس خطيباً وأعلن العفو العام: اذهبوا فأنتم الطلقاء. لم يُسفك إلا القليل من الدماء، وأسلم أهل مكة عن بكرة أبيهم. نزلت: إذا جاء نصر الله والفتح.",
+        "descEn": "Quraysh broke the Treaty of Hudaybiyyah by allying with Banu Bakr against Khuz'a — the Prophet's allies. The Prophet ﷺ set out with an army of 10,000 — concealing their destination until they reached Makkah. They entered peacefully without combat. He circumambulated the Kaaba, then ordered the smashing of 360 idols — by the hand of Ali ibn Abi Talib. Standing before the people, he announced a general amnesty: 'Go, for you are the freed.' Little blood was shed, and the people of Makkah entered Islam in crowds. Then was revealed: 'When Allah's help comes and the victory.'",
+        "charsAr": [
+          { "i": "🕋", "n": "الكعبة المشرفة", "r": "طاف بها النبي ﷺ على ناقته القصواء" },
+          { "i": "⚔️", "n": "علي بن أبي طالب", "r": "صعد على كتف النبي وحطم الأصنام واحداً واحداً" },
+          { "i": "🕊️", "n": "أبو سفيان بن حرب", "r": "اعتنق الإسلام يوم الفتح — قال: ما أحب أن لي به الدنيا" }
+        ],
+        "charsEn": [
+          { "i": "🕋", "n": "The Sacred Kaaba", "r": "The Prophet ﷺ circumambulated it on his she-camel al-Qaswa'" },
+          { "i": "⚔️", "n": "Ali ibn Abi Talib (RA)", "r": "Climbed on the Prophet's shoulder and smashed the idols one by one" },
+          { "i": "🕊️", "n": "Abu Sufyan ibn Harb", "r": "Accepted Islam on the day of the conquest — said: 'I would not trade it for the world'" }
+        ],
+        "lessonAr": "النصر الحقيقي يُولد بلا ثأر: أقوى الجيوش يهزم بالحب لا بالبطش، فتنهزم القلوب قبل الحصون.",
+        "lessonEn": "True victory is born without vengeance: the strongest army conquers through love, not brutality — hearts surrender before fortresses do.",
+        "srcs": ["البخاري (٤٢٧٨)", "مسلم (١٧٨٠)", "ابن هشام (٢/٤٠٧)", "الرحيق المختوم ص٣٢٢"]
+      },
+      {
+        "ayah": "الْيَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ وَأَتْمَمْتُ عَلَيْكُمْ نِعْمَتِي وَرَضِيتُ لَكُمُ الْإِسْلَامَ دِينًا",
+        "ayahRef": "المائدة — ٥:٣",
+        "ayahEn": "This day I have perfected for you your religion and completed My favour upon you and have approved for you Islam as religion.",
+        "ayahRefEn": "Surah Al-Ma'idah — 5:3",
+        "dateAr": "ذو الحجة — سنة ١٠ هـ",
+        "dateEn": "Dhul-Hijjah — 10 AH",
+        "titleAr": "حجة الوداع — اكتمال البناء التشريعي",
+        "titleEn": "The Farewell Pilgrimage — The Legislative Architecture Complete",
+        "mtAr": "مكة المكرمة — عرفات — منى",
+        "mtEn": "Makkah — Arafat — Mina",
+        "mdAr": "أكثر من ١٠٠ ألف مسلم — خطاب حقوق الإنسان الأول",
+        "mdEn": "Over 100,000 Muslims — the first declaration of human rights",
+        "amb": "day",
+        "timeAr": "☀️ ضحى",
+        "timeEn": "☀️ Forenoon",
+        "distAr": "عرفات",
+        "distEn": "Arafat",
+        "descAr": "حج النبي ﷺ ومعه أكثر من مئة ألف مسلم. خطب في الناس خطبة عرفات الجامعة، فأعلن حقوقاً لم تعرفها البشرية مجتمعة من قبل: حرمة الدماء والأموال والأعراض، المساواة الكاملة بين الناس بصرف النظر عن لون أو عرق أو لغة، حق المرأة، الوصية بالجيران والضعفاء، وتحريم الربا. تزامناً نزلت آية إكمال الدين. وبعد أيام قليلة عاد إلى المدينة، فكانت آخر جمعة له في مسجده الشريف.",
+        "descEn": "The Prophet ﷺ performed the pilgrimage with over 100,000 Muslims. In his comprehensive sermon at Arafat he proclaimed rights humanity had never known as a set: the sanctity of blood, wealth and honour; full equality of people regardless of colour, race or language; women's rights; the bequest for neighbours and the weak; and the prohibition of usury. Coinciding with this, the verse completing the religion was revealed. A few days later he returned to Madinah; his last Friday in his mosque was soon to come.",
+        "charsAr": [
+          { "i": "🕋", "n": "النبي ﷺ على ناقته", "r": "خطب في ١٠٠ ألف مسلم من على راحلته" },
+          { "i": "📖", "n": "آية إكمال الدين", "r": "نزلت بعد الخطبة — فبكى عمر لأنها تعني اقتراب الأجل" },
+          { "i": "🕊️", "n": "أبو بكر الحجيج الأكبر", "r": "هو الذي حج بالناس في تلك السنة نيابةً عن النبي" }
+        ],
+        "charsEn": [
+          { "i": "🕋", "n": "The Prophet ﷺ on his she-camel", "r": "Addressed 100,000 Muslims from the back of his mount" },
+          { "i": "📖", "n": "The verse of religious completion", "r": "Revealed after the sermon — Umar wept, for it meant the end was near" },
+          { "i": "🕊️", "n": "Abu Bakr, leader of the great hajj", "r": "He led the people that year on the Prophet's behalf" }
+        ],
+        "lessonAr": "القائد يبني نظاماً مستداماً: خطاب حقوقي شامل يبقى بعد رحيله ويُلزم الأجيال.",
+        "lessonEn": "A leader builds a sustainable system: a comprehensive rights charter outlives him and binds the generations.",
+        "srcs": ["البخاري (١٧٣٩)", "مسلم (١٦٧٩)", "ابن هشام (٢/٤٤٤)", "الرحيق المختوم ص٣٤٢"]
+      },
+      {
+        "ayah": "إِنَّكَ مَيِّتٌ وَإِنَّهُم مَّيِّتُونَ",
+        "ayahRef": "الزمر — ٣٩:٣٠",
+        "ayahEn": "Indeed, you are to die, and indeed, they are to die.",
+        "ayahRefEn": "Surah Az-Zumar — 39:30",
+        "dateAr": "١٢ ربيع الأول — سنة ١١ هـ",
+        "dateEn": "12 Rabi' al-Awwal — 11 AH",
+        "titleAr": "وفاة النبي ﷺ وانتقال القيادة",
+        "titleEn": "The Death of the Prophet ﷺ and Transfer of Leadership",
+        "mtAr": "المدينة المنورة — حجرة السيدة عائشة",
+        "mtEn": "Madinah — the Chamber of Aishah",
+        "mdAr": "تركة: دولة مستقرة، أمة، قرآن، سنة — وانتقال سلمي للخلافة",
+        "mdEn": "Legacy: a stable state, a nation, a Qur'an, a Sunnah — peaceful transition to the Caliphate",
+        "amb": "noon",
+        "timeAr": "☀️ ظهر الإثنين",
+        "timeEn": "☀️ Monday Noon",
+        "distAr": "المدينة المنورة",
+        "distEn": "Madinah",
+        "descAr": "دخل النبي ﷺ في مرض الوداع، فكان يخطب في الناس حتى آخر لحظة. قال في حجة الوداع: تركت فيكم ما إن تمسكتم به لن تضلوا بعدي: كتاب الله وسنتي. ثم أوصى بأمور ثلاث: إخراج المشركين من الجزيرة، أداء الأمانات، وأن لا تتخذوا قبور الأنبياء مساجد. في يوم الإثنين ١٢ ربيع الأول سنة ١١ هـ، فاضت روحه الطاهرة بين سحر أبي بكر ونحره. بويع أبو بكر الصديق خليفة في سقيفة بني ساعدة. بكت أم المؤمنين عائشة: من فقدك فقد فقد الأنوار كلها، ولكن قلبي يطمئنّ أنك لاق ربك راضياً عنك.",
+        "descEn": "The Prophet ﷺ entered his final illness, continuing to address the people until his very last moment. In the Farewell Hajj he had said: 'I leave with you two things: the Book of Allah and my Sunnah — if you hold to them, you will never go astray.' He gave three final commands: expel the polytheists from the Arabian Peninsula, fulfil all trusts, and do not take the prophets' tombs as places of worship. On Monday 12 Rabi' al-Awwal 11 AH, his pure soul departed between the shoulder and the chest of Abu Bakr. The latter was pledged allegiance in the Saqifa of Bani Sa'idah. Umm al-Mu'minin Aishah wept: 'You have departed, and with you all the lights are gone — yet my heart is at peace, for you meet your Lord well-pleased.'",
+        "charsAr": [
+          { "i": "👑", "n": "أبو بكر الصديق", "r": "أول الخلفاء الراشدين — تلقّى البيعة في سقيفة بني ساعدة" },
+          { "i": "😢", "n": "عمر بن الخطاب", "r": "هدد من قال: 'مات' بالسيف — حتى قرأ عليه أبو بكر الآية" },
+          { "i": "📜", "n": "عثمان بن عفان", "r": "جهّز تجهيز النبي بيده — وأمر بجمع القرآن الكريم" }
+        ],
+        "charsEn": [
+          { "i": "👑", "n": "Abu Bakr al-Siddiq", "r": "First of the Rightly-Guided Caliphs — received the pledge at the Saqifa" },
+          { "i": "😢", "n": "Umar ibn al-Khattab", "r": "Threatened with his sword anyone who said 'he is dead' — until Abu Bakr recited the verse" },
+          { "i": "📜", "n": "Uthman ibn Affan", "r": "Prepared the Prophet's burial with his own hands — later ordered the compilation of the Qur'an" }
+        ],
+        "lessonAr": "القيادة الحقيقية مؤسسة لا شخص: من يخلّف قائداً يُحترم بعده قرناً من الزمن هو من بنى مؤسسات لا قلوباً.",
+        "lessonEn": "True leadership is institutional, not personal: he who leaves a leader respected for a century after him is one who built institutions, not hearts alone.",
+        "srcs": ["البخاري (٤٤٣٧)", "مسلم (١٦٣٧)", "ابن هشام (٢/٤٥٦)", "الرحيق المختوم ص٣٥١"]
       }
     ]
   }

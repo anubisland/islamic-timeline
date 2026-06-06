@@ -144,6 +144,246 @@
         "type": "Point",
         "coordinates": [38.7950, 23.7500]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bani_sad",
+        "event_id": "meccan_1",
+        "name_ar": "بادية بني سعد",
+        "name_en": "Desert of Bani Sa'd",
+        "year_ah": "c. 573-575 CE",
+        "event_title_ar": "الرضاعة في البادية",
+        "event_title_en": "Nursing in the Desert"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.5, 24.0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "mount_hira",
+        "event_id": "meccan_8",
+        "name_ar": "جبل النور — غار حراء",
+        "name_en": "Mount Hira — Cave of Revelation",
+        "year_ah": "610 CE",
+        "event_title_ar": "نزول الوحي",
+        "event_title_en": "The First Revelation"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.8575, 21.4569]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cave_hira",
+        "event_id": "meccan_8",
+        "name_ar": "غار حراء",
+        "name_en": "Cave of Hira",
+        "year_ah": "610 CE",
+        "event_title_ar": "اقرأ باسم ربك",
+        "event_title_en": "Read in the name of your Lord"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.8575, 21.4569]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "dar_arqam",
+        "event_id": "meccan_9",
+        "name_ar": "دار الأرقم — أول مركز دعوي",
+        "name_en": "House of Arqam — First Da'wah Centre",
+        "year_ah": "c. 613 CE",
+        "event_title_ar": "مدرسة الدعوة السرية",
+        "event_title_en": "The School of the Secret Call"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.8262, 21.4225]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "abyssinia",
+        "event_id": "meccan_10",
+        "name_ar": "الحبشة (أكسوم)",
+        "name_en": "Abyssinia (Aksum)",
+        "year_ah": "c. 615 CE",
+        "event_title_ar": "الهجرة الأولى إلى الحبشة",
+        "event_title_en": "First Migration to Abyssinia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [38.7400, 9.0300]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "taif",
+        "event_id": "meccan_15",
+        "name_ar": "الطائف",
+        "name_en": "Ta'if",
+        "year_ah": "c. 619 CE",
+        "event_title_ar": "رحلة الطائف",
+        "event_title_en": "The Journey to Ta'if"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [40.4167, 21.4333]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "prophets_mosque",
+        "event_id": "medinan_0",
+        "name_ar": "المسجد النبوي الشريف",
+        "name_en": "The Prophet's Mosque",
+        "year_ah": "1 AH",
+        "event_title_ar": "تأسيس المسجد والدولة",
+        "event_title_en": "Founding the Mosque & State"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.6111, 24.4682]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "qibla_change",
+        "event_id": "medinan_2",
+        "name_ar": "مسجد قباء — تحويل القبلة",
+        "name_en": "Masjid Quba' — Change of Qiblah",
+        "year_ah": "2 AH",
+        "event_title_ar": "تحويل القبلة إلى الكعبة",
+        "event_title_en": "The Qiblah Pivots to the Kaaba"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.5710, 24.4390]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "badr_full",
+        "event_id": "medinan_3",
+        "name_ar": "بدر — ساحة المعركة",
+        "name_en": "Badr — Battlefield",
+        "year_ah": "2 AH",
+        "event_title_ar": "غزوة بدر الكبرى — يوم الفرقان",
+        "event_title_en": "The Great Battle of Badr"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [38.7950, 23.7500]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "mount_uhud",
+        "event_id": "medinan_4",
+        "name_ar": "جبل أحد",
+        "name_en": "Mount Uhud",
+        "year_ah": "3 AH",
+        "event_title_ar": "غزوة أحد",
+        "event_title_en": "The Battle of Uhud"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.6133, 24.5033]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "khandaq",
+        "event_id": "medinan_5",
+        "name_ar": "خندق المدينة (الأحزاب)",
+        "name_en": "The Trench (Khandaq) of Madinah",
+        "year_ah": "5 AH",
+        "event_title_ar": "غزوة الخندق",
+        "event_title_en": "The Battle of the Trench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.6122, 24.4900]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hudaybiyyah",
+        "event_id": "medinan_6",
+        "name_ar": "الحديبية",
+        "name_en": "Hudaybiyyah",
+        "year_ah": "6 AH",
+        "event_title_ar": "صلح الحديبية",
+        "event_title_en": "The Treaty of Hudaybiyyah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.5500, 21.4500]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "makkah_conquest",
+        "event_id": "medinan_8",
+        "name_ar": "مكة المكرمة — الفتح الأعظم",
+        "name_en": "Makkah — The Great Conquest",
+        "year_ah": "8 AH",
+        "event_title_ar": "فتح مكة",
+        "event_title_en": "The Conquest of Makkah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.8262, 21.4225]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "arafat",
+        "event_id": "medinan_9",
+        "name_ar": "عرفة",
+        "name_en": "Arafat",
+        "year_ah": "10 AH",
+        "event_title_ar": "حجة الوداع",
+        "event_title_en": "The Farewell Pilgrimage"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.9842, 21.3547]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "prophet_death",
+        "event_id": "medinan_10",
+        "name_ar": "المدينة المنورة — حجرة عائشة",
+        "name_en": "Madinah — Chamber of Aishah",
+        "year_ah": "11 AH",
+        "event_title_ar": "وفاة النبي ﷺ",
+        "event_title_en": "The Death of the Prophet ﷺ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.6111, 24.4682]
+      }
     }
   ]
 }

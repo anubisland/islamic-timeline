@@ -1,27 +1,34 @@
-# Madani Era Timeline (الخط الزمني للعهد المدني)
+# Madani Era Timeline (الخط الزمني للسيرة النبوية)
 
-> **Interactive bilingual (Arabic / English) timeline of the Hijra and the Battle of Badr.**
+> **Interactive bilingual (Arabic / English) timeline of the Prophet's biography across four eras: Meccan (16), Hijra (6), Badr (3), and Medinan (11) — 36 stages in total.**
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-anubisland.github.io-0a6b58?style=for-the-badge&logo=github)](https://anubisland.github.io/madani-era-timeline-app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-C5A059?style=for-the-badge)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-2.0.0-063529?style=for-the-badge)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-2.1.0-063529?style=for-the-badge)](CHANGELOG.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
-A **single-page, no-build, vanilla-JS** website that walks through **9 chronological stages** of the early Islamic state — the **Hijra** (٦ مراحل) and the **Battle of Badr** (٣ مراحل). Each step presents a unique Quranic verse, the historical narrative, key figures, leadership lessons, and authoritative sources from the classical Seerah literature.
+A **single-page, no-build, vanilla-JS** website that walks through **36 chronological stages** of the Prophet Muhammad's ﷺ biography, organised into four eras:
+
+- 🕋 **Meccan Era** — 16 stages (Birth → First revelation → Public call → Boycott → Ta'if → Eve of the Hijra)
+- 🧭 **The Hijra** — 6 stages (Departure → Cave of Thawr → Coastal route → Qudayd → Suraqah's chase → Arrival in Madinah)
+- ⚔️ **Battle of Badr** — 3 stages (Shura → March → The clash)
+- 🏛️ **Medinan Era** — 11 stages (Mosque & state → Badr → Uhud → Khandaq → Hudaybiyyah → Conquest of Makkah → Farewell Hajj → Death)
+
+Each step presents a unique Quranic verse, the historical narrative, key figures, leadership lessons, and authoritative sources from the classical Seerah literature.
 
 ## ✨ Features
 
 - 🟢 **Emerald + gold** Islamic visual identity (`#063529` / `#C5A059`).
-- 🗺️ **Two interactive SVG maps** — animated Hijra route + tactical Badr battlefield.
+- 🗺️ **Four interactive SVG maps** — Meccan context, animated Hijra route, tactical Badr battlefield, Medinan state expansion.
 - 🌐 **Full bilingual UI** — Arabic (RTL) ↔ English (LTR) with `localStorage` persistence.
 - 🔊 **Audio recitation** of each verse via Google TTS, with `speechSynthesis` fallback.
-- 📖 **9 unique Quranic verses** in Arabic + English translation, with Surah references.
+- 📖 **20+ unique Quranic verses** in Arabic + English translation, with Surah references.
 - 👥 **Key figures** with names, roles, and historical context.
 - 💡 **Leadership lessons** drawn from each event.
 - 📚 **Authoritative sources** — Sahih al-Bukhari, Sahih Muslim, Ibn Hisham, *Al-Rahiq Al-Makhtum*, *Zad al-Maad*, *Dala'il al-Nubuwwah*.
 - ⌨️ **Keyboard shortcuts** — arrows, space, `L` for language.
-- 📱 **Fully responsive** — mobile / tablet / desktop.
-- 🌍 **GeoJSON dataset** of all 9 event locations (ready for any map library).
+- 📱 **Fully responsive** — event switcher wraps to 2×2 on mobile, 44px tap targets, font-scaled ayah boxes.
+- 🌍 **GeoJSON dataset** of all 24 event locations (ready for any map library).
 
 ## 📑 Table of Contents
 

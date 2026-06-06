@@ -106,11 +106,13 @@ body {
 
 .event-switch {
   display: flex;
+  flex-wrap: wrap;
   background: rgba(0, 0, 0, .55);
   padding: 3px;
-  border-radius: 50px;
+  border-radius: 18px;
   border: 1px solid rgba(6, 78, 59, .7);
   gap: 2px;
+  max-width: 100%;
 }
 
 .ev-btn {
@@ -820,14 +822,27 @@ body {
 
 /* ===================== MOBILE FOCUS ===================== */
 
+@media (max-width: 720px) {
+  .event-switch { border-radius: 14px; }
+  .ev-btn { flex: 1 1 calc(50% - 4px); min-height: 44px; padding: .45rem .5rem; font-size: .72rem; }
+}
+
 @media (max-width: 480px) {
-  .hdr-inner { padding: .5rem .75rem; }
+  .hdr-inner { padding: .5rem .75rem; gap: .35rem; }
   .brand-logo { width: 36px; height: 36px; font-size: 1.1rem; }
-  .ev-btn { padding: .3rem .7rem; font-size: .7rem; }
-  .lang-button { padding: .35rem .85rem; font-size: .72rem; }
+  .hdr-actions { width: 100%; justify-content: space-between; }
+  .event-switch { width: 100%; }
+  .ev-btn { flex: 1 1 calc(50% - 4px); min-height: 44px; padding: .5rem .4rem; font-size: .7rem; }
+  .nbtn { min-width: 44px; min-height: 44px; }
+  .lang-button { padding: .45rem .8rem; font-size: .72rem; min-height: 44px; }
   .ev-title { font-size: 1.05rem; }
   #ev-desc { font-size: .85rem; }
   .map-card { padding: .5rem .7rem; }
   .mc-title { font-size: .72rem; }
   .mc-desc { font-size: .68rem; }
+  .ayah-box { padding: .6rem .75rem; }
+  .ayah-ar { font-size: 1.05rem; line-height: 1.7; }
+  .ayah-en { font-size: .85rem; }
+  .lesson-ar, .lesson-en { font-size: .85rem; }
+  .map-svg { max-height: 50vh; }
 }
