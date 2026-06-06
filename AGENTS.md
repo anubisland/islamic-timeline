@@ -30,6 +30,7 @@ Sera/
 ├── LICENSE                 # MIT
 ├── docs/
 │   ├── ARCHITECTURE.md
+│   ├── BUGS.md               # Catalogue of bugs & lessons learned — READ FIRST
 │   ├── DATA_SCHEMA.md
 │   └── SOURCES.md
 └── .editorconfig
