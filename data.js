@@ -286,10 +286,10 @@ window.SEERAH_DB = {
         }
       },
       {
-        "ayah": "يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُم مِّن نَّفْسٍ وَاحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًا كَثِيرًا وَنِسَاءً",
-        "ayahRef": "سورة النساء، الآية ١",
-        "ayahEn": "O mankind, fear your Lord, who created you from one soul and created from it its mate and dispersed from both of them many men and women",
-        "ayahRefEn": "Surah An-Nisa (4), verse 1",
+        "ayah": "فَأَمَّا الْيَتِيمَ فَلَا تَقْهَرْ",
+        "ayahRef": "سورة الضحى، الآية ٩",
+        "ayahEn": "So as for the orphan, do not oppress [him].",
+        "ayahRefEn": "Surah Ad-Duha (93), verse 9",
         "dateAr": "٥٧٩ م (سن ٨)",
         "dateEn": "579 CE (age 8)",
         "titleAr": "وفاة جدّه وكفالة أبي طالب",
@@ -352,10 +352,10 @@ window.SEERAH_DB = {
         }
       },
       {
-        "ayah": "سَنُقْرِئُكَ فَلَا تَنسَىٰ",
-        "ayahRef": "سورة الأعلى، الآية ٦",
-        "ayahEn": "We will recite to you, [O Muhammad], and you will not forget",
-        "ayahRefEn": "Surah Al-A'la (87), verse 6",
+        "ayah": "الَّذِينَ يَتَّبِعُونَ الرَّسُولَ النَّبِيَّ الْأُمِّيَّ الَّذِي يَجِدُونَهُ مَكْتُوبًا عِندَهُمْ فِي التَّوْرَاةِ وَالْإِنجِيلِ يَأْمُرُهُم بِالْمَعْرُوفِ وَيَنْهَاهُمْ عَنِ الْمُنكَرِ",
+        "ayahRef": "سورة الأعراف، الآية ١٥٧",
+        "ayahEn": "Those who follow the Messenger, the unlettered prophet, whom they find written in what they have of the Torah and the Gospel — he enjoins upon them what is right and forbids them what is wrong.",
+        "ayahRefEn": "Surah Al-A'raf (7), verse 157",
         "dateAr": "٥٨٣ م (سن ١٢)",
         "dateEn": "583 CE (age 12)",
         "titleAr": "السفر إلى الشام وقصة بحيرا الراهب",
@@ -418,10 +418,10 @@ window.SEERAH_DB = {
         }
       },
       {
-        "ayah": "وَلَا تَكْسِبُوا أَنْفُسَكُمْ إِلَّا الْخَيْرَ",
-        "ayahRef": "من سورة المنافقون، الآية ١٠ (مبدأ إخلاص العمل)",
-        "ayahEn": "And do not deprive yourselves of the good [deeds]",
-        "ayahRefEn": "From Surah Al-Munafiqun (63), verse 10 — spirit of sincere good deeds",
+        "ayah": "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تَأْكُلُوا أَمْوَالَكُم بَيْنَكُم بِالْبَاطِلِ إِلَّا أَن تَكُونَ تِجَارَةً عَن تَرَاضٍ مِّنكُمْ",
+        "ayahRef": "سورة النساء، الآية ٢٩",
+        "ayahEn": "O you who have believed, do not consume one another's wealth unjustly, but only [in lawful] business by mutual consent.",
+        "ayahRefEn": "Surah An-Nisa (4), verse 29",
         "dateAr": "حوالي ٥٩٥ م (سن ٢٥)",
         "dateEn": "c. 595 CE (age 25)",
         "titleAr": "التجارة والزواج من السيدة خديجة",
@@ -619,10 +619,10 @@ window.SEERAH_DB = {
         }
       },
       {
-        "ayah": "وَأَنِ اسْتَغْفِرُوا رَبَّكُمْ ثُمَّ تُوبُوا إِلَيْهِ يُمَتِّعْكُم مَّتَاعًا حَسَنًا",
-        "ayahRef": "سورة هود، الآية ٣",
-        "ayahEn": "And [saying], \"Ask forgiveness of your Lord and then repent to Him; He will send [rain from] the sky to you in abundance\"",
-        "ayahRefEn": "Surah Hud (11), verse 3",
+        "ayah": "ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ وَجَادِلْهُم بِالَّتِي هِيَ أَحْسَنُ",
+        "ayahRef": "سورة النحل، الآية ١٢٥",
+        "ayahEn": "Invite to the way of your Lord with wisdom and good instruction, and argue with them in a way that is best.",
+        "ayahRefEn": "Surah An-Nahl (16), verse 125",
         "dateAr": "السنة ١-٣ من البعثة",
         "dateEn": "Years 1–3 of the Prophethood",
         "titleAr": "الدعوة السرّية — تأسيس النواة",
@@ -1023,10 +1023,10 @@ window.SEERAH_DB = {
         }
       },
       {
-        "ayah": "وَإِذْ أَخَذَ اللَّهُ مِيثَاقَ النَّبِيِّينَ لَمَا آتَيْتُكُم مِّن كِتَابٍ وَحِكْمَةٍ ثُمَّ جَاءَكُمْ رَسُولٌ مُّصَدِّقٌ لِّمَا مَعَكُمْ لَتُؤْمِنُنَّ بِهِ وَلَتَنصُرُنَّهُ",
-        "ayahRef": "سورة آل عمران، الآية ٨١",
-        "ayahEn": "And [recall, O Muhammad], when Allah took the covenant of the prophets, [saying], \"Whatever I give you of the Scripture and wisdom and then there comes to you a messenger confirming what is with you, you [must] believe in him and support him.\"",
-        "ayahRefEn": "Surah Al Imran (3), verse 81",
+        "ayah": "إِنَّ الَّذِينَ يُبَايِعُونَكَ إِنَّمَا يُبَايِعُونَ اللَّهَ يَدُ اللَّهِ فَوْقَ أَيْدِيهِمْ",
+        "ayahRef": "سورة الفتح، الآية ١٠",
+        "ayahEn": "Indeed, those who pledge allegiance to you, [O Muhammad] — they are actually pledging allegiance to Allah. The hand of Allah is over their hands.",
+        "ayahRefEn": "Surah Al-Fath (48), verse 10",
         "dateAr": "السنوات ١٢-١٣ من البعثة",
         "dateEn": "Years 12–13 of the Prophethood",
         "titleAr": "بيعتا العقبة — تأسيس جبهة يثرب",
@@ -1264,10 +1264,10 @@ window.SEERAH_DB = {
         }
       },
       {
-        "ayah": "﴿ وَجَعَلْنَا مِنَ الْمَاءِ كُلَّ شَيْءٍ حَيٍّ ﴾",
-        "ayahRef": "سورة الأنبياء — الآية ٣٠",
-        "ayahEn": "\"And We made from water every living thing\"",
-        "ayahRefEn": "Surah Al-Anbiya — 21:30",
+        "ayah": "وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ",
+        "ayahRef": "سورة الطلاق، الآية ٣",
+        "ayahEn": "And whoever relies upon Allah — then He is sufficient for him.",
+        "ayahRefEn": "Surah At-Talaq (65), verse 3",
         "dateAr": "١ ربيع الأول سنة ١ هـ",
         "dateEn": "1 Rabi al-Awwal, 1 AH",
         "titleAr": "الطريق الساحلي — الخبير الأمين",

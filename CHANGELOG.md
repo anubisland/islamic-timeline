@@ -4,6 +4,23 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.1] — 2026-06-06
+
+### Fixed
+- **Quranic verses now match the event/occasion (asbāb al-nuzul & theme)**:
+  Reviewed all 36 ayahs and replaced 6 whose previous pairing was a general-purpose verse rather than one directly tied to the step's event. Each replacement keeps the original Arabic text, an accurate Sahih-International-style English translation, and a precise surah/verse reference.
+
+  | Step | Event | Old (general) | New (event-fit) | Why it fits |
+  |---|---|---|---|---|
+  | meccan:4 | Abu Talib's guardianship of the orphan | An-Nisāʾ 4:1 (unity of mankind) | **Ad-Ḍuḥā 93:9 — "So as for the orphan, do not oppress him"** | Direct command about caring for the orphan — exactly Muhammad's status after his grandfather's death |
+  | meccan:5 | Trip to Syria & Bahīra the monk | Al-Aʿlā 87:6 (preservation of the Qurʾān) | **Al-Aʿrāf 7:157 — "Those who follow the Messenger, the unlettered Prophet, whom they find written in what they have of the Torah and the Gospel…"** | The prophecy of the unlettered Prophet in the Torah and the Gospel — what Bahīra the Christian monk recognized in his books |
+  | meccan:6 | Trade trip & marriage to Khadījah | Al-Munāfiqūn 63:10 (oaths) | **An-Nisāʾ 4:29 — "…do not consume one another's wealth unjustly, but only [in lawful] business by mutual consent"** | The Qurʾānic basis for lawful trade by mutual consent — exactly how Khadījah hired Muḥammad ﷺ and proposed to him |
+  | meccan:9 | Secret daʿwah in Dār al-Arqam | Hūd 11:3 (seek forgiveness) | **An-Naḥl 16:125 — "Invite to the way of your Lord with wisdom and good instruction, and argue with them in a way that is best"** | The foundational verse of daʿwah methodology — directly about the wisdom-first approach that began the secret call |
+  | meccan:15 | Two Pledges of ʿAqabah | Āl ʿImrān 3:81 (covenant of prophets) | **Al-Fatḥ 48:10 — "Indeed, those who pledge allegiance to you, [O Muḥammad] — they are actually pledging allegiance to Allah. The hand of Allah is over their hands"** | Revealed about the bayaʿah (pledge) at Hudaybiyyah, in the same series as the ʿAqabah pledges — both are bayaʿah in the cause of Allah |
+  | hijra:2 | Coastal road, expert guide | Al-Anbiyāʾ 21:30 (water and life) | **At-Ṭalāq 65:3 — "And whoever relies upon Allah — then He is sufficient for him"** | The verse of tawakkul (reliance on Allah) — exactly the spiritual anchor needed for the dangerous coastal journey with no clear route |
+
+  All translations were cross-checked against the Sahih International English translation (the standard modern English reference widely used in Sunni scholarship).
+
 ## [2.4.0] — 2026-06-06
 
 ### Fixed
