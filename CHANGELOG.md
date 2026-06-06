@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.8] — 2026-06-07
+
+### Fixed
+- **Removed title duplication at the bottom of the screen.** The step title was being shown in both `.ev-title` (story panel) and `.tl-name` (footer) — the footer's title with its `📍` prefix was visually covering the numbered dots. Removed the footer title entirely; the footer is now just the counter (`١ / ٦`) and the dots. The story panel's `.ev-title` remains the authoritative place to read the current step's name. `.tl-name` CSS class kept (hidden) in case a future design wants to re-introduce a small footer label.
+
+### Changed
+- **Footer counter re-styled** to be more visible: color brightened from `#334155` (near-invisible on dark) to `#cbd5e1`, font-weight 700, right-aligned with a small right padding. Was previously a faint grey; now reads as a clear "step X of Y" indicator.
+
 ## [2.4.7] — 2026-06-07
 
 ### Changed

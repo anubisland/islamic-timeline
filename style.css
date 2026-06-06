@@ -1009,22 +1009,20 @@ body::after {
 }
 
 .tl-name {
-  font-family: "Cairo", sans-serif;
-  font-size: .72rem;
-  font-weight: 700;
-  color: var(--gold);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 72%;
+  /* Legacy class — the title was removed from the footer in v2.4.8 because
+     it duplicated the story panel's .ev-title and visually covered the
+     numbered dots. Kept here in case a future design wants a small label
+     back (e.g. a "now playing" indicator). Hidden by default. */
+  display: none;
 }
-
-[lang="en"] .tl-name { font-family: "Inter", sans-serif; }
 
 .tl-counter {
   font-family: "Cairo", sans-serif;
   font-size: .68rem;
-  color: #334155;
+  color: #cbd5e1;
+  font-weight: 700;
+  margin-inline-start: auto;  /* right-align when it's the only child in .tl-row */
+  padding-inline-end: .25rem;
 }
 
 [lang="en"] .tl-counter { font-family: "Inter", sans-serif; }
@@ -1149,8 +1147,7 @@ body::after {
   .tl-wrap { padding: .55rem 0 .35rem; min-height: 28px; }
   .tl-dot { width: 22px; height: 22px; font-size: .62rem; }
   .tl-nd { gap: 0; }
-  /* Bump the prominent current-step title so it stays readable on mobile */
-  .tl-name { font-size: .74rem; max-width: 76%; }
+  /* The step title lives in the story panel (.ev-title). Footer is counter + dots only. */
   .tl-counter { font-size: .62rem; }
   .tl-foot { padding: .35rem .55rem .4rem; }
   .tl-row { margin-bottom: .2rem; }

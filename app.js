@@ -523,9 +523,8 @@
       else if (i < STEP) n.classList.add('done');
     }
 
-    // Footer label
-    const footerTitle = '📍 ' + s[t('title')];
-    $('tl-name').textContent = footerTitle;
+    // Footer counter (title is shown only in the story panel — was duplicated
+    // when also shown in the footer, covering the dots)
     $('tl-counter').textContent = LANG === 'AR'
       ? arNum(STEP + 1) + ' / ' + arNum(tot)
       : (STEP + 1) + ' / ' + tot;
