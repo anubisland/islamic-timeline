@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.9] — 2026-06-07
+
+### Added
+- **Green title strip in the footer** (per user feedback: "الشريط الاخضر بعنوان الرقم الحالى"). A new `.tl-name-strip` element sits at the top of the footer, styled as a green gradient band (linear-gradient(90deg, rgba(6,78,59,.85), rgba(16,185,129,.35))) with an emerald border. It contains:
+  - The current step's **title** (`.tl-name`, white-mint colour `#d1fae5`, `max-width: 72%` so it ellipsises on long titles)
+  - The **counter chip** (`.tl-counter`, gold gradient, pill-shaped, "١ / ٦")
+- The strip is **physically separated from the dots row** (separate flex container with `margin-bottom: .25rem`), so it can no longer visually cover the numbered dots — the v2.4.8 duplication bug cannot recur.
+
 ## [2.4.8] — 2026-06-07
 
 ### Fixed

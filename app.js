@@ -523,8 +523,10 @@
       else if (i < STEP) n.classList.add('done');
     }
 
-    // Footer counter (title is shown only in the story panel — was duplicated
-    // when also shown in the footer, covering the dots)
+    // Footer strip: current step title + counter ("1 / 6"). The strip is
+    // styled as a green band so it doesn't visually merge with the dots.
+    const footerTitle = s[t('title')];
+    $('tl-name').textContent = footerTitle;
     $('tl-counter').textContent = LANG === 'AR'
       ? arNum(STEP + 1) + ' / ' + arNum(tot)
       : (STEP + 1) + ' / ' + tot;
