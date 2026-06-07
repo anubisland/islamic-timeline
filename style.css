@@ -991,7 +991,7 @@ body::after {
 .tl-foot {
   background: rgba(1, 8, 5, .95);
   border-top: 1px solid rgba(197, 160, 89, .2);
-  padding: .65rem 1rem .85rem;
+  padding: .65rem 1rem calc(.85rem + env(safe-area-inset-bottom));
   position: sticky;
   bottom: 0;
   z-index: 50;
@@ -1008,15 +1008,16 @@ body::after {
   margin-bottom: .4rem;
 }
 
-/* Green strip showing the current step's title + counter. Sits between the
-   footer top and the dots row so it never overlaps the dots themselves. */
+/* Green strip showing the current step's title + counter. Now sits at the
+   BOTTOM of the footer (after the dots row) so it can never overlap the dots.
+   Dots are the primary navigation; the strip is the "you are here" indicator. */
 .tl-name-strip {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: .5rem;
   padding: .22rem .5rem;
-  margin-bottom: .5rem;
+  margin-top: .35rem;
   background: linear-gradient(90deg, rgba(6, 78, 59, .85), rgba(16, 185, 129, .35));
   border: 1px solid rgba(110, 231, 183, .35);
   border-radius: 6px;
@@ -1055,12 +1056,10 @@ body::after {
 
 .tl-wrap {
   position: relative;
-  padding: .3rem 0 .55rem;
+  padding: .35rem 0 .4rem;
   min-height: 28px;
   display: flex;
   align-items: flex-end;
-  border-top: 1px dashed rgba(110, 231, 183, .25);
-  margin-top: .15rem;
 }
 
 .tl-track {
@@ -1181,13 +1180,13 @@ body::after {
    themselves are the primary navigation affordance. */
 @media (max-width: 720px) {
   .tl-lbl { display: none; }
-  .tl-wrap { padding: .25rem 0 .5rem; min-height: 24px; }
+  .tl-wrap { padding: .25rem 0 .35rem; min-height: 24px; }
   .tl-dot { width: 20px; height: 20px; font-size: .58rem; }
   .tl-nd { gap: 0; }
-  .tl-name-strip { padding: .2rem .45rem; margin-bottom: .45rem; gap: .4rem; }
+  .tl-name-strip { padding: .2rem .45rem; margin-top: .3rem; gap: .4rem; }
   .tl-name { font-size: .62rem; max-width: 65%; }
   .tl-counter { font-size: .54rem; padding: .06rem .35rem; }
-  .tl-foot { padding: .35rem .55rem .4rem; }
+  .tl-foot { padding: .35rem .55rem calc(.4rem + env(safe-area-inset-bottom)); }
   /* Also tighten the zoom controls — they were 36×34 on mobile, now 28×26 */
   .z-btn { min-width: 28px; height: 26px; font-size: .7rem; padding: 0 5px; }
   .z-btn.z-rst { font-size: .58rem; min-width: 36px; }

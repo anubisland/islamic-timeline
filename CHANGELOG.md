@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.3] — 2026-06-07
+
+### Fixed
+- **Dots still hidden behind Android system nav bar** (follow-up to v2.5.2). The previous fix made the strip more compact, but on phones with a system navigation bar (gesture pill or 3-button nav), the bottom of the footer was still being clipped. Fix:
+  - Added `env(safe-area-inset-bottom)` to the footer's bottom padding (both desktop `.65rem 1rem .85rem` → `.65rem 1rem calc(.85rem + env(safe-area-inset-bottom))` and mobile `.35rem .55rem .4rem` → `.35rem .55rem calc(.4rem + env(safe-area-inset-bottom))`).
+  - **Reordered the footer**: dots row is now FIRST (top of footer), green title strip is SECOND (bottom of footer). The strip is now a "you are here" indicator at the very bottom, just above the system nav bar. The dots are the primary navigation and are now always fully visible.
+  - Strip `margin-bottom: .5rem` → `margin-top: .35rem` (now sits below the dots, not above).
+  - Removed the dashed border-top on `.tl-wrap` (no longer needed since the strip is clearly below).
+- **Google TTS fallback was unreliable** (user: "الصوت صار لا يعمل"). The `googleTTS` function only tried one URL (`translate.google.com` with `client=tw-ob`). If that URL was rate-limited or blocked, audio failed silently and showed the "No voice available" banner. Now tries two endpoints in sequence: `translate.google.com` → `translate.googleapis.com`. If both fail, shows the banner with instructions.
+
 ## [2.5.2] — 2026-06-07
 
 ### Fixed

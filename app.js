@@ -332,25 +332,33 @@
     }
 
     function googleTTS(t, onDone, onFail) {
-      try {
-        const url = 'https://translate.google.com/translate_tts?ie=UTF-8'
-                  + '&q=' + encodeURIComponent(t)
-                  + '&tl=' + (LANG === 'AR' ? 'ar' : 'en')
-                  + '&client=tw-ob';
-        const a = new Audio(url);
-        currentAudio = a;
-        a.volume = 0.95;
-        a.playbackRate = 0.75;
-        a.onended = () => { currentAudio = null; onDone && onDone(); };
-        a.onerror = () => { currentAudio = null; onFail && onFail(); };
-        const p = a.play();
-        if (p && p.catch) p.catch((err) => {
-          console.warn('[TTS] google play rejected', err);
-          currentAudio = null; onFail && onFail();
-        });
-      } catch (e) {
-        onFail && onFail();
+      // Try multiple Google TTS endpoints. The `client=tw-ob` parameter is
+      // what the Google Translate widget uses and is the most reliable, but
+      // it sometimes gets rate-limited. Fall back to the simpler endpoint.
+      const lang = LANG === 'AR' ? 'ar' : 'en';
+      const enc = encodeURIComponent(t);
+      const urls = [
+        'https://translate.google.com/translate_tts?ie=UTF-8&q=' + enc + '&tl=' + lang + '&client=tw-ob',
+        'https://translate.googleapis.com/translate_tts?ie=UTF-8&q=' + enc + '&tl=' + lang + '&client=tw-ob'
+      ];
+      let idx = 0;
+      function tryNext() {
+        if (idx >= urls.length) { onFail && onFail(); return; }
+        const url = urls[idx++];
+        try {
+          const a = new Audio(url);
+          currentAudio = a;
+          a.volume = 0.95;
+          a.playbackRate = 0.75;
+          a.onended = () => { currentAudio = null; onDone && onDone(); };
+          a.onerror = () => { currentAudio = null; tryNext(); };
+          const p = a.play();
+          if (p && p.catch) p.catch(() => { currentAudio = null; tryNext(); });
+        } catch (e) {
+          tryNext();
+        }
       }
+      tryNext();
     }
 
     // Use Web Speech API first. If onend fires WITHOUT onstart having fired,
