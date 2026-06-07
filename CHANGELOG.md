@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.2] — 2026-06-07
+
+### Fixed
+- **Green `.tl-name-strip` was still covering the dots on mobile** (follow-up to v2.5.1). Even after moving the track and shrinking the wrap, the strip's `padding: .32rem .55rem` + 1 px border + the wrap's `padding: .55rem 0 .5rem` were pushing the dots out of the visible viewport on small phones. The user reported: "الترقيم خلف الشريط الاخضر ... ارجو تنزيل الشريط الاخضر قليلا ورفع الرقيم قليلا حتى يظهر" (the numbering is hidden behind the green strip — please lower the strip and raise the numbering a little so they show). Fixes:
+  - Strip is now visually distinct from the dots: added `border-top: 1px dashed rgba(110, 231, 183, .25)` on `.tl-wrap` to create a hairline separator.
+  - Strip is more compact: padding `.32rem .55rem` → `.22rem .5rem`; line-height `1.1`; gap `.55rem` → `.5rem`; title font `.72rem` → `.68rem`; counter font `.66rem` → `.6rem`; counter padding `.15rem .5rem` → `.08rem .42rem`; border-radius `8px` → `6px`.
+  - Strip is pushed up further: `margin-bottom: .25rem` → `.5rem` (desktop) and `.2rem` → `.45rem` (mobile); mobile title `.65rem` → `.62rem`; mobile counter `.58rem` → `.54rem`.
+  - Wrap is shorter: padding `.55rem 0 .5rem` → `.3rem 0 .55rem`; min-height `32px` → `28px`; `display: flex; align-items: flex-end;` so the dots anchor to the bottom of the wrap. Track is at `bottom: 4px` (was `2px`) with explicit `z-index: 1` so the dots (z-index: 2) always sit above it.
+  - Dots are smaller and clearer: 26×26 → 24×24 (desktop), 20×20 (mobile), 18×18 (≤480 px). Nodes now `align-items: flex-end` with `padding: 0 4px; margin-bottom: 2px` so the bottom edge of the dot is always 4 px above the footer's bottom padding.
+
 ## [2.5.1] — 2026-06-07
 
 ### Fixed

@@ -1014,17 +1014,18 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: .55rem;
-  padding: .32rem .55rem;
-  margin-bottom: .25rem;
+  gap: .5rem;
+  padding: .22rem .5rem;
+  margin-bottom: .5rem;
   background: linear-gradient(90deg, rgba(6, 78, 59, .85), rgba(16, 185, 129, .35));
   border: 1px solid rgba(110, 231, 183, .35);
-  border-radius: 8px;
+  border-radius: 6px;
+  line-height: 1.1;
 }
 
 .tl-name {
   font-family: "Cairo", sans-serif;
-  font-size: .72rem;
+  font-size: .68rem;
   font-weight: 700;
   color: #d1fae5;
   white-space: nowrap;
@@ -1032,34 +1033,45 @@ body::after {
   text-overflow: ellipsis;
   max-width: 72%;
   flex: 1 1 auto;
+  line-height: 1.1;
 }
 [lang="en"] .tl-name { font-family: "Inter", sans-serif; }
 
 .tl-counter {
   font-family: "Cairo", sans-serif;
-  font-size: .66rem;
+  font-size: .6rem;
   color: #fde68a;
   font-weight: 700;
   white-space: nowrap;
   flex: 0 0 auto;
   background: rgba(197, 160, 89, .22);
-  padding: .15rem .5rem;
+  padding: .08rem .42rem;
   border-radius: 999px;
   border: 1px solid rgba(197, 160, 89, .45);
+  line-height: 1.1;
 }
 
 [lang="en"] .tl-counter { font-family: "Inter", sans-serif; }
 
-.tl-wrap { position: relative; padding: .55rem 0 .5rem; min-height: 32px; }
+.tl-wrap {
+  position: relative;
+  padding: .3rem 0 .55rem;
+  min-height: 28px;
+  display: flex;
+  align-items: flex-end;
+  border-top: 1px dashed rgba(110, 231, 183, .25);
+  margin-top: .15rem;
+}
 
 .tl-track {
   position: absolute;
   height: 2px;
-  bottom: 2px;
+  bottom: 4px;
   left: 0;
   right: 0;
   background: rgba(6, 78, 59, .4);
   border-radius: 2px;
+  z-index: 1;
 }
 
 #tl-fill {
@@ -1073,11 +1085,13 @@ body::after {
 .tl-nodes {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   position: relative;
   z-index: 2;
-  min-height: 28px;
-  padding-top: 2px;
+  min-height: 24px;
+  padding: 0 4px;
+  width: 100%;
+  margin-bottom: 2px;
 }
 
 .tl-nd {
@@ -1092,8 +1106,8 @@ body::after {
 }
 
 .tl-dot {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   border: 2px solid rgba(197, 160, 89, .55);
   background: #010e09;
@@ -1101,7 +1115,7 @@ body::after {
   align-items: center;
   justify-content: center;
   font-family: "Cairo", sans-serif;
-  font-size: .7rem;
+  font-size: .68rem;
   font-weight: 700;
   color: #94a3b8;
   transition: var(--t);
@@ -1167,12 +1181,12 @@ body::after {
    themselves are the primary navigation affordance. */
 @media (max-width: 720px) {
   .tl-lbl { display: none; }
-  .tl-wrap { padding: .35rem 0 .35rem; min-height: 26px; }
+  .tl-wrap { padding: .25rem 0 .5rem; min-height: 24px; }
   .tl-dot { width: 20px; height: 20px; font-size: .58rem; }
   .tl-nd { gap: 0; }
-  .tl-name-strip { padding: .25rem .45rem; margin-bottom: .2rem; gap: .4rem; }
-  .tl-name { font-size: .65rem; max-width: 65%; }
-  .tl-counter { font-size: .58rem; padding: .1rem .4rem; }
+  .tl-name-strip { padding: .2rem .45rem; margin-bottom: .45rem; gap: .4rem; }
+  .tl-name { font-size: .62rem; max-width: 65%; }
+  .tl-counter { font-size: .54rem; padding: .06rem .35rem; }
   .tl-foot { padding: .35rem .55rem .4rem; }
   /* Also tighten the zoom controls — they were 36×34 on mobile, now 28×26 */
   .z-btn { min-width: 28px; height: 26px; font-size: .7rem; padding: 0 5px; }
