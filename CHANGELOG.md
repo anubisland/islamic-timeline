@@ -4,10 +4,16 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.7.4] — 2026-06-07
+## [2.7.5] — 2026-06-07
 
 ### Fixed
-- **🟢 Green strip permanently stuck** — Replaced CSS `.splash-hidden` class and inline `style="display:none"` with pure JavaScript `style.setProperty('display', 'none', 'important')` in both `init()` and `showSplash()`. `hideSplash()` uses `style.removeProperty('display')`. This guarantees the footer is hidden regardless of CSS cascade or specificity issues.
+- **🟢 Green strip FINAL FIX — footer removed from HTML entirely** — The `.tl-foot` is no longer in `index.html`. Instead, `ensureFooter()` dynamically creates it when `hideSplash()` runs (era selected), and `removeFooter()` deletes it from the DOM in `showSplash()`. This guarantees the green strip CANNOT appear on the splash screen — the element doesn't exist in the DOM.
+- **render() crash guard** — Added null checks for footer elements (`tl-name`, `tl-counter`, `tl-fill`) so that `applyLanguage()` → `render()` doesn't throw when the footer doesn't exist.
+
+### Changed
+- `buildTimeline()` in `init()` is now a no-op (footer absent); `hideSplash()` → `ensureFooter()` → `switchEv()` → `buildTimeline()` runs the actual build when an era is selected.
+
+## [2.7.4] — 2026-06-07 `hideSplash()` uses `style.removeProperty('display')`. This guarantees the footer is hidden regardless of CSS cascade or specificity issues.
 - **📱 Splash too compact/tiny** — Increased all splash sizes: title `1.8rem` (was `1.5rem`), era-card padding `10px 18px` (was `8px 14px`), rashidun-box padding `14px 18px` (was `10px 14px`), inner gap `10px` (was `6px`). Splash padding `16px` (was `10px`). Frame/corner sizes also increased. Media queries at 720px and 480px adjusted to match.
 - **🧹 Removed `.splash-hidden` CSS class entirely** — No longer needed; footer visibility controlled exclusively by JS.
 

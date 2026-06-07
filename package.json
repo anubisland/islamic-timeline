@@ -1,6 +1,6 @@
 {
   "name": "madani-era-timeline-app",
-  "version": "2.7.4",
+  "version": "2.7.5",
   "private": true,
   "description": "Interactive bilingual (AR/EN) seerah timeline — Pre-Prophethood (11), Meccan (16), Hijra (6), Badr (3), Medinan (11), + 5 Rashidun Caliphs (25) = 72 stages across 10 eras. Splash landing page, SVG maps, TTS, bilingual.",
   "scripts": {
