@@ -34,8 +34,10 @@
     if (hdr) hdr.classList.add('visible');
     const slb = $('splash-lang-toggle');
     if (slb) slb.classList.add('hidden');
-    // Footer is always in the DOM; CSS (#splash:not(.hidden) ~ .tl-foot)
-    // hides it when splash is visible and shows it when splash is hidden.
+    // Era mode: body turns emerald, browser chrome matches
+    document.body.style.background = '#063529';
+    document.querySelector('meta[name=theme-color]').content = '#063529';
+    // Footer is always in DOM; CSS hides it when splash is visible.
   }
 
   function showSplash() {
@@ -46,6 +48,9 @@
     const slb = $('splash-lang-toggle');
     if (slb) slb.classList.remove('hidden');
     stopAudio();
+    // Splash mode: body + browser chrome match the splash dark background
+    document.body.style.background = '#060b0f';
+    document.querySelector('meta[name=theme-color]').content = '#060b0f';
     // CSS hides footer automatically when splash is not hidden.
   }
 

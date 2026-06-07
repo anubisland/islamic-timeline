@@ -63,7 +63,7 @@ body {
   background:
     var(--bismillah-watermark) center 30vh / 90% no-repeat,
     var(--star-8) 0 0 / 120px 120px,
-    radial-gradient(circle at top, #0a4a3a 0%, #063529 55%, #021a13 100%);
+    #060b0f;  /* matches splash background; JS overrides to green during era */
   background-attachment: fixed, fixed, fixed;
   color: #e2e8f0;
   min-height: 100vh;
