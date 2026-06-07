@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.1] — 2026-06-07
+
+### Fixed
+- **Double tā' marbūṭa in "التجارةة"** (introduced by v2.5.0). The v2.5.0 fix replaced Cyrillic "торговл" (7 chars) with Arabic "التجارة" (7 chars), but the original `d8 a9` ة that was already after the Cyrillic was preserved, producing "التجارةة". The text was: `data-ar="↑ رحلتي التجارةة إلى الشام"`. Fixed in 2 places (data-ar attribute + textContent). Correct word is now "التجارة" (single ة).
+- **Timeline dots still partially hidden on mobile** (follow-up to v2.5.0). The track was repositioned below the dots in v2.5.0, but the wrap was still too tall, pushing the dots off the bottom of the visible viewport on small phones. Now: `.tl-wrap` padding `1rem .85rem` → `.55rem .5rem` (desktop) and `.35rem .35rem` (mobile); min-height `50px` → `32px` (desktop) and `26px` (mobile). `.tl-nodes` now `align-items: flex-start` with `padding-top: 2px` so the dots sit at the top of the wrap. Dot size reduced to 18×18 (≤480 px) and 20×20 (mobile) to fit more comfortably on small screens.
+
 ## [2.5.0] — 2026-06-07
 
 ### Fixed

@@ -1050,12 +1050,12 @@ body::after {
 
 [lang="en"] .tl-counter { font-family: "Inter", sans-serif; }
 
-.tl-wrap { position: relative; padding: 1rem 0 .85rem; min-height: 50px; }
+.tl-wrap { position: relative; padding: .55rem 0 .5rem; min-height: 32px; }
 
 .tl-track {
   position: absolute;
   height: 2px;
-  bottom: 4px;
+  bottom: 2px;
   left: 0;
   right: 0;
   background: rgba(6, 78, 59, .4);
@@ -1073,10 +1073,11 @@ body::after {
 .tl-nodes {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   z-index: 2;
-  min-height: 36px;
+  min-height: 28px;
+  padding-top: 2px;
 }
 
 .tl-nd {
@@ -1157,7 +1158,7 @@ body::after {
 @media (max-width: 480px) {
   .tl-lbl { font-size: .54rem; line-height: 1.15; padding: 0 1px; }
   .tl-lbl-sub { display: none; }
-  .tl-dot { width: 20px; height: 20px; font-size: .58rem; }
+  .tl-dot { width: 18px; height: 18px; font-size: .54rem; }
 }
 
 /* On mobile, the per-dot labels wrap into unreadable fragments (each node
@@ -1166,8 +1167,8 @@ body::after {
    themselves are the primary navigation affordance. */
 @media (max-width: 720px) {
   .tl-lbl { display: none; }
-  .tl-wrap { padding: .55rem 0 .45rem; min-height: 38px; }
-  .tl-dot { width: 22px; height: 22px; font-size: .62rem; }
+  .tl-wrap { padding: .35rem 0 .35rem; min-height: 26px; }
+  .tl-dot { width: 20px; height: 20px; font-size: .58rem; }
   .tl-nd { gap: 0; }
   .tl-name-strip { padding: .25rem .45rem; margin-bottom: .2rem; gap: .4rem; }
   .tl-name { font-size: .65rem; max-width: 65%; }
