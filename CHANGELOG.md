@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.7.3] — 2026-06-07
+
+### Fixed
+- **🟢 Green strip still visible on splash** — Added `style="display:none"` inline to the footer HTML as a second hiding mechanism alongside the CSS class. `showSplash()` now sets `element.style.display = 'none'` and `hideSplash()` clears it to `''`, providing a bulletproof guarantee that the footer is hidden during splash regardless of CSS cascade issues.
+
 ## [2.7.2] — 2026-06-07
 
 ### Fixed
