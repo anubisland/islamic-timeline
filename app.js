@@ -53,6 +53,9 @@
     document.body.style.background = '#060b0f';
     document.body.style.overflow = 'hidden';
     document.querySelector('meta[name=theme-color]').content = '#060b0f';
+    // Hide diagnostic badge (shown only during era)
+    const diag = $('focus-diag');
+    if (diag) diag.style.display = 'none';
     // CSS hides footer automatically when splash is not hidden.
   }
 
@@ -213,9 +216,12 @@
       }
     }
 
-    // Live diagnostic — shows the current focus coordinates + step number
+    // Live diagnostic — only shown when splash is hidden (era mode)
     const d = $('focus-diag');
+    const sp = $('splash');
     if (d) {
+      const splashVisible = sp && !sp.classList.contains('hidden');
+      d.style.display = splashVisible ? 'none' : 'block';
       d.textContent = '🎯 ' + (LANG === 'AR'
         ? 'الخطوة ' + arNum(STEP + 1) + ' — ' + (s.titleAr || '')
         : 'Step ' + (STEP + 1) + ' — ' + (s.titleEn || ''))

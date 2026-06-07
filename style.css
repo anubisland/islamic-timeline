@@ -1243,6 +1243,7 @@ body::after {
    the recurring "map shows wrong step" issue.
    ───────────────────────────────────────────────────────── */
 .focus-diag {
+  display: none;
   position: fixed;
   bottom: 12px;
   left: 12px;
@@ -1318,7 +1319,9 @@ body::after {
 .splash-bg {
   position: fixed;
   inset: 0;
-  /* BACKGROUND REMOVED for debugging: was radial-gradient green that could show */
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(6,78,59,.3) 0%, transparent 70%),
+    radial-gradient(ellipse at 50% 100%, rgba(197,160,89,.08) 0%, transparent 60%);
   pointer-events: none;
   z-index: -1;
 }

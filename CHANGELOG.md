@@ -4,12 +4,18 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.8.3] — 2026-06-08
+## [2.9.0] — 2026-06-08
 
 ### Fixed
-- **Splash overflow hidden + 100dvh** — Added `overflow: hidden` and `min-height: 100dvh` to `.splash` to prevent any content from rendering outside the splash bounds. Combined with inline critical CSS and body overflow lock.
+- **🟢 Green strip — ROOT CAUSE FOUND: `.focus-diag` diagnostic badge** — After weeks of false leads, the culprit was finally identified via systematic binary-search debugging. The `.focus-diag` element (`position: fixed; z-index: 9999; background: rgba(6, 53, 41, 0.85)`) was rendering a dark-green badge at the bottom of EVERY page, including the splash screen. Even without text content, its padding + green background + border created a visible "green strip."
 
-## [2.8.2] — 2026-06-08
+  **Fix**: `display: none` on `.focus-diag` by default. `applyMapFocus()` now explicitly sets `display: block` only during era mode (splash is hidden). `showSplash()` hides it as a safety net. The diagnostic badge is only useful in era mode — no reason for it to exist on the splash.
+
+### Removed
+- All debug/test CSS rules from `index.html` inline `<style>`.
+- All previous footer dynamic creation/deletion code (v2.7.5 → v2.8.0 → v2.8.1 → v2.8.3) — none of which addressed the real cause.
+
+## [2.8.3] — 2026-06-08
 
 ### Fixed
 - **🟢 Green strip — critical CSS inline in `<head>` + body overflow hidden** — CSS safety net (`#splash:not(.hidden) ~ .tl-foot { display: none !important; }`) is now inlined directly in `index.html`'s `<head>` so it applies BEFORE the browser renders anything. External `style.css` loading order is irrelevant. Also sets `html { background: #060b0f !important; }` and `body { background: #060b0f !important; }` inline.
