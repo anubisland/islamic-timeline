@@ -9,6 +9,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- CRITICAL CSS: inline in <head> so it applies BEFORE any rendering -->
+  <style>
+    html { background: #060b0f !important; }
+    body { background: #060b0f !important; }
+    /* Force-hide footer+wrap whenever splash is NOT hidden (i.e. visible) */
+    #splash:not(.hidden) ~ .wrap,
+    #splash:not(.hidden) ~ .tl-foot {
+      display: none !important;
+    }
+  </style>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>

@@ -4,10 +4,13 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.8.1] — 2026-06-08
+## [2.8.2] — 2026-06-08
 
 ### Fixed
-- **🟢 Green strip — body background & browser chrome now match splash** — Changed default `body` background from green radial gradient to `#060b0f` (same as splash). JS dynamically sets `body.style.background` and `theme-color` meta to `#060b0f` on splash and `#063529` during era. This eliminates any green showing through gaps, below the splash, or in browser chrome (navigation bar area on mobile).
+- **🟢 Green strip — critical CSS inline in `<head>` + body overflow hidden** — CSS safety net (`#splash:not(.hidden) ~ .tl-foot { display: none !important; }`) is now inlined directly in `index.html`'s `<head>` so it applies BEFORE the browser renders anything. External `style.css` loading order is irrelevant. Also sets `html { background: #060b0f !important; }` and `body { background: #060b0f !important; }` inline.
+- **Body overflow locked during splash** — `showSplash()` sets `document.body.style.overflow = 'hidden'` to prevent any body scrolling behind the fixed splash. Reverted to `''` in `hideSplash()`.
+
+## [2.8.1] — 2026-06-08
 
 ## [2.8.0] — 2026-06-08
 

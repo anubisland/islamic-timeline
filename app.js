@@ -36,6 +36,7 @@
     if (slb) slb.classList.add('hidden');
     // Era mode: body turns emerald, browser chrome matches
     document.body.style.background = '#063529';
+    document.body.style.overflow = '';
     document.querySelector('meta[name=theme-color]').content = '#063529';
     // Footer is always in DOM; CSS hides it when splash is visible.
   }
@@ -50,6 +51,7 @@
     stopAudio();
     // Splash mode: body + browser chrome match the splash dark background
     document.body.style.background = '#060b0f';
+    document.body.style.overflow = 'hidden';
     document.querySelector('meta[name=theme-color]').content = '#060b0f';
     // CSS hides footer automatically when splash is not hidden.
   }
