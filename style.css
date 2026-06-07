@@ -1302,8 +1302,7 @@ body::after {
   align-items: center;
   justify-content: center;
   background: #060b0f;
-  overflow: hidden;
-  padding: 10px 12px;
+  padding: 16px;
 }
 .splash.hidden { display: none; }
 
@@ -1319,30 +1318,30 @@ body::after {
 
 .splash-frame {
   position: fixed;
-  inset: 8px;
+  inset: 10px;
   border: 1.5px double rgba(212,175,55,.18);
   pointer-events: none;
   z-index: 101;
 }
 .splash-corner {
   position: fixed;
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
   border: 2px solid rgba(212,175,55,.35);
   z-index: 102;
 }
-.splash-corner.tl { top: 8px; left: 8px; border-bottom: none; border-right: none; }
-.splash-corner.tr { top: 8px; right: 8px; border-bottom: none; border-left: none; }
-.splash-corner.bl { bottom: 8px; left: 8px; border-top: none; border-right: none; }
-.splash-corner.br { bottom: 8px; right: 8px; border-top: none; border-left: none; }
+.splash-corner.tl { top: 10px; left: 10px; border-bottom: none; border-right: none; }
+.splash-corner.tr { top: 10px; right: 10px; border-bottom: none; border-left: none; }
+.splash-corner.bl { bottom: 10px; left: 10px; border-top: none; border-right: none; }
+.splash-corner.br { bottom: 10px; right: 10px; border-top: none; border-left: none; }
 
 .splash-inner {
   width: 100%;
-  max-width: 820px;
+  max-width: 880px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
   z-index: 10;
   max-height: 100%;
   overflow-y: auto;
@@ -1361,10 +1360,10 @@ body::after {
   background: var(--gold);
   color: var(--emerald-4);
   border: none;
-  padding: .3rem .85rem;
+  padding: .4rem 1rem;
   border-radius: 50px;
   font-weight: 700;
-  font-size: .73rem;
+  font-size: .8rem;
   cursor: pointer;
   transition: var(--t);
   box-shadow: 0 2px 8px rgba(0,0,0,.35);
@@ -1374,25 +1373,24 @@ body::after {
 .splash-lang-btn:hover { background: var(--gold-2); transform: translateY(-1px); }
 .splash-lang-btn:active { transform: translateY(0); }
 .splash-lang-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-/* Splash-lang-btn visibility toggled by JS (.hidden class) */
 .splash-lang-btn.hidden { display: none; }
 .splash-hero h1 {
   font-family: "Amiri", serif;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #ffd700;
   text-shadow: 0 3px 12px rgba(255,215,0,.2);
   line-height: 1.3;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 .splash-sub {
-  font-size: .78rem;
+  font-size: .85rem;
   color: #94a3b8;
   font-weight: 600;
 }
 .splash-divider {
-  font-size: .95rem;
+  font-size: 1rem;
   color: #d4af37;
-  margin-top: 4px;
+  margin-top: 6px;
   opacity: .5;
 }
 
@@ -1400,18 +1398,18 @@ body::after {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
 }
 
 .era-card {
   background: rgba(12,22,31,.92);
   border-right: 3px solid #d4af37;
   border: 1px solid rgba(212,175,55,.18);
-  border-radius: 6px;
-  padding: 8px 14px;
+  border-radius: 7px;
+  padding: 10px 18px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   cursor: pointer;
   transition: all .2s ease;
   flex-shrink: 0;
@@ -1422,10 +1420,10 @@ body::after {
   transform: translateX(-3px);
   box-shadow: 0 4px 18px rgba(255,215,0,.06);
 }
-.era-card .ec-icon { font-size: 1.2rem; flex: 0 0 auto; }
+.era-card .ec-icon { font-size: 1.3rem; flex: 0 0 auto; }
 .era-card .ec-name {
   flex: 1;
-  font-size: .88rem;
+  font-size: .95rem;
   font-weight: 700;
   color: #fff;
   line-height: 1.2;
@@ -1433,20 +1431,20 @@ body::after {
 .era-card .ec-dates {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   direction: ltr;
   unicode-bidi: plaintext;
   background: rgba(7,14,20,.8);
   border: 1px solid #d4af37;
-  border-radius: 16px;
-  padding: 3px 10px;
-  font-size: .72rem;
+  border-radius: 18px;
+  padding: 4px 12px;
+  font-size: .75rem;
   font-weight: 600;
   color: #ffd700;
   white-space: nowrap;
   flex-shrink: 0;
 }
-.era-card .ec-sep { color: #64748b; font-size: .65rem; }
+.era-card .ec-sep { color: #64748b; font-size: .68rem; }
 
 [dir="ltr"] .era-card .ec-dates { direction: rtl; }
 [dir="ltr"] .era-card .ec-dates bdi { direction: ltr; unicode-bidi: embed; }
@@ -1456,38 +1454,38 @@ body::after {
   background: rgba(16,29,41,.96);
   border: 1px solid rgba(212,175,55,.3);
   border-radius: 10px;
-  padding: 10px 14px;
+  padding: 14px 18px;
   flex-shrink: 0;
 }
 .rashidun-head {
   text-align: center;
   font-family: "Amiri", serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #ffd700;
-  padding-bottom: 6px;
-  margin-bottom: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
   border-bottom: 1px dashed rgba(212,175,55,.2);
 }
 .rashidun-head .rashidun-range {
   display: block;
-  font-size: .72rem;
+  font-size: .78rem;
   color: #94a3b8;
   font-family: "Cairo", sans-serif;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 .rashidun-grid {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
 .caliph-card {
   background: rgba(7,14,20,.5);
   border: 1px solid rgba(212,175,55,.15);
-  border-radius: 5px;
-  padding: 5px 10px;
+  border-radius: 6px;
+  padding: 6px 12px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   cursor: pointer;
   transition: all .2s ease;
 }
@@ -1495,10 +1493,10 @@ body::after {
   border-color: #ffd700;
   background: rgba(7,14,20,.8);
 }
-.caliph-card .cc-icon { font-size: 1rem; flex: 0 0 auto; }
+.caliph-card .cc-icon { font-size: 1.1rem; flex: 0 0 auto; }
 .caliph-card .cc-name {
   flex: 1;
-  font-size: .8rem;
+  font-size: .85rem;
   font-weight: 700;
   color: #fff;
 }
@@ -1506,19 +1504,19 @@ body::after {
 .caliph-card .cc-dates {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   direction: ltr;
-  font-size: .7rem;
+  font-size: .75rem;
   font-weight: 600;
   color: #fde68a;
   white-space: nowrap;
   flex-shrink: 0;
 }
 .splash-foot {
-  font-size: .68rem;
+  font-size: .72rem;
   color: #64748b;
   text-align: center;
-  padding: 2px 0 1px;
+  padding: 4px 0 2px;
   flex-shrink: 0;
 }
 
@@ -1564,44 +1562,36 @@ body::after {
   border-color: #C5A059;
 }
 
-/* --- Hide main content when splash is active --- */
-.wrap.splash-hidden,
-.tl-foot.splash-hidden { display: none; }
-
 @media (max-width: 720px) {
-  .splash { padding: 8px 10px; }
-  .splash-hero h1 { font-size: 1.2rem; }
-  .splash-sub { font-size: .7rem; }
-  .splash-frame { inset: 6px; }
-  .splash-corner { width: 18px; height: 18px; }
-  .era-card { padding: 6px 10px; gap: 8px; }
-  .era-card .ec-icon { font-size: 1.1rem; }
-  .era-card .ec-name { font-size: .85rem; }
-  .era-card .ec-dates { font-size: .68rem; padding: 2px 8px; gap: 4px; }
-  .rashidun-box { padding: 8px 10px; }
-  .rashidun-head { font-size: .9rem; padding-bottom: 4px; margin-bottom: 6px; }
-  .caliph-card { padding: 4px 8px; gap: 6px; }
-  .caliph-card .cc-name { font-size: .78rem; }
-  .caliph-card .cc-dates { font-size: .65rem; }
-  .splash-foot { font-size: .62rem; }
-  .splash-inner { gap: 4px; }
-  .splash-divider { font-size: .8rem; margin-top: 2px; }
+  .splash { padding: 12px; }
+  .splash-hero h1 { font-size: 1.4rem; }
+  .splash-sub { font-size: .78rem; }
+  .splash-frame { inset: 8px; }
+  .splash-corner { width: 22px; height: 22px; }
+  .era-card { padding: 8px 14px; gap: 10px; }
+  .era-card .ec-icon { font-size: 1.2rem; }
+  .era-card .ec-name { font-size: .88rem; }
+  .era-card .ec-dates { font-size: .7rem; padding: 3px 10px; }
+  .rashidun-box { padding: 10px 14px; }
+  .rashidun-head { font-size: 1rem; }
+  .caliph-card { padding: 5px 10px; gap: 8px; }
+  .caliph-card .cc-name { font-size: .8rem; }
+  .caliph-card .cc-dates { font-size: .7rem; }
+  .splash-inner { gap: 8px; }
+  .splash-divider { font-size: .9rem; }
 }
 
 @media (max-width: 480px) {
-  .splash-hero h1 { font-size: 1rem; }
-  .splash-sub { font-size: .65rem; }
-  .splash-inner { gap: 3px; }
-  .splash-eras { gap: 4px; }
-  .era-card { padding: 4px 8px; gap: 6px; }
-  .era-card .ec-icon { font-size: 1rem; }
-  .era-card .ec-name { font-size: .78rem; }
-  .era-card .ec-dates { font-size: .6rem; padding: 2px 6px; }
-  .rashidun-box { padding: 6px 8px; }
-  .rashidun-head { font-size: .82rem; }
-  .rashidun-grid { gap: 3px; }
-  .caliph-card { padding: 3px 6px; gap: 4px; }
-  .caliph-card .cc-icon { font-size: .85rem; }
-  .caliph-card .cc-name { font-size: .72rem; }
-  .caliph-card .cc-dates { font-size: .6rem; }
+  .splash-hero h1 { font-size: 1.2rem; }
+  .splash-sub { font-size: .7rem; }
+  .splash-inner { gap: 6px; }
+  .era-card { padding: 6px 10px; gap: 8px; }
+  .era-card .ec-icon { font-size: 1.1rem; }
+  .era-card .ec-name { font-size: .82rem; }
+  .era-card .ec-dates { font-size: .65rem; padding: 2px 8px; }
+  .rashidun-box { padding: 8px 10px; }
+  .rashidun-head { font-size: .9rem; }
+  .caliph-card { padding: 4px 8px; gap: 6px; }
+  .caliph-card .cc-name { font-size: .75rem; }
+  .caliph-card .cc-dates { font-size: .65rem; }
 }

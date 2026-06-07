@@ -32,8 +32,8 @@
     if (sp) sp.classList.add('hidden');
     const wr = document.querySelector('.wrap');
     const ft = document.querySelector('.tl-foot');
-    if (wr) { wr.classList.remove('splash-hidden'); wr.style.display = ''; }
-    if (ft) { ft.classList.remove('splash-hidden'); ft.style.display = ''; }
+    if (wr) { wr.style.removeProperty('display'); }
+    if (ft) { ft.style.removeProperty('display'); }
     const hdr = $('site-header');
     if (hdr) hdr.classList.add('visible');
     const slb = $('splash-lang-toggle');
@@ -45,8 +45,8 @@
     if (sp) sp.classList.remove('hidden');
     const wr = document.querySelector('.wrap');
     const ft = document.querySelector('.tl-foot');
-    if (wr) { wr.classList.add('splash-hidden'); wr.style.display = 'none'; }
-    if (ft) { ft.classList.add('splash-hidden'); ft.style.display = 'none'; }
+    if (wr) wr.style.setProperty('display', 'none', 'important');
+    if (ft) ft.style.setProperty('display', 'none', 'important');
     const hdr = $('site-header');
     if (hdr) hdr.classList.remove('visible');
     const slb = $('splash-lang-toggle');
@@ -707,8 +707,11 @@
       if (e.key === 'l' || e.key === 'L') { e.preventDefault(); LANG = LANG === 'AR' ? 'EN' : 'AR'; applyLanguage(); }
     });
 
-    // Start with splash screen; build timeline and language ready for when
-    // the user clicks an era card. Always show splash first.
+    // Start with splash screen; hide main content immediately with !important
+    const wr = document.querySelector('.wrap');
+    const ft = document.querySelector('.tl-foot');
+    if (wr) wr.style.setProperty('display', 'none', 'important');
+    if (ft) ft.style.setProperty('display', 'none', 'important');
     buildTimeline();
     showSplash();
     applyLanguage();
