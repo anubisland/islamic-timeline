@@ -1318,9 +1318,7 @@ body::after {
 .splash-bg {
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(6,78,59,.3) 0%, transparent 70%),
-    radial-gradient(ellipse at 50% 100%, rgba(197,160,89,.08) 0%, transparent 60%);
+  /* BACKGROUND REMOVED for debugging: was radial-gradient green that could show */
   pointer-events: none;
   z-index: -1;
 }
