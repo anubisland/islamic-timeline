@@ -4,16 +4,17 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.7.6] — 2026-06-08
+## [2.8.0] — 2026-06-08
 
-### Added
-- **CSS safety net for green strip** — Added `#splash:not(.hidden) ~ .tl-foot { display: none !important; }` and `#splash:not(.hidden) ~ .wrap { display: none !important; }` in `style.css`. This guarantees the footer is hidden whenever the splash is visible, regardless of JavaScript timing or errors. Works at the CSS level — no JS can override it.
-- **Extra JS backup** — `showSplash()` now additionally runs `document.querySelector('.tl-foot')` removal as a second layer of defense alongside `removeFooter()`.
+### Fixed
+- **🟢 Green strip — ROOT CAUSE eliminated** — Replaced the entire dynamic-footer-in-JS approach with a **CSS-only** solution. The `.tl-foot` is back in `index.html` permanently. A CSS rule (`#splash:not(.hidden) ~ .tl-foot { display: none !important; }`) hides it when the splash is visible, and lets it display normally when the splash is hidden. No JavaScript creation/destruction of DOM elements, no timing races, no failure modes.
+- **Removed `ensureFooter()` / `removeFooter()`** — These functions and their calls are deleted. Footer visibility is now 100% controlled by CSS.
 
 ### Changed
-- **Mobile splash made compact** — Further reduced font sizes, padding, and gaps at ≤480px and added a new ≤360px breakpoint that hides the subtitle and divider to eliminate scrolling on very small screens.
+- `hideSplash()` and `showSplash()` no longer manipulate `.wrap` or `.tl-foot` display — CSS handles both via sibling combinators.
+- Mobile splash further compacted (≤480px and new ≤360px breakpoint).
 
-## [2.7.5] — 2026-06-07
+## [2.7.6] — 2026-06-08
 
 ## [2.7.4] — 2026-06-07 `hideSplash()` uses `style.removeProperty('display')`. This guarantees the footer is hidden regardless of CSS cascade or specificity issues.
 - **📱 Splash too compact/tiny** — Increased all splash sizes: title `1.8rem` (was `1.5rem`), era-card padding `10px 18px` (was `8px 14px`), rashidun-box padding `14px 18px` (was `10px 14px`), inner gap `10px` (was `6px`). Splash padding `16px` (was `10px`). Frame/corner sizes also increased. Media queries at 720px and 480px adjusted to match.

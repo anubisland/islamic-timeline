@@ -26,57 +26,27 @@
   // ── Map viewBoxes ──────────────────────────────────────
   const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560] };
 
-  // ── Dynamic timeline footer ──────────────────────────────
-  function ensureFooter() {
-    if ($('tl-foot')) return; // already exists
-    const f = document.createElement('footer');
-    f.className = 'tl-foot';
-    f.id = 'tl-foot';
-    f.innerHTML =
-      '<div class="tl-in">' +
-        '<div class="tl-wrap">' +
-          '<div class="tl-track"><div id="tl-fill"></div></div>' +
-          '<div class="tl-nodes" id="tl-nodes"></div>' +
-        '</div>' +
-        '<div class="tl-name-strip">' +
-          '<span class="tl-name" id="tl-name">\u2014</span>' +
-          '<span class="tl-counter" id="tl-counter">\u2014</span>' +
-        '</div>' +
-      '</div>';
-    document.body.appendChild(f);
-  }
-  function removeFooter() {
-    const f = $('tl-foot');
-    if (f) f.remove();
-  }
-
   // ── Splash navigation ──────────────────────────────────
   function hideSplash() {
     const sp = $('splash');
     if (sp) sp.classList.add('hidden');
-    const wr = document.querySelector('.wrap');
-    if (wr) wr.style.removeProperty('display');
-    ensureFooter();
     const hdr = $('site-header');
     if (hdr) hdr.classList.add('visible');
     const slb = $('splash-lang-toggle');
     if (slb) slb.classList.add('hidden');
+    // Footer is always in the DOM; CSS (#splash:not(.hidden) ~ .tl-foot)
+    // hides it when splash is visible and shows it when splash is hidden.
   }
 
   function showSplash() {
     const sp = $('splash');
     if (sp) sp.classList.remove('hidden');
-    const wr = document.querySelector('.wrap');
-    if (wr) wr.style.setProperty('display', 'none', 'important');
-    removeFooter();
-    // Force-remove any lingering footer element (defense in depth)
-    const anyFooter = document.querySelector('.tl-foot');
-    if (anyFooter) anyFooter.remove();
     const hdr = $('site-header');
     if (hdr) hdr.classList.remove('visible');
     const slb = $('splash-lang-toggle');
     if (slb) slb.classList.remove('hidden');
     stopAudio();
+    // CSS hides footer automatically when splash is not hidden.
   }
 
   function goToSplash() {
@@ -583,10 +553,9 @@
       if (STEP >= 1 && n2) n2.classList.add('act');
     }
 
-    // Timeline strip (guarded — footer created dynamically)
+    // Timeline strip
     const pct = tot > 1 ? (STEP / (tot - 1)) * 100 : 100;
-    const tf = $('tl-fill');
-    if (tf) tf.style.width = pct + '%';
+    $('tl-fill').style.width = pct + '%';
     $('hdr-prog').style.width = pct + '%';
     for (let i = 0; i < tot; i++) {
       const n = $('tn' + i);
@@ -596,16 +565,12 @@
       else if (i < STEP) n.classList.add('done');
     }
 
-    // Footer strip (only if footer exists — created when era selected)
-    const tn = $('tl-name');
-    const tc = $('tl-counter');
-    if (tn && tc) {
-      const footerTitle = s[t('title')];
-      tn.textContent = footerTitle;
-      tc.textContent = LANG === 'AR'
-        ? arNum(STEP + 1) + ' / ' + arNum(tot)
-        : (STEP + 1) + ' / ' + tot;
-    }
+    // Footer strip: current step title + counter ("1 / 6")
+    const footerTitle = s[t('title')];
+    $('tl-name').textContent = footerTitle;
+    $('tl-counter').textContent = LANG === 'AR'
+      ? arNum(STEP + 1) + ' / ' + arNum(tot)
+      : (STEP + 1) + ' / ' + tot;
 
     // Nav buttons
     $('btn-prev').disabled = STEP === 0;
@@ -736,8 +701,8 @@
       if (e.key === 'l' || e.key === 'L') { e.preventDefault(); LANG = LANG === 'AR' ? 'EN' : 'AR'; applyLanguage(); }
     });
 
-    // Start with splash screen (no footer exists yet — it's created on era select)
-    buildTimeline(); // no-op, footer doesn't exist yet
+    // Start with splash screen; CSS hides footer via #splash:not(.hidden) ~ .tl-foot
+    buildTimeline();
     showSplash();
     applyLanguage();
 
