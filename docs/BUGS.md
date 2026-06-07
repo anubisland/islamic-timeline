@@ -1,10 +1,67 @@
 # Bugs Encountered & Lessons Learned
 
-> A living catalogue of every bug hit while building `madani-era-timeline-app` (v2.0 → v2.4.5), with the **root cause**, the **fix**, and the **rule** to follow so the same mistake does not happen again. Read this **before** touching the code.
+> A living catalogue of every bug hit while building `madani-era-timeline-app` (v2.0 → v2.9.0), with the **root cause**, the **fix**, and the **rule** to follow so the same mistake does not happen again. Read this **before** touching the code.
 
 > For architecture, see [`ARCHITECTURE.md`](ARCHITECTURE.md).
 > For data shape, see [`DATA_SCHEMA.md`](DATA_SCHEMA.md).
 > For Islamic sourcing rules, see [`SOURCES.md`](SOURCES.md).
+
+---
+
+## I. 🟢 The "Green Strip" saga (v2.7.0 → v2.9.0) — the most expensive bug in this project
+
+> **IMPORTANT**: Before debugging a visual bug, ALWAYS check **`z-index`** and **`position: fixed`** elements first. The "green strip" consumed 10+ false fixes over 3 days because this check was skipped.
+
+### I1. Root cause: `.focus-diag` diagnostic badge (`z-index: 9999`)
+
+- **Symptom**: a dark-green strip at the bottom of the splash screen, visible immediately on page load. Persisted in landscape mode. Did not disappear after clearing browser cache.
+- **Root cause**: the `<div id="focus-diag" class="focus-diag">` diagnostic badge was created in v2.4.2 to help debug map-focus coordinates. It has:
+  ```css
+  position: fixed; bottom: 12px; z-index: 9999;
+  background: rgba(6, 53, 41, 0.85); /* dark emerald green */
+  padding: 6px 12px;
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  ```
+  Even **empty** (no text content), its padding + green background + border rendered as a visible green rectangle at the bottom of EVERY page, including the splash screen. Its `z-index: 9999` placed it **above** the splash (`z-index: 100`). No CSS rule or JS function ever hid it during the splash state — it was never supposed to be visible there, but nothing explicitly made it `display: none`.
+
+- **Why it took 10+ false fixes**: every previous attempt targeted the **footer** (`.tl-foot`, `.tl-name-strip`), the body background, the `theme-color`, the `overflow`, or the `html`/`body` background. None of these addressed the actual source. The `.focus-diag` element was invisible in the developer's mental model because it was "just a debugging tool" — but it was present in the DOM from the beginning and had no `display: none` default.
+
+- **Fix (v2.9.0)**:
+  ```css
+  /* CSS */
+  .focus-diag { display: none; }
+  ```
+  ```js
+  // app.js — applyMapFocus()
+  d.style.display = splashVisible ? 'none' : 'block';
+  ```
+  ```js
+  // app.js — showSplash()
+  diag.style.display = 'none';
+  ```
+  
+- **Rule — must-follow**:
+  - Any `position: fixed` element with a colored background and `z-index > 100` or `z-index: 9999` MUST have `display: none` by default. Show it only when needed (in this case, during era mode only).
+  - When debugging a visual artifact, **check `z-index` first**. Search the CSS for `z-index:` values. Every element above the splash's `z-index: 100` is a suspect.
+  - When adding a diagnostic/debug element to the DOM, add `display: none` in the same commit. The diagnostic is for developers; it has no business being visible in the default user experience.
+  - Use binary-search elimination: add `#splash, #splash * { background: #060b0f !important; }`. If the bug disappears, it's INSIDE the splash children. Remove rules one by one to find the specific child. This technique finally found the `.focus-diag` after weeks of guesswork.
+
+### I2. Chronology of false fixes (v2.7.0 → v2.8.3)
+
+| Attempt | Fix | Why it failed |
+|---------|-----|-------------|
+| v2.7.1 | CSS `.splash-hidden` class on footer | Did not address the actual source |
+| v2.7.2 | Inline `style="display:none"` on footer HTML | Same — wrong element |
+| v2.7.3 | `element.style.display = 'none'` in JS | Same |
+| v2.7.4 | `style.setProperty('display', 'none', 'important')` in JS | Same |
+| v2.7.5 | Remove footer from HTML, create dynamically in JS | Same |
+| v2.8.0 | CSS-only: `#splash:not(.hidden) ~ .tl-foot { display: none }` | Same — CSS was correct but targeted wrong element |
+| v2.8.1 | Body bg + `theme-color` match splash | Green persisted through a different element |
+| v2.8.2 | Critical CSS inlined in `<head>` | CSS was correct; wrong element |
+| v2.8.3 | `overflow: hidden` + `100dvh` on splash | Did not remove the offending element |
+| **v2.9.0** | **`.focus-diag { display: none }`** | **Correct — addressed the actual DOM element** |
+
+**Lesson**: targeting symptoms (the "greenness" by trying to make everything dark) instead of finding the actual DOM element is the #1 time-waster. Always isolate by elimination first.
 
 ---
 

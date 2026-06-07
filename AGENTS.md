@@ -120,3 +120,55 @@ const ar = (h.match(/data-ar=/g) || []).length;
 const en = (h.match(/data-en=/g) || []).length;
 console.log({ ar, en, ok: ar === en });
 ```
+
+## 🐛 Catalogue of Fixed Bugs (Lessons Learned)
+
+> **IMPORTANT**: Before debugging a visual bug, always check **`z-index`** and **`position: fixed`** elements first. The most persistent bug in this project was a `z-index: 9999` diagnostic badge.
+
+### The "Green Strip" saga (v2.7.0 → v2.9.0) — 10+ false fixes
+
+The green strip at the bottom of the splash screen was the single most expensive bug in this project. Here is the full chronology:
+
+| Attempt | Fix | Result |
+|---------|-----|--------|
+| v2.7.1 | CSS `.splash-hidden` class | FAILED — strip visible |
+| v2.7.2 | Inline `style="display:none"` on footer | FAILED |
+| v2.7.3 | `element.style.display = 'none'` in JS | FAILED |
+| v2.7.4 | `style.setProperty('display', 'none', 'important')` in JS | FAILED |
+| v2.7.5 | Remove footer from HTML, create dynamically | FAILED |
+| v2.8.0 | CSS-only: `#splash:not(.hidden) ~ .tl-foot` | FAILED |
+| v2.8.1 | Body bg + theme-color match splash bg | FAILED |
+| v2.8.2 | Critical CSS inlined in `<head>` | FAILED |
+| v2.8.3 | `overflow: hidden` + `100dvh` on splash | FAILED |
+| **v2.9.0** | **`.focus-diag { display: none }`** | **SOLVED** ✓ |
+
+**Root cause**: The `<div id="focus-diag" class="focus-diag">` diagnostic badge was created to debug map focus coordinates. It has:
+- `position: fixed; bottom: 12px; z-index: 9999;`
+- `background: rgba(6, 53, 41, 0.85)` — **dark emerald green**
+- `padding: 6px 12px; border: 1px solid rgba(197, 160, 89, 0.4);`
+
+Even **empty** (no text content), its padding + green background + border renders as a visible green rectangle at the bottom of EVERY page, including the splash. Its `z-index: 9999` places it **above** the splash (`z-index: 100`).
+
+**Lesson**: Any `position: fixed` element with `z-index > 100` or `z-index: 9999` that has a colored background MUST have `display: none` by default. Show it only when needed.
+
+### Other fixed bugs
+
+| Bug | Root Cause | Fix |
+|-----|-----------|-----|
+| **Timeline dots missing on mobile** (v2.4.7–2.5.3) | Footer too tall, green strip covering dots | Reordered footer: dots first, strip second. Added `env(safe-area-inset-bottom)`. Tightened all padding. |
+| **Audio (TTS) not working** (v2.4.2) | Web Speech silent failure not detected; Google TTS blocked by CORS | Web Speech API first with 30s timeout + boolean `__ttsStarted` flag. Google TTS fallback with 2 URL endpoints. |
+| **Map focus at wrong position** (v2.4.3) | `mapFocus {x,y}` hardcoded incorrectly for 7+ steps | Re-anchored all 36 focus coordinates to SVG node centers |
+| **Wrong map title** (v2.4.5) | Duplicate `#map-label` elements in HTML | Removed duplicate; only one `#map-label` remains |
+| **Cyrillic text corruption** (v2.5.0) | UTF-8 byte sequence `d1 82 d0 be ...` instead of Arabic | Replaced corrupted bytes with correct Arabic UTF-8 |
+| **Quranic verses wrong** (v2.4.1) | 6 ayahs paired generically, not by occasion | Replaced with event-matched ayahs (asbāb al-nuzul) |
+| **Language not reflected in SVGs** (v2.4.5) | Hardcoded Arabic in `<text>` elements without `data-ar`/`data-en` | Added bilingual pairs to all 5 maps |
+| **Splash content too tall** (v2.7.2) | 10 cards + header + footer in single column | Reduced padding/font at each breakpoint; hides subtitle/divider at ≤360px |
+| **Timeline strip missing on load** (v2.4.3) | `buildTimeline()` not called from `init()` | Added call to `buildTimeline()` in `init()` before `applyLanguage()` |
+
+### Debugging methodology for future agents
+
+1. **Isolate by elimination**: `#splash, #splash * { background: #060b0f !important; }` — if the bug disappears, it's INSIDE the splash. Remove rules one by one to find the specific element.
+2. **Check z-index FIRST**: Any `z-index > 100` with `position: fixed` can render above the splash. Search for `z-index: 9` in CSS.
+3. **Use `:not(.hidden)` for CSS-only visibility control**: The `~` sibling combinator only works for elements AFTER the reference in DOM order.
+4. **Inline critical CSS in `<head>`**: External stylesheets (`style.css`) can be overridden by later rules, but inline `<style>` in `<head>` before `<link rel="stylesheet">` ensures it's available on first paint.
+5. **Verify on the LIVE site**: Always `webfetch` the deployed HTML/CSS/JS to confirm the fix is actually pushed and deployed.
