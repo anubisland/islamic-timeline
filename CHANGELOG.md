@@ -4,13 +4,21 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.7.2] — 2026-06-07
+
+### Fixed
+- **⚡ Flash of timeline content before splash** — Added `splash-hidden` class directly to `.wrap` and `.tl-foot` in the raw HTML so they are hidden before JavaScript runs. Previously the main grid and green footer strip were visible during the split-second before `app.js` executed.
+- **✂️ Title cut off at top of splash** — Moved lang toggle button OUTSIDE the splash section (as a sibling) to avoid clipping. Removed `overflow: hidden` issue on `.splash` that caused `align-items: center` to clip top content. Overrode the `@media (max-width: 720px)` and `480px` queries that had LARGER padding/font values than the compact base styles — they now use even tighter values (e.g., era-card padding 4–6px, h1 1.0–1.2rem).
+- **🔤 Language toggle always visible** — Button now uses plain `position: fixed; top: 16px; right: 16px; z-index: 200` (not `inset-inline-end` for broader browser compat). Hidden via `.hidden` class toggled by `showSplash()`/`hideSplash()` JS.
+- **📱 Splash fits 100vh without scrolling** — Base splash padding reduced to 10px, inner gap to 6px, era-card padding to 8px, caliph-card padding to 5px. Responsive breakpoints further reduce sizes on small screens.
+
 ## [2.7.1] — 2026-06-07
 
 ### Fixed
-- **Splash always shows first on load** — Removed saved-EVT auto-navigation in `init()` so the splash landing page is always the entry point, not the last-viewed era (fixes issue where Pre-Prophethood appeared before splash).
-- **Language toggle now visible on splash screen** — Added `#splash-lang-toggle` button (fixed top-right on splash) so users can switch AR/EN without leaving the home screen. Both header and splash toggles stay synced.
-- **Splash fits in one viewport (no scroll)** — Reduced all splash spacing, padding, and font sizes: title 2.2rem→1.5rem, era card padding 14px→8px, rashidun box padding 18px→10px, inner gap 20px→8px. Frame and corners also compacted. Inner content scrolls if needed (`overflow-y: auto`) with `max-height: calc(100vh - 28px)`.
-- **Green footer strip no longer appears on splash** — Since splash now always shows first, the timeline footer stays hidden until an era is selected.
+- **Splash always shows first on load** — Removed saved-EVT auto-navigation in `init()` so the splash landing page is always the entry point.
+- **Language toggle now visible on splash screen** — Added `#splash-lang-toggle` button, synced with header toggle.
+- **Splash fits in one viewport (no scroll)** — Compacted spacing, padding, and font sizes.
+- **Green footer strip no longer appears on splash**.
 
 ## [2.7.0] — 2026-06-07
 

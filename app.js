@@ -36,6 +36,8 @@
     if (ft) ft.classList.remove('splash-hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.add('visible');
+    const slb = $('splash-lang-toggle');
+    if (slb) slb.classList.add('hidden');
   }
 
   function showSplash() {
@@ -47,6 +49,8 @@
     if (ft) ft.classList.add('splash-hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.remove('visible');
+    const slb = $('splash-lang-toggle');
+    if (slb) slb.classList.remove('hidden');
     stopAudio();
   }
 

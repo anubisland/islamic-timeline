@@ -49,6 +49,11 @@
   <div id="focus-diag" class="focus-diag" aria-live="polite"></div>
   <div id="diag" class="diag diag-info" style="display:none" aria-live="polite"></div>
 
+  <!-- Language toggle (fixed position, always visible on splash) -->
+  <button id="splash-lang-toggle" class="splash-lang-btn" type="button" aria-label="Toggle language">
+    <span data-ar="English" data-en="العربية">English</span>
+  </button>
+
   <!-- SPLASH SCREEN (shown initially) -->
   <section id="splash" class="splash">
     <div class="splash-bg"></div>
@@ -58,11 +63,6 @@
 
     <div class="splash-inner">
       <div class="splash-hero">
-        <div class="splash-lang-wrap">
-          <button id="splash-lang-toggle" class="splash-lang-btn" type="button" aria-label="Toggle language">
-            <span data-ar="English" data-en="العربية">English</span>
-          </button>
-        </div>
         <h1 data-ar="الخَطّ الزَّمَنِيُّ لِلسِّيرَةِ النَّبَوِيَّةِ" data-en="Seerah Timeline">الخَطّ الزَّمَنِيُّ لِلسِّيرَةِ النَّبَوِيَّةِ</h1>
         <p class="splash-sub" data-ar="الشاشة الافتتاحية للمراحل والعهود" data-en="Interactive Eras &amp; Stages — Home Screen">الشاشة الافتتاحية للمراحل والعهود</p>
         <div class="splash-divider">۞</div>
@@ -197,7 +197,7 @@
   </section>
 
   <!-- MAIN GRID (hidden initially, shown when an era is selected) -->
-  <main class="wrap">
+  <main class="wrap splash-hidden">
 
     <!-- MAP PANEL -->
     <section class="map-panel">
@@ -1549,7 +1549,7 @@
   </main>
 
   <!-- TIMELINE FOOTER -->
-  <footer class="tl-foot">
+  <footer class="tl-foot splash-hidden">
     <div class="tl-in">
       <div class="tl-wrap">
         <div class="tl-track"><div id="tl-fill"></div></div>

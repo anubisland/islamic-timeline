@@ -1303,7 +1303,7 @@ body::after {
   justify-content: center;
   background: #060b0f;
   overflow: hidden;
-  padding: 14px 16px;
+  padding: 10px 12px;
 }
 .splash.hidden { display: none; }
 
@@ -1342,25 +1342,22 @@ body::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   z-index: 10;
-  max-height: calc(100vh - 28px);
+  max-height: 100%;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 .splash-hero {
   text-align: center;
-  position: relative;
   width: 100%;
 }
-.splash-lang-wrap {
-  position: fixed;
-  top: 18px;
-  inset-inline-end: 18px;
-  z-index: 110;
-}
 .splash-lang-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 200;
   background: var(--gold);
   color: var(--emerald-4);
   border: none;
@@ -1377,6 +1374,8 @@ body::after {
 .splash-lang-btn:hover { background: var(--gold-2); transform: translateY(-1px); }
 .splash-lang-btn:active { transform: translateY(0); }
 .splash-lang-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+/* Splash-lang-btn visibility toggled by JS (.hidden class) */
+.splash-lang-btn.hidden { display: none; }
 .splash-hero h1 {
   font-family: "Amiri", serif;
   font-size: 1.5rem;
@@ -1570,25 +1569,39 @@ body::after {
 .tl-foot.splash-hidden { display: none; }
 
 @media (max-width: 720px) {
-  .splash { padding: 20px 10px; }
-  .splash-hero h1 { font-size: 1.5rem; }
-  .splash-sub { font-size: .78rem; }
-  .splash-frame { inset: 8px; }
-  .splash-corner { width: 24px; height: 24px; }
-  .era-card { padding: 10px 14px; gap: 10px; flex-wrap: wrap; }
-  .era-card .ec-icon { font-size: 1.3rem; }
-  .era-card .ec-name { font-size: .92rem; min-width: 120px; }
-  .era-card .ec-dates { font-size: .72rem; padding: 4px 12px; }
-  .rashidun-box { padding: 14px 12px; }
-  .rashidun-head { font-size: 1.05rem; }
-  .caliph-card { padding: 8px 12px; gap: 8px; flex-wrap: wrap; }
-  .caliph-card .cc-name { font-size: .85rem; }
-  .caliph-card .cc-dates { font-size: .7rem; }
-  .header-era .hdr-center { font-size: .75rem; }
+  .splash { padding: 8px 10px; }
+  .splash-hero h1 { font-size: 1.2rem; }
+  .splash-sub { font-size: .7rem; }
+  .splash-frame { inset: 6px; }
+  .splash-corner { width: 18px; height: 18px; }
+  .era-card { padding: 6px 10px; gap: 8px; }
+  .era-card .ec-icon { font-size: 1.1rem; }
+  .era-card .ec-name { font-size: .85rem; }
+  .era-card .ec-dates { font-size: .68rem; padding: 2px 8px; gap: 4px; }
+  .rashidun-box { padding: 8px 10px; }
+  .rashidun-head { font-size: .9rem; padding-bottom: 4px; margin-bottom: 6px; }
+  .caliph-card { padding: 4px 8px; gap: 6px; }
+  .caliph-card .cc-name { font-size: .78rem; }
+  .caliph-card .cc-dates { font-size: .65rem; }
+  .splash-foot { font-size: .62rem; }
+  .splash-inner { gap: 4px; }
+  .splash-divider { font-size: .8rem; margin-top: 2px; }
 }
 
 @media (max-width: 480px) {
-  .splash-hero h1 { font-size: 1.2rem; }
-  .era-card .ec-dates { font-size: .65rem; padding: 3px 10px; gap: 4px; }
-  .era-card .ec-name { font-size: .82rem; min-width: 90px; }
+  .splash-hero h1 { font-size: 1rem; }
+  .splash-sub { font-size: .65rem; }
+  .splash-inner { gap: 3px; }
+  .splash-eras { gap: 4px; }
+  .era-card { padding: 4px 8px; gap: 6px; }
+  .era-card .ec-icon { font-size: 1rem; }
+  .era-card .ec-name { font-size: .78rem; }
+  .era-card .ec-dates { font-size: .6rem; padding: 2px 6px; }
+  .rashidun-box { padding: 6px 8px; }
+  .rashidun-head { font-size: .82rem; }
+  .rashidun-grid { gap: 3px; }
+  .caliph-card { padding: 3px 6px; gap: 4px; }
+  .caliph-card .cc-icon { font-size: .85rem; }
+  .caliph-card .cc-name { font-size: .72rem; }
+  .caliph-card .cc-dates { font-size: .6rem; }
 }
