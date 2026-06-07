@@ -1,11 +1,399 @@
 // ============================================================
 // SEERAH TIMELINE — Bilingual Data Module
-// Meccan (16) + Hijra (6) + Badr (3) + Medinan (11) = 36 stages
+// Pre-Prophethood (11) + Meccan (16) + Hijra (6) + Badr (3) + Medinan (11) = 47 stages
 // Each step has Arabic + English parallel fields
 // Loaded into window.SEERAH_DB
 // ============================================================
 
 window.SEERAH_DB = {
+  "preb": {
+    "labelAr": "ما قبل البعثة",
+    "labelEn": "Pre-Prophethood",
+    "mapLabelAr": "حال الجزيرة العربية قبل البعثة النبوية",
+    "mapLabelEn": "The Arabian Peninsula Before the Prophet's Mission",
+    "stepCountAr": "محطات",
+    "stepCountEn": "stages",
+    "offsets": [],
+    "steps": [
+      {
+        "ayah": "الر تِلْكَ آيَاتُ الْكِتَابِ الْحَكِيمِ",
+        "ayahRef": "سورة يونس، الآية ١",
+        "ayahEn": "Alif, Lam, Ra. These are the verses of the wise Book.",
+        "ayahRefEn": "Surah Yunus (10), verse 1",
+        "dateAr": "نحو ٥٠٠ - ٥٧٠ م",
+        "dateEn": "c. 500 – 570 CE",
+        "titleAr": "نظرة على الجزيرة العربية",
+        "titleEn": "Overview of the Arabian Peninsula",
+        "mtAr": "الجزيرة العربية",
+        "mtEn": "The Arabian Peninsula",
+        "mdAr": "شبه جزيرة صحراوية شاسعة — مهد اللغة العربية والإسلام",
+        "mdEn": "A vast desert peninsula — the cradle of Arabic and Islam",
+        "amb": "noon",
+        "timeAr": "نحو ٥٠٠ - ٥٧٠ م",
+        "timeEn": "c. 500 – 570 CE",
+        "distAr": "مساحة تتجاوز ٣ ملايين كم²",
+        "distEn": "Area exceeding 3 million km²",
+        "descAr": "الجزيرة العربية شبه جزيرة صحراوية شاسعة تقع في جنوب غرب آسيا، تبلغ مساحتها نحو ٣ ملايين كيلومتر مربع. يحدها البحر الأحمر من الغرب، والخليج العربي من الشرق، وبحر العرب من الجنوب. تضم أقاليم رئيسية: الحجاز في الغرب وفيه مكة المكرمة والمدينة المنورة (يثرب) والطائف؛ ونجد في الوسط؛ واليمن وعُمان والبحرين في الجنوب والشرق. اعتمد أهل البادية على الرعي والتنقل بحثاً عن الماء والكلأ، بينما استقرت المدن والواحات في النقاط التي تتوفر فيها المياه. كانت هذه الأرض مهد اللغة العربية ومبعث الإسلام، وتتميز بقسوة طبيعتها التي صهرت نفوس أهلها في الشجاعة والكرم.",
+        "descEn": "The Arabian Peninsula is a vast desert peninsula in southwest Asia, covering about 3 million km². It is bounded by the Red Sea to the west, the Persian Gulf to the east, and the Arabian Sea to the south. Its main regions: the Hijaz (west) with Makkah, Yathrib (Madinah), and Taif; Najd (central); Yemen, Oman, and Bahrain (south and east). The Bedouin relied on herding and migration in search of water and pasture, while cities and oases settled where water was available. This land was the cradle of the Arabic language and the birthplace of Islam, and its harsh environment forged its people in courage and generosity.",
+        "charsAr": [
+          { "i": "🌍", "n": "شبه الجزيرة العربية", "r": "موطن العرب ومهد رسالتهم" },
+          { "i": "🏜️", "n": "الصحراء الكبرى", "r": "امتدت من نفود إلى الربع الخالي" }
+        ],
+        "charsEn": [
+          { "i": "🌍", "n": "The Arabian Peninsula", "r": "Homeland of the Arabs and cradle of their message" },
+          { "i": "🏜️", "n": "The Great Desert", "r": "Stretching from al-Nafud to the Empty Quarter" }
+        ],
+        "lessonAr": "البيئة تصنع الإنسان: من قسوة الصحراء تعلّم العرب الصبر والتكيف، ومن ترحالهم نشأت اللغة الجامعة.",
+        "lessonEn": "Environment shapes character: from the harsh desert the Arabs learned patience and adaptation; from their travels a unifying language emerged.",
+        "srcs": ["الطبري (٢/٢٢٧)", "ابن كثير (٢/١٣٠)", "الرحيق المختوم ص١١"],
+        "mapFocus": {"x": 380, "y": 300, "scale": 1.0}
+      },
+      {
+        "ayah": "إِنَّا جَعَلْنَا مَا عَلَى الْأَرْضِ زِينَةً لَهَا لِنَبْلُوَهُمْ أَيُّهُمْ أَحْسَنُ عَمَلًا",
+        "ayahRef": "سورة الكهف، الآية ٧",
+        "ayahEn": "We have made that which is on the earth adornment for it, that We may test them as to which of them is best in deed.",
+        "ayahRefEn": "Surah Al-Kahf (18), verse 7",
+        "dateAr": "نحو ٥٠٠ - ٦١٠ م",
+        "dateEn": "c. 500 – 610 CE",
+        "titleAr": "عبادة الأصنام وانتشار الشرك",
+        "titleEn": "Idol Worship and the Spread of Polytheism",
+        "mtAr": "مكة المكرمة — فناء الكعبة",
+        "mtEn": "Makkah — Precinct of the Ka'bah",
+        "mdAr": "نحو ٣٦٠ صنماً في فناء الكعبة — أبرزها هُبل واللات والعزى ومناة",
+        "mdEn": "About 360 idols in the Ka'bah precinct — chief among them Hubal, al-Lat, al-Uzza, and Manat",
+        "amb": "noon",
+        "timeAr": "العصر الجاهلي المتأخر",
+        "timeEn": "Late Jahiliyyah period",
+        "distAr": "من مكة إلى الطائف إلى ساحل البحر الأحمر",
+        "distEn": "From Makkah to Taif to the Red Sea coast",
+        "descAr": "انتشرت عبادة الأصنام في معظم أنحاء الجزيرة العربية، فاتخذت كل قبيلة صنماً تعبده من دون الله. وكان فناء الكعبة المشرفة في مكة يحتوي على نحو ٣٦٠ صنماً، أشهرها: هُبل (أعظمها عند قريش وكان على بئر زمزم)، واللات (في الطائف، وكان سدنتها ثقيف)، والعزى (ببطن نخلة بين مكة والطائف)، ومناة (بالمشلل على ساحل البحر الأحمر وكانت تعبدها الأوس والخزرج وهذيل). وكان للعرب طقوس أخرى كالتطير (التشاؤم بالطيور والأصوات) والاستقسام بالأزلام (سهام يستقسمون بها لمعرفة الغيب أو اتخاذ القرارات). وقد أنكر القرآن عليهم ذلك بشدة، فقال تعالى: ﴿قُلْ أَرَأَيْتُمُ الشُّرَكَاءَ الَّذِينَ تَدْعُونَ مِن دُونِ اللَّهِ أَرُونِي مَاذَا خَلَقُوا مِنَ الْأَرْضِ﴾ [فاطر: ٤٠].",
+        "descEn": "Idol worship spread across most of the Arabian Peninsula; every tribe adopted a deity to worship besides Allah. The precinct of the Ka'bah in Makkah held about 360 idols, the most famous: Hubal (the greatest among Quraysh, placed over the well of Zamzam), al-Lat (in Taif, served by the tribe of Thaqif), al-Uzza (in the valley of Nakhlah, between Makkah and Taif), and Manat (at al-Mushallal on the Red Sea coast, worshipped by Aws, Khazraj, and Hudhayl). The Arabs also practiced at-tatayyur (taking omens from birds and sounds) and al-istiqsam bi'l-azlam (drawing lots with arrows to discern the unseen or make decisions). The Qur'an strongly condemned these practices: 'Say: Have you considered your partner-gods whom you call upon besides Allah? Show me what they have created of the earth' (Surah Fatir 35:40).",
+        "charsAr": [
+          { "i": "🗿", "n": "هُبل", "r": "أعظم أصنام قريش — كان على بئر زمزم" },
+          { "i": "⛩️", "n": "اللات", "r": "صنم الطائف — سدنتها بنو ثقيف" },
+          { "i": "🕳️", "n": "العزى", "r": "صنم بطن نخلة — أشدها تعظيماً عند قريش" },
+          { "i": "🌊", "n": "مناة", "r": "صنم على ساحل البحر الأحمر للمشلل" }
+        ],
+        "charsEn": [
+          { "i": "🗿", "n": "Hubal", "r": "Greatest idol of Quraysh — placed over the well of Zamzam" },
+          { "i": "⛩️", "n": "al-Lat", "r": "Idol of Taif — tended by the tribe of Thaqif" },
+          { "i": "🕳️", "n": "al-Uzza", "r": "Idol of Wadi Nakhlah — held in high esteem by Quraysh" },
+          { "i": "🌊", "n": "Manat", "r": "Idol of the Red Sea coast at al-Mushallal" }
+        ],
+        "lessonAr": "الشرك قِدمُه قدم الإنسان، لكنه ليس فطرته؛ جاء الإسلام فحطّم أصنام الكعبة وقال: 'قل إنما أنا بشر مثلكم يوحى إليَّ'.",
+        "lessonEn": "Polytheism is as old as humanity, but not its innate disposition. Islam came and shattered the idols of the Ka'bah, declaring: 'Say: I am only a man like you, to whom it has been revealed' (Surah Al-Kahf 18:110).",
+        "srcs": ["البخاري (٤٢٨٧)", "الطبري (٢/٢٢٩)", "ابن هشام (١/٨٠)", "الرحيق المختوم ص١٥"],
+        "mapFocus": {"x": 310, "y": 320, "scale": 1.0}
+      },
+      {
+        "ayah": "وَلَا تَجْعَلُوا مَعَ اللَّهِ إِلَهًا آخَرَ إِنِّي لَكُم مِّنْهُ نَذِيرٌ مُّبِينٌ",
+        "ayahRef": "سورة الذاريات، الآية ٥١",
+        "ayahEn": "And do not make [as equal] with Allah another deity. Indeed, I am to you from Him a clear warner.",
+        "ayahRefEn": "Surah Adh-Dhariyat (51), verse 51",
+        "dateAr": "نحو ٥٠٠ - ٦١٠ م",
+        "dateEn": "c. 500 – 610 CE",
+        "titleAr": "أديان الأقلية والحنفاء",
+        "titleEn": "Minority Religions and the Hanifs",
+        "mtAr": "يثرب ونجران وأطراف الشام",
+        "mtEn": "Yathrib, Najran, and the Syrian frontier",
+        "mdAr": "يهود ونصارى ومجوس — وقلة من الحنفاء على ملة إبراهيم",
+        "mdEn": "Jews, Christians, Zoroastrians — and a small group of Hanifs on the creed of Ibrahim",
+        "amb": "dawn",
+        "timeAr": "العصر الجاهلي المتأخر",
+        "timeEn": "Late Jahiliyyah period",
+        "distAr": "من يثرب شمالاً إلى نجران جنوباً",
+        "distEn": "From Yathrib in the north to Najran in the south",
+        "descAr": "إلى جانب الشرك المنتشر، وُجدت أقليات دينية في أطراف الجزيرة: اليهود في يثرب (المدينة المنورة) وخيبر وتيماء واليمن، وكانوا قد هاجروا إليها بعد اضطهاد الرومان لهم في الشام وفلسطين؛ والنصارى في نجران وأطراف الشام والحبشة، وكانوا على تواصل مع الكنيسة البيزنطية؛ والمجوس في أطراف الشرق (البحرين والعراق) تحت النفوذ الفارسي. كما وُجدت قلة من الحنفاء الذين اعتزلوا الأوثان وبقوا على توحيد إبراهيم عليه السلام، ومن أشهرهم: ورقة بن نوفل (ابن عم خديجة رضي الله عنها)، وزيد بن عمرو بن نفيل (الذي مدحه النبي ﷺ وقال: 'يأتي يوم القيامة أمة وحده')، وعثمان بن الحويرث، وأمية بن أبي الصلت، وقس بن ساعدة الإيادي. هؤلاء كانوا بشائر خير مهدت لبعثة النبي ﷺ.",
+        "descEn": "Alongside the widespread polytheism, there were religious minorities on the fringes of the peninsula: Jews in Yathrib (Madinah), Khaybar, Tayma', and Yemen, who had migrated there after Roman persecution in Syria and Palestine; Christians in Najran, the Syrian frontier, and Abyssinia, in contact with the Byzantine Church; Zoroastrians on the eastern fringes (Bahrain, Iraq) under Persian influence. There was also a small group of Hanifs who rejected the idols and remained on the monotheism of Ibrahim (Abraham), the most famous: Waraqah ibn Nawfal (Khadijah's cousin), Zayd ibn Amr ibn Nufayl (whom the Prophet ﷺ praised: 'He will come on the Day of Resurrection as a nation unto himself'), Uthman ibn al-Huwayrith, Umayyah ibn Abi al-Salt, and Quss ibn Sa'idah al-Iyadi. These were harbingers of good that paved the way for the Prophet's mission ﷺ.",
+        "charsAr": [
+          { "i": "📜", "n": "ورقة بن نوفل", "r": "حَنِفٌ ابن عم خديجة — أول من آمن بالنبي ﷺ سراً" },
+          { "i": "🕊️", "n": "زيد بن عمرو بن نفيل", "r": "حَنِفٌ رفض الأوثان ودعا إلى دين إبراهيم" },
+          { "i": "✝️", "n": "أهل نجران", "r": "نصارى الجزيرة — كانت لهم أسقفية" },
+          { "i": "✡️", "n": "يهود يثرب", "r": "ثلاث قبائل: بنو قينقاع والنضير وقريظة" }
+        ],
+        "charsEn": [
+          { "i": "📜", "n": "Waraqah ibn Nawfal", "r": "A Hanif, Khadijah's cousin — first to believe in the Prophet ﷺ secretly" },
+          { "i": "🕊️", "n": "Zayd ibn Amr ibn Nufayl", "r": "Hanif who rejected idols and called to the faith of Ibrahim" },
+          { "i": "✝️", "n": "People of Najran", "r": "Arabian Christians — had their own bishopric" },
+          { "i": "✡️", "n": "Jews of Yathrib", "r": "Three tribes: Banu Qaynuqa, Banu Nadir, and Banu Qurayzah" }
+        ],
+        "lessonAr": "التوحيد لا يموت في الفطرة مهما طال الأمد، والحنفاء كانوا البذرة التي أثمرت الإسلام.",
+        "lessonEn": "Monotheism never dies in the human soul, however long the wait. The Hanifs were the seed that bore the fruit of Islam.",
+        "srcs": ["البخاري (٣٨٢٩)", "مسلم (٢١٤٩)", "ابن هشام (١/١٤٣)", "الرحيق المختوم ص٢٤"],
+        "mapFocus": {"x": 360, "y": 220, "scale": 1.0}
+      },
+      {
+        "ayah": "وَجَعَلْنَاكُمْ شُعُوبًا وَقَبَائِلَ لِتَعَارَفُوا",
+        "ayahRef": "سورة الحجرات، الآية ١٣",
+        "ayahEn": "And We have made you peoples and tribes that you may know one another.",
+        "ayahRefEn": "Surah Al-Hujurat (49), verse 13",
+        "dateAr": "نحو ٥٠٠ - ٦١٠ م",
+        "dateEn": "c. 500 – 610 CE",
+        "titleAr": "النظام القبلي وانعدام الدولة",
+        "titleEn": "The Tribal System and Absence of a State",
+        "mtAr": "الجزيرة العربية — القبائل المتناحرة",
+        "mtEn": "The Arabian Peninsula — the warring tribes",
+        "mdAr": "القبيلة هي الدولة — وشيخ القبيلة هو الحاكم الفعلي",
+        "mdEn": "The tribe is the state — the tribal chief is the actual ruler",
+        "amb": "noon",
+        "timeAr": "العصر الجاهلي",
+        "timeEn": "The Jahiliyyah period",
+        "distAr": "من شبه الجزيرة كلها",
+        "distEn": "Across the entire peninsula",
+        "descAr": "لم يكن في الجزيرة العربية حكومة مركزية توحد العرب، بل كان النظام السائد هو النظام القبلي. فالقبيلة هي الدولة، وشيخ القبيلة هو الحاكم الفعلي. وكان مبدأهم في الجاهلية: 'انصر أخاك ظالماً أو مظلوماً' (أي: ساعده دائماً حتى لو كان ظالماً). وكان لكل قبيلة مجلس يسمى 'المتدى' أو 'المجلب' يجتمع فيه الشيوخ للتشاور في الأمور. وساعد هذا النظام على نشوء قيم عربية أصيلة مثل: الكرم وحماية الجار والشجاعة والفروسية والوفاء بالعهد وعزة النفس والصدق. لكنه في المقابل أوجد حروباً مستمرة بسبب العصبية القبلية، حيث كان الرجل يُقدِّم قبيلته على الحق والعدل. وقد قضى الإسلام على العصبية الجاهلية بقوله: 'يا أيها الناس إنا خلقناكم من ذكر وأنثى وجعلناكم شعوباً وقبائل لتعارفوا إن أكرمكم عند الله أتقاكم'.",
+        "descEn": "The Arabian Peninsula had no central government to unite the Arabs. The prevailing system was the tribal one: the tribe was the state, and the tribal chief (shaykh) was the actual ruler. The Jahili motto was: 'Support your brother whether he is unjust or unjust' (i.e., always back him, even when wrong). Each tribe had a council called the 'majlis' or 'mujlub' where chiefs consulted. This system fostered authentic Arab values: generosity, neighborly protection, courage, horsemanship, keeping one's word, self-respect, and honesty. But it also produced endless wars rooted in tribal chauvinism, where a man placed his tribe above truth and justice. Islam abolished this Jahili tribalism, saying: 'O mankind, We have created you from male and female and made you peoples and tribes that you may know one another. Indeed, the most noble of you in the sight of Allah is the most righteous of you' (Surah Al-Hujurat 49:13).",
+        "charsAr": [
+          { "i": "👑", "n": "شيخ القبيلة", "r": "الحاكم الفعلي — يُختار بالأصل والكرم والشجاعة" },
+          { "i": "⚖️", "n": "المجلس القبلي", "r": "مكان التشاور في الحروب والنزاعات والأحلاف" }
+        ],
+        "charsEn": [
+          { "i": "👑", "n": "The Tribal Chief", "r": "Actual ruler — chosen for lineage, generosity, and courage" },
+          { "i": "⚖️", "n": "The Tribal Council", "r": "Forum for consultation on wars, disputes, and alliances" }
+        ],
+        "lessonAr": "النظام القبلي أصلح ما تكون في الجاهلية لجمع شتات العرب، لكنه كان ينقصه ميزان الحق الذي جاء به الإسلام.",
+        "lessonEn": "The tribal system was the best the Jahiliyyah could do to gather the scattered Arabs, but it lacked the scale of justice that Islam brought.",
+        "srcs": ["الطبري (٢/٢٢٧)", "ابن هشام (١/١٧٠)", "الرحيق المختوم ص١٢"],
+        "mapFocus": {"x": 310, "y": 320, "scale": 1.0}
+      },
+      {
+        "ayah": "وَإِن طَائِفَتَانِ مِنَ الْمُؤْمِنِينَ اقْتَتَلُوا فَأَصْلِحُوا بَيْنَهُمَا",
+        "ayahRef": "سورة الحجرات، الآية ٩",
+        "ayahEn": "And if two factions among the believers should fight, then make settlement between them.",
+        "ayahRefEn": "Surah Al-Hujurat (49), verse 9",
+        "dateAr": "نحو ٥٨٠ - ٦٠٠ م",
+        "dateEn": "c. 580 – 600 CE",
+        "titleAr": "حروب الجاهلية الكبرى",
+        "titleEn": "The Major Wars of the Jahiliyyah",
+        "mtAr": "أرض الجزيرة — ميادين القتال",
+        "mtEn": "The land of the peninsula — battlefields",
+        "mdAr": "حرب داحس والغبراء (٤٠ سنة) وحرب الفجار (٤ مرات)",
+        "mdEn": "War of Dahis and al-Ghabra (40 years) and War of al-Fijar (four times)",
+        "amb": "noon",
+        "timeAr": "أواخر الجاهلية",
+        "timeEn": "Late Jahiliyyah",
+        "distAr": "من نجد إلى الحجاز",
+        "distEn": "From Najd to the Hijaz",
+        "descAr": "اشتعلت حروب كثيرة في الجاهلية لأتفه الأسباب. أشهرها: حرب داحس والغبراء بين عبس وذبيان، وقد استمرت نحو ٤٠ سنة بسبب سباق خيول بين شاعريْن (داحس لغَطفان والغبراء لِعبس)، وانتهت بإقامة دَيُّون المسمَّع. وحرب الفجار بين قريش وهوازن وكنانة، وقعت أربع مرات، وسُمّيت فجاراً لأنها وقعت في الأشهر الحرم. وقد شارك النبي ﷺ في بعض أحداث الفجار الأخيرة (وهو في العشرين من عمره)، وكان لا يشهدها كلها لأنه كان يأنف من سفك الدماء، وكان يلتقط الرؤوس من الوديان فيردها إلى أهلها. كما نشبت حروب أخرى كحرب البسوس بين تَغْلِب والبَكَّاء (٤٠ سنة) وحرب حَالِف وحُلاف في مكة. هذه الحروب أوهنت القبائل ومهدت لقبول الإسلام الذي وحّدها.",
+        "descEn": "Many wars flared in the Jahiliyyah over trivial causes. The most famous: the War of Dahis and al-Ghabra between Abs and Dhubyan, lasting about 40 years because of a horse race between two poets' steeds (Dahis for Ghatfan, al-Ghabra for Abs), ended by the appointment of Dayyul-Musammi' as arbiter. The War of al-Fijar between Quraysh, Hawazin, and Kinana broke out four times, named al-Fijar ('the outrage') because it occurred in the sacred months. The Prophet ﷺ participated in some events of the last al-Fijar (at age twenty), but avoided the bloodshed — he would pick up the slain from the valleys and return them to their families. Other wars include the War of al-Basus (40 years) between Taghlib and Bakr, and the wars of Halif and Hulaf in Makkah. These wars exhausted the tribes and prepared them to accept Islam, which united them.",
+        "charsAr": [
+          { "i": "🐎", "n": "داحس والغبراء", "r": "فرسا سباق أشعلتا حرباً ٤٠ سنة" },
+          { "i": "⚔️", "n": "حرب الفجار", "r": "أربع معارك في الأشهر الحرم" }
+        ],
+        "charsEn": [
+          { "i": "🐎", "n": "Dahis and al-Ghabra", "r": "Two race-horses that ignited a 40-year war" },
+          { "i": "⚔️", "n": "War of al-Fijar", "r": "Four battles fought in the sacred months" }
+        ],
+        "lessonAr": "الحرب الأهلية أهلكت العرب قبل الإسلام، وجاء الإسلام فحوّل القبائل المتصارعة إلى أمة واحدة متعاونة.",
+        "lessonEn": "Tribal warfare had exhausted the Arabs before Islam. Islam transformed the warring tribes into a single, cooperating nation.",
+        "srcs": ["ابن هشام (١/١٨٦)", "الطبري (٢/٢٣١)", "الرحيق المختوم ص٤٠"],
+        "mapFocus": {"x": 380, "y": 200, "scale": 1.0}
+      },
+      {
+        "ayah": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ",
+        "ayahRef": "سورة الفيل، الآية ١",
+        "ayahEn": "Have you not considered, [O Muhammad], how your Lord dealt with the companions of the elephant?",
+        "ayahRefEn": "Surah Al-Fil (105), verse 1",
+        "dateAr": "نحو ٥٢٥ - ٦١٠ م",
+        "dateEn": "c. 525 – 610 CE",
+        "titleAr": "النفوذ الأجنبي على أطراف الجزيرة",
+        "titleEn": "Foreign Influence on the Fringes of the Peninsula",
+        "mtAr": "الحيرة وغسان ونجران",
+        "mtEn": "Al-Hirah, Ghassan, and Najran",
+        "mdAr": "المناذرة للفرس، والغساسنة للروم، واليمن للأحباش",
+        "mdEn": "Lakhmids vassals of Persia, Ghassanids of Rome, Yemen of the Abyssinians",
+        "amb": "dawn",
+        "timeAr": "القرن السادس الميلادي",
+        "timeEn": "The 6th century CE",
+        "distAr": "من شمال الجزيرة إلى جنوبها",
+        "distEn": "From the north of the peninsula to the south",
+        "descAr": "كانت أطراف الجزيرة العربية خاضعة لنفوذ القوى العظمى المجاورة: المناذرة في الحيرة (شمال شرق الجزيرة، في العراق) كانوا موالين للفرس الساسانيين، وكانوا يحمون حدود فارس من غارات العرب، ومن أشهر ملوكهم: المنذر بن ماء السماء، والنعمان بن المنذر. والغساسنة في الشام (شمال غرب الجزيرة) كانوا موالين للروم البيزنطيين، وكانوا يحمون حدود الروم، ومن أشهر ملوكهم: جبلة بن الأيهم، والحارث بن جبلة. واليمن تناوب عليه الأحباش (في ٥٢٥ م احتلّ الحبشيون اليمن بقيادة أبرهة الأشرم) ثم الفرس (في ٥٧٠ م طرد سيف بن ذي يزن الأحباش بمساعدة كسرى). أما قلب الجزيرة (الحجاز) فظل مستقلاً نسبياً يحكمه سادة قريش في مكة وسادة الأوس والخزرج في يثرب. وقد ظهرت في هذه الفترة حروب عالمية بين الفرس والروم (حرب الفجار الأولى ٥٢٤ م)، حاولت فيها القبائل العربية اتخاذ مواقف.",
+        "descEn": "The fringes of the Arabian Peninsula were under the influence of the great neighboring powers: the Lakhmids in al-Hirah (northeast, in Iraq) were vassals of the Sasanian Persians, guarding Persia's borders from Arab raids; the most famous kings were al-Mundhir ibn Ma' al-Sama' and al-Nu'man ibn al-Mundhir. The Ghassanids in Syria (northwest) were vassals of the Byzantine Romans, guarding Rome's borders; the most famous kings were Jabalah ibn al-Ayham and al-Harith ibn Jabalah. Yemen was contested between the Abyssinians (in 525 CE Abrahah al-Ashram led an Abyssinian occupation) and the Persians (in 570 CE Sayf ibn Dhi Yazan expelled the Abyssinians with Khosrow's help). The heart of the peninsula (the Hijaz) remained relatively independent, ruled by the chiefs of Quraysh in Makkah and the chiefs of Aws and Khazraj in Yathrib. This period saw world wars between Persia and Rome (the first al-Fijar 524 CE), in which Arabian tribes tried to take sides.",
+        "charsAr": [
+          { "i": "👑", "n": "النعمان بن المنذر", "r": "آخر ملوك المناذرة — قُتل بأمر كسرى" },
+          { "i": "🏛️", "n": "جبلة بن الأيهم", "r": "ملك غسان — أسلم بعد الفتح ثم ارتد" },
+          { "i": "🐘", "n": "أبرهة الأشرم", "r": "حاكم اليمن الحبشي — قاده الله بالفيل" }
+        ],
+        "charsEn": [
+          { "i": "👑", "n": "al-Nu'man ibn al-Mundhir", "r": "Last Lakhmid king — killed on Khosrow's order" },
+          { "i": "🏛️", "n": "Jabalah ibn al-Ayham", "r": "King of Ghassan — accepted Islam after the conquest, then apostatized" },
+          { "i": "🐘", "n": "Abrahah al-Ashram", "r": "Abyssinian governor of Yemen — destroyed by the Elephants" }
+        ],
+        "lessonAr": "الجزيرة العربية كانت ملعباً للإمبراطوريات الكبرى، لكن قلبها (الحجاز) بقي حراً شامخاً يحميه الله لنبيه ﷺ.",
+        "lessonEn": "Arabia was a playground for the great empires, but its heart (the Hijaz) remained free and proud — protected by Allah for His Prophet ﷺ.",
+        "srcs": ["الطبري (٢/٢١٢)", "ابن هشام (١/٤٠)", "الرحيق المختوم ص٣٦"],
+        "mapFocus": {"x": 240, "y": 80, "scale": 1.0}
+      },
+      {
+        "ayah": "وَإِذَا الْمَوْءُودَةُ سُئِلَتْ بِأَيِّ ذَنْبٍ قُتِلَتْ",
+        "ayahRef": "سورة التكوير، الآيتان ٨-٩",
+        "ayahEn": "And when the infant girl buried alive is asked for what sin she was killed",
+        "ayahRefEn": "Surah At-Takwir (81), verses 8-9",
+        "dateAr": "نحو ٥٠٠ - ٦١٠ م",
+        "dateEn": "c. 500 – 610 CE",
+        "titleAr": "المرأة في الجاهلية",
+        "titleEn": "Women in the Jahiliyyah",
+        "mtAr": "مكة وسائر الجزيرة",
+        "mtEn": "Makkah and the rest of the peninsula",
+        "mdAr": "حرمان من الميراث — ووأد البنات — وبيع في الزواج",
+        "mdEn": "Deprivation of inheritance — burial of infant girls — sale in marriage",
+        "amb": "night",
+        "timeAr": "العصر الجاهلي",
+        "timeEn": "The Jahiliyyah period",
+        "distAr": "في كل قبيلة من قبائل العرب",
+        "distEn": "Among all the Arab tribes",
+        "descAr": "عانت المرأة في الجاهلية من ظلم اجتماعي فادح: حُرمت من الميراث في كثير من الأحيان (فكانوا يقولون: لا يرثنا إلا من حمل السيف ورعى الإبل)، وعُوملت أحياناً كسلعة تُورث (فكان الابن يرث زوجة أبيه)، وانتشرت ظاهرة وأد البنات (دفنهن أحياء) خوفاً من الفقر أو العار. وكان بعض العرب إذا وُلد له بنات لا يستحيي من دفنها في التراب. وكان حق الطلاق بيد الرجل وحده، وتعدّد الزوجات بلا حد. قال الله تعالى منكراً: ﴿وَإِذَا الْمَوْءُودَةُ سُئِلَتْ بِأَيِّ ذَنْبٍ قُتِلَتْ﴾ [التكوير: ٨-٩]. وكان بعض النساء يملكن المال والتجارة (كخديجة بنت خويلد رضي الله عنها)، لكن هذا كان استثناءً. وقد جاء الإسلام فأعطى المرأة حقوقها كاملة: الميراث، والملكية، والتعليم، والكرامة، وحق اختيار الزوج، وحق العمل، وجعلها شقيقة الرجل في التكليف والجزاء.",
+        "descEn": "Women in the Jahiliyyah suffered severe social injustice: they were often denied inheritance (the Arabs said: 'Only those who wield the sword and tend the camels inherit from us'), sometimes treated as inheritable property (a son could inherit his father's widow), and the horrific practice of wa'd al-banat (burying infant girls alive) was widespread out of fear of poverty or shame. Some Arabs, upon the birth of daughters, would feel no shame in burying them in the earth. The right of divorce was the man's alone, and polygamy was unlimited. Allah condemned this: 'And when the infant girl buried alive is asked for what sin she was killed' (Surah al-Takwir 81:8-9). Some women did own property and trade (like Khadijah bint Khuwaylid), but this was the exception. Islam granted women their full rights: inheritance, ownership, education, dignity, the right to choose their spouse, the right to work, and made them the spiritual equal of men in duty and reward.",
+        "charsAr": [
+          { "i": "👩", "n": "خديجة بنت خويلد", "r": "سيدة ثرية في تجارة مكة — خديجة الكبرى أم المؤمنين" },
+          { "i": "💔", "n": "ظلم الوأد", "r": "دفن البنات أحياء خوف الفقر أو العار" }
+        ],
+        "charsEn": [
+          { "i": "👩", "n": "Khadijah bint Khuwaylid", "r": "Wealthy Makkan merchant — Khadijah al-Kubra, Mother of the Believers" },
+          { "i": "💔", "n": "Injustice of wa'd", "r": "Burial of infant girls alive from fear of poverty or shame" }
+        ],
+        "lessonAr": "الإسلام أنصف المرأة بعد ظلم دام قروناً، وجعل لها كرامة لا يملك أحد أن يسقطها.",
+        "lessonEn": "Islam restored justice to women after centuries of oppression, granting them a dignity no one has the right to take away.",
+        "srcs": ["البخاري (٣٣٧١)", "مسلم (١٥٠٠)", "ابن هشام (١/٢٠٢)", "الرحيق المختوم ص٥٠"],
+        "mapFocus": {"x": 310, "y": 320, "scale": 1.0}
+      },
+      {
+        "ayah": "وَمَا كَانَ لِمُؤْمِنٍ أَن يَقْتُلَ مُؤْمِنًا إِلَّا خَطَأً",
+        "ayahRef": "سورة النساء، الآية ٩٢",
+        "ayahEn": "And never is it for a believer to kill a believer except by mistake.",
+        "ayahRefEn": "Surah An-Nisa (4), verse 92",
+        "dateAr": "نحو ٥٠٠ - ٦١٠ م",
+        "dateEn": "c. 500 – 610 CE",
+        "titleAr": "الرق والطبقية في المجتمع الجاهلي",
+        "titleEn": "Slavery and Class in Jahili Society",
+        "mtAr": "سائر الجزيرة العربية",
+        "mtEn": "Across the Arabian Peninsula",
+        "mdAr": "أحرار وعبيد وموالي — وسبايا الحروب يُبعن في الأسواق",
+        "mdEn": "Free, enslaved, and mawali — captives sold in the markets",
+        "amb": "noon",
+        "timeAr": "العصر الجاهلي",
+        "timeEn": "The Jahiliyyah period",
+        "distAr": "من أسواق الحجاز إلى قبائل البادية",
+        "distEn": "From the markets of the Hijaz to the Bedouin tribes",
+        "descAr": "انقسم المجتمع الجاهلي إلى طبقات: الأحرار (السادة)، والعبيد (المملوكون)، والموالي (المعتقون الذين يظلون في تبعية أسيادهم). وكان الاسترقاق منتشراً بسبب الحروب والغارات، حيث يُسبى الأسرى ويُباعون في أسواق الرق كسوق 'حضرموت' و'نَجْران' وغيرهما. وكان بعض العرب يتخذ الإماء دون عقد نكاح صحيح، أو يستعبدهم في أعمال شاقة كحرث الأرض ورعي الإبل. وكان العبد يُعتبر مالاً يُورث ويُباع ويُوهب. وقد جاء الإسلام فحضّ على عتق الرقاب، وجعل كفارة بعض الذنوب عتق رقبة (ككفارة القتل الخطأ والظهار)، وفتح باب الكتابة (عقد تحرير العبد مقابل مال يُدفع على أقساط) كطريق شرعي للتحرر، وجعل العتق من أفضل القربات، ورغّب في إعتاق رقبة المؤمنة في كفارة اليمين.",
+        "descEn": "Jahili society was divided into classes: the free (sayyid), the enslaved (mamluk), and the mawali (freedmen who remained under their former masters). Enslavement was widespread due to wars and raids: captives were taken and sold in slave markets like those of Hadramawt and Najran. Some Arabs took concubines without proper marriage, or worked enslaved people to exhaustion in farming and herding. An enslaved person was considered property — inherited, sold, and gifted. Islam came and urged the freeing of slaves, made manumission the expiation for certain sins (such as the expiation of accidental killing and dhihar), opened the path of kitabah (a contract by which an enslaved person could buy their freedom in installments) as a legitimate route to liberation, made manumission one of the best acts of worship, and encouraged freeing a believing soul as the expiation for broken oaths.",
+        "charsAr": [
+          { "i": "⛓️", "n": "العبيد", "r": "ملكية تُورث وتُباع — لا حقوق لهم" },
+          { "i": "🕊️", "n": "العتق والكتابة", "r": "طريق التحرر الذي فتحه الإسلام" }
+        ],
+        "charsEn": [
+          { "i": "⛓️", "n": "The Enslaved", "r": "Property to be inherited and sold — with no rights" },
+          { "i": "🕊️", "n": "Manumission and Kitabah", "r": "The path to freedom opened by Islam" }
+        ],
+        "lessonAr": "الإسلام لم يُلغِ الرق دفعة واحدة (لأنه كان نظاماً اقتصادياً عالمياً) لكنه وضع له القيد الأخلاقي ومهد لإلغائه تدريجياً.",
+        "lessonEn": "Islam did not abolish slavery in one stroke (it was a global economic system), but it put moral restraints on it and paved the way for its gradual abolition.",
+        "srcs": ["البخاري (٢٥١٩)", "مسلم (١١٧٧)", "ابن هشام (١/٣٠٠)"],
+        "mapFocus": {"x": 460, "y": 480, "scale": 1.0}
+      },
+      {
+        "ayah": "لِإِيلَافِ قُرَيْشٍ إِيلَافِهِمْ رِحْلَةَ الشِّتَاءِ وَالصَّيْفِ",
+        "ayahRef": "سورة قريش، الآية ٢",
+        "ayahEn": "For the accustomed security of Quraysh, their accustomed security [in] the winter and summer journeys",
+        "ayahRefEn": "Surah Quraysh (106), verse 2",
+        "dateAr": "نحو ٥٠٠ - ٦١٠ م",
+        "dateEn": "c. 500 – 610 CE",
+        "titleAr": "التجارة وأسواق الجزيرة",
+        "titleEn": "Trade and the Markets of the Peninsula",
+        "mtAr": "مكة — عكاظ — مجنة — ذو المجاز — يثرب",
+        "mtEn": "Makkah — Ukaz — Majanna — Dhu al-Majaz — Yathrib",
+        "mdAr": "رحلتا الشتاء والصيف لقريش — وأسواق العرب الكبرى",
+        "mdEn": "Quraysh's winter and summer journeys — the great Arab markets",
+        "amb": "noon",
+        "timeAr": "العصر الجاهلي",
+        "timeEn": "The Jahiliyyah period",
+        "distAr": "من اليمن إلى الشام ومن مكة إلى يثرب",
+        "distEn": "From Yemen to Syria, from Makkah to Yathrib",
+        "descAr": "اعتمد اقتصاد مكة بشكل رئيسي على التجارة، فكانت لقريش رحلتين تجاريتين شهيرتين: رحلة الشتاء إلى اليمن (الدَّوْس وقُطاعة)، ورحلة الصيف إلى الشام (بُصرى وغزّة). وكان قريش يُؤمَّنون في رحلتهم لأنهم أهل الحرم وقامعوا على سدانة الكعبة. واشتُهرت أسواق عربية كبرى: سوق عكاظ (بين مكة والطائف، أقيم في أول ذي القعدة)، وسوق مجنة (بالقرب من عكاظ)، وسوق ذو المجاز (قرب عرفات، أقيم في أول ذي الحجة). كانت هذه الأسواق ملتقى لتجارة العرب وملهاة لشعرائهم وخطبائهم، حيث تتنافس القبائل في الخطابة والشعر، ويفتخر الشاعر بقبيلته. وفي يثرب وبعض الواحات ازدهرت الزراعة (النخيل والحبوب) لخصوبة الأرض فيها ولقربها من مصادر المياه. وجاء الإسلام فحمى التجارة وحرّم الربا وأحلّ البيع، فأنصف التاجر والمستهلك.",
+        "descEn": "Makkah's economy depended primarily on trade. Quraysh had two famous commercial journeys: the winter trip to Yemen (al-Daws and Qutay'ah), and the summer trip to Syria (Bosra and Gaza). Quraysh were granted security on their journeys because they were the people of the Haram and the keepers of the Ka'bah. Great Arab markets flourished: Suq Ukaz (between Makkah and Taif, held in early Dhul-Qa'dah), Suq Majanna (near Ukaz), and Suq Dhu al-Majaz (near Arafat, held in early Dhul-Hijjah). These markets were meeting points for trade and poetry, where tribes competed in oratory and verse, and a poet could bring honor to his tribe. In Yathrib and some oases, agriculture (date palms and grains) thrived due to the fertile soil and abundant water. Islam came and protected trade, forbade usury, and permitted honest commerce — doing justice to both trader and consumer.",
+        "charsAr": [
+          { "i": "🐪", "n": "قوافل قريش", "r": "آلاف الإبل تحمل البخور والتوابل والجلود" },
+          { "i": "🏪", "n": "سوق عكاظ", "r": "أكبر أسواق العرب — يُعقد في ذي القعدة" },
+          { "i": "🌴", "n": "زراعة يثرب", "r": "نخيل المدينة المنورة — خصوبة أهلت أطعمتها" }
+        ],
+        "charsEn": [
+          { "i": "🐪", "n": "Quraysh's Caravans", "r": "Thousands of camels carrying incense, spices, and leather" },
+          { "i": "🏪", "n": "Suq Ukaz", "r": "Largest Arab market — held in Dhul-Qa'dah" },
+          { "i": "🌴", "n": "Yathrib's Agriculture", "r": "Date palms of Madinah — fertile lands that fed its people" }
+        ],
+        "lessonAr": "الحرية التجارية نعمة، لكنها تحتاج إلى ميزان من عدل الإسلام لئلا تستغل.",
+        "lessonEn": "Commercial freedom is a blessing, but it needs the scales of Islamic justice to keep it from being exploited.",
+        "srcs": ["ابن هشام (١/١٨٦)", "الطبري (٢/٢٢٨)", "الرحيق المختوم ص٤٢"],
+        "mapFocus": {"x": 330, "y": 320, "scale": 1.0}
+      },
+      {
+        "ayah": "إِنَّا أَنزَلْنَاهُ قُرْآنًا عَرَبِيًّا لَّعَلَّكُمْ تَعْقِلُونَ",
+        "ayahRef": "سورة يوسف، الآية ٢",
+        "ayahEn": "We have sent it down as an Arabic Qur'an that you might understand.",
+        "ayahRefEn": "Surah Yusuf (12), verse 2",
+        "dateAr": "نحو ٥٠٠ - ٦١٠ م",
+        "dateEn": "c. 500 – 610 CE",
+        "titleAr": "الشعر والخطابة والمعلقات",
+        "titleEn": "Poetry, Oratory, and the Mu'allaqat",
+        "mtAr": "سوق عكاظ — أسواق العرب",
+        "mtEn": "Suq Ukaz — the Arab markets",
+        "mdAr": "المعلقات السبع — ذروة الشعر الجاهلي",
+        "mdEn": "The Seven Mu'allaqat — the pinnacle of Jahili poetry",
+        "amb": "noon",
+        "timeAr": "العصر الجاهلي",
+        "timeEn": "The Jahiliyyah period",
+        "distAr": "في مكة والطائف وذي المجاز",
+        "distEn": "In Makkah, Taif, and Dhu al-Majaz",
+        "descAr": "بلغ العرب في العصر الجاهلي ذروة الفصاحة والبيان. وكان الشعر والخطابة هما وسيلتا الإعلام والتفاخر والتسجيل. وقد تنافس الشعراء في الأسواق والمجامع، وكان الفائز يفتخر به قومه. وأشهر قصائد الجاهلية ما يُعرف بـ'المعلقات': سبع (أو عشر) قصائد طويلة تُنسب إلى شعراء كبار مثل: امرئ القيس بن حُجْر (معلقة 'قِفا نَبْكِ...')، وزهير بن أبي سلمى، وعنترة بن شداد، ولبيد بن ربيعة العامري، وعمرو بن كلثوم، والحارث بن حلزة اليشكري، والأعشى (ميمون بن قيس). وقد كُتبت بماء الذهب وعلّقت على أستار الكعبة تكريماً لأصحابها. ولم يكن الشعر فناً فقط بل كان ديوان العرب ومنبر سياستهم ومصدر تاريخهم. وجاء القرآن معجزاً للعرب في أوج بلاغتهم، فكان التحدي: 'قُل لَّئِنِ اجْتَمَعَتِ الْإِنسُ وَالْجِنُّ عَلَىٰ أَن يَأْتُوا بِمِثْلِ هَٰذِ الْقُرْآنِ لَا يَأْتُونَ بِمِثْلِهِ وَلَوْ كَانَ بَعْضُهُمْ لِبَعْضٍ ظَهِيرًا' [الإسراء: ٨٨].",
+        "descEn": "The Arabs reached the peak of eloquence in the Jahiliyyah. Poetry and oratory were their media for boasting, recording, and proclamation. Poets competed in the markets and gatherings, and the winning poet brought honor to his tribe. The most famous Jahili poems are the Mu'allaqat: seven (or ten) long odes attributed to great poets like Imru' al-Qays ibn Hujr ('Qifa nabki...'), Zuhayr ibn Abi Sulma, Antarah ibn Shaddad, Labid ibn Rabi'ah al-'Amiri, Amr ibn Kulthum, al-Harith ibn Hillizah al-Yashkuri, and al-A'sha (Maymun ibn Qays). They were written in gold ink and hung on the curtains of the Ka'bah in honor of their authors. Poetry was not merely art — it was the Arabs' register, their political forum, and their historical record. The Qur'an then came as a miracle to the Arabs at the height of their eloquence, challenging them: 'Say: If mankind and the jinn gathered in order to produce the like of this Qur'an, they could not produce the like of it, even if they were to each other assistants' (Surah Al-Isra 17:88).",
+        "charsAr": [
+          { "i": "📝", "n": "امرؤ القيس", "r": "صاحب أشهر معلقات العرب — 'قفا نبك من ذكرى حبيب ومنزل'" },
+          { "i": "📜", "n": "زهير بن أبي سلمى", "r": "شاعر الحكمة — 'ومن لم يمت بالسيف مات بغيره'" },
+          { "i": "🏹", "n": "عنترة بن شداد", "r": "فارس عبس — 'وإذا شكونا عينها للمعاصر'" }
+        ],
+        "charsEn": [
+          { "i": "📝", "n": "Imru' al-Qays", "r": "Author of the most famous Mu'allaqah — 'Stay, let us weep over the memory of a beloved'" },
+          { "i": "📜", "n": "Zuhayr ibn Abi Sulma", "r": "Poet of wisdom — 'He who does not die by the sword dies by another means'" },
+          { "i": "🏹", "n": "Antarah ibn Shaddad", "r": "Knight of Abs — 'When we complained of her eyes to the milking-camel'" }
+        ],
+        "lessonAr": "القرآن نزل على أمة بلغت الذروة في البيان، فكانت معجزته أعظم — خاطبهم بلغة يفهمونها وأعجزهم ببيانه.",
+        "lessonEn": "The Qur'an was revealed to a people who had reached the peak of eloquence — making its miracle all the greater. It addressed them in their own tongue and confounded them with its clarity.",
+        "srcs": ["ابن رشيق (العمدة ١/٩٢)", "ابن عبد ربه (العقد الفريد ٥/٣٢٢)", "الرحيق المختوم ص٥٨"],
+        "mapFocus": {"x": 330, "y": 305, "scale": 1.0}
+      },
+      {
+        "ayah": "هُوَ الَّذِي بَعَثَ فِي الْأُمِّيِّينَ رَسُولًا مِّنْهُمْ",
+        "ayahRef": "سورة الجمعة، الآية ٢",
+        "ayahEn": "He is the One who sent among the unlettered a messenger from themselves.",
+        "ayahRefEn": "Surah Al-Jumu'ah (62), verse 2",
+        "dateAr": "نحو ٥٧٠ - ٦١٠ م",
+        "dateEn": "c. 570 – 610 CE",
+        "titleAr": "الحاجة إلى بزوغ فجر جديد",
+        "titleEn": "The Need for a New Dawn",
+        "mtAr": "مكة — قبيلة قريش",
+        "mtEn": "Makkah — the tribe of Quraysh",
+        "mdAr": "مقدمات البعثة — إصلاح البيت — حلف الفضول",
+        "mdEn": "Antecedents of the mission — the restoration of the Ka'bah — the Hilf al-Fudul",
+        "amb": "dawn",
+        "timeAr": "حوالي عام ٥٧٠ م — عام الفيل",
+        "timeEn": "Around 570 CE — the Year of the Elephant",
+        "distAr": "في مكة المكرمة",
+        "distEn": "In Makkah Al-Mukarramah",
+        "descAr": "كانت الجزيرة العربية في أمسّ الحاجة إلى بزوغ فجر جديد يجمع شتات القبائل، ويهدم الوثنية، ويقضي على الظلم الاجتماعي، ويُخرج الناس من الظلمات إلى النور. وقد أرسل الله رسلاً كثيرين قبل النبي ﷺ لإصلاح أقوامهم (نوح وإبراهيم وموسى وعيسى وغيرهم)، وكان خاتمهم محمد بن عبد الله ﷺ الذي بُعث في مكة عام ٦١٠ م. وقبل البعثة ظهرت مقدمات وبشائر: إصلاح قريش البيت الحرام سنة ٥٩٥ م، وحلف الفضول سنة ٥٩٠ م (حلف للظالم والمظلوم من سكان مكة)، وفترة الفطام الروحي التي اعتزل فيها الأوثان. وقد أراد الله لهذه الأرض أن تكون مهبط الوحي، ولهذه الأمة العربية أن تكون خيرة الأمم، حاملةً لواء التوحيد والعدل والرحمة. فبدأ نزول القرآن بمكة، وانتشر النور، وخرج الناس من عبادة الأوثان إلى عبادة الرحمن، ومن ضيق الدنيا إلى سعة الآخرة.",
+        "descEn": "The Arabian Peninsula was in desperate need of a new dawn that would unite the scattered tribes, demolish polytheism, end social injustice, and bring people from darkness into light. Allah had sent many messengers before the Prophet ﷺ to reform their peoples (Nuh, Ibrahim, Musa, Isa, and others), and the last of them was Muhammad ibn Abdullah ﷺ, sent in Makkah in 610 CE. Before the mission came harbingers: Quraysh's restoration of the Ka'bah in 595 CE, the Hilf al-Fudul in 590 CE (a pact to protect the oppressed of Makkah), and the spiritual weaning from idols. Allah had willed this land to be the cradle of revelation, and this Arab nation to be the best of peoples, carrying the banner of monotheism, justice, and mercy. The Qur'an began descending in Makkah, the light spread, and people emerged from worshipping idols to worshipping the Merciful, from the narrowness of the world to the vastness of the Hereafter.",
+        "charsAr": [
+          { "i": "✨", "n": "حلف الفضول", "r": "حلف في دار عبد الله بن جدعان للظالم والمظلوم" },
+          { "i": "🕋", "n": "إصلاح الكعبة", "r": "عام ٥٩٥ م — شارك فيه النبي ﷺ قبل النبوة" }
+        ],
+        "charsEn": [
+          { "i": "✨", "n": "Hilf al-Fudul", "r": "Pact sworn in the house of Abdullah ibn Jud'an to protect the oppressed" },
+          { "i": "🕋", "n": "Restoration of the Ka'bah", "r": "595 CE — the Prophet ﷺ participated before his mission" }
+        ],
+        "lessonAr": "ما من أمة إلا ويهيئ الله لها من يُصلحها، وللعرب اختار الله منهم خاتم الأنبياء ﷺ رحمة للعالمين.",
+        "lessonEn": "There is no nation for which Allah does not prepare a reformer. From the Arabs He chose the Seal of the Prophets ﷺ, a mercy to all the worlds.",
+        "srcs": ["البخاري (٢٤٢٩)", "ابن هشام (١/١٩٤)", "الرحيق المختوم ص٧٥"],
+        "mapFocus": {"x": 310, "y": 320, "scale": 1.0}
+      }
+    ]
+  },
   "meccan": {
     "labelAr": "العهد المكي",
     "labelEn": "The Meccan Era",

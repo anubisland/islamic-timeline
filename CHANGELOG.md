@@ -4,6 +4,47 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.0] — 2026-06-07
+
+### Added
+- **New era: "ما قبل البعثة" (Pre-Prophethood) — 11 stages**. The user requested a new tab covering the state of the Arabian Peninsula before the Prophet's mission, based on a provided reference text. The new era sits at the top of the timeline (chronologically first) and includes:
+  1. **نظرة على الجزيرة العربية** — Overview of the peninsula (geography, regions, climate)
+  2. **عبادة الأصنام وانتشار الشرك** — Idol worship and polytheism (360 idols in the Ka'bah, Hubal, al-Lat, al-Uzza, Manat)
+  3. **أديان الأقلية والحنفاء** — Minority religions and the Hanifs (Jews, Christians, Zoroastrians, Waraqah, Zayd ibn Amr)
+  4. **النظام القبلي وانعدام الدولة** — The tribal system and absence of a central state
+  5. **حروب الجاهلية الكبرى** — Major wars of the Jahiliyyah (Dahis & al-Ghabra, al-Fijar)
+  6. **النفوذ الأجنبي** — Foreign influence (Lakhmids, Ghassanids, Abyssinians, Persians)
+  7. **المرأة في الجاهلية** — Women in the Jahiliyyah (inheritance, wa'd, marriage)
+  8. **الرق والطبقية** — Slavery and class in Jahili society
+  9. **التجارة وأسواق الجزيرة** — Trade and markets (Quraysh's two journeys, Ukaz, Majanna, Dhu al-Majaz)
+  10. **الشعر والخطابة والمعلقات** — Poetry, oratory, and the Mu'allaqat
+  11. **الحاجة إلى بزوغ فجر جديد** — The need for a new dawn (antecedents of the mission)
+- **New SVG map: `svg-preb`** — A simplified map of the Arabian Peninsula with:
+  - The peninsula outline (dashed emerald border)
+  - Major cities: مكة (Mecca, gold), يثرب (Yathrib, blue), الطائف (Taif, purple), نجران (Najran, green), اليمن (Yemen, orange), الحيرة (al-Hirah, red), غسان (Ghassan, blue), البحرين (Bahrain, purple), عُمان (Oman, green), نجد (Najd, gray)
+  - Markets: عكاظ (Ukaz), مجنة (Majanna), ذو المجاز (Dhu al-Majaz)
+  - Three trade routes (summer to Syria, winter to Yemen, eastern to Bahrain/Iraq) as dashed gold/green arrows
+  - Three seas: Red Sea, Persian Gulf, Arabian Sea
+  - Era badge "نحو ٥٠٠ - ٥٧٠ م" with "العصر الجاهلي" subtitle
+  - Compass, sand dunes, decorative Islamic ornaments
+  - Focus pulse + 8-point star wake at the active step's coordinates
+- **New event button** in the header switcher: `🏜️ ما قبل البعثة` (Arabic) / `🏜️ Pre-Prophethood` (English), inserted as the first button.
+- `app.js`: Added `preb` to `MAP_VB` and to `switchEv()` (mirrors the 4 existing eras with the same `classList.toggle('hidden', key !== 'preb')` pattern). Added `svg-preb` to the `applyZoom()` list so the zoom controls work on the new map.
+- Total stages: 11 (preb) + 16 (meccan) + 6 (hijra) + 3 (badr) + 11 (medinan) = **47 stages** (was 36).
+
+### Sources (Ahl al-Sunnah wal-Jama'ah canon)
+- البخاري · مسلم · الترمذي · ابن ماجه
+- ابن هشام (السيرة النبوية)
+- الطبري (تاريخ الأمم والملوك)
+- ابن كثير (البداية والنهاية)
+- المباركفوري (الرحيق المختوم)
+- ابن رشيق (العمدة في صناعة الشعر ونقده)
+- ابن عبد ربه (العقد الفريد)
+
+### Minor version bump (2.5.3 → 2.6.0)
+- New user-facing content (a new era with 11 stages and a new map).
+- Backward compatible: all existing data, all 36 existing stages, all 4 existing maps, and all existing CSS rules are unchanged.
+
 ## [2.5.3] — 2026-06-07
 
 ### Fixed

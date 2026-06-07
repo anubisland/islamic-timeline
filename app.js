@@ -24,7 +24,7 @@
   let AUTO_NARRATE = localStorage.getItem(STORAGE.auto) === '1';        // auto-play on step change
 
   // ── Map viewBoxes ──────────────────────────────────────
-  const MAP_VB = { hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560] };
+  const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560] };
 
   // ── Helpers ─────────────────────────────────────────────
   const $ = (id) => document.getElementById(id);
@@ -108,6 +108,7 @@
     $('svg-badr').classList.toggle('hidden', key !== 'badr');
     const sm = $('svg-meccan'); if (sm) sm.classList.toggle('hidden', key !== 'meccan');
     const sd = $('svg-medinan'); if (sd) sd.classList.toggle('hidden', key !== 'medinan');
+    const sp = $('svg-preb'); if (sp) sp.classList.toggle('hidden', key !== 'preb');
 
     // Update map label — set BOTH data-ar and data-en so applyLanguage()
     // can pick the right one based on the current LANG, AND immediately
@@ -633,7 +634,7 @@
       const x = (MAP_BASE.w - w) / 2;
       const y = (MAP_BASE.h - h) / 2;
       const vb = x + ' ' + y + ' ' + w + ' ' + h;
-      ['svg-hijra', 'svg-badr', 'svg-meccan', 'svg-medinan'].forEach((id) => {
+      ['svg-preb', 'svg-hijra', 'svg-badr', 'svg-meccan', 'svg-medinan'].forEach((id) => {
         const svg = $(id);
         if (svg) svg.setAttribute('viewBox', vb);
       });
