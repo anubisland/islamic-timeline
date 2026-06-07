@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.7.1] — 2026-06-07
+
+### Fixed
+- **Splash always shows first on load** — Removed saved-EVT auto-navigation in `init()` so the splash landing page is always the entry point, not the last-viewed era (fixes issue where Pre-Prophethood appeared before splash).
+- **Language toggle now visible on splash screen** — Added `#splash-lang-toggle` button (fixed top-right on splash) so users can switch AR/EN without leaving the home screen. Both header and splash toggles stay synced.
+- **Splash fits in one viewport (no scroll)** — Reduced all splash spacing, padding, and font sizes: title 2.2rem→1.5rem, era card padding 14px→8px, rashidun box padding 18px→10px, inner gap 20px→8px. Frame and corners also compacted. Inner content scrolls if needed (`overflow-y: auto`) with `max-height: calc(100vh - 28px)`.
+- **Green footer strip no longer appears on splash** — Since splash now always shows first, the timeline footer stays hidden until an era is selected.
+
 ## [2.7.0] — 2026-06-07
 
 ### Added

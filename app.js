@@ -71,12 +71,14 @@
       el.textContent = isAr ? el.dataset.ar : el.dataset.en;
     });
 
-    // Toggle the language button text
-    const langBtn = $('langToggle');
-    if (langBtn) {
-      const span = langBtn.querySelector('span');
-      if (span) span.textContent = isAr ? 'English' : 'العربية';
-    }
+    // Toggle the language button text (both header + splash)
+    ['langToggle', 'splash-lang-toggle'].forEach((id) => {
+      const btn = $(id);
+      if (btn) {
+        const span = btn.querySelector('span');
+        if (span) span.textContent = isAr ? 'English' : 'العربية';
+      }
+    });
 
     localStorage.setItem(STORAGE.lang, LANG);
     buildTimeline();
@@ -590,11 +592,22 @@
     const backBtn = $('btn-splash');
     if (backBtn) backBtn.addEventListener('click', goToSplash);
 
-    // Language toggle
-    $('langToggle').addEventListener('click', () => {
-      LANG = LANG === 'AR' ? 'EN' : 'AR';
-      applyLanguage();
-    });
+    // Language toggle (header + splash)
+    const langToggle = (btn) => {
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        LANG = LANG === 'AR' ? 'EN' : 'AR';
+        applyLanguage();
+        // Sync the other toggle button's text too
+        const other = btn.id === 'langToggle' ? $('splash-lang-toggle') : $('langToggle');
+        if (other) {
+          const span = other.querySelector('span');
+          if (span) span.textContent = LANG === 'AR' ? 'English' : 'العربية';
+        }
+      });
+    };
+    langToggle($('langToggle'));
+    langToggle($('splash-lang-toggle'));
 
     // Navigation
     $('btn-prev').addEventListener('click', () => step(-1));
@@ -691,14 +704,10 @@
     });
 
     // Start with splash screen; build timeline and language ready for when
-    // the user clicks an era card.
+    // the user clicks an era card. Always show splash first.
     buildTimeline();
     showSplash();
     applyLanguage();
-    // But if a saved EVT exists, switch directly into that era (skip splash)
-    if (localStorage.getItem(STORAGE.evt)) {
-      switchEv(EVT);
-    }
 
     // Diag banner: click to dismiss
     const diagEl = $('diag');

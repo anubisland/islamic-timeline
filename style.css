@@ -1302,8 +1302,8 @@ body::after {
   align-items: center;
   justify-content: center;
   background: #060b0f;
-  overflow-y: auto;
-  padding: 30px 16px;
+  overflow: hidden;
+  padding: 14px 16px;
 }
 .splash.hidden { display: none; }
 
@@ -1319,22 +1319,22 @@ body::after {
 
 .splash-frame {
   position: fixed;
-  inset: 12px;
+  inset: 8px;
   border: 1.5px double rgba(212,175,55,.18);
   pointer-events: none;
   z-index: 101;
 }
 .splash-corner {
   position: fixed;
-  width: 32px;
-  height: 32px;
+  width: 22px;
+  height: 22px;
   border: 2px solid rgba(212,175,55,.35);
   z-index: 102;
 }
-.splash-corner.tl { top: 12px; left: 12px; border-bottom: none; border-right: none; }
-.splash-corner.tr { top: 12px; right: 12px; border-bottom: none; border-left: none; }
-.splash-corner.bl { bottom: 12px; left: 12px; border-top: none; border-right: none; }
-.splash-corner.br { bottom: 12px; right: 12px; border-top: none; border-left: none; }
+.splash-corner.tl { top: 8px; left: 8px; border-bottom: none; border-right: none; }
+.splash-corner.tr { top: 8px; right: 8px; border-bottom: none; border-left: none; }
+.splash-corner.bl { bottom: 8px; left: 8px; border-top: none; border-right: none; }
+.splash-corner.br { bottom: 8px; right: 8px; border-top: none; border-left: none; }
 
 .splash-inner {
   width: 100%;
@@ -1342,28 +1342,58 @@ body::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 8px;
   z-index: 10;
+  max-height: calc(100vh - 28px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-.splash-hero { text-align: center; }
+.splash-hero {
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+.splash-lang-wrap {
+  position: fixed;
+  top: 18px;
+  inset-inline-end: 18px;
+  z-index: 110;
+}
+.splash-lang-btn {
+  background: var(--gold);
+  color: var(--emerald-4);
+  border: none;
+  padding: .3rem .85rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: .73rem;
+  cursor: pointer;
+  transition: var(--t);
+  box-shadow: 0 2px 8px rgba(0,0,0,.35);
+  font-family: "Cairo", sans-serif;
+}
+[lang="en"] .splash-lang-btn { font-family: "Inter", sans-serif; }
+.splash-lang-btn:hover { background: var(--gold-2); transform: translateY(-1px); }
+.splash-lang-btn:active { transform: translateY(0); }
+.splash-lang-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 .splash-hero h1 {
   font-family: "Amiri", serif;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   color: #ffd700;
   text-shadow: 0 3px 12px rgba(255,215,0,.2);
   line-height: 1.3;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 .splash-sub {
-  font-size: .92rem;
+  font-size: .78rem;
   color: #94a3b8;
   font-weight: 600;
 }
 .splash-divider {
-  font-size: 1.2rem;
+  font-size: .95rem;
   color: #d4af37;
-  margin-top: 8px;
+  margin-top: 4px;
   opacity: .5;
 }
 
@@ -1371,32 +1401,32 @@ body::after {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
 }
 
-/* --- Era cards --- */
 .era-card {
   background: rgba(12,22,31,.92);
-  border-right: 4px solid #d4af37;
+  border-right: 3px solid #d4af37;
   border: 1px solid rgba(212,175,55,.18);
-  border-radius: 8px;
-  padding: 14px 22px;
+  border-radius: 6px;
+  padding: 8px 14px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   cursor: pointer;
-  transition: all .25s ease;
+  transition: all .2s ease;
+  flex-shrink: 0;
 }
 .era-card:hover {
   border-right-color: #ffd700;
   background: rgba(18,32,44,.96);
-  transform: translateX(-4px);
+  transform: translateX(-3px);
   box-shadow: 0 4px 18px rgba(255,215,0,.06);
 }
-.era-card .ec-icon { font-size: 1.6rem; flex: 0 0 auto; }
+.era-card .ec-icon { font-size: 1.2rem; flex: 0 0 auto; }
 .era-card .ec-name {
   flex: 1;
-  font-size: 1.05rem;
+  font-size: .88rem;
   font-weight: 700;
   color: #fff;
   line-height: 1.2;
@@ -1404,64 +1434,61 @@ body::after {
 .era-card .ec-dates {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
   direction: ltr;
   unicode-bidi: plaintext;
   background: rgba(7,14,20,.8);
   border: 1px solid #d4af37;
-  border-radius: 20px;
-  padding: 5px 16px;
-  font-size: .82rem;
+  border-radius: 16px;
+  padding: 3px 10px;
+  font-size: .72rem;
   font-weight: 600;
   color: #ffd700;
   white-space: nowrap;
   flex-shrink: 0;
 }
-.era-card .ec-sep { color: #64748b; font-size: .7rem; }
+.era-card .ec-sep { color: #64748b; font-size: .65rem; }
 
 [dir="ltr"] .era-card .ec-dates { direction: rtl; }
 [dir="ltr"] .era-card .ec-dates bdi { direction: ltr; unicode-bidi: embed; }
 
-/* --- Rashidun section --- */
 .rashidun-box {
   width: 100%;
   background: rgba(16,29,41,.96);
   border: 1px solid rgba(212,175,55,.3);
-  border-radius: 12px;
-  padding: 18px 20px;
+  border-radius: 10px;
+  padding: 10px 14px;
+  flex-shrink: 0;
 }
-
 .rashidun-head {
   text-align: center;
   font-family: "Amiri", serif;
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #ffd700;
-  padding-bottom: 12px;
-  margin-bottom: 14px;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
   border-bottom: 1px dashed rgba(212,175,55,.2);
 }
 .rashidun-head .rashidun-range {
   display: block;
-  font-size: .82rem;
+  font-size: .72rem;
   color: #94a3b8;
   font-family: "Cairo", sans-serif;
-  margin-top: 3px;
+  margin-top: 2px;
 }
-
 .rashidun-grid {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
 }
-
 .caliph-card {
   background: rgba(7,14,20,.5);
   border: 1px solid rgba(212,175,55,.15);
-  border-radius: 6px;
-  padding: 10px 16px;
+  border-radius: 5px;
+  padding: 5px 10px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   cursor: pointer;
   transition: all .2s ease;
 }
@@ -1469,10 +1496,10 @@ body::after {
   border-color: #ffd700;
   background: rgba(7,14,20,.8);
 }
-.caliph-card .cc-icon { font-size: 1.3rem; flex: 0 0 auto; }
+.caliph-card .cc-icon { font-size: 1rem; flex: 0 0 auto; }
 .caliph-card .cc-name {
   flex: 1;
-  font-size: .95rem;
+  font-size: .8rem;
   font-weight: 700;
   color: #fff;
 }
@@ -1480,20 +1507,20 @@ body::after {
 .caliph-card .cc-dates {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   direction: ltr;
-  font-size: .78rem;
+  font-size: .7rem;
   font-weight: 600;
   color: #fde68a;
   white-space: nowrap;
   flex-shrink: 0;
 }
-
 .splash-foot {
-  font-size: .78rem;
+  font-size: .68rem;
   color: #64748b;
   text-align: center;
-  padding-top: 4px;
+  padding: 2px 0 1px;
+  flex-shrink: 0;
 }
 
 /* --- Header in era mode --- */
