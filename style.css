@@ -998,6 +998,12 @@ body::after {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
+/* SAFETY NET: when splash is NOT hidden (i.e. visible), force-hide the footer
+   and the wrap region. This works regardless of JavaScript timing/errors. */
+#splash:not(.hidden) ~ .wrap,
+#splash:not(.hidden) ~ .tl-foot {
+  display: none !important;
+}
 
 .tl-in { max-width: 1440px; margin: 0 auto; }
 
@@ -1582,16 +1588,36 @@ body::after {
 }
 
 @media (max-width: 480px) {
-  .splash-hero h1 { font-size: 1.2rem; }
-  .splash-sub { font-size: .7rem; }
-  .splash-inner { gap: 6px; }
-  .era-card { padding: 6px 10px; gap: 8px; }
-  .era-card .ec-icon { font-size: 1.1rem; }
-  .era-card .ec-name { font-size: .82rem; }
-  .era-card .ec-dates { font-size: .65rem; padding: 2px 8px; }
-  .rashidun-box { padding: 8px 10px; }
-  .rashidun-head { font-size: .9rem; }
-  .caliph-card { padding: 4px 8px; gap: 6px; }
-  .caliph-card .cc-name { font-size: .75rem; }
-  .caliph-card .cc-dates { font-size: .65rem; }
+  .splash { padding: 8px; }
+  .splash-hero h1 { font-size: 1.1rem; margin-bottom: 0; }
+  .splash-sub { font-size: .65rem; }
+  .splash-divider { font-size: .8rem; margin: 2px 0; }
+  .splash-inner { gap: 4px; }
+  .era-card { padding: 5px 8px; gap: 6px; }
+  .era-card .ec-icon { font-size: 1rem; }
+  .era-card .ec-name { font-size: .75rem; }
+  .era-card .ec-dates { font-size: .6rem; padding: 2px 6px; }
+  .rashidun-box { padding: 6px 8px; margin-top: 2px; }
+  .rashidun-head { font-size: .82rem; }
+  .caliph-card { padding: 3px 6px; gap: 5px; }
+  .caliph-card .cc-name { font-size: .7rem; }
+  .caliph-card .cc-dates { font-size: .6rem; padding: 1px 6px; }
+  .splash-foot { font-size: .6rem; padding: 2px 0; }
+}
+@media (max-width: 360px) {
+  .splash { padding: 6px; }
+  .splash-hero h1 { font-size: 1rem; }
+  .splash-sub { display: none; }
+  .splash-divider { display: none; }
+  .splash-inner { gap: 3px; }
+  .era-card { padding: 4px 6px; gap: 5px; }
+  .era-card .ec-icon { font-size: .9rem; }
+  .era-card .ec-name { font-size: .7rem; }
+  .era-card .ec-dates { font-size: .55rem; padding: 1px 5px; }
+  .rashidun-box { padding: 4px 6px; }
+  .rashidun-head { font-size: .75rem; }
+  .caliph-card { padding: 2px 5px; gap: 4px; }
+  .caliph-card .cc-name { font-size: .65rem; }
+  .caliph-card .cc-dates { font-size: .55rem; }
+  .splash-foot { font-size: .55rem; padding: 1px 0; }
 }
