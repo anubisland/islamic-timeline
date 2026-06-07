@@ -4,6 +4,29 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.7.0] — 2026-06-07
+
+### Added
+- **Splash landing page** — Full-screen splash (`#splash`) replaces the header event-switch as the home screen. Features Islamic frame with corner ornaments, dark emerald/gold theme, 5 main era cards (Pre-Prophethood, Meccan, Hijra, Badr, Medinan) and 5 Rashidun caliph cards (Abu Bakr, Umar, Uthman, Ali, Hasan). Clicking any card calls `switchEv(eraKey)` to hide splash and show the timeline UI.
+- **Header redesigned** — Back-to-splash button (🏠) in `.hdr-left`, era label in `.hdr-center`, language toggle in `.hdr-actions`. Header hides on splash and shows era name when viewing a timeline.
+- **5 Rashidun Caliph eras** (25 stages total):
+  - **Abu Bakr al-Siddiq** (5 steps): مولده ونشأته → بيعة السقيفة → حروب الردة → جمع القرآن → فتوحات العراق والشام ووفاته
+  - **Umar ibn al-Khattab** (5 steps): إسلامه وهجرته → خلافته وفتح القدس → الفتوحات الكبرى → نظام الدولة → استشهاده
+  - **Uthman ibn Affan** (5 steps): إسلامه وذو النورين → سخاؤه وخلافته → جمع القرآن → الفتوحات والأسطول → استشهاده
+  - **Ali ibn Abi Talib** (5 steps): نشأته وإسلامه → شجاعته → خلافته ومعركة الجمل → صفين والتحكيم → استشهاده
+  - **Al-Hasan ibn Ali** (5 steps): سبط النبي ﷺ → خلافته → صلحه العظيم → عام الجماعة → وفاته
+- **5 new SVG maps**: `svg-abubakr`, `svg-umar`, `svg-uthman`, `svg-ali`, `svg-hasan` — each with campaign arrows, city nodes, era badges, compass, and focus pulse layer.
+- **Arabic-Indic numerals** on splash dates (`٥٣ ق.هـ`, `٥٧١ م`, etc.) with `<bdi>` wrappers for correct RTL/LTR rendering.
+- **`hideSplash()` / `showSplash()` / `goToSplash()`** functions in `app.js` — splash shown on init, hidden on era select, toggled by back button.
+- **`env(safe-area-inset-bottom)`** footer padding for Android system nav bar.
+
+### Changed
+- `switchEv()` now toggles all 10 SVGs via array loop, calls `hideSplash()`, and updates header era label.
+- `MAP_VB` extended with all 10 era keys.
+- `applyZoom()` handles all 10 SVGs.
+- `buildTimeline()` builds dots for all eras in background (splash-independent).
+- Total steps: 11 + 16 + 6 + 3 + 11 + 5×5 = **72 stages** across 10 eras.
+
 ## [2.6.0] — 2026-06-07
 
 ### Added

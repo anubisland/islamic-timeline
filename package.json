@@ -1,8 +1,8 @@
 {
   "name": "madani-era-timeline-app",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "private": true,
-  "description": "Interactive bilingual (AR/EN) timeline of the Prophet's biography — Meccan Era (16 stages), Hijra (6), Badr (3), and Medinan Era (11) = 36 stages across 4 eras, with SVG maps, Google TTS verse recitation, and full language toggle. Mobile-friendly.",
+  "description": "Interactive bilingual (AR/EN) seerah timeline — Pre-Prophethood (11), Meccan (16), Hijra (6), Badr (3), Medinan (11), + 5 Rashidun Caliphs (25) = 72 stages across 10 eras. Splash landing page, SVG maps, TTS, bilingual.",
   "scripts": {
     "start": "npx --yes serve .",
     "dev": "npx --yes serve ."

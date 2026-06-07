@@ -19,12 +19,41 @@
   let LANG = (localStorage.getItem(STORAGE.lang) || 'AR').toUpperCase();
   let currentAudio = null;
   let isPlaying = false;
-  let onAudioEnd = null; // callback to fire when TTS completes (for pulse cleanup)
-  let TTS_MODE = localStorage.getItem(STORAGE.ttsMode) || 'verse';   // 'verse' | 'narrate'
-  let AUTO_NARRATE = localStorage.getItem(STORAGE.auto) === '1';        // auto-play on step change
+  let onAudioEnd = null;
+  let TTS_MODE = localStorage.getItem(STORAGE.ttsMode) || 'verse';
+  let AUTO_NARRATE = localStorage.getItem(STORAGE.auto) === '1';
 
   // ── Map viewBoxes ──────────────────────────────────────
-  const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560] };
+  const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560] };
+
+  // ── Splash navigation ──────────────────────────────────
+  function hideSplash() {
+    const sp = $('splash');
+    if (sp) sp.classList.add('hidden');
+    const wr = document.querySelector('.wrap');
+    const ft = document.querySelector('.tl-foot');
+    if (wr) wr.classList.remove('splash-hidden');
+    if (ft) ft.classList.remove('splash-hidden');
+    const hdr = $('site-header');
+    if (hdr) hdr.classList.add('visible');
+  }
+
+  function showSplash() {
+    const sp = $('splash');
+    if (sp) sp.classList.remove('hidden');
+    const wr = document.querySelector('.wrap');
+    const ft = document.querySelector('.tl-foot');
+    if (wr) wr.classList.add('splash-hidden');
+    if (ft) ft.classList.add('splash-hidden');
+    const hdr = $('site-header');
+    if (hdr) hdr.classList.remove('visible');
+    stopAudio();
+  }
+
+  function goToSplash() {
+    STEP = 0;
+    showSplash();
+  }
 
   // ── Helpers ─────────────────────────────────────────────
   const $ = (id) => document.getElementById(id);
@@ -90,25 +119,28 @@
     return String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
   }
 
-  // ── Switch event (hijra / badr) ─────────────────────────
+  // ── Switch event ───────────────────────────────────────
   function switchEv(key) {
     if (!DB[key]) return;
     EVT = key;
     localStorage.setItem(STORAGE.evt, key);
     STEP = 0;
     stopAudio();
+    hideSplash();
 
-    // Update event buttons
-    document.querySelectorAll('.ev-btn').forEach((btn) => {
-      btn.classList.toggle('on', btn.dataset.ev === key);
-    });
+    // Update era label in header
+    const lbl = $('era-label');
+    if (lbl) {
+      lbl.textContent = LANG === 'AR' ? DB[key].labelAr : DB[key].labelEn;
+    }
 
     // Toggle maps
-    $('svg-hijra').classList.toggle('hidden', key !== 'hijra');
-    $('svg-badr').classList.toggle('hidden', key !== 'badr');
-    const sm = $('svg-meccan'); if (sm) sm.classList.toggle('hidden', key !== 'meccan');
-    const sd = $('svg-medinan'); if (sd) sd.classList.toggle('hidden', key !== 'medinan');
-    const sp = $('svg-preb'); if (sp) sp.classList.toggle('hidden', key !== 'preb');
+    const allSvgs = ['svg-preb','svg-hijra','svg-badr','svg-meccan','svg-medinan',
+                     'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan'];
+    allSvgs.forEach((id) => {
+      const el = $(id);
+      if (el) el.classList.toggle('hidden', id !== 'svg-' + key);
+    });
 
     // Update map label — set BOTH data-ar and data-en so applyLanguage()
     // can pick the right one based on the current LANG, AND immediately
@@ -550,10 +582,13 @@
 
   // ── Wire up DOM ─────────────────────────────────────────
   function init() {
-    // Event switcher
-    document.querySelectorAll('.ev-btn').forEach((btn) => {
-      btn.addEventListener('click', () => switchEv(btn.dataset.ev));
+    // Splash: click era cards
+    document.querySelectorAll('.era-card, .caliph-card').forEach((el) => {
+      el.addEventListener('click', () => switchEv(el.dataset.ev));
     });
+    // Back to splash
+    const backBtn = $('btn-splash');
+    if (backBtn) backBtn.addEventListener('click', goToSplash);
 
     // Language toggle
     $('langToggle').addEventListener('click', () => {
@@ -634,7 +669,8 @@
       const x = (MAP_BASE.w - w) / 2;
       const y = (MAP_BASE.h - h) / 2;
       const vb = x + ' ' + y + ' ' + w + ' ' + h;
-      ['svg-preb', 'svg-hijra', 'svg-badr', 'svg-meccan', 'svg-medinan'].forEach((id) => {
+      ['svg-preb','svg-hijra','svg-badr','svg-meccan','svg-medinan',
+       'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan'].forEach((id) => {
         const svg = $(id);
         if (svg) svg.setAttribute('viewBox', vb);
       });
@@ -654,12 +690,15 @@
       if (e.key === 'l' || e.key === 'L') { e.preventDefault(); LANG = LANG === 'AR' ? 'EN' : 'AR'; applyLanguage(); }
     });
 
-    // Initial mount — switch to the saved event FIRST (this updates the
-    // map-label, map visibility, focus pulse), then build the timeline strip
-    // and apply the saved language.
-    switchEv(EVT);
+    // Start with splash screen; build timeline and language ready for when
+    // the user clicks an era card.
     buildTimeline();
+    showSplash();
     applyLanguage();
+    // But if a saved EVT exists, switch directly into that era (skip splash)
+    if (localStorage.getItem(STORAGE.evt)) {
+      switchEv(EVT);
+    }
 
     // Diag banner: click to dismiss
     const diagEl = $('diag');
