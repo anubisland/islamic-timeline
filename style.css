@@ -1050,15 +1050,14 @@ body::after {
 
 [lang="en"] .tl-counter { font-family: "Inter", sans-serif; }
 
-.tl-wrap { position: relative; padding: 1rem 0 .55rem; min-height: 38px; }
+.tl-wrap { position: relative; padding: 1rem 0 .85rem; min-height: 50px; }
 
 .tl-track {
   position: absolute;
   height: 2px;
-  top: 50%;
+  bottom: 4px;
   left: 0;
   right: 0;
-  transform: translateY(-50%);
   background: rgba(6, 78, 59, .4);
   border-radius: 2px;
 }
@@ -1167,7 +1166,7 @@ body::after {
    themselves are the primary navigation affordance. */
 @media (max-width: 720px) {
   .tl-lbl { display: none; }
-  .tl-wrap { padding: .55rem 0 .35rem; min-height: 28px; }
+  .tl-wrap { padding: .55rem 0 .45rem; min-height: 38px; }
   .tl-dot { width: 22px; height: 22px; font-size: .62rem; }
   .tl-nd { gap: 0; }
   .tl-name-strip { padding: .25rem .45rem; margin-bottom: .2rem; gap: .4rem; }

@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.0] — 2026-06-07
+
+### Fixed
+- **Cyrillic text "торговл" in the Meccan map** (long-standing bug from v2.1.0). The Arabic word "التجارة" (al-Tijāra = "trade") was corrupted to Russian "торговл" in `data-ar="↑ رحلتي торговлة إلى الشام"` and the corresponding `textContent`. The byte sequence was `d1 82 d0 be d1 80 d0 b3 d0 be d0 b2 d0 bb` (Cyrillic Торговл) where it should have been `d8 a7 d9 84 d8 aa d8 ac d8 a7 d8 b1` (Arabic التجارة). Fixed in 2 places (data-ar attribute + textContent). **Bumped minor version (2.5.0)** because this is user-visible text corruption.
+- **Timeline track was hiding part of the dots.** The track was positioned at `top: 50%` of `.tl-wrap`, which on the new tighter footer (28-38 px min-height) put the 2 px green line through the *middle* of the 22 px dots. The user reported "بعضها جزء منها غير ظاهر" (part of the numbers not visible). Moved the track to `bottom: 4px` (below the dots) and increased `.tl-wrap` min-height to 50 px (desktop) / 38 px (mobile) so there is clear vertical separation.
+
 ## [2.4.9] — 2026-06-07
 
 ### Added
