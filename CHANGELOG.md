@@ -38,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `init()` now shows `showHome()` instead of `showSplash()`.
 - `showSplash()` and `hideSplash()` now also toggle the home screen visibility.
 - Header 🏠 button goes to splash (era selection); splash "← الرئيسية" goes to home.
+- **Launcher title renamed** from "The Imams / الأئمة" to **"Islamic Timeline / الخط الزمني الإسلامي"** — the master launcher hosts both the Seerah timeline and the Four Imams, so "The Imams" was a misnomer.
 
 ### Fixed
 - **Homepage corruption — era UI + footer leaked beneath the launcher** — the CSS safety-net that force-hides `.wrap` (4000px+ of maps/story) and `.tl-foot` was keyed only to `#splash:not(.hidden)`. The new home screen sets `#splash` to `.hidden`, so the rule stopped firing and the entire era UI + footer rendered in flow below the fixed `#home-screen` overlay, producing a ~4700px scrollable, broken page. Extended the rule to also cover `#home-screen:not(.home-hidden) ~ .wrap, ~ .tl-foot`. (Also corrects a duplicate `## [2.10.0]` changelog heading — this homepage work is now `2.10.1`.)
