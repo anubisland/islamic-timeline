@@ -88,10 +88,12 @@
   }
 
   function goToImams() {
-    MODE = 'imams';
-    const home = $('home-screen');
-    if (home) home.classList.add('home-hidden');
-    // Future: show imams selection screen
+    // The Four Imams section isn't built yet. Do NOT hide the home screen —
+    // doing so reveals the Seerah era view underneath (no #imams overlay exists),
+    // which looks like a broken redirect. Stay on the launcher and notify.
+    diag(LANG === 'AR'
+      ? 'قسم الأئمة الأربعة قيد الإعداد — قريباً إن شاء الله'
+      : 'The Four Imams section is coming soon, in shaa Allah', 'info');
     console.warn('Four Imams module not yet implemented');
   }
 
