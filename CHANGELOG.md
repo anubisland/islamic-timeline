@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - **🔊 Narration audio for the Four Imams (Phase 4)** — generated neural-voice MP3s for all 4 imams × 5 phases × 4 voices × 2 languages (160 clips) under `audio/<slot>/imam-<id>_<step>_<lang>.mp3`, matching the path `narrationURL()` builds in imam mode. The imam play button now plays real narration instead of showing "audio not available." `tools/gen_tts.py` now loads `data_imams.js` too (merged under `imam-<id>` keys), so `python tools/gen_tts.py` regenerates both Seerah and imam audio.
 
+### Fixed
+- **Content: Imam Malik's flogging mis-dated** — the data placed Malik's ordeal at 170–179 AH under caliph al-Mahdi. Per al-Sallabi, al-Dhahabi's *Siyar*, and Ibn Kathir, the flogging by the Medina governor Ja'far ibn Sulayman (70 lashes, dislocated shoulder, over the "no divorce under compulsion" fatwa) occurred **c. 146–147 AH under al-Mansur**, after the Nafs al-Zakiyya revolt (145 AH). Corrected the phase date to "c. 147 AH" and the caliph to al-Mansur. (The narration prose was already accurate, so no audio change.)
+
 ## [2.11.2] — 2026-06-08
 
 ### Added
