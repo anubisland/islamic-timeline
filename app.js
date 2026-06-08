@@ -58,7 +58,7 @@
   const reciter = (id) => RECITERS.find((r) => r.id === (id || RECITER)) || RECITERS[0];
 
   // ── Map viewBoxes ──────────────────────────────────────
-  const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560] };
+  const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560], imam: [700, 560] };
 
   // ── Home screen (master launcher) ──────────────────────
   function showHome() {
@@ -209,14 +209,16 @@
       ml.textContent = LANG === 'AR' ? '🕌 ' + shortAr : '🕌 ' + shortEn;
     }
 
-    // Hide all Sera SVGs, show imam map card
+    // Hide all Sera SVGs + the old decorative card, show the shared imam SVG map
     ['svg-preb','svg-hijra','svg-badr','svg-meccan','svg-medinan',
      'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan'].forEach((id) => {
       const el = $(id);
       if (el) el.classList.add('hidden');
     });
+    const imamSvg = $('svg-imam');
+    if (imamSvg) imamSvg.classList.remove('hidden');
     const imamMap = $('imam-map');
-    if (imamMap) imamMap.classList.remove('hidden');
+    if (imamMap) imamMap.classList.add('hidden');
 
     updateImamMapCard(key);
     buildTimeline();
@@ -332,6 +334,12 @@
     // Nav buttons
     $('btn-prev').disabled = STEP === 0;
     $('btn-next').disabled = STEP === tot - 1;
+
+    // Position the focus pulse on the shared imam map. Call synchronously (not
+    // via rAF) — rAF is paused in a hidden/backgrounded tab, and positioning is
+    // just SVG attribute writes that need no layout. Mirrors the Sera path,
+    // which also calls applyMapFocus() synchronously from goTo()/switchEv().
+    applyMapFocus(true);
   }
 
   function buildImamTimeline() {
@@ -467,13 +475,15 @@
       lbl.textContent = LANG === 'AR' ? DB[key].labelAr : DB[key].labelEn;
     }
 
-    // Toggle maps
+    // Toggle maps (include svg-imam so it's hidden when returning to a Sera era)
     const allSvgs = ['svg-preb','svg-hijra','svg-badr','svg-meccan','svg-medinan',
-                     'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan'];
+                     'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan','svg-imam'];
     allSvgs.forEach((id) => {
       const el = $(id);
       if (el) el.classList.toggle('hidden', id !== 'svg-' + key);
     });
+    const imamMapCard = $('imam-map');
+    if (imamMapCard) imamMapCard.classList.add('hidden');
 
     // Update map label — set BOTH data-ar and data-en so applyLanguage()
     // can pick the right one based on the current LANG, AND immediately
@@ -498,19 +508,26 @@
   // We just position the focus pulse + 8-point star wake at the step's
   // (focus.x, focus.y) so the user can see which location is active.
   function applyMapFocus(animate = true) {
-    const s = DB[EVT].steps[STEP];
+    // Works for both Sera eras and the shared imam map. `mapKey` selects the
+    // SVG's pan-/focus- layer ids; in imam mode it's the fixed 'imam' map.
+    const inImam = MODE === 'imams';
+    const ev = inImam ? (IDB && IDB[IMAM]) : DB[EVT];
+    if (!ev) return;
+    const s = ev.steps[STEP];
     if (!s) return;
-    const focus = s.mapFocus || { x: MAP_VB[EVT][0] / 2, y: MAP_VB[EVT][1] / 2, scale: 1.0 };
+    const mapKey = inImam ? 'imam' : EVT;
+    const vb = MAP_VB[mapKey] || [700, 560];
+    const focus = s.mapFocus || { x: vb[0] / 2, y: vb[1] / 2, scale: 1.0 };
 
     // No transform on map-pan — the full map is always visible inside the frame
-    const pan = $('pan-' + EVT);
+    const pan = $('pan-' + mapKey);
     if (pan) {
       pan.style.transform = '';
       pan.style.transformOrigin = '';
     }
 
     // Show & position the focus layer (pulse + 8-point star wake) at (focus.x, focus.y)
-    const focusLayer = $('focus-' + EVT);
+    const focusLayer = $('focus-' + mapKey);
     if (focusLayer) {
       focusLayer.style.display = '';
       const pulse = focusLayer.querySelector('.focus-pulse');
@@ -519,7 +536,7 @@
         pulse.setAttribute('cx', focus.x);
         pulse.setAttribute('cy', focus.y);
         pulse.setAttribute('data-step', STEP);
-        pulse.setAttribute('data-evt', EVT);
+        pulse.setAttribute('data-evt', mapKey);
       }
       if (star) {
         const r = 22;
@@ -554,12 +571,12 @@
         : 'Step ' + (STEP + 1) + ' — ' + (s.titleEn || ''))
         + '  ·  (' + focus.x + ', ' + focus.y + ')';
     }
-    console.log('[focus]', EVT, 'step=' + STEP, 'pos=(' + focus.x + ',' + focus.y + ')', s[t('title')]);
+    console.log('[focus]', mapKey, 'step=' + STEP, 'pos=(' + focus.x + ',' + focus.y + ')', s[t('title')]);
   }
 
   // ── Pulse on/off helpers (linked to audio state) ────────
   function setAudioPulse(on) {
-    const focusLayer = $('focus-' + EVT);
+    const focusLayer = $('focus-' + (MODE === 'imams' ? 'imam' : EVT));
     if (!focusLayer) return;
     const pulse = focusLayer.querySelector('.focus-pulse');
     if (pulse) pulse.classList.toggle('speaking', !!on);
@@ -1110,7 +1127,7 @@
       const y = (MAP_BASE.h - h) / 2;
       const vb = x + ' ' + y + ' ' + w + ' ' + h;
       ['svg-preb','svg-hijra','svg-badr','svg-meccan','svg-medinan',
-       'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan'].forEach((id) => {
+       'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan','svg-imam'].forEach((id) => {
         const svg = $(id);
         if (svg) svg.setAttribute('viewBox', vb);
       });

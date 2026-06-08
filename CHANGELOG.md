@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.11.1] — 2026-06-08
+
+### Added
+- **🗺️ Interactive maps for the Four Imams** (was missing from Phase 3) — a shared inline SVG map (`#svg-imam`) of the classical Islamic heartland with 8 bilingual cities (Baghdad, Kufa, Basra, Madinah, Makkah, Gaza, Fustat, Damascus), rivers/seas, and scholarly travel routes. Each imam step's `mapFocus` drives the gold focus-pulse + 8-point star-wake to the active city — e.g. Abu Hanifa → Kufa→Baghdad, Malik → Madinah, al-Shafi'i → Gaza→Madinah→Baghdad→Fustat, Ahmad → Baghdad→Makkah. `applyMapFocus()` was generalized to drive both the Sera era maps and the imam map (`MODE`-aware `mapKey`). Replaces the static decorative `#imam-map` card.
+
+### Fixed
+- **Imam focus never positioned in a backgrounded tab** — `renderImam()` positioned the map focus via `requestAnimationFrame`, which browsers pause in hidden tabs (and on first paint). Switched to a synchronous `applyMapFocus()` call (it only writes SVG attributes, no layout needed), mirroring the Sera path.
+
 ## [2.10.0] — 2026-06-08
 
 ### Added

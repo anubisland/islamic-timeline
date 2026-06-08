@@ -1624,6 +1624,102 @@
           </g>
         </svg>
 
+        <!-- ============ FOUR IMAMS MAP (shared, classical Islamic heartland) ============ -->
+        <svg id="svg-imam" class="map-svg hidden" viewBox="0 0 700 560" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+          <g class="map-frame" opacity=".55">
+            <g transform="translate(14,14)"><polygon points="0,0 18,2 14,8 18,14 8,14 2,18 0,0 8,2 14,0" fill="#C5A059" opacity=".6"/></g>
+            <g transform="translate(686,14) scale(-1,1)"><polygon points="0,0 18,2 14,8 18,14 8,14 2,18 0,0 8,2 14,0" fill="#C5A059" opacity=".6"/></g>
+            <g transform="translate(14,546) scale(1,-1)"><polygon points="0,0 18,2 14,8 18,14 8,14 2,18 0,0 8,2 14,0" fill="#C5A059" opacity=".6"/></g>
+            <g transform="translate(686,546) scale(-1,-1)"><polygon points="0,0 18,2 14,8 18,14 8,14 2,18 0,0 8,2 14,0" fill="#C5A059" opacity=".6"/></g>
+          </g>
+          <g class="map-pan" id="pan-imam">
+          <defs>
+            <radialGradient id="imambg" cx="50%" cy="45%" r="70%"><stop offset="0%" stop-color="#1a1408" stop-opacity=".35"/><stop offset="100%" stop-color="#0a0e14" stop-opacity="1"/></radialGradient>
+            <linearGradient id="imamland" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#4a3c28"/><stop offset="100%" stop-color="#241a0e"/></linearGradient>
+            <linearGradient id="imamsea" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#12384a"/><stop offset="100%" stop-color="#0a2230"/></linearGradient>
+            <marker id="imam-ar" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto"><polygon points="0,0 8,4 0,8" fill="#C5A059"/></marker>
+            <filter id="imam-gf"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+
+          <!-- base -->
+          <rect width="700" height="560" fill="url(#imamland)"/>
+          <rect width="700" height="560" fill="url(#imambg)"/>
+
+          <!-- seas -->
+          <path d="M 0 0 L 210 0 Q 150 60 60 96 L 0 110 Z" fill="url(#imamsea)" opacity=".9"/>           <!-- Mediterranean -->
+          <path d="M 150 150 Q 120 300 188 470 L 232 470 Q 168 300 196 158 Z" fill="url(#imamsea)" opacity=".9"/> <!-- Red Sea -->
+          <path d="M 372 214 Q 470 300 560 560 L 700 560 L 700 300 Q 520 250 388 196 Z" fill="url(#imamsea)" opacity=".9"/> <!-- Persian Gulf -->
+          <!-- rivers -->
+          <path d="M 30 150 Q 24 230 40 300" fill="none" stroke="#2b6076" stroke-width="2.5" opacity=".7"/>  <!-- Nile -->
+          <path d="M 300 60 Q 320 110 336 134 Q 352 175 374 214" fill="none" stroke="#2b6076" stroke-width="2.5" opacity=".7"/> <!-- Tigris -->
+          <path d="M 270 80 Q 320 130 336 160 Q 356 185 374 214" fill="none" stroke="#2b6076" stroke-width="2" opacity=".55"/> <!-- Euphrates -->
+
+          <!-- region labels -->
+          <text x="46" y="120" fill="#8a7a55" font-size="13" opacity=".45" font-family="Cairo,sans-serif" data-ar="مصر" data-en="Egypt">مصر</text>
+          <text x="150" y="64" fill="#8a7a55" font-size="13" opacity=".45" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="الشام" data-en="Levant">الشام</text>
+          <text x="250" y="250" fill="#8a7a55" font-size="13" opacity=".45" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="الحجاز" data-en="Hijaz">الحجاز</text>
+          <text x="392" y="110" fill="#8a7a55" font-size="13" opacity=".45" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="العراق" data-en="Iraq">العراق</text>
+          <text x="560" y="150" fill="#8a7a55" font-size="13" opacity=".4" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="فارس" data-en="Persia">فارس</text>
+
+          <!-- scholarly routes (faint) -->
+          <g fill="none" stroke="#C5A059" stroke-width="1.6" stroke-dasharray="5 5" opacity=".35">
+            <path d="M 96 172 Q 150 250 224 310"/>     <!-- Gaza → Madinah -->
+            <path d="M 224 310 L 229 372"/>             <!-- Madinah → Makkah -->
+            <path d="M 224 310 Q 300 220 336 160"/>     <!-- Madinah → Kufa -->
+            <path d="M 336 134 L 336 160"/>             <!-- Baghdad ↔ Kufa -->
+            <path d="M 336 160 Q 360 190 374 214"/>     <!-- Kufa → Basra -->
+            <path d="M 229 372 Q 130 320 40 240"/>      <!-- Makkah → Fustat -->
+          </g>
+
+          <!-- cities: dot + glow + bilingual label -->
+          <g class="imam-city">
+            <circle cx="336" cy="134" r="5.5" fill="#C5A059" filter="url(#imam-gf)"/>
+            <text x="328" y="126" fill="#fcd34d" font-size="12" font-weight="bold" text-anchor="end" font-family="Cairo,sans-serif" data-ar="بغداد" data-en="Baghdad">بغداد</text>
+          </g>
+          <g class="imam-city">
+            <circle cx="336" cy="160" r="5" fill="#C5A059"/>
+            <text x="346" y="166" fill="#e7d6a8" font-size="11" font-family="Cairo,sans-serif" data-ar="الكوفة" data-en="Kufa">الكوفة</text>
+          </g>
+          <g class="imam-city">
+            <circle cx="374" cy="214" r="4.5" fill="#C5A059"/>
+            <text x="384" y="218" fill="#e7d6a8" font-size="11" font-family="Cairo,sans-serif" data-ar="البصرة" data-en="Basra">البصرة</text>
+          </g>
+          <g class="imam-city">
+            <circle cx="224" cy="310" r="5.5" fill="#C5A059" filter="url(#imam-gf)"/>
+            <text x="234" y="308" fill="#fcd34d" font-size="12" font-weight="bold" font-family="Cairo,sans-serif" data-ar="المدينة" data-en="Madinah">المدينة</text>
+          </g>
+          <g class="imam-city">
+            <circle cx="229" cy="372" r="5.5" fill="#C5A059" filter="url(#imam-gf)"/>
+            <text x="239" y="376" fill="#fcd34d" font-size="12" font-weight="bold" font-family="Cairo,sans-serif" data-ar="مكة" data-en="Makkah">مكة</text>
+          </g>
+          <g class="imam-city">
+            <circle cx="96" cy="172" r="4.5" fill="#C5A059"/>
+            <text x="106" y="170" fill="#e7d6a8" font-size="11" font-family="Cairo,sans-serif" data-ar="غزة" data-en="Gaza">غزة</text>
+          </g>
+          <g class="imam-city">
+            <circle cx="28" cy="200" r="5" fill="#C5A059"/>
+            <text x="38" y="204" fill="#e7d6a8" font-size="11" font-family="Cairo,sans-serif" data-ar="الفسطاط" data-en="Fustat">الفسطاط</text>
+          </g>
+          <g class="imam-city">
+            <circle cx="148" cy="108" r="4" fill="#C5A059" opacity=".8"/>
+            <text x="158" y="106" fill="#e7d6a8" font-size="11" opacity=".8" font-family="Cairo,sans-serif" data-ar="دمشق" data-en="Damascus">دمشق</text>
+          </g>
+
+          <!-- compass -->
+          <g transform="translate(648,508)">
+            <circle r="18" fill="rgba(6,78,59,.45)" stroke="rgba(197,160,89,.3)" stroke-width="1"/>
+            <text data-ar="ش" data-en="N" y="5" text-anchor="middle" fill="#C5A059" font-size="12" font-family="Cairo,sans-serif" font-weight="bold">ش</text>
+            <line x1="0" y1="-12" x2="0" y2="-6" stroke="#C5A059" stroke-width="1.5"/>
+          </g>
+
+          <!-- focus layer: JS positions pulse + star-wake on active step -->
+          <g id="focus-imam" style="display:none">
+            <circle class="focus-pulse" cx="0" cy="0" r="8" fill="none" stroke="#C5A059" stroke-width="3"/>
+            <polygon class="star-wake" points="0,-22 6,-6 22,0 6,6 0,22 -6,6 -22,0 -6,-6"/>
+          </g>
+          </g>
+        </svg>
+
         <!-- IMAM MAP CARD (shown instead of SVGs when in imam mode) -->
         <div id="imam-map" class="imam-map-card hidden">
           <div class="imam-mc-bg" id="imam-mc-bg"></div>
