@@ -678,8 +678,8 @@
 
     // Map zoom controls — change the SVG viewBox to zoom in/out of the
     // currently visible map. The default viewBox is "0 0 700 560".
-    // Zoom-in  shrinks width/height (content grows).
-    // Zoom-out expands width/height (content shrinks, fits in frame on small screens).
+    // Smaller viewBox → zoom in (content grows on screen).
+    // Larger viewBox  → zoom out (content shrinks to fit more of the map).
     const MAP_BASE = { w: 700, h: 560 };
     const ZOOM_LEVELS = [0.5, 0.75, 1.0, 1.5, 2.0];
     let zoomIdx = 2; // 1.0x
@@ -700,8 +700,8 @@
       });
       if (zRst) zRst.textContent = Math.round(z * 100) + '%';
     }
-    if (zIn)  zIn.addEventListener('click',  () => { if (zoomIdx > 0) { zoomIdx--; applyZoom(); } });
-    if (zOut) zOut.addEventListener('click', () => { if (zoomIdx < ZOOM_LEVELS.length - 1) { zoomIdx++; applyZoom(); } });
+    if (zIn)  zIn.addEventListener('click',  () => { if (zoomIdx < ZOOM_LEVELS.length - 1) { zoomIdx++; applyZoom(); } });
+    if (zOut) zOut.addEventListener('click', () => { if (zoomIdx > 0) { zoomIdx--; applyZoom(); } });
     if (zRst) zRst.addEventListener('click', () => { zoomIdx = 2; applyZoom(); });
     applyZoom();
 

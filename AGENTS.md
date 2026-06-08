@@ -164,6 +164,7 @@ Even **empty** (no text content), its padding + green background + border render
 | **Language not reflected in SVGs** (v2.4.5) | Hardcoded Arabic in `<text>` elements without `data-ar`/`data-en` | Added bilingual pairs to all 5 maps |
 | **Splash content too tall** (v2.7.2) | 10 cards + header + footer in single column | Reduced padding/font at each breakpoint; hides subtitle/divider at ≤360px |
 | **Timeline strip missing on load** (v2.4.3) | `buildTimeline()` not called from `init()` | Added call to `buildTimeline()` in `init()` before `applyLanguage()` |
+| **Map zoom controls reversed** (v2.9.1) | Click handlers had `zoomIdx--` on zIn (+ button) and `zoomIdx++` on zOut (- button) — opposite of correct pan/zoom math | Swapped directions: `zoomIdx++` on zIn (smaller viewBox = zoom in), `zoomIdx--` on zOut (larger viewBox = zoom out) |
 
 ### Debugging methodology for future agents
 

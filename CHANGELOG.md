@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.9.1] — 2026-06-08
+
+### Fixed
+- **Map zoom controls reversed** — The `+` button (zoom in) was shrinking the viewBox (actually zooming out) and the `−` button (zoom out) was expanding the viewBox (actually zooming in). Root cause: the click handlers in `app.js` had the arrow directions swapped (`zoomIdx--` on zIn, `zoomIdx++` on zOut). Fixed by swapping the directions in the click handlers and correcting the comments.
+
 ## [2.9.0] — 2026-06-08
 
 ### Fixed
