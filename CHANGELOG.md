@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.12.5] — 2026-06-08
+
+### Fixed
+- **The corrected, centred imam-card / story-box CSS wasn't reaching users** — recent layout fixes (v2.12.3 card centring, v2.12.4 box-clipping) live in `style.css`, but the `<link>` referenced it with no version query, so browsers (and GitHub Pages' `max-age=600` edge cache) kept serving the *old* stylesheet. Users still saw the pre-fix layout: cards stretched full-width and right-shifted, which made the centred header above them look misaligned. Added a `?v=2.12.5` cache-buster to the stylesheet link so the corrected CSS is fetched. No CSS rule changed — the centring/alignment was already correct; this just delivers it. (Immediate relief for anyone still on the old file: hard-refresh.)
+
 ## [2.12.4] — 2026-06-08
 
 ### Fixed
