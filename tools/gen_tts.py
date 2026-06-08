@@ -65,11 +65,17 @@ CONCURRENCY = 6  # be gentle on the free endpoint
 
 
 def load_db():
-    """Read window.SEERAH_DB out of data.js via a tiny node shim."""
-    out = subprocess.check_output(
-        ["node", "-e", "global.window={};require('./data.js');process.stdout.write(JSON.stringify(window.SEERAH_DB))"],
-        cwd=ROOT,
+    """Read window.SEERAH_DB (data.js) AND window.FOUR_IMAMS_DB (data_imams.js)
+    via a tiny node shim. The four imams are merged in under `imam-<id>` keys, so
+    the generation loop emits audio/<slot>/imam-<id>_<step>_<lang>.mp3 — exactly
+    the path narrationURL() builds in imam mode."""
+    shim = (
+        "global.window={};require('./data.js');require('./data_imams.js');"
+        "const d=Object.assign({},window.SEERAH_DB);"
+        "const I=window.FOUR_IMAMS_DB||{};for(const k in I)d['imam-'+k]=I[k];"
+        "process.stdout.write(JSON.stringify(d))"
     )
+    out = subprocess.check_output(["node", "-e", shim], cwd=ROOT)
     return json.loads(out)
 
 

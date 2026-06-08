@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.12.0] — 2026-06-08
+
+### Added
+- **🔊 Narration audio for the Four Imams (Phase 4)** — generated neural-voice MP3s for all 4 imams × 5 phases × 4 voices × 2 languages (160 clips) under `audio/<slot>/imam-<id>_<step>_<lang>.mp3`, matching the path `narrationURL()` builds in imam mode. The imam play button now plays real narration instead of showing "audio not available." `tools/gen_tts.py` now loads `data_imams.js` too (merged under `imam-<id>` keys), so `python tools/gen_tts.py` regenerates both Seerah and imam audio.
+
 ## [2.11.2] — 2026-06-08
 
 ### Added
