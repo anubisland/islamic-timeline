@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.12.2] — 2026-06-08
+
+### Fixed
+- **Imam Malik's phases now read in chronological order** — after correcting his flogging to c. 147 AH (v2.12.1), the "Ordeal & Flogging" phase sat *after* the "Writing Al-Muwatta" phase (150–170 AH), so the dates jumped backward. Swapped the two phases so the timeline runs 93–120 → 120–150 → **c. 147 (Ordeal)** → 150–170 (Muwatta) → 179 AH. Regenerated Malik's audio so each step index matches its content (16 clips changed).
+
 ## [2.12.1] — 2026-06-08
 
 ### Fixed

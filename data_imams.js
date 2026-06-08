@@ -302,41 +302,6 @@ window.FOUR_IMAMS_DB = {
         mapFocus: { x: 224, y: 310, scale: 1.0 }
       },
       {
-        ayah: "قُلْ هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ",
-        ayahRef: "سورة الزمر، الآية ٩",
-        ayahEn: "Say: Are those who know equal to those who do not know?",
-        ayahRefEn: "Surah Az-Zumar (39), verse 9",
-        dateAr: "150 - 170 هـ",
-        dateEn: "150 – 170 AH",
-        titleAr: "تأليف الموطأ وتدريس الفقه",
-        titleEn: "Writing Al-Muwatta & Teaching",
-        mtAr: "المدينة المنورة",
-        mtEn: "Medina",
-        mdAr: "ألف الإمام مالك كتاب الموطأ، أول كتاب يجمع الحديث النبوي مع فقه الصحابة والتابعين",
-        mdEn: "Imam Malik authored Al-Muwatta, the first book combining prophetic hadith with fiqh of Companions",
-        amb: "day",
-        timeAr: "150 - 170 هـ",
-        timeEn: "150 – 170 AH",
-        distAr: "المدينة المنورة",
-        distEn: "Medina",
-        descAr: "ألف الإمام مالك كتاب الموطأ، أول كتاب يجمع الحديث النبوي مع فقه الصحابة والتابعين. عرضه على 70 فقيهاً من فقهاء المدينة فأقروه. استغرق تأليفه 40 سنة. أمر الخليفة أبو جعفر المنصور مالكاً بتأليف كتاب يجمع السنة والفقه فصنع الموطأ. قال مالك: 'عرضت كتابي هذا على سبعين فقيهاً من فقهاء المدينة فكلهم وافقوني عليه'. كان الموطأ أول مدونة فقهية تجمع الحديث والفقه معاً.",
-        descEn: "Imam Malik authored Al-Muwatta, the first book combining prophetic hadith with the fiqh of Companions and Followers. He presented it to 70 Medina jurists who approved it. It took 40 years to complete. Caliph al-Mansur asked Malik to compile a book of Sunnah and fiqh, so he wrote Al-Muwatta. Malik said: 'I presented this book to seventy jurists of Medina and they all agreed with it.' It was the first comprehensive legal code.",
-        charsAr: [
-          { i: "👑", n: "أبو جعفر المنصور", r: "الخليفة الذي طلب تأليف الموطأ" },
-          { i: "👑", n: "هارون الرشيد", r: "حضر مجالسه وتأثر به" },
-          { i: "📖", n: "عبد الله بن وهب", r: "تلميذه، نشر المذهب في مصر (ت 197 هـ)" }
-        ],
-        charsEn: [
-          { i: "👑", n: "Abu Ja'far al-Mansur", r: "Caliph who requested Al-Muwatta" },
-          { i: "👑", n: "Harun al-Rashid", r: "Attended his circles" },
-          { i: "📖", n: "Abdullah ibn Wahb", r: "Student who spread the school in Egypt" }
-        ],
-        lessonAr: "العمل الجماعي والتشاور يثري العلم • التأني في تأليف الكتب (40 سنة للموطأ) • الجمع بين الحديث والفقه في كتاب واحد",
-        lessonEn: "Collective work and consultation enrich knowledge • Patience in authoring books (40 years for Al-Muwatta) • Combining hadith and fiqh in one book",
-        srcs: ["سير أعلام النبلاء للذهبي (٨/٢٠٠)", "قصة الإسلام - د. راغب السرجاني", "د. علي الصلابي"],
-        mapFocus: { x: 224, y: 310, scale: 1.0 }
-      },
-      {
         ayah: "يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَكُونُوا مَعَ الصَّادِقِينَ",
         ayahRef: "سورة التوبة، الآية ١١٩",
         ayahEn: "O you who believe, fear Allah and be with the truthful.",
@@ -369,6 +334,41 @@ window.FOUR_IMAMS_DB = {
         lessonAr: "قول الحق ولو كان عليه ضرر • العفو والصفح عن المسيئين • الصبر على البلاء في سبيل العلم",
         lessonEn: "Speaking truth even when it brings harm • Forgiveness and pardon for wrongdoers • Patience in tribulation for knowledge",
         srcs: ["سير أعلام النبلاء للذهبي (٨/٢٠٠)", "قصة الإسلام - د. راغب السرجاني"],
+        mapFocus: { x: 224, y: 310, scale: 1.0 }
+      },
+      {
+        ayah: "قُلْ هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ",
+        ayahRef: "سورة الزمر، الآية ٩",
+        ayahEn: "Say: Are those who know equal to those who do not know?",
+        ayahRefEn: "Surah Az-Zumar (39), verse 9",
+        dateAr: "150 - 170 هـ",
+        dateEn: "150 – 170 AH",
+        titleAr: "تأليف الموطأ وتدريس الفقه",
+        titleEn: "Writing Al-Muwatta & Teaching",
+        mtAr: "المدينة المنورة",
+        mtEn: "Medina",
+        mdAr: "ألف الإمام مالك كتاب الموطأ، أول كتاب يجمع الحديث النبوي مع فقه الصحابة والتابعين",
+        mdEn: "Imam Malik authored Al-Muwatta, the first book combining prophetic hadith with fiqh of Companions",
+        amb: "day",
+        timeAr: "150 - 170 هـ",
+        timeEn: "150 – 170 AH",
+        distAr: "المدينة المنورة",
+        distEn: "Medina",
+        descAr: "ألف الإمام مالك كتاب الموطأ، أول كتاب يجمع الحديث النبوي مع فقه الصحابة والتابعين. عرضه على 70 فقيهاً من فقهاء المدينة فأقروه. استغرق تأليفه 40 سنة. أمر الخليفة أبو جعفر المنصور مالكاً بتأليف كتاب يجمع السنة والفقه فصنع الموطأ. قال مالك: 'عرضت كتابي هذا على سبعين فقيهاً من فقهاء المدينة فكلهم وافقوني عليه'. كان الموطأ أول مدونة فقهية تجمع الحديث والفقه معاً.",
+        descEn: "Imam Malik authored Al-Muwatta, the first book combining prophetic hadith with the fiqh of Companions and Followers. He presented it to 70 Medina jurists who approved it. It took 40 years to complete. Caliph al-Mansur asked Malik to compile a book of Sunnah and fiqh, so he wrote Al-Muwatta. Malik said: 'I presented this book to seventy jurists of Medina and they all agreed with it.' It was the first comprehensive legal code.",
+        charsAr: [
+          { i: "👑", n: "أبو جعفر المنصور", r: "الخليفة الذي طلب تأليف الموطأ" },
+          { i: "👑", n: "هارون الرشيد", r: "حضر مجالسه وتأثر به" },
+          { i: "📖", n: "عبد الله بن وهب", r: "تلميذه، نشر المذهب في مصر (ت 197 هـ)" }
+        ],
+        charsEn: [
+          { i: "👑", n: "Abu Ja'far al-Mansur", r: "Caliph who requested Al-Muwatta" },
+          { i: "👑", n: "Harun al-Rashid", r: "Attended his circles" },
+          { i: "📖", n: "Abdullah ibn Wahb", r: "Student who spread the school in Egypt" }
+        ],
+        lessonAr: "العمل الجماعي والتشاور يثري العلم • التأني في تأليف الكتب (40 سنة للموطأ) • الجمع بين الحديث والفقه في كتاب واحد",
+        lessonEn: "Collective work and consultation enrich knowledge • Patience in authoring books (40 years for Al-Muwatta) • Combining hadith and fiqh in one book",
+        srcs: ["سير أعلام النبلاء للذهبي (٨/٢٠٠)", "قصة الإسلام - د. راغب السرجاني", "د. علي الصلابي"],
         mapFocus: { x: 224, y: 310, scale: 1.0 }
       },
       {
