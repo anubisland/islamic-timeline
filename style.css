@@ -1937,9 +1937,7 @@ body::after {
   align-items: center;
   gap: 14px;
   z-index: 10;
-  max-height: 100%;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
 }
 
 .imam-header { text-align: center; width: 100%; }
