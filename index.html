@@ -264,7 +264,80 @@
     </div>
   </section>
 
-  <!-- MAIN GRID (hidden initially, shown when an era is selected) -->
+  <!-- IMAM SCREEN (imam selection, shown after home→imams) -->
+  <section id="imam-screen" class="imam-screen">
+    <button id="imam-back" class="splash-back-btn" type="button" aria-label="Back to home">
+      <span data-ar="← الرئيسية" data-en="← Home">← الرئيسية</span>
+    </button>
+    <div class="imam-bg"></div>
+    <div class="splash-frame"></div>
+    <div class="splash-corner tl"></div><div class="splash-corner tr"></div>
+    <div class="splash-corner bl"></div><div class="splash-corner br"></div>
+
+    <div class="imam-inner">
+      <div class="imam-header">
+        <h1 data-ar="الأئمة الأربعة" data-en="The Four Imams">الأئمة الأربعة</h1>
+        <p class="imam-sub" data-ar="اختر إماماً لاستكشاف سيرته ومراحل حياته" data-en="Choose an imam to explore his life and stages">اختر إماماً لاستكشاف سيرته ومراحل حياته</p>
+        <div class="splash-divider">۞</div>
+      </div>
+
+      <div class="imam-cards" id="imam-cards">
+        <!-- أبو حنيفة -->
+        <div class="imam-card" data-imam="abu-hanifa" role="button" tabindex="0">
+          <div class="ic-bg" style="background: linear-gradient(160deg, #C5A84C, #8B6914)"></div>
+          <div class="ic-content">
+            <div class="ic-icon">📜</div>
+            <div class="ic-name" data-ar="أبو حنيفة النعمان" data-en="Abu Hanifa al-Nu'man">أبو حنيفة النعمان</div>
+            <div class="ic-title" data-ar="إمام المذهب الحنفي" data-en="Founder of the Hanafi School">إمام المذهب الحنفي</div>
+            <div class="ic-dates">٨٠ - ١٥٠ هـ  |  ٦٩٩ - ٧٦٧ م</div>
+            <div class="ic-desc" data-ar="إمام أهل الرأي، صاحب القياس والاستحسان" data-en="Imam of juristic reasoning, pioneer of qiyas and istihsan">إمام أهل الرأي</div>
+          </div>
+        </div>
+
+        <!-- مالك -->
+        <div class="imam-card" data-imam="malik" role="button" tabindex="0">
+          <div class="ic-bg" style="background: linear-gradient(160deg, #1B7A3D, #0D4F2B)"></div>
+          <div class="ic-content">
+            <div class="ic-icon">📖</div>
+            <div class="ic-name" data-ar="مالك بن أنس" data-en="Malik ibn Anas">مالك بن أنس</div>
+            <div class="ic-title" data-ar="إمام دار الهجرة" data-en="Imam of the Abode of Hijra">إمام دار الهجرة</div>
+            <div class="ic-dates">٩٣ - ١٧٩ هـ  |  ٧١١ - ٧٩٥ م</div>
+            <div class="ic-desc" data-ar="صاحب الموطأ، إمام المدينة المنورة" data-en="Author of Al-Muwatta, Imam of Medina">صاحب الموطأ</div>
+          </div>
+        </div>
+
+        <!-- الشافعي -->
+        <div class="imam-card" data-imam="shafii" role="button" tabindex="0">
+          <div class="ic-bg" style="background: linear-gradient(160deg, #8B2252, #6B1A3E)"></div>
+          <div class="ic-content">
+            <div class="ic-icon">📚</div>
+            <div class="ic-name" data-ar="محمد بن إدريس الشافعي" data-en="Muhammad ibn Idris al-Shafi'i">محمد بن إدريس الشافعي</div>
+            <div class="ic-title" data-ar="ناصر الحديث، مؤسس علم أصول الفقه" data-en="Champion of Hadith, founder of usul al-fiqh">ناصر الحديث</div>
+            <div class="ic-dates">١٥٠ - ٢٠٤ هـ  |  ٧٦٧ - ٨٢٠ م</div>
+            <div class="ic-desc" data-ar="الجامع بين مدرستي الحديث والرأي" data-en="Synthesizer of hadith and reason schools">الجامع بين المدرستين</div>
+          </div>
+        </div>
+
+        <!-- أحمد -->
+        <div class="imam-card" data-imam="ahmad" role="button" tabindex="0">
+          <div class="ic-bg" style="background: linear-gradient(160deg, #4A0080, #7B68EE)"></div>
+          <div class="ic-content">
+            <div class="ic-icon">🕌</div>
+            <div class="ic-name" data-ar="أحمد بن حنبل" data-en="Ahmad ibn Hanbal">أحمد بن حنبل</div>
+            <div class="ic-title" data-ar="ناصر السنة، صاحب المحنة" data-en="Defender of the Sunnah, steadfast in the Inquisition">ناصر السنة</div>
+            <div class="ic-dates">١٦٤ - ٢٤١ هـ  |  ٧٨٠ - ٨٥٥ م</div>
+            <div class="ic-desc" data-ar="صاحب المسند، إمام أهل السنة" data-en="Compiler of Al-Musnad, Imam of Ahl al-Sunnah">صاحب المسند</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="imam-foot">
+        <span data-ar="سير أئمة المذاهب الفقهية الأربعة — ٢٠ مرحلة" data-en="Biographies of the Four Great Imams — 20 stages">سير أئمة المذاهب الفقهية الأربعة — ٢٠ مرحلة</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN GRID (hidden initially, shown when an era or imam is selected) -->
   <main class="wrap">
 
     <!-- MAP PANEL -->
@@ -1551,6 +1624,20 @@
           </g>
         </svg>
 
+        <!-- IMAM MAP CARD (shown instead of SVGs when in imam mode) -->
+        <div id="imam-map" class="imam-map-card hidden">
+          <div class="imam-mc-bg" id="imam-mc-bg"></div>
+          <div class="imam-mc-overlay"></div>
+          <div class="imam-mc-content">
+            <div class="imam-mc-icon" id="imam-mc-icon">📜</div>
+            <div class="imam-mc-name" id="imam-mc-name">—</div>
+            <div class="imam-mc-title" id="imam-mc-title">—</div>
+            <div class="imam-mc-dates" id="imam-mc-dates">—</div>
+            <div class="imam-mc-birthplace" id="imam-mc-birthplace">—</div>
+            <div class="imam-mc-intro" id="imam-mc-intro">—</div>
+          </div>
+        </div>
+
         <div class="map-amb amb-night" id="map-amb"></div>
 
         <div class="map-card" id="map-card">
@@ -1637,6 +1724,7 @@
   </footer>
 
   <script src="data.js"></script>
+  <script src="data_imams.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

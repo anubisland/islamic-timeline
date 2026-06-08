@@ -1058,16 +1058,16 @@ body::after {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
-/* SAFETY NET: when the splash OR the home launcher is visible, force-hide the
-   era UI (.wrap) and the footer. Otherwise their full height (4000px+ of maps)
+/* SAFETY NET: when splash, home launcher, or imam-screen is visible, force-hide
+   the era UI (.wrap) and the footer. Otherwise their full height (4000px+ of maps)
    renders in flow beneath the fixed overlay, producing a giant scrollable page.
-   Keyed to both overlays so every entry state is covered, regardless of JS
-   timing/errors. (#home-screen and #splash both precede .wrap/.tl-foot as
-   siblings, so the ~ general-sibling combinator matches.) */
+   Keyed to all three overlays so every entry state is covered. */
 #splash:not(.hidden) ~ .wrap,
 #splash:not(.hidden) ~ .tl-foot,
 #home-screen:not(.home-hidden) ~ .wrap,
-#home-screen:not(.home-hidden) ~ .tl-foot {
+#home-screen:not(.home-hidden) ~ .tl-foot,
+#imam-screen:not(.hidden) ~ .wrap,
+#imam-screen:not(.hidden) ~ .tl-foot {
   display: none !important;
 }
 
@@ -1891,4 +1891,290 @@ body::after {
   .caliph-card .cc-name { font-size: .65rem; }
   .caliph-card .cc-dates { font-size: .55rem; }
   .splash-foot { font-size: .55rem; padding: 1px 0; }
+}
+
+/* ===================== IMAM SCREEN (selection splash) ===================== */
+
+.imam-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 105;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #060b0f;
+  padding: 16px;
+  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+.imam-screen.hidden { display: none; }
+
+.imam-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(6,78,59,.3) 0%, transparent 70%),
+    radial-gradient(ellipse at 50% 100%, rgba(197,160,89,.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.imam-inner {
+  width: 100%;
+  max-width: 880px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  z-index: 10;
+  max-height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.imam-header { text-align: center; width: 100%; }
+.imam-header h1 {
+  font-family: "Amiri", serif;
+  font-size: 1.8rem;
+  color: #ffd700;
+  text-shadow: 0 3px 12px rgba(255,215,0,.2);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+.imam-sub {
+  font-size: .85rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* ----- Imam cards (2×2 grid) ----- */
+.imam-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.imam-card {
+  position: relative;
+  border-radius: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgba(12,22,31,.92);
+  border: 1px solid rgba(212,175,55,.2);
+  transition: transform .25s, box-shadow .25s;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+.imam-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,.5), 0 0 0 1.5px rgba(212,175,55,.3);
+}
+.imam-card:active { transform: translateY(-2px); }
+
+.ic-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: .85;
+}
+
+.ic-content {
+  position: relative;
+  z-index: 1;
+  padding: 20px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background: rgba(1,10,7,.35);
+}
+
+.ic-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.3));
+}
+
+.ic-name {
+  font-family: "Amiri", serif;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 4px;
+  text-shadow: 0 1px 4px rgba(0,0,0,.5);
+}
+
+.ic-title {
+  font-size: clamp(.65rem, 1vw, .78rem);
+  color: #fde68a;
+  font-weight: 600;
+  margin-bottom: 6px;
+  opacity: .9;
+}
+
+.ic-dates {
+  font-family: "Cairo", sans-serif;
+  font-size: .72rem;
+  color: var(--gold);
+  background: rgba(0,0,0,.4);
+  padding: 2px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(197,160,89,.25);
+  margin-bottom: 6px;
+  direction: ltr;
+  unicode-bidi: plaintext;
+}
+[lang="en"] .ic-dates { font-family: "Inter", sans-serif; }
+
+.ic-desc {
+  font-size: .7rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  max-width: 90%;
+}
+
+.imam-foot {
+  font-size: .72rem;
+  color: #64748b;
+  text-align: center;
+  padding: 4px 0 2px;
+  flex-shrink: 0;
+}
+
+/* ===================== IMAM MAP CARD (in map panel) ===================== */
+
+.imam-map-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.imam-map-card.hidden { display: none; }
+
+.imam-mc-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: .6;
+}
+
+.imam-mc-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 50% 30%, transparent 0%, rgba(1,10,7,.7) 100%);
+  pointer-events: none;
+}
+
+.imam-mc-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 30px 24px;
+  max-width: 85%;
+}
+
+.imam-mc-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.5));
+}
+
+.imam-mc-name {
+  font-family: "Amiri", serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 8px rgba(0,0,0,.5);
+}
+
+.imam-mc-title {
+  font-size: clamp(.8rem, 1.4vw, 1rem);
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.imam-mc-dates {
+  font-family: "Cairo", sans-serif;
+  font-size: .78rem;
+  color: #fde68a;
+  background: rgba(0,0,0,.5);
+  padding: 4px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(197,160,89,.3);
+  display: inline-block;
+  margin-bottom: 8px;
+  direction: ltr;
+}
+[lang="en"] .imam-mc-dates { font-family: "Inter", sans-serif; }
+
+.imam-mc-birthplace {
+  font-size: .78rem;
+  color: #94a3b8;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.imam-mc-intro {
+  font-size: clamp(.72rem, 1.2vw, .85rem);
+  color: #cbd5e1;
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ===================== IMAM RESPONSIVE ===================== */
+
+@media (max-width: 720px) {
+  .imam-screen { padding: 12px; }
+  .imam-cards { grid-template-columns: 1fr; gap: 10px; max-width: 400px; }
+  .imam-card { min-height: 160px; }
+  .ic-content { padding: 16px 14px; }
+  .ic-icon { font-size: 1.6rem; }
+  .imam-header h1 { font-size: 1.4rem; }
+  .imam-sub { font-size: .78rem; }
+  .imam-inner { gap: 10px; }
+  .imam-mc-icon { font-size: 2.4rem; }
+  .imam-mc-content { padding: 20px 16px; }
+}
+
+@media (max-width: 480px) {
+  .imam-screen { padding: 8px; }
+  .imam-card { min-height: 130px; }
+  .ic-content { padding: 12px 10px; }
+  .ic-icon { font-size: 1.3rem; margin-bottom: 5px; }
+  .ic-name { font-size: 1rem; }
+  .ic-title { font-size: .65rem; }
+  .ic-dates { font-size: .62rem; padding: 1px 8px; }
+  .ic-desc { font-size: .6rem; }
+  .imam-header h1 { font-size: 1.1rem; }
+  .imam-sub { font-size: .65rem; }
+  .imam-foot { font-size: .6rem; }
+  .imam-mc-icon { font-size: 2rem; }
+  .imam-mc-content { padding: 16px 12px; }
+  .imam-mc-name { font-size: 1.1rem; }
+  .imam-mc-intro { font-size: .72rem; }
+}
+
+@media (max-width: 360px) {
+  .imam-screen { padding: 6px; }
+  .imam-card { min-height: 110px; }
+  .imam-header h1 { font-size: 1rem; }
+  .imam-sub { display: none; }
+  .imam-cards { gap: 6px; }
+  .ic-content { padding: 10px 8px; }
+  .ic-icon { font-size: 1.1rem; }
+  .ic-name { font-size: .85rem; }
+  .imam-foot { font-size: .55rem; }
 }

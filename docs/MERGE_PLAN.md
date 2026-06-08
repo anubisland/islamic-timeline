@@ -57,12 +57,13 @@ Create a new first-screen splash with two large tiled options:
 - Uses the same emerald + gold design system
 
 ### Tasks
-- [ ] **H-1.1**: Modify `index.html` to add a new primary splash (or modify existing splash to be the abstract menu)
-- [ ] **H-1.2**: Add CSS for the two-card layout with ornamental decorations
-- [ ] **H-1.3**: Add bilingual `data-ar`/`data-en` labels to everything
-- [ ] **H-1.4**: Modify `app.js` to add a new top-level state (`MODE: 'home' | 'sera' | 'imams'`) and routing logic
-- [ ] **H-1.5**: Back navigation from either module to home
-- [ ] **H-1.6**: Responsive: cards stack vertically on mobile ≤600px
+- [x] **H-1.1**: Modify `index.html` to add a new primary splash (or modify existing splash to be the abstract menu)
+- [x] **H-1.2**: Add CSS for the two-card layout with ornamental decorations
+- [x] **H-1.3**: Add bilingual `data-ar`/`data-en` labels to everything
+- [x] **H-1.4**: Modify `app.js` to add a new top-level state (`MODE: 'home' | 'sera' | 'imams'`) and routing logic
+- [x] **H-1.5**: Back navigation from either module to home
+- [x] **H-1.6**: Responsive: cards stack vertically on mobile ≤720px
+- **Merged to `main`** in commit `4258fdc` — v2.10.0
 
 ---
 

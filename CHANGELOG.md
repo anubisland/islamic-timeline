@@ -26,6 +26,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Mode-toggle label clobbered by `applyLanguage()`** (B3b-class bug) — the `#btn-mode` span carried `data-ar`/`data-en`, so every language toggle / mount reset its text to "Verse" regardless of the actual mode. Removed the static attributes; `updateModeUI()` is now the single source of truth and is called on init, click, and language toggle.
 - **Narration cut off at 30 s** — the playback stuck-state timeout (30 s) was shorter than many narration clips (e.g. Hijra step 1 is 28 s; longer steps exceed 30 s). Raised to a 180 s backstop and guarded with a play-token so a stale timer can never stop a newer playback.
 
+## [2.11.0] — 2026-06-08
+
+### Added
+- **Four Imams data module** (`data_imams.js`) — `window.FOUR_IMAMS_DB` with 4 imams × 5 phases = 20 stages in Sera's parallel-field format. Covers Abu Hanifa, Malik, Al-Shafi'i, and Ahmad ibn Hanbal.
+- **Imam selection splash** (`#imam-screen`) — 4 colored cards (gold/green/burgundy/purple) with gradient backgrounds, icons, names, titles, and dates. Responsive 2×2 grid (stacks at ≤720px).
+- **Imam step viewer** — full story panel with title, description, characters, lesson, sources, and timeline dots. Reuses existing `.wrap`/`.story-panel`/`.tl-foot` DOM with dispatch in `render()`/`buildTimeline()`.
+- **Imam map card** (`#imam-map`) — decorative card in the map panel showing imam name, titles, lifespan, birthplace, and intro text.
+- **MODE-based dispatch** — `app.js` `render()`, `buildTimeline()`, `goTo()`, `playVerse()` all dispatch to imam-specific handlers when `MODE === 'imams'`. Header back button returns to imam splash.
+- **`IDB` (Imam DB) routing** — `IMAM` state with localStorage persistence; `showImamScreen()`/`hideImamScreen()`/`goToImamSplash()`/`selectImam()`/`updateImamMapCard()`.
+
 ## [2.10.1] — 2026-06-08
 
 ### Added

@@ -11,11 +11,14 @@
     console.error('SEERAH_DB not loaded. Ensure data.js is included before app.js.');
     return;
   }
+  const IDB = window.FOUR_IMAMS_DB;  // may be undefined (graceful fallback)
 
   // ── State ──────────────────────────────────────────────
-  const STORAGE = { lang: 'sera.lang', ttsMode: 'sera.tts', auto: 'sera.auto', evt: 'sera.evt', voice: 'sera.voice', reciter: 'sera.reciter' };
+  const STORAGE = { lang: 'sera.lang', ttsMode: 'sera.tts', auto: 'sera.auto', evt: 'sera.evt', voice: 'sera.voice', reciter: 'sera.reciter', imam: 'sera.imam' };
   let MODE = 'home';   // 'home' | 'sera' | 'imams'
   let EVT = localStorage.getItem(STORAGE.evt) || 'hijra';
+  let IMAM = localStorage.getItem(STORAGE.imam) || 'abu-hanifa';
+  if (IDB && !IDB[IMAM]) IMAM = 'abu-hanifa';
   let STEP = 0;
   let LANG = (localStorage.getItem(STORAGE.lang) || 'AR').toUpperCase();
   let currentAudio = null;
@@ -64,6 +67,8 @@
     if (home) home.classList.remove('home-hidden');
     const splash = $('splash');
     if (splash) splash.classList.add('hidden');
+    const imamScr = $('imam-screen');
+    if (imamScr) imamScr.classList.add('hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.remove('visible');
     // Keep splash lang toggle visible on home screen
@@ -87,17 +92,20 @@
     MODE = 'sera';
     const home = $('home-screen');
     if (home) home.classList.add('home-hidden');
+    const imamScr = $('imam-screen');
+    if (imamScr) imamScr.classList.add('hidden');
     showSplash();
   }
 
   function goToImams() {
-    // The Four Imams section isn't built yet. Do NOT hide the home screen —
-    // doing so reveals the Seerah era view underneath (no #imams overlay exists),
-    // which looks like a broken redirect. Stay on the launcher and notify.
-    diag(LANG === 'AR'
-      ? 'قسم الأئمة الأربعة قيد الإعداد — قريباً إن شاء الله'
-      : 'The Four Imams section is coming soon, in shaa Allah', 'info');
-    console.warn('Four Imams module not yet implemented');
+    if (!IDB) {
+      console.warn('FOUR_IMAMS_DB not loaded.');
+      return;
+    }
+    MODE = 'imams';
+    const home = $('home-screen');
+    if (home) home.classList.add('home-hidden');
+    showImamScreen();
   }
 
   // ── Splash navigation ──────────────────────────────────
@@ -143,6 +151,221 @@
     showSplash();
   }
 
+  // ── Imam screen ──────────────────────────────────────────
+  function showImamScreen() {
+    MODE = 'imams';
+    const home = $('home-screen');
+    if (home) home.classList.add('home-hidden');
+    const imamScr = $('imam-screen');
+    if (imamScr) imamScr.classList.remove('hidden');
+    const hdr = $('site-header');
+    if (hdr) hdr.classList.remove('visible');
+    const slb = $('splash-lang-toggle');
+    if (slb) slb.classList.remove('hidden');
+    stopAudio();
+    document.body.style.background = '#060b0f';
+    document.body.style.overflow = 'hidden';
+    document.querySelector('meta[name=theme-color]').content = '#060b0f';
+    const diag = $('focus-diag');
+    if (diag) diag.style.display = 'none';
+  }
+
+  function hideImamScreen() {
+    const imamScr = $('imam-screen');
+    if (imamScr) imamScr.classList.add('hidden');
+  }
+
+  function goToImamSplash() {
+    STEP = 0;
+    showImamScreen();
+  }
+
+  function selectImam(key) {
+    if (!IDB || !IDB[key]) return;
+    MODE = 'imams';
+    IMAM = key;
+    localStorage.setItem(STORAGE.imam, key);
+    STEP = 0;
+    stopAudio();
+    hideImamScreen();
+    const hdr = $('site-header');
+    if (hdr) hdr.classList.add('visible');
+    const slb = $('splash-lang-toggle');
+    if (slb) slb.classList.add('hidden');
+    document.body.style.background = '#063529';
+    document.body.style.overflow = '';
+    document.querySelector('meta[name=theme-color]').content = '#063529';
+
+    const lbl = $('era-label');
+    if (lbl) lbl.textContent = LANG === 'AR' ? IDB[key].labelAr : IDB[key].labelEn;
+
+    // Set map label to imam name
+    const ml = $('map-label');
+    if (ml) {
+      const shortAr = IDB[key].shortLabelAr || IDB[key].labelAr;
+      const shortEn = IDB[key].shortLabelEn || IDB[key].labelEn;
+      ml.setAttribute('data-ar', '🕌 ' + shortAr);
+      ml.setAttribute('data-en', '🕌 ' + shortEn);
+      ml.textContent = LANG === 'AR' ? '🕌 ' + shortAr : '🕌 ' + shortEn;
+    }
+
+    // Hide all Sera SVGs, show imam map card
+    ['svg-preb','svg-hijra','svg-badr','svg-meccan','svg-medinan',
+     'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan'].forEach((id) => {
+      const el = $(id);
+      if (el) el.classList.add('hidden');
+    });
+    const imamMap = $('imam-map');
+    if (imamMap) imamMap.classList.remove('hidden');
+
+    updateImamMapCard(key);
+    buildTimeline();
+    render();
+  }
+
+  function updateImamMapCard(key) {
+    const imam = IDB && IDB[key];
+    if (!imam) return;
+    const bg = $('imam-mc-bg');
+    if (bg) bg.style.background = imam.gradient;
+    const icon = $('imam-mc-icon');
+    if (icon) {
+      const icons = { 'abu-hanifa': '📜', 'malik': '📖', 'shafii': '📚', 'ahmad': '🕌' };
+      icon.textContent = icons[key] || '📜';
+    }
+    const name = $('imam-mc-name');
+    if (name) name.textContent = LANG === 'AR' ? imam.labelAr : imam.labelEn;
+    const title = $('imam-mc-title');
+    if (title) title.textContent = LANG === 'AR' ? imam.titleAr : imam.titleEn;
+    const dates = $('imam-mc-dates');
+    if (dates) dates.textContent = imam.birthAH + ' – ' + imam.deathAH + '  │  ' + imam.birthCE + ' – ' + imam.deathCE;
+    const bp = $('imam-mc-birthplace');
+    if (bp) bp.textContent = LANG === 'AR' ? 'المولد: ' + imam.birthplaceAr : 'Born: ' + imam.birthplaceEn;
+    const intro = $('imam-mc-intro');
+    if (intro) intro.textContent = LANG === 'AR' ? imam.introAr : imam.introEn;
+  }
+
+  // ── Imam render & timeline ─────────────────────────────
+  function renderImam() {
+    const ev = IDB[IMAM];
+    if (!ev) return;
+    const s = ev.steps[STEP];
+    if (!s) return;
+    const tot = ev.steps.length;
+
+    // Ayah
+    $('ayah-text').textContent = s.ayah;
+    $('ayah-ref').textContent = s.ayahRef;
+    const ayahEn = $('ayah-text-en');
+    if (ayahEn) ayahEn.textContent = s.ayahEn;
+    const ayahRefEn = $('ayah-ref-en');
+    if (ayahRefEn) ayahRefEn.textContent = s.ayahRefEn;
+
+    // Stage badge
+    $('stage-badge').textContent = LANG === 'AR'
+      ? 'المرحلة ' + arNum(STEP + 1) + ' من ' + arNum(tot)
+      : 'Step ' + (STEP + 1) + ' of ' + tot;
+
+    // Date
+    $('ev-date').textContent = s[t('date')];
+
+    // Title
+    const te = $('ev-title');
+    te.textContent = s[t('title')];
+    te.style.animation = 'none';
+    void te.offsetWidth;
+    te.style.animation = '';
+
+    // Description
+    const de = $('ev-desc');
+    de.textContent = s[t('desc')];
+    de.style.animation = 'none';
+    void de.offsetWidth;
+    de.style.animation = '';
+
+    // Characters
+    const chars = s[t('chars')];
+    $('chars-grid').innerHTML = (chars || []).map(function(c) {
+      return '<div class="char-row"><div class="char-ic">' + c.i + '</div><div><div class="char-nm">' + c.n + '</div><div class="char-rl">' + c.r + '</div></div></div>';
+    }).join('');
+
+    // Lesson
+    $('lesson-text').textContent = s[t('lesson')];
+
+    // Sources
+    $('src-list').innerHTML = (s.srcs || []).map(function(r) {
+      return '<span class="src-chip">📖 ' + r + '</span>';
+    }).join('');
+
+    // Map badges
+    $('badge-time').textContent = s[t('time')];
+    $('badge-dist').textContent = s[t('dist')];
+
+    // Map card
+    $('mc-title').textContent = s[t('mt')];
+    $('mc-desc').textContent = s[t('md')];
+    $('map-card').classList.add('up');
+
+    // Map ambient
+    $('map-amb').className = 'map-amb amb-' + (s.amb || 'day');
+
+    // Timeline fill
+    const pct = tot > 1 ? (STEP / (tot - 1)) * 100 : 100;
+    $('tl-fill').style.width = pct + '%';
+    $('hdr-prog').style.width = pct + '%';
+
+    // Timeline nodes
+    for (let i = 0; i < tot; i++) {
+      const n = $('tn' + i);
+      if (!n) continue;
+      n.classList.remove('now', 'done');
+      if (i === STEP) n.classList.add('now');
+      else if (i < STEP) n.classList.add('done');
+    }
+
+    // Footer strip
+    $('tl-name').textContent = s[t('title')];
+    $('tl-counter').textContent = LANG === 'AR'
+      ? arNum(STEP + 1) + ' / ' + arNum(tot)
+      : (STEP + 1) + ' / ' + tot;
+
+    // Nav buttons
+    $('btn-prev').disabled = STEP === 0;
+    $('btn-next').disabled = STEP === tot - 1;
+  }
+
+  function buildImamTimeline() {
+    const ev = IDB[IMAM];
+    if (!ev) return;
+    const steps = ev.steps;
+    const wrap = $('tl-nodes');
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    steps.forEach(function(s, i) {
+      const n = document.createElement('div');
+      n.className = 'tl-nd';
+      n.id = 'tn' + i;
+      n.addEventListener('click', function() { goTo(i); });
+
+      const dot = document.createElement('div');
+      dot.className = 'tl-dot';
+      dot.textContent = LANG === 'AR' ? arNum(i + 1) : (i + 1);
+
+      const lbl = document.createElement('div');
+      lbl.className = 'tl-lbl';
+      const rawTitle = s[t('title')] || '';
+      const parts = rawTitle.split(/\s*[—–-]\s*/);
+      const main = parts[0] || rawTitle;
+      const sub = parts.slice(1).join(' — ');
+      lbl.innerHTML = '<span class="tl-lbl-main">' + escHtml(main.slice(0, 22)) + '</span>'
+                    + (sub ? '<span class="tl-lbl-sub">' + escHtml(sub.slice(0, 28)) + '</span>' : '');
+
+      n.appendChild(dot);
+      n.appendChild(lbl);
+      wrap.appendChild(n);
+    });
+  }
+
   // ── Helpers ─────────────────────────────────────────────
   const $ = (id) => document.getElementById(id);
   const arNum = (n) => String(n).replace(/\d/g, (d) => '٠١٢٣٤٥٦٧٨٩'[d]);
@@ -171,12 +394,30 @@
     localStorage.setItem(STORAGE.lang, LANG);
     if (typeof updateVoiceUI === 'function') updateVoiceUI();
     if (typeof updateModeUI === 'function') updateModeUI();
+    // Update imam map card and header if in imam mode
+    if (MODE === 'imams' && IDB && IDB[IMAM]) {
+      updateImamMapCard(IMAM);
+      const lbl = $('era-label');
+      if (lbl) lbl.textContent = LANG === 'AR' ? IDB[IMAM].labelAr : IDB[IMAM].labelEn;
+      const ml = $('map-label');
+      if (ml) {
+        const shortAr = IDB[IMAM].shortLabelAr || IDB[IMAM].labelAr;
+        const shortEn = IDB[IMAM].shortLabelEn || IDB[IMAM].labelEn;
+        ml.setAttribute('data-ar', '🕌 ' + shortAr);
+        ml.setAttribute('data-en', '🕌 ' + shortEn);
+        ml.textContent = LANG === 'AR' ? '🕌 ' + shortAr : '🕌 ' + shortEn;
+      }
+    }
     buildTimeline();
     render();
   }
 
   // ── Build timeline strip ───────────────────────────────
   function buildTimeline() {
+    if (MODE === 'imams' && IDB && IDB[IMAM]) {
+      buildImamTimeline();
+      return;
+    }
     const steps = DB[EVT].steps;
     const wrap = $('tl-nodes');
     if (!wrap) return;
@@ -326,14 +567,15 @@
 
   // ── Navigation ──────────────────────────────────────────
   function goTo(i) {
-    const l = DB[EVT].steps.length;
+    const ev = MODE === 'imams' ? (IDB ? IDB[IMAM] : null) : DB[EVT];
+    if (!ev) return;
+    const l = ev.steps.length;
     if (i < 0 || i >= l) return;
     STEP = i;
     stopAudio();
     render();
-    applyMapFocus(true);
+    if (MODE !== 'imams') applyMapFocus(true);
     if (AUTO_NARRATE) {
-      // Wait for the map pan/zoom transition (~950ms) to start, then narrate
       setTimeout(() => { if (AUTO_NARRATE) playVerse(); }, 850);
     }
   }
@@ -395,7 +637,10 @@
     stopAudio();
     const myToken = ++playToken;
 
-    const s = DB[EVT].steps[STEP];
+    const ev = MODE === 'imams' ? (IDB ? IDB[IMAM] : null) : DB[EVT];
+    if (!ev) { diag('Audio unavailable', 'warn'); return; }
+    const s = ev.steps[STEP];
+    if (!s) { diag('Audio unavailable', 'warn'); return; }
     const isNarrate = TTS_MODE === 'narrate';
 
     const pb = $('btn-play');
@@ -502,6 +747,10 @@
 
   // ── Master render ───────────────────────────────────────
   function render() {
+    if (MODE === 'imams' && IDB && IDB[IMAM]) {
+      renderImam();
+      return;
+    }
     const ev = DB[EVT];
     const s = ev.steps[STEP];
     const tot = ev.steps.length;
@@ -749,12 +998,22 @@
     document.querySelectorAll('.era-card, .caliph-card').forEach((el) => {
       el.addEventListener('click', () => switchEv(el.dataset.ev));
     });
-    // Back to splash
+    // Imam screen: click imam cards
+    document.querySelectorAll('.imam-card').forEach((el) => {
+      el.addEventListener('click', () => selectImam(el.dataset.imam));
+    });
+    // Back to splash (from era) or imam splash (from imam step)
     const backBtn = $('btn-splash');
-    if (backBtn) backBtn.addEventListener('click', goToSplash);
+    if (backBtn) backBtn.addEventListener('click', () => {
+      if (MODE === 'imams') goToImamSplash();
+      else goToSplash();
+    });
     // Splash back to home
     const splashBack = $('splash-back');
     if (splashBack) splashBack.addEventListener('click', goToHome);
+    // Imam screen back to home
+    const imamBack = $('imam-back');
+    if (imamBack) imamBack.addEventListener('click', goToHome);
 
     // Language toggle (header + splash)
     const langToggle = (btn) => {
