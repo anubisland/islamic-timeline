@@ -13,15 +13,45 @@
   }
 
   // ── State ──────────────────────────────────────────────
-  const STORAGE = { lang: 'sera.lang', ttsMode: 'sera.tts', auto: 'sera.auto', evt: 'sera.evt' };
+  const STORAGE = { lang: 'sera.lang', ttsMode: 'sera.tts', auto: 'sera.auto', evt: 'sera.evt', voice: 'sera.voice', reciter: 'sera.reciter' };
   let EVT = localStorage.getItem(STORAGE.evt) || 'hijra';
   let STEP = 0;
   let LANG = (localStorage.getItem(STORAGE.lang) || 'AR').toUpperCase();
   let currentAudio = null;
   let isPlaying = false;
-  let onAudioEnd = null;
-  let TTS_MODE = localStorage.getItem(STORAGE.ttsMode) || 'verse';
+  let playToken = 0;  // bumps each playVerse() so stale timeouts can't stop a newer play
+  let TTS_MODE = localStorage.getItem(STORAGE.ttsMode) || 'narrate';
   let AUTO_NARRATE = localStorage.getItem(STORAGE.auto) === '1';
+
+  // ── Narration voices ───────────────────────────────────
+  // Four pre-generated neural voices (Microsoft, via tools/gen_tts.py). The
+  // picker chooses a SLOT; the site loads audio/<slot>/<era>_<step>_<lang>.mp3.
+  // labelAr/labelEn are the ACTUAL voice for each language (the AR clip and EN
+  // clip use different voices), so the dropdown always names the voice playing.
+  // Keep these slot ids + voices in sync with tools/gen_tts.py SLOTS.
+  const VOICE_SLOTS = [
+    { id: 'classic', labelAr: 'حامد',  labelEn: 'Guy',   descAr: 'فصيح',   descEn: 'Classic ♂' },
+    { id: 'gentle',  labelAr: 'زارية', labelEn: 'Aria',  descAr: 'هادئ',   descEn: 'Gentle ♀' },
+    { id: 'story',   labelAr: 'سلمى',  labelEn: 'Jenny', descAr: 'حكواتي', descEn: 'Storyteller ♀' },
+    { id: 'warm',    labelAr: 'شاكر',  labelEn: 'Ryan',  descAr: 'ودود',   descEn: 'Warm ♂' }
+  ];
+  let VOICE = localStorage.getItem(STORAGE.voice) || 'classic';
+  if (!VOICE_SLOTS.some((v) => v.id === VOICE)) VOICE = 'classic';
+  const voiceSlot = (id) => VOICE_SLOTS.find((v) => v.id === (id || VOICE)) || VOICE_SLOTS[0];
+
+  // ── Quran reciters (verse mode) ────────────────────────
+  // Real recitation streamed from everyayah.com (per-ayah MP3, surah:ayah).
+  // `dir` is the everyayah folder. The picker shows these in verse mode.
+  const RECITERS = [
+    { id: 'alafasy',   labelAr: 'العفاسي',  labelEn: 'Alafasy',     descAr: 'مشاري',   descEn: 'Mishary',     dir: 'Alafasy_128kbps' },
+    { id: 'husary',    labelAr: 'الحصري',   labelEn: 'Al-Husary',   descAr: 'محمود',   descEn: 'Mahmoud',     dir: 'Husary_128kbps' },
+    { id: 'abdulbasit',labelAr: 'عبد الباسط', labelEn: 'Abdul Basit', descAr: 'مرتل',   descEn: 'Murattal',    dir: 'Abdul_Basit_Murattal_192kbps' },
+    { id: 'minshawy',  labelAr: 'المنشاوي', labelEn: 'Al-Minshawy', descAr: 'مرتل',    descEn: 'Murattal',    dir: 'Minshawy_Murattal_128kbps' },
+    { id: 'sudais',    labelAr: 'السديس',   labelEn: 'As-Sudais',   descAr: 'عبد الرحمن', descEn: 'Abdurrahman', dir: 'Abdurrahmaan_As-Sudais_192kbps' }
+  ];
+  let RECITER = localStorage.getItem(STORAGE.reciter) || 'alafasy';
+  if (!RECITERS.some((r) => r.id === RECITER)) RECITER = 'alafasy';
+  const reciter = (id) => RECITERS.find((r) => r.id === (id || RECITER)) || RECITERS[0];
 
   // ── Map viewBoxes ──────────────────────────────────────
   const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560] };
@@ -90,6 +120,8 @@
     });
 
     localStorage.setItem(STORAGE.lang, LANG);
+    if (typeof updateVoiceUI === 'function') updateVoiceUI();
+    if (typeof updateModeUI === 'function') updateModeUI();
     buildTimeline();
     render();
   }
@@ -254,48 +286,38 @@
 
   function step(d) { goTo(STEP + d); }
 
-  // ── Audio (Web Speech first, Google TTS as fallback) ───
-  // ── TTS mode: 'verse' (Quran ayah only) or 'narrate' (description) ──
-  function cleanForTTS(text) {
-    return String(text || '')
-      .replace(/[﴿﴾]/g, ' ')
-      .replace(/[،؛؟!.]/g, ' ')
-      .replace(/[\u064B-\u0652]/g, '')  // strip tashkil for natural speech
-      .replace(/\s+/g, ' ')
-      .trim();
+  // ── Audio: pre-recorded only ───────────────────────────
+  // 'narrate' -> pre-generated neural MP3 under audio/. 'verse' -> real reciter
+  // recitation from everyayah.com. No live TTS (Web Speech / translate_tts).
+
+  // ── Narration MP3 url for the current (voice, era, step, language) ──
+  function narrationURL(slot) {
+    const lang = LANG === 'AR' ? 'ar' : 'en';
+    return 'audio/' + (slot || VOICE) + '/' + EVT + '_' + STEP + '_' + lang + '.mp3';
   }
 
-  // ── Voice pickers ───────────────────────────────────────
-  let cachedArVoice = null;
-  let cachedEnVoice = null;
-  function pickArabicVoice() {
-    if (cachedArVoice) return cachedArVoice;
-    if (!('speechSynthesis' in window)) return null;
-    const voices = window.speechSynthesis.getVoices() || [];
-    const ar = voices.find(v => /ar(-|_)/i.test(v.lang))
-            || voices.find(v => /arabic/i.test(v.name))
-            || null;
-    cachedArVoice = ar;
-    return ar;
-  }
-  function pickEnglishVoice() {
-    if (cachedEnVoice) return cachedEnVoice;
-    if (!('speechSynthesis' in window)) return null;
-    const voices = window.speechSynthesis.getVoices() || [];
-    const en = voices.find(v => /^en(-|_)/i.test(v.lang))
-            || voices.find(v => /microsoft (zira|david)|google us english/i.test(v.name))
-            || voices.find(v => /en/i.test(v.lang))
-            || null;
-    cachedEnVoice = en;
-    return en;
-  }
-  if ('speechSynthesis' in window) {
-    window.speechSynthesis.onvoiceschanged = () => {
-      cachedArVoice = null;
-      cachedEnVoice = null;
-      pickArabicVoice();
-      pickEnglishVoice();
-    };
+  // ── Verse recitation URLs (real reciter audio from everyayah.com) ──
+  // The data uses two ref styles in `ayahRefEn`:
+  //   A) "Surah Yunus (10), verse 1"  /  "… (81), verses 8-9"
+  //   B) "Surah Al-Alaq — 96:1"       /  "… — 8:30-31"
+  // Returns one zero-padded surah:ayah MP3 url per ayah in the range, or [] if
+  // the ref isn't a parseable Quran citation (e.g. a hadith/athar) → no audio.
+  function verseAudioURLs(step, reciterId) {
+    const ref = (step && step.ayahRefEn) || '';
+    let surah, start, end;
+    const mA = ref.match(/\((\d+)\)\s*,\s*verses?\s+(\d+)(?:\s*[-–]\s*(\d+))?/i);
+    const mB = ref.match(/\b(\d+):(\d+)(?:\s*[-–]\s*(\d+))?/);
+    if (mA) { surah = +mA[1]; start = +mA[2]; end = mA[3] ? +mA[3] : start; }
+    else if (mB) { surah = +mB[1]; start = +mB[2]; end = mB[3] ? +mB[3] : start; }
+    else return [];
+    if (surah < 1 || surah > 114) return [];   // guard against non-Quran numbers
+    const dir = reciter(reciterId).dir;
+    const pad = (n) => String(n).padStart(3, '0');
+    const urls = [];
+    for (let a = start; a <= end && a - start < 20; a++) {
+      urls.push('https://everyayah.com/data/' + dir + '/' + pad(surah) + pad(a) + '.mp3');
+    }
+    return urls;
   }
 
   // ── Diagnostic banner ───────────────────────────────────
@@ -311,28 +333,22 @@
       diagTimer = setTimeout(() => { el.style.display = 'none'; }, 5500);
     }
   }
-  function diagTTS(state, detail) {
-    const map = {
-      ok:        { en: 'Audio playing',                       ar: 'جاري تشغيل الصوت' },
-      fallback:  { en: 'No system Arabic voice — using Google', ar: 'لا يوجد صوت عربي — استخدام Google' },
-      noar:      { en: 'No Arabic voice installed on this system', ar: 'لا يوجد صوت عربي مثبت على النظام' },
-      none:      { en: 'Web Speech API unavailable',          ar: 'الصوت غير متاح في هذا المتصفح' },
-      error:     { en: 'Audio error',                          ar: 'خطأ في الصوت' }
-    };
-    const m = map[state] || map.none;
-    diag(m[LANG === 'AR' ? 'ar' : 'en'] + (detail ? ' — ' + detail : ''), state === 'ok' ? 'ok' : 'warn');
-  }
 
+  // Audio is PRE-RECORDED ONLY: pre-generated neural narration MP3s, and real
+  // reciter recitation for verses. The old live Web Speech / Google translate_tts
+  // engines were removed — they sounded robotic in both AR and EN.
   function playVerse() {
     stopAudio();
+    const myToken = ++playToken;
 
     const s = DB[EVT].steps[STEP];
-    const raw = TTS_MODE === 'narrate' ? s[t('desc')] : s.ayah;
-    const text = cleanForTTS(raw);
-    if (!text) { finishPlayback('no text to read'); return; }
+    const isNarrate = TTS_MODE === 'narrate';
 
-    $('btn-play').classList.add('on');
-    $('btn-play').textContent = '⏸';
+    const pb = $('btn-play');
+    pb.classList.add('on');
+    pb.textContent = '⏹';                       // stop affordance while audio plays
+    pb.title = LANG === 'AR' ? 'إيقاف' : 'Stop';
+    pb.setAttribute('aria-label', LANG === 'AR' ? 'إيقاف' : 'Stop');
     isPlaying = true;
     setAudioPulse(true);
 
@@ -340,97 +356,67 @@
       isPlaying = false;
       setAudioPulse(false);
       resetPlayBtn();
-      if (reason) console.log('[TTS] finish:', reason);
-    }
-    window.__ttsFinish = finishPlayback;
-
-    function sysTTS(t, onDone) {
-      if (!('speechSynthesis' in window)) {
-        diagTTS('none', 'no API');
-        onDone && onDone(false); return;
-      }
-      try { window.speechSynthesis.cancel(); } catch (e) {}
-      const u = new SpeechSynthesisUtterance(t);
-      const isAr = LANG === 'AR';
-      u.lang = isAr ? 'ar-SA' : 'en-US';
-      u.rate = 0.6;
-      u.volume = 0.95;
-      const v = isAr ? pickArabicVoice() : pickEnglishVoice();
-      if (v) u.voice = v;
-      let started = false;
-      u.onstart = () => {
-        started = true;
-        window.__ttsStarted = true;
-        window.__ttsStart = Date.now();
-        diagTTS('ok', isAr ? (v ? v.name : 'default ar') : (v ? v.name : 'default en'));
-      };
-      u.onend = () => onDone && onDone(started);
-      u.onerror = (ev) => {
-        console.warn('[TTS] onerror', ev);
-        onDone && onDone(started);
-      };
-      try {
-        window.speechSynthesis.speak(u);
-      } catch (e) {
-        console.error('[TTS] speak threw', e);
-        onDone && onDone(false);
-        return;
-      }
+      if (reason) console.log('[audio] finish:', reason);
     }
 
-    function googleTTS(t, onDone, onFail) {
-      // Try multiple Google TTS endpoints. The `client=tw-ob` parameter is
-      // what the Google Translate widget uses and is the most reliable, but
-      // it sometimes gets rate-limited. Fall back to the simpler endpoint.
-      const lang = LANG === 'AR' ? 'ar' : 'en';
-      const enc = encodeURIComponent(t);
-      const urls = [
-        'https://translate.google.com/translate_tts?ie=UTF-8&q=' + enc + '&tl=' + lang + '&client=tw-ob',
-        'https://translate.googleapis.com/translate_tts?ie=UTF-8&q=' + enc + '&tl=' + lang + '&client=tw-ob'
-      ];
-      let idx = 0;
-      function tryNext() {
-        if (idx >= urls.length) { onFail && onFail(); return; }
-        const url = urls[idx++];
+    function unavailable(reason) {
+      console.log('[audio] unavailable:', reason);
+      diag(LANG === 'AR' ? 'الصوت غير متاح لهذه الخطوة' : 'Audio not available for this step', 'warn');
+      finishPlayback(reason);
+    }
+
+    // Play a list of MP3s back-to-back (one file per ayah; a single-element list
+    // for narration). Guarded by isPlaying + the play token so Stop / navigation /
+    // a newer play cancels it cleanly (stopAudio sets src='' which fires onerror —
+    // we must NOT advance). The -8% storytelling pace is baked into narration files.
+    function playSequence(urls, onDone, onFail) {
+      let i = 0, anyOk = false;
+      function next() {
+        if (!isPlaying || playToken !== myToken) return;  // stopped or superseded
+        if (i >= urls.length) { onDone && onDone(); return; }
+        const url = urls[i++];
         try {
           const a = new Audio(url);
           currentAudio = a;
-          a.volume = 0.95;
-          a.playbackRate = 0.75;
-          a.onended = () => { currentAudio = null; onDone && onDone(); };
-          a.onerror = () => { currentAudio = null; tryNext(); };
+          a.volume = 1.0;
+          a.onended = () => { if (!isPlaying || playToken !== myToken) return; anyOk = true; currentAudio = null; next(); };
+          a.onerror = () => {
+            if (!isPlaying || playToken !== myToken) return;
+            currentAudio = null;
+            if (anyOk) next(); else onFail && onFail();   // skip a bad ayah mid-run, but fail fast on the first
+          };
           const p = a.play();
-          if (p && p.catch) p.catch(() => { currentAudio = null; tryNext(); });
-        } catch (e) {
-          tryNext();
-        }
+          if (p && p.catch) p.catch(() => {
+            if (!isPlaying || playToken !== myToken) return;
+            currentAudio = null;
+            if (anyOk) next(); else onFail && onFail();
+          });
+        } catch (e) { onFail && onFail(); }
       }
-      tryNext();
+      next();
     }
 
-    // Use Web Speech API first. If onend fires WITHOUT onstart having fired,
-    // the engine failed silently (typical when no matching voice is installed) —
-    // fall back to Google TTS.
-    window.__ttsStart = 0;
-    window.__ttsStarted = false;
-    sysTTS(text, (started) => {
-      if (!started) {
-        const isAr = LANG === 'AR';
-        if (isAr && !pickArabicVoice()) {
-          diagTTS('noar', 'install Arabic language pack in Windows Settings → Time & Language → Language');
-        } else {
-          diagTTS('fallback', 'no native voice → trying Google');
-        }
-        googleTTS(text,
-          () => { diag(''); finishPlayback('google ok'); },
-          () => { diagTTS('error', 'No voice available — install Arabic voice in Windows Settings'); finishPlayback('all failed'); }
+    if (isNarrate) {
+      // Pre-generated neural narration MP3 — the only narration source (1 file).
+      playSequence([narrationURL()],
+        () => { diag(''); finishPlayback('mp3 ok'); },
+        () => unavailable('no narration MP3: ' + narrationURL())
+      );
+    } else {
+      // Verse mode: real reciter recitation (everyayah.com), ayah by ayah.
+      const urls = verseAudioURLs(s, RECITER);
+      if (urls.length) {
+        playSequence(urls,
+          () => { diag(''); finishPlayback('recitation ok'); },
+          () => unavailable('recitation unreachable')
         );
       } else {
-        diag('');
-        finishPlayback('sys ok');
+        unavailable('no Quran citation to recite');  // e.g. a hadith/athar step
       }
-    });
-    setTimeout(() => { if (isPlaying) finishPlayback('30s timeout'); }, 30000);
+    }
+    // Stuck-state backstop. 180s safely exceeds any single clip; the token guard
+    // prevents an old timer from stopping a newer playback.
+    setTimeout(() => { if (isPlaying && playToken === myToken) finishPlayback('timeout'); }, 180000);
   }
 
   function stopAudio() {
@@ -440,9 +426,6 @@
         currentAudio.src = '';
       } catch (e) { /* ignore */ }
       currentAudio = null;
-    }
-    if ('speechSynthesis' in window) {
-      try { window.speechSynthesis.cancel(); } catch (e) { /* ignore */ }
     }
     isPlaying = false;
     setAudioPulse(false);
@@ -454,6 +437,8 @@
     if (!btn) return;
     btn.classList.remove('on');
     btn.textContent = '▶';
+    btn.title = LANG === 'AR' ? 'تشغيل' : 'Play';
+    btn.setAttribute('aria-label', LANG === 'AR' ? 'تشغيل' : 'Play');
   }
 
   function togglePlay() {
@@ -593,6 +578,111 @@
     requestAnimationFrame(() => applyMapFocus(true));
   }
 
+  // ── Audio-source picker UI (context-aware) ─────────────
+  // One control, two registries: in 'narrate' mode it picks a narration VOICE;
+  // in 'verse' mode it picks a Quran RECITER. The menu, label, and selection
+  // all switch with TTS_MODE.
+  function pickerIsVerse() { return TTS_MODE === 'verse'; }
+  function pickerList() { return pickerIsVerse() ? RECITERS : VOICE_SLOTS; }
+  function pickerCurrentId() { return pickerIsVerse() ? RECITER : VOICE; }
+  function pickerCurrentItem() { return pickerIsVerse() ? reciter() : voiceSlot(); }
+
+  // Built with DOM methods (not innerHTML) — content is trusted constants,
+  // but createElement keeps it XSS-proof by construction.
+  function buildVoiceMenu() {
+    const menu = $('voice-menu');
+    if (!menu) return;
+    while (menu.firstChild) menu.removeChild(menu.firstChild);
+    const curId = pickerCurrentId();
+    pickerList().forEach((s) => {
+      const on = s.id === curId;
+      const opt = document.createElement('div');
+      opt.className = 'voice-opt' + (on ? ' active' : '');
+      opt.setAttribute('role', 'menuitemradio');
+      opt.setAttribute('tabindex', '0');
+      opt.setAttribute('aria-checked', String(on));
+      opt.dataset.voice = s.id;
+
+      const check = document.createElement('span');
+      check.className = 'vo-check';
+      check.textContent = '✓';
+      const name = document.createElement('span');
+      name.className = 'vo-name';
+      name.textContent = LANG === 'AR' ? s.labelAr : s.labelEn;
+      const desc = document.createElement('span');
+      desc.className = 'vo-desc';
+      desc.textContent = LANG === 'AR' ? s.descAr : s.descEn;
+
+      opt.appendChild(check);
+      opt.appendChild(name);
+      opt.appendChild(desc);
+      opt.addEventListener('click', () => setVoice(s.id));
+      opt.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();   // setVoice closes the menu; stop the key reaching the global Space→togglePlay handler
+          setVoice(s.id);
+        }
+      });
+      menu.appendChild(opt);
+    });
+  }
+
+  function updateVoiceUI() {
+    const item = pickerCurrentItem();
+    const now = $('voice-now');
+    if (now) now.textContent = LANG === 'AR' ? item.labelAr : item.labelEn;
+    const btn = $('btn-voice');
+    if (btn) {
+      const title = pickerIsVerse()
+        ? (LANG === 'AR' ? 'القارئ' : 'Reciter')
+        : (LANG === 'AR' ? 'صوت الراوي' : 'Narrator voice');
+      btn.title = title;
+      btn.setAttribute('aria-label', title);
+    }
+    buildVoiceMenu();
+  }
+
+  // Mode-toggle label. The button's span has NO data-ar/data-en (those would be
+  // clobbered by applyLanguage) — this function is the single source of truth
+  // for its bilingual, state-dependent text. Called on init, click, and lang toggle.
+  function updateModeUI() {
+    const btn = $('btn-mode');
+    if (!btn) return;
+    btn.classList.toggle('narrate', TTS_MODE === 'narrate');
+    const span = btn.querySelector('span');
+    if (span) {
+      span.textContent = TTS_MODE === 'narrate'
+        ? (LANG === 'AR' ? 'سرد' : 'Narr.')
+        : (LANG === 'AR' ? 'آية' : 'Verse');
+    }
+    // The picker switches between narration voices and reciters with the mode.
+    if (typeof updateVoiceUI === 'function') updateVoiceUI();
+  }
+
+  function openVoiceMenu(open) {
+    const menu = $('voice-menu');
+    const btn = $('btn-voice');
+    if (!menu || !btn) return;
+    menu.hidden = !open;
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  function setVoice(id) {
+    if (!pickerList().some((v) => v.id === id)) return;
+    if (pickerIsVerse()) {
+      RECITER = id;
+      localStorage.setItem(STORAGE.reciter, id);
+    } else {
+      VOICE = id;
+      localStorage.setItem(STORAGE.voice, id);
+    }
+    updateVoiceUI();
+    openVoiceMenu(false);
+    // If audio is playing, restart it immediately with the new selection.
+    if (isPlaying) playVerse();
+  }
+
   // ── Wire up DOM ─────────────────────────────────────────
   function init() {
     // Splash: click era cards
@@ -623,34 +713,16 @@
     // Navigation
     $('btn-prev').addEventListener('click', () => step(-1));
     $('btn-next').addEventListener('click', () => step(1));
-    $('btn-play').addEventListener('click', () => {
-      // First-click "warm-up" — Chrome on some configurations requires an
-      // explicit speak() call inside a user gesture before the engine
-      // will produce any sound at all. This is a no-op if the API is healthy.
-      if ('speechSynthesis' in window) {
-        try {
-          const w = new SpeechSynthesisUtterance(' ');
-          w.volume = 0;
-          window.speechSynthesis.speak(w);
-        } catch (e) { /* ignore */ }
-      }
-      togglePlay();
-    });
+    $('btn-play').addEventListener('click', togglePlay);
 
     // TTS mode toggle: verse <-> narration
     const modeBtn = $('btn-mode');
     if (modeBtn) {
-      const refresh = () => {
-        modeBtn.classList.toggle('narrate', TTS_MODE === 'narrate');
-        modeBtn.querySelector('span').textContent = TTS_MODE === 'narrate'
-          ? (LANG === 'AR' ? 'سرد' : 'Narr.')
-          : (LANG === 'AR' ? 'آية' : 'Verse');
-      };
-      refresh();
+      updateModeUI();
       modeBtn.addEventListener('click', () => {
         TTS_MODE = TTS_MODE === 'verse' ? 'narrate' : 'verse';
         localStorage.setItem(STORAGE.ttsMode, TTS_MODE);
-        refresh();
+        updateModeUI();
       });
     }
 
@@ -665,6 +737,23 @@
         refresh();
       });
     }
+
+    // Narrator voice picker
+    const voiceBtn = $('btn-voice');
+    if (voiceBtn) {
+      voiceBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const menu = $('voice-menu');
+        openVoiceMenu(menu && menu.hidden);
+      });
+      // Close on outside-click or Escape
+      document.addEventListener('click', (e) => {
+        const menu = $('voice-menu');
+        if (menu && !menu.hidden && !e.target.closest('.voice-pick')) openVoiceMenu(false);
+      });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') openVoiceMenu(false); });
+    }
+    updateVoiceUI();
 
     // Map node clicks
     for (let i = 0; i <= 5; i++) {
@@ -708,6 +797,11 @@
     // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
       if (['INPUT', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) return;
+      // Don't fire global shortcuts while the voice/reciter menu is open — its
+      // own options (<div tabindex=0>) handle Enter/Space, and arrows shouldn't
+      // navigate steps underneath the popup.
+      const vm = $('voice-menu');
+      if (vm && !vm.hidden) return;
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); step(LANG === 'AR' ? -1 : 1); }
       if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   { e.preventDefault(); step(LANG === 'AR' ? 1 : -1); }
       if (e.key === ' ') { e.preventDefault(); togglePlay(); }

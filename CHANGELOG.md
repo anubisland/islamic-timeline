@@ -4,6 +4,28 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.10.0] — 2026-06-08
+
+### Added
+- **🎙️ Neural narration with a 4-voice picker** — Story narration is delivered as **pre-generated Microsoft neural-voice MP3s**. A picker (🎙️ button in the audio controls) lets the listener choose among four voices; **each slot uses a different voice per language**, and the dropdown always names the voice actually playing:
+  - `classic` — **حامد** (Hamed, Saudi MSA ♂) · **Guy** (US ♂)
+  - `gentle` — **زارية** (Zariyah, Saudi MSA ♀) · **Aria** (US ♀)
+  - `story` — **سلمى** (Salma, Egyptian ♀) · **Jenny** (US ♀)
+  - `warm` — **شاكر** (Shakir, Egyptian ♂) · **Ryan** (UK ♂)
+- **Pre-generated audio assets** under `audio/<slot>/<era>_<step>_<lang>.mp3` for all 72 steps × 4 voices × 2 languages, plus `audio/manifest.json`. Works fully offline / `file://` / GitHub Pages — no API key, no backend, no runtime dependency.
+- **`tools/gen_tts.py`** — dev-only generator (uses the free `edge-tts` neural endpoint). Idempotent; re-run to regenerate after editing narration text. Never loaded by the site.
+- **📖 Real Quran recitation for verse mode** — verses stream genuine reciter audio from **everyayah.com** (ayah-by-ayah MP3, played in sequence for multi-ayah refs). The surah/ayah is parsed from each step's `ayahRefEn` (both `(10), verse 1` and `— 96:1` citation styles supported). The 🎙️ picker is **context-aware**: in verse mode it lists **reciters** (Mishary Alafasy ·default·, Al-Husary, Abdul Basit, Al-Minshawy, As-Sudais — persisted to `localStorage['sera.reciter']`); in narrate mode it lists the four narration voices.
+- **⏹ Play button doubles as Stop** — while audio plays, the button shows a stop glyph (`⏹`) with a bilingual "Stop / إيقاف" label; clicking it halts playback. Returns to `▶` / "Play" when idle.
+
+### Changed
+- **Audio is pre-recorded only** — the live Web Speech / Google `translate_tts` engines were **removed entirely**; they sounded robotic in both Arabic and English and (being a single system voice) ignored the chosen narration voice, so the dropdown selection didn't match what played. Narration now plays its slot's MP3, verses play real recitation, and a missing source shows a brief "audio not available" notice instead of a robotic fallback.
+- **Default TTS mode is now `narrate`** (was `verse`) — new visitors get the story narration immediately. Quranic verses, when chosen, play real recitation rather than synthetic TTS.
+
+### Fixed
+- **Dropdown didn't reflect the voice playing** — in English mode the picker still showed the Arabic voice names while a different English voice played; and with the old live fallback every slot played the *same* system voice. Both fixed: labels are now per-language-accurate and each slot plays its own neural clip.
+- **Mode-toggle label clobbered by `applyLanguage()`** (B3b-class bug) — the `#btn-mode` span carried `data-ar`/`data-en`, so every language toggle / mount reset its text to "Verse" regardless of the actual mode. Removed the static attributes; `updateModeUI()` is now the single source of truth and is called on init, click, and language toggle.
+- **Narration cut off at 30 s** — the playback stuck-state timeout (30 s) was shorter than many narration clips (e.g. Hijra step 1 is 28 s; longer steps exceed 30 s). Raised to a 180 s backstop and guarded with a play-token so a stale timer can never stop a newer playback.
+
 ## [2.9.1] — 2026-06-08
 
 ### Fixed

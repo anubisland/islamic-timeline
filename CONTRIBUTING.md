@@ -121,7 +121,17 @@ Place the SVG inside `<main class="wrap">` and give it `id="svg-uhud"`. Default 
 ### 4. Add a `GeoJSON` feature
 Append a `Feature` to `timeline_data.geojson` with `event_id` matching the step (e.g. `uhud_0`). Use real geographic coordinates.
 
-### 5. Update `CHANGELOG.md`
+### 5. Generate narration audio + check verse recitation 🔊
+Audio is **pre-recorded only** (there is no live TTS). After adding/editing any narration text:
+```bash
+pip install edge-tts          # one-time
+python tools/gen_tts.py --eras uhud --force
+```
+This writes `audio/<slot>/uhud_<step>_<lang>.mp3` for all 4 voice slots × both languages and refreshes `audio/manifest.json`. **Commit the new `audio/**` files in the same PR.**
+
+Also make each step's `ayahRefEn` a parseable Quran citation — `"Surah X (10), verse 1"` / `"verses 1-3"` **or** `"Surah X — 10:1"` — so verse mode can stream the reciter audio from everyayah.com. Confirm the ayah resolves before committing.
+
+### 6. Update `CHANGELOG.md`
 Add a line under the `Unreleased` / next-version section.
 
 ## Adding a New Language

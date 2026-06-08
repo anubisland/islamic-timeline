@@ -1546,8 +1546,14 @@
           <span data-ar="▶ السابق" data-en="◀ Previous">▶ السابق</span>
         </button>
         <button class="nbtn n-mode" id="btn-mode" title="Toggle verse / narration">
-          <span data-ar="آية" data-en="Verse">آية</span>
+          <span>آية</span>
         </button>
+        <div class="voice-pick">
+          <button class="nbtn n-voice" id="btn-voice" type="button" aria-haspopup="true" aria-expanded="false" title="Narrator voice">
+            <span class="voice-ic">🎙️</span><span class="voice-now" id="voice-now"></span>
+          </button>
+          <div class="voice-menu" id="voice-menu" role="menu" hidden></div>
+        </div>
         <button class="nbtn n-play" id="btn-play" title="Play (P)">▶</button>
         <button class="nbtn n-auto" id="btn-auto" title="Auto-narrate on step change">
           <span data-ar="🔁" data-en="🔁">🔁</span>

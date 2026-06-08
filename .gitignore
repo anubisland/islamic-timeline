@@ -15,3 +15,22 @@ web-build/
 *.log
 .vscode/
 .idea/
+
+# TTS work
+# local voice audition clips (not shipped)
+.tts-samples/
+# transient data export for the generator
+tools/_seerah.json
+
+# Local Claude Code / editor tooling (not part of the site)
+.blender-toolkit/
+.browser-pilot/
+.claude/
+.claude-dev-helper/
+.plugin-config/
+
+# Hook-generated local reports (not part of the site)
+.complexity-log.md
+.project-structure.md
+.session-summary.md
+.todos-report.md

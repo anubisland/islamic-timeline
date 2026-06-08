@@ -110,30 +110,40 @@ const t = (key) => (LANG === 'AR' ? key + 'Ar' : key + 'En');
 
 ## 7. Audio system
 
-The app uses **Google Translate TTS** for the Quranic verse recitation:
+There are **two TTS modes** (toggled by `#btn-mode`): `narrate` (the story) and `verse` (the Quranic ayah). The default is `narrate`.
 
-```
-https://translate.google.com/translate_tts?ie=UTF-8&q=…&tl=ar&client=tw-ob
-```
+### 7a. Narration — pre-generated neural MP3s (the primary path)
 
-Pros
-- Works on iOS, Android, and desktop browsers with no extra install.
-- Excellent Arabic pronunciation, including Tajweed.
+Story narration plays **static MP3 files** generated offline with Microsoft's free neural voices (via `tools/gen_tts.py` → `edge-tts`). This is the quality anchor: every visitor, on every browser, hears the same warm voice — and it works fully offline, under `file://`, and on GitHub Pages with **no API key, no backend, no runtime dependency**.
 
-Cons
-- Requires an internet connection.
-- The `q` parameter is silently truncated to ~200 characters — long verses are clipped.
-- The endpoint is unofficial and may rate-limit or be retired.
+- Files live at `audio/<slot>/<era>_<step>_<lang>.mp3` (e.g. `audio/classic/hijra_0_ar.mp3`).
+- The listener picks one of **four voice slots** via the 🎙️ picker (`#btn-voice`), persisted to `localStorage['sera.voice']`:
 
-**Fallback path**: if `new Audio(url).play()` rejects, the app calls `window.speechSynthesis.speak()` with `lang = 'ar-SA'` and a slower rate. This uses the OS-bundled voice (good on Windows + Edge, often missing on Linux Chrome).
+  | Slot | Arabic voice | English voice |
+  |---|---|---|
+  | `classic` | ar-SA-HamedNeural | en-US-GuyNeural |
+  | `gentle`  | ar-SA-ZariyahNeural | en-US-AriaNeural |
+  | `story`   | ar-EG-SalmaNeural | en-US-JennyNeural |
+  | `warm`    | ar-EG-ShakirNeural | en-GB-RyanNeural |
 
-The audio engine is intentionally minimal:
-- No karaoke word highlighting.
-- No waveform visualizer.
-- No voice picker modal.
-- No "pre-roll" banner.
+- `playVerse()` builds the URL via `narrationURL()` and tries it first. **A missing file fires `Audio.onerror`**, which is what drives the fallback — so the app degrades gracefully and audio can be rolled out incrementally. (We deliberately do *not* `fetch('audio/manifest.json')` at runtime, because `fetch` of a local file is blocked under `file://` in Chrome; `Audio` is not.)
+- The `-8%` storytelling pace is baked into the files, so they play at `playbackRate = 1.0`.
+- To regenerate after editing narration text: `python tools/gen_tts.py [--eras …] [--force]` (idempotent — skips existing files).
 
-These were dropped from the v7 reference implementation to keep the public site lightweight and focused. The trade-off is a smaller bundle and fewer moving parts, at the cost of a less theatrical audio experience.
+### 7b. Verse recitation — real reciter audio
+
+`verse` mode plays **genuine Qārī recitation** streamed from [everyayah.com](https://everyayah.com), not TTS. `verseAudioURLs(step, reciterId)` parses the surah number and ayah range out of `step.ayahRefEn` (reliably formatted `"Surah <Name> (<num>), verse(s) <n>[-<m>]"`) and builds one zero-padded `https://everyayah.com/data/<dir>/<sss><aaa>.mp3` per ayah. `playSequence()` plays them back-to-back (so a 2-ayah verse recites both), guarded by `isPlaying` + the play token so Stop / navigation cancels cleanly.
+
+The 🎙️ picker is **context-aware** (`pickerList()` / `pickerCurrentId()`): in `verse` mode it offers **reciters** (`RECITERS`: Alafasy ·default·, Husary, Abdul Basit, Minshawy, Sudais — persisted to `sera.reciter`); in `narrate` mode it offers the four narration **voices** (`VOICE_SLOTS` — persisted to `sera.voice`).
+
+### 7c. No live TTS
+
+There is **no live text-to-speech fallback**. The old Web Speech (`speechSynthesis`) and Google `translate_tts` engines were removed: they sounded robotic in both languages and, being a single system voice, ignored the chosen narration voice — so the picker selection didn't match what played. When the primary source is unavailable (a narration MP3 not present, a non-Quran "verse" step, or the recitation CDN unreachable), `playVerse()` shows a brief bilingual "audio not available" `#diag` notice and stops — it never substitutes a synthetic voice.
+
+### 7d. Robustness notes
+
+- `playVerse()` is guarded by a monotonically increasing **play token**; a stale stuck-state timeout (180 s backstop) can never stop a newer playback.
+- Each voice slot maps to a **different neural voice per language** (`labelAr`/`labelEn`), so the dropdown always names the voice actually playing — Arabic clip ≠ English clip within the same slot.
 
 ## 8. Keyboard shortcuts
 
@@ -201,8 +211,7 @@ Tested on:
 
 The app uses:
 - `localStorage` (universal).
-- `Audio` (universal).
-- `speechSynthesis` (universal; Arabic voice quality varies by OS).
+- `Audio` (universal) — plays the pre-recorded MP3s / recitation.
 - SVG with `data-*` attributes (universal).
 
 There is no IE support, no transpilation, no polyfills.

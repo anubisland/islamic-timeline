@@ -21,7 +21,7 @@ Each step presents a unique Quranic verse, the historical narrative, key figures
 - 🟢 **Emerald + gold** Islamic visual identity (`#063529` / `#C5A059`).
 - 🗺️ **Four interactive SVG maps** — Meccan context, animated Hijra route, tactical Badr battlefield, Medinan state expansion.
 - 🌐 **Full bilingual UI** — Arabic (RTL) ↔ English (LTR) with `localStorage` persistence.
-- 🔊 **Audio recitation** of each verse via Google TTS, with `speechSynthesis` fallback.
+- 🔊 **Real audio, no robotic TTS** — story **narration** plays pre-generated neural-voice MP3s (a 4-voice picker, different voice per language), and **Quranic verses** play genuine reciter recitation (5 sheikhs) streamed from everyayah.com. The 🎙️ picker switches between narration voices and reciters with the mode.
 - 📖 **20+ unique Quranic verses** in Arabic + English translation, with Surah references.
 - 👥 **Key figures** with names, roles, and historical context.
 - 💡 **Leadership lessons** drawn from each event.
@@ -82,7 +82,9 @@ Sera/
 ├── style.css                    # all styling (emerald + gold theme)
 ├── app.js                       # state, render, nav, audio, language toggle
 ├── data.js                      # bilingual content module (window.SEERAH_DB)
-├── timeline_data.geojson        # 9 event locations with coordinates
+├── timeline_data.geojson        # event locations with coordinates
+├── audio/                       # pre-generated neural narration MP3s + manifest.json
+├── tools/gen_tts.py             # dev-only narration generator (edge-tts; not shipped)
 ├── package.json                 # optional, for `npm start` (uses npx serve)
 └── docs/
     ├── ARCHITECTURE.md          # how the app is put together

@@ -977,6 +977,66 @@ body::after {
 .n-auto:hover { background: rgba(6, 78, 59, .6); }
 .n-auto.on { background: var(--emerald-3); color: #fff; box-shadow: 0 0 0 2px rgba(110, 231, 183, .35); }
 
+/* ── Narrator voice picker ───────────────────────────── */
+.voice-pick { position: relative; display: flex; }
+.n-voice {
+  height: 38px;
+  padding: .4rem .6rem;
+  gap: .3rem;
+  background: rgba(197, 160, 89, .14);
+  border: 1px solid rgba(197, 160, 89, .32);
+  color: var(--gold);
+  font-size: .72rem;
+  white-space: nowrap;
+}
+.n-voice:hover { background: rgba(197, 160, 89, .3); }
+.n-voice[aria-expanded="true"] { background: rgba(197, 160, 89, .4); color: #fff; }
+.voice-ic { font-size: .95rem; line-height: 1; }
+.voice-now { font-weight: 700; }
+
+.voice-menu {
+  position: absolute;
+  bottom: 46px;            /* float above the control row */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  min-width: 168px;
+  background: rgba(8, 20, 16, .98);
+  border: 1px solid rgba(197, 160, 89, .4);
+  border-radius: 14px;
+  padding: .35rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .55);
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+.voice-menu[hidden] { display: none; }
+.voice-opt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .6rem;
+  padding: .5rem .6rem;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #e7e2d5;
+  font-family: "Cairo", sans-serif;
+  font-size: .82rem;
+  border: 1px solid transparent;
+  transition: var(--t);
+}
+[lang="en"] .voice-opt { font-family: "Inter", sans-serif; }
+.voice-opt:hover { background: rgba(197, 160, 89, .16); }
+.voice-opt.active {
+  background: rgba(197, 160, 89, .24);
+  border-color: rgba(197, 160, 89, .5);
+  color: #fff;
+}
+.voice-opt .vo-name { font-weight: 700; }
+.voice-opt .vo-desc { font-size: .68rem; opacity: .65; }
+.voice-opt.active .vo-check { color: var(--gold); }
+.voice-opt .vo-check { color: transparent; }
+
 .n-next {
   flex: 1;
   background: linear-gradient(135deg, var(--gold-d), var(--gold));

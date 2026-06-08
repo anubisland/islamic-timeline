@@ -23,6 +23,9 @@ Sera/
 ├── app.js                  # All behaviour: lang toggle, switchEv, step nav, TTS
 ├── data.js                 # Bilingual data — window.SEERAH_DB
 ├── timeline_data.geojson   # 24 geographic features
+├── audio/                  # Pre-generated neural narration MP3s (committed)
+│   └── <slot>/<era>_<step>_<lang>.mp3  + manifest.json
+├── tools/gen_tts.py        # Dev-only narration generator (edge-tts; not shipped)
 ├── package.json            # version + npm start (npx serve)
 ├── README.md               # User docs
 ├── CHANGELOG.md            # Keep-a-Changelog, semver
@@ -44,6 +47,7 @@ Sera/
 8. **Update `CHANGELOG.md` and bump `package.json` version** in the same commit that changes behaviour.
 9. **No secrets, .env files, or `node_modules/` committed.** Use `npx --yes serve .` so the install stays ephemeral.
 10. **Don't push to `main` if changes break the live site** — the only reviewer is GitHub Pages itself.
+11. **🔊 Audio is pre-recorded only — NO live TTS.** Narration = committed neural MP3s under `audio/`; verses = streamed reciter audio from everyayah.com. Whenever you **add or edit a step's narration text**, regenerate its clips with `python tools/gen_tts.py --eras <era> --force` and commit the new `audio/**` + `audio/manifest.json` in the same commit (all 4 voice slots × both languages). Whenever you add a step, ensure its `ayahRefEn` is a parseable Quran citation so verse recitation works. **Never** reintroduce `speechSynthesis` / `translate_tts` (removed in v2.10.0 for sounding robotic and ignoring the chosen voice). See `docs/ARCHITECTURE.md` §7.
 
 ## Adding a step (most common task)
 
@@ -62,15 +66,18 @@ Sera/
    srcs[]                // ["البخاري (…)", "مسلم (…)", ...]
    ```
 3. If the step has a new map location, append a feature to `timeline_data.geojson` with `event_id: "<era>_<stepIndex>"`.
-4. No need to bump `package.json` for an intra-era step; only add a CHANGELOG line under "Unreleased" if relevant.
+4. **Generate the narration audio (rule #11):** `python tools/gen_tts.py --eras <era> --force`, then commit the new `audio/**` clips + `audio/manifest.json`.
+5. **Make `ayahRefEn` a parseable Quran citation** (`"Surah X (10), verse 1"` or `"Surah X — 10:1"`) so verse mode can stream the recitation; confirm the ayah resolves on everyayah.com.
+6. No need to bump `package.json` for an intra-era step; only add a CHANGELOG line under "Unreleased" if relevant.
 
 ## Adding an era (rare)
 
 1. Add a new key to `window.SEERAH_DB` in `data.js` (insert in chronological order: meccan → hijra → badr → medinan).
 2. Add a `<button class="ev-btn" data-ev="<key>" ...>` to `index.html`'s `.event-switch`.
 3. Add an inline `<svg id="svg-<key>" class="map-svg hidden" ...>` to `index.html` directly after `svg-badr`. All `<text>` elements must use `data-ar` / `data-en` pairs.
-4. Extend `app.js` `switchEv()` to toggle the new SVG (mirror the existing 4 lines).
-5. Bump `package.json` minor version. Add a CHANGELOG entry.
+4. Extend `app.js` `switchEv()` to toggle the new SVG (mirror the existing lines); add the era to `MAP_VB`, `allSvgs`, and the zoom list.
+5. **Generate the era's narration audio (rule #11):** `python tools/gen_tts.py --eras <key>`, commit the `audio/**` output.
+6. Bump `package.json` minor version. Add a CHANGELOG entry.
 
 ## Bilingual content — Claude's special care
 
@@ -88,11 +95,16 @@ The Arabic content here is **sacred and historical**. When translating or paraph
 # Serve locally
 npm start                 # alias for: npx --yes serve .
 
-# JS validation (no build needed)
-node -e "new Function(require('fs').readFileSync('data.js','utf8'))"
+# JS syntax validation (no build needed)
+node --check app.js
+node --check data.js
 
 # GeoJSON validation
 node -e "JSON.parse(require('fs').readFileSync('timeline_data.geojson','utf8'))"
+
+# Generate / regenerate narration audio (needs: pip install edge-tts)
+python tools/gen_tts.py                 # all steps × 4 voices × ar|en (idempotent)
+python tools/gen_tts.py --eras hijra --force   # one era, overwrite
 ```
 
 There is **no test framework, no linter, no formatter**. Visual verification is by opening `index.html` in a browser.
