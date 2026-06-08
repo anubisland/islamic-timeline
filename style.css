@@ -1058,10 +1058,16 @@ body::after {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
-/* SAFETY NET: when splash is NOT hidden (i.e. visible), force-hide the footer
-   and the wrap region. This works regardless of JavaScript timing/errors. */
+/* SAFETY NET: when the splash OR the home launcher is visible, force-hide the
+   era UI (.wrap) and the footer. Otherwise their full height (4000px+ of maps)
+   renders in flow beneath the fixed overlay, producing a giant scrollable page.
+   Keyed to both overlays so every entry state is covered, regardless of JS
+   timing/errors. (#home-screen and #splash both precede .wrap/.tl-foot as
+   siblings, so the ~ general-sibling combinator matches.) */
 #splash:not(.hidden) ~ .wrap,
-#splash:not(.hidden) ~ .tl-foot {
+#splash:not(.hidden) ~ .tl-foot,
+#home-screen:not(.home-hidden) ~ .wrap,
+#home-screen:not(.home-hidden) ~ .tl-foot {
   display: none !important;
 }
 

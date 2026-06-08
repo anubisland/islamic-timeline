@@ -26,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Mode-toggle label clobbered by `applyLanguage()`** (B3b-class bug) — the `#btn-mode` span carried `data-ar`/`data-en`, so every language toggle / mount reset its text to "Verse" regardless of the actual mode. Removed the static attributes; `updateModeUI()` is now the single source of truth and is called on init, click, and language toggle.
 - **Narration cut off at 30 s** — the playback stuck-state timeout (30 s) was shorter than many narration clips (e.g. Hijra step 1 is 28 s; longer steps exceed 30 s). Raised to a 180 s backstop and guarded with a play-token so a stale timer can never stop a newer playback.
 
-## [2.10.0] — 2026-06-08
+## [2.10.1] — 2026-06-08
 
 ### Added
 - **Master launcher homepage** — New abstract splash (`#home-screen`) with 2 tiled cards: "السيرة والخلافة" (Seerah & Caliphate) and "الأئمة الأربعة" (The Four Imams). Clicking Sera navigates to the existing era selection splash; clicking Imams is a placeholder for the next phase.
@@ -38,6 +38,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `init()` now shows `showHome()` instead of `showSplash()`.
 - `showSplash()` and `hideSplash()` now also toggle the home screen visibility.
 - Header 🏠 button goes to splash (era selection); splash "← الرئيسية" goes to home.
+
+### Fixed
+- **Homepage corruption — era UI + footer leaked beneath the launcher** — the CSS safety-net that force-hides `.wrap` (4000px+ of maps/story) and `.tl-foot` was keyed only to `#splash:not(.hidden)`. The new home screen sets `#splash` to `.hidden`, so the rule stopped firing and the entire era UI + footer rendered in flow below the fixed `#home-screen` overlay, producing a ~4700px scrollable, broken page. Extended the rule to also cover `#home-screen:not(.home-hidden) ~ .wrap, ~ .tl-foot`. (Also corrects a duplicate `## [2.10.0]` changelog heading — this homepage work is now `2.10.1`.)
 
 ## [2.9.1] — 2026-06-08
 
