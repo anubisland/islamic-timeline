@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.12.1] — 2026-06-08
+
+### Fixed
+- **TTS spoke Arabic date abbreviations as letters** — narration read "هـ" and the "م" in "(699 م)" literally (the "م" came out like the Latin letter "m"). `gen_tts.py` now expands them in the TTS input only (هـ → هجرية, "NNN م" → "NNN ميلادية", for both Latin and Arabic-indic digits; words like "محرم" are untouched). On-screen text keeps the proper abbreviations. Regenerated all 224 affected Arabic clips.
+- **Mobile: audio control row overflowed at ≤340px** — the 6-button row plus the voice/reciter name didn't fit on the narrowest phones (320px). At ≤360px the 🎙️ name is now hidden (icon stays; full name is in the popup menu) and gaps tightened, so the row fits.
+- **Mobile audit** — verified across 320 / 360 / 390 px and desktop: no horizontal overflow on any screen (home, splash, era view, imam selection, imam view), ≥44px tap targets, and the imam selection fills the viewport without clipping (single-column `grid-auto-rows:1fr` fill from `d03f82e`).
+
 ## [2.12.0] — 2026-06-08
 
 ### Added

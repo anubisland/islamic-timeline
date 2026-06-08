@@ -79,11 +79,32 @@ def load_db():
     return json.loads(out)
 
 
+import re
+
+# Arabic date abbreviations the neural voice otherwise spells out letter-by-letter
+# (e.g. "م" read as the Latin letter "m"). Expand them ONLY in the TTS input —
+# the on-screen text keeps the proper abbreviations.
+_AR_LETTERS = "ء-ي"  # hamza .. ya
+
+_DIGITS = "0-9٠-٩"  # Latin + Arabic-indic
+
+def normalize_ar_for_tts(text):
+    # Hijri: "هـ" -> "هجرية"  (e.g. "سنة 80 هـ" -> "سنة 80 هجرية")
+    text = text.replace("هـ", "هجرية")
+    # Gregorian: a standalone "م" right after a number (Latin OR Arabic-indic)
+    # -> "ميلادية"  ("699 م)" / "٥٧٠ م" -> "… ميلادية"; not inside words like "محرم")
+    text = re.sub(r"([" + _DIGITS + r"])\s*م(?![" + _AR_LETTERS + r"])", r"\1 ميلادية", text)
+    return text
+
+
 def text_for(step, lang):
     """Narration text = the story description in the chosen language.
     We DO NOT strip punctuation — commas/periods give the neural voice its
-    natural pauses. We feed raw text; the neural model auto-diacritizes Arabic."""
-    return (step.get("descAr") if lang == "ar" else step.get("descEn")) or ""
+    natural pauses. We feed raw text; the neural model auto-diacritizes Arabic.
+    Arabic date abbreviations (هـ / م) are expanded so they're spoken naturally."""
+    if lang == "ar":
+        return normalize_ar_for_tts(step.get("descAr") or "")
+    return step.get("descEn") or ""
 
 
 async def synth_one(sem, voice, text, out_path, force):
