@@ -43,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - **Homepage corruption — era UI + footer leaked beneath the launcher** — the CSS safety-net that force-hides `.wrap` (4000px+ of maps/story) and `.tl-foot` was keyed only to `#splash:not(.hidden)`. The new home screen sets `#splash` to `.hidden`, so the rule stopped firing and the entire era UI + footer rendered in flow below the fixed `#home-screen` overlay, producing a ~4700px scrollable, broken page. Extended the rule to also cover `#home-screen:not(.home-hidden) ~ .wrap, ~ .tl-foot`. (Also corrects a duplicate `## [2.10.0]` changelog heading — this homepage work is now `2.10.1`.)
 - **"Explore Imams" jumped to the wrong page** — `goToImams()` hid the home screen but, with no Four Imams view to show, that revealed the Seerah era view (default Hijra map) underneath — looking like a broken redirect. It now keeps the user on the launcher and shows a bilingual "coming soon" notice instead.
+- **🟢 "Green strip" regression on the home launcher** — the `#focus-diag` developer badge (`position: fixed; z-index: 9999`, dark-emerald) reappeared on the homepage. `applyMapFocus()` showed it whenever the splash was hidden, but the new home screen also hides the splash. Now it shows only in a true era view (splash **and** home both hidden), and `showHome()` hides it as a safety net (see docs/BUGS.md §I).
 
 ## [2.9.1] — 2026-06-08
 

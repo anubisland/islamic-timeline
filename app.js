@@ -72,6 +72,9 @@
     document.body.style.background = '#060b0f';
     document.body.style.overflow = 'hidden';
     document.querySelector('meta[name=theme-color]').content = '#060b0f';
+    // Hide the era-only diagnostic badge (the "green strip") on the launcher.
+    const diag = $('focus-diag');
+    if (diag) diag.style.display = 'none';
     stopAudio();
   }
 
@@ -294,12 +297,17 @@
       }
     }
 
-    // Live diagnostic — only shown when splash is hidden (era mode)
+    // Live diagnostic — only shown in a true era view (BOTH the home launcher
+    // AND the splash are hidden). The home screen also hides the splash, so a
+    // splash-only check would wrongly show this badge on the homepage (the
+    // "green strip" regression — see docs/BUGS.md §I).
     const d = $('focus-diag');
     const sp = $('splash');
+    const hs = $('home-screen');
     if (d) {
-      const splashVisible = sp && !sp.classList.contains('hidden');
-      d.style.display = splashVisible ? 'none' : 'block';
+      const inEra = (!sp || sp.classList.contains('hidden')) &&
+                    (!hs || hs.classList.contains('home-hidden'));
+      d.style.display = inEra ? 'block' : 'none';
       d.textContent = '🎯 ' + (LANG === 'AR'
         ? 'الخطوة ' + arNum(STEP + 1) + ' — ' + (s.titleAr || '')
         : 'Step ' + (STEP + 1) + ' — ' + (s.titleEn || ''))
