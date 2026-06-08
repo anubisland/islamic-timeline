@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.11.2] — 2026-06-08
+
+### Added
+- **Contemporary imams on the map** — the imam map now plots the *other* imams who were alive during the current phase's time window, each at their location then (dashed ring + dot + name in the imam's accent colour). Derived from per-phase AH date ranges × `mapFocus`, computed by lifespan overlap — e.g. al-Shafi'i's "Seeking Knowledge" phase (170–195 AH) shows Malik in Madinah (he studied under him until 179) and a young Ahmad. Updates per step and on language toggle.
+
+### Fixed
+- **Header brand title stuck on "Seerah Timeline" in the imam module** — the `.brand-title` was hardcoded; it now reflects the active module via `setBrandTitle()`: "الخط الزمني للأئمة الأربعة / Four Imams Timeline" in imam mode, "الخط الزمني للسيرة النبوية / Seerah Timeline" in Sera mode (both languages).
+
 ## [2.11.1] — 2026-06-08
 
 ### Added

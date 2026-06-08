@@ -199,6 +199,9 @@
     const lbl = $('era-label');
     if (lbl) lbl.textContent = LANG === 'AR' ? IDB[key].labelAr : IDB[key].labelEn;
 
+    // Header brand title reflects the active module (imam vs Seerah)
+    setBrandTitle('الخط الزمني للأئمة الأربعة', 'Four Imams Timeline');
+
     // Set map label to imam name
     const ml = $('map-label');
     if (ml) {
@@ -340,6 +343,74 @@
     // just SVG attribute writes that need no layout. Mirrors the Sera path,
     // which also calls applyMapFocus() synchronously from goTo()/switchEv().
     applyMapFocus(true);
+    // Plot the OTHER imams alive during this step's time period at their location.
+    renderImamContemporaries(s);
+  }
+
+  // ── Imam contemporaries on the map ─────────────────────
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+
+  // Parse the AH year range from an imam step's date ("100 – 120 AH" / "150 AH").
+  function imamAHRange(step) {
+    const m = (step && step.dateEn || '').match(/(\d+)\s*(?:[–-]\s*(\d+))?/);
+    if (!m) return null;
+    return [+m[1], m[2] ? +m[2] : +m[1]];
+  }
+
+  // Where was `imamKey` at Hijri year T? mapFocus of the phase covering T (or the
+  // nearest phase). T is assumed within the imam's lifespan.
+  function imamLocationAt(imamKey, T) {
+    const im = IDB && IDB[imamKey];
+    if (!im) return null;
+    let best = null, bestDist = Infinity;
+    im.steps.forEach((st) => {
+      const r = imamAHRange(st);
+      if (!r || !st.mapFocus) return;
+      const d = (T >= r[0] && T <= r[1]) ? 0 : Math.min(Math.abs(T - r[0]), Math.abs(T - r[1]));
+      if (d < bestDist) { bestDist = d; best = st.mapFocus; }
+    });
+    return best;
+  }
+
+  // Plot the OTHER imams whose lifespan overlaps the current step's time window,
+  // each at their location during that overlap. Re-runs per step + on lang toggle.
+  function renderImamContemporaries(curStep) {
+    const layer = $('imam-contemporaries');
+    if (!layer) return;
+    while (layer.firstChild) layer.removeChild(layer.firstChild);
+    const r = imamAHRange(curStep);
+    if (!r) return;
+    const s1 = r[0], s2 = r[1];
+    const used = {};  // stack labels when imams share a city
+    Object.keys(IDB).forEach((key) => {
+      if (key === IMAM) return;
+      const im = IDB[key];
+      const birth = parseInt(im.birthAH, 10), death = parseInt(im.deathAH, 10);
+      const oStart = Math.max(s1, birth), oEnd = Math.min(s2, death);
+      if (oStart > oEnd) return;  // no chronological overlap with this step
+      const loc = imamLocationAt(key, Math.round((oStart + oEnd) / 2));
+      if (!loc) return;
+      const color = im.color || '#888';
+      const name = LANG === 'AR' ? (im.shortLabelAr || im.labelAr) : (im.shortLabelEn || im.labelEn);
+      const cityKey = loc.x + ',' + loc.y;
+      const stack = used[cityKey] || 0; used[cityKey] = stack + 1;
+
+      const g = document.createElementNS(SVG_NS, 'g');
+      g.setAttribute('class', 'imam-contemp');
+      const ring = document.createElementNS(SVG_NS, 'circle');
+      ring.setAttribute('cx', loc.x); ring.setAttribute('cy', loc.y); ring.setAttribute('r', '7');
+      ring.setAttribute('fill', 'none'); ring.setAttribute('stroke', color);
+      ring.setAttribute('stroke-width', '2'); ring.setAttribute('stroke-dasharray', '3 2'); ring.setAttribute('opacity', '.9');
+      const dot = document.createElementNS(SVG_NS, 'circle');
+      dot.setAttribute('cx', loc.x); dot.setAttribute('cy', loc.y); dot.setAttribute('r', '2.4'); dot.setAttribute('fill', color);
+      const label = document.createElementNS(SVG_NS, 'text');
+      label.setAttribute('x', loc.x); label.setAttribute('y', loc.y + 20 + stack * 12);
+      label.setAttribute('text-anchor', 'middle'); label.setAttribute('fill', color);
+      label.setAttribute('font-size', '9'); label.setAttribute('font-family', 'Cairo, sans-serif'); label.setAttribute('opacity', '.95');
+      label.textContent = name;
+      g.appendChild(ring); g.appendChild(dot); g.appendChild(label);
+      layer.appendChild(g);
+    });
   }
 
   function buildImamTimeline() {
@@ -378,6 +449,16 @@
   const $ = (id) => document.getElementById(id);
   const arNum = (n) => String(n).replace(/\d/g, (d) => '٠١٢٣٤٥٦٧٨٩'[d]);
   const t = (key) => (LANG === 'AR' ? key + 'Ar' : key + 'En');
+
+  // Header brand title — set both data-* (so applyLanguage re-translates it) and
+  // the live textContent. Reflects the active module: Seerah vs Four Imams.
+  function setBrandTitle(ar, en) {
+    const bt = document.querySelector('.brand-title');
+    if (!bt) return;
+    bt.setAttribute('data-ar', ar);
+    bt.setAttribute('data-en', en);
+    bt.textContent = LANG === 'AR' ? ar : en;
+  }
 
   // ── Language toggle (HTML elements + SVG elements) ─────
   function applyLanguage() {
@@ -474,6 +555,8 @@
     if (lbl) {
       lbl.textContent = LANG === 'AR' ? DB[key].labelAr : DB[key].labelEn;
     }
+    // Header brand title reflects the Seerah module
+    setBrandTitle('الخط الزمني للسيرة النبوية', 'Seerah Timeline');
 
     // Toggle maps (include svg-imam so it's hidden when returning to a Sera era)
     const allSvgs = ['svg-preb','svg-hijra','svg-badr','svg-meccan','svg-medinan',
