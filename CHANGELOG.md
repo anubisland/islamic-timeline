@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - **Header brand title stuck on "Seerah Timeline" in the imam module** — the `.brand-title` was hardcoded; it now reflects the active module via `setBrandTitle()`: "الخط الزمني للأئمة الأربعة / Four Imams Timeline" in imam mode, "الخط الزمني للسيرة النبوية / Seerah Timeline" in Sera mode (both languages).
+- **Missing `[lang="en"]` font overrides for imam card names** — `.ic-name` and `.imam-mc-name` used Amiri (an Arabic-first serif) in English mode instead of Inter. Added `[lang="en"]` overrides to match the rest of the UI.
+- **Home screen missing 360px breakpoint** — the home launcher had no responsive rules at ≤360px, falling through to larger defaults. Added dedicated padding/font/margin reductions matching the splash 360px section.
 
 ## [2.11.1] — 2026-06-08
 

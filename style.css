@@ -1876,6 +1876,15 @@ body::after {
   .splash-foot { font-size: .6rem; padding: 2px 0; }
 }
 @media (max-width: 360px) {
+  .home-screen { padding: 6px; }
+  .home-card { min-height: 110px; }
+  .hc-content { padding: 10px 8px; }
+  .hc-icon { font-size: 1.1rem; margin-bottom: 4px; }
+  .hc-name { font-size: .85rem; }
+  .hc-desc { display: none; }
+  .hc-stats { margin-bottom: 6px; }
+  .hc-stat { font-size: .55rem; padding: 1px 6px; }
+  .hc-btn { font-size: .6rem; padding: 4px 10px; }
   .splash { padding: 6px; }
   .splash-hero h1 { font-size: 1rem; }
   .splash-sub { display: none; }
@@ -2009,6 +2018,7 @@ body::after {
   margin-bottom: 4px;
   text-shadow: 0 1px 4px rgba(0,0,0,.5);
 }
+[lang="en"] .ic-name { font-family: "Inter", sans-serif; }
 
 .ic-title {
   font-size: clamp(.65rem, 1vw, .78rem);
@@ -2097,6 +2107,7 @@ body::after {
   margin-bottom: 6px;
   text-shadow: 0 2px 8px rgba(0,0,0,.5);
 }
+[lang="en"] .imam-mc-name { font-family: "Inter", sans-serif; }
 
 .imam-mc-title {
   font-size: clamp(.8rem, 1.4vw, 1rem);
