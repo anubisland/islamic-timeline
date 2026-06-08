@@ -37,7 +37,7 @@
     { id: 'classic', labelAr: 'حامد',  labelEn: 'Guy',   descAr: 'فصيح',   descEn: 'Classic ♂' },
     { id: 'gentle',  labelAr: 'زارية', labelEn: 'Aria',  descAr: 'هادئ',   descEn: 'Gentle ♀' },
     { id: 'story',   labelAr: 'سلمى',  labelEn: 'Jenny', descAr: 'حكواتي', descEn: 'Storyteller ♀' },
-    { id: 'warm',    labelAr: 'شاكر',  labelEn: 'Ryan',  descAr: 'ودود',   descEn: 'Warm ♂' }
+    { id: 'warm',    labelAr: 'عبدالله', labelEn: 'Ryan',  descAr: 'ودود',   descEn: 'Warm ♂' }
   ];
   let VOICE = localStorage.getItem(STORAGE.voice) || 'classic';
   if (!VOICE_SLOTS.some((v) => v.id === VOICE)) VOICE = 'classic';

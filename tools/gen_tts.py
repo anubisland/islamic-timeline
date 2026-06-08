@@ -54,8 +54,8 @@ SLOTS = {
                 "labelAr": "زارية", "labelEn": "Zariyah", "descAr": "صوت هادئ",   "descEn": "Gentle ♀"},
     "story":   {"ar": "ar-EG-SalmaNeural",   "en": "en-US-JennyNeural",
                 "labelAr": "سلمى",  "labelEn": "Salma",   "descAr": "حكواتي",     "descEn": "Storyteller ♀"},
-    "warm":    {"ar": "ar-EG-ShakirNeural",  "en": "en-GB-RyanNeural",
-                "labelAr": "شاكر",  "labelEn": "Shakir",  "descAr": "صوت ودود",   "descEn": "Warm ♂"},
+    "warm":    {"ar": "ar-OM-AbdullahNeural", "en": "en-GB-RyanNeural",
+                "labelAr": "عبدالله", "labelEn": "Ryan",   "descAr": "صوت ودود",   "descEn": "Warm ♂"},
 }
 
 # Storytelling pace: a touch slower than default, steady volume.

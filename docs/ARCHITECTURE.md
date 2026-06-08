@@ -125,7 +125,7 @@ Story narration plays **static MP3 files** generated offline with Microsoft's fr
   | `classic` | ar-SA-HamedNeural | en-US-GuyNeural |
   | `gentle`  | ar-SA-ZariyahNeural | en-US-AriaNeural |
   | `story`   | ar-EG-SalmaNeural | en-US-JennyNeural |
-  | `warm`    | ar-EG-ShakirNeural | en-GB-RyanNeural |
+  | `warm`    | ar-OM-AbdullahNeural | en-GB-RyanNeural |
 
 - `playVerse()` builds the URL via `narrationURL()` and tries it first. **A missing file fires `Audio.onerror`**, which is what drives the fallback — so the app degrades gracefully and audio can be rolled out incrementally. (We deliberately do *not* `fetch('audio/manifest.json')` at runtime, because `fetch` of a local file is blocked under `file://` in Chrome; `Audio` is not.)
 - The `-8%` storytelling pace is baked into the files, so they play at `playbackRate = 1.0`.

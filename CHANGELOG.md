@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.12.6] — 2026-06-08
+
+### Changed
+- **The "warm" narration voice now uses a distinct Arabic speaker** — the `classic` (حامد / ar-SA-Hamed) and `warm` (شاكر / ar-EG-Shakir) slots are both deep male voices reading formal Arabic, so they were nearly indistinguishable (most noticeable across the Four Imams narration). Swapped the warm slot's Arabic voice to **عبدالله / ar-OM-AbdullahNeural** — a clearly different, calmer Gulf male — updated the picker label (`app.js` `VOICE_SLOTS`) and generator (`tools/gen_tts.py` `SLOTS`) in sync, and regenerated all 92 warm-slot Arabic clips (10 eras + 4 imams). The warm slot's English voice (en-GB-Ryan) is unchanged — it was already distinct from classic's en-US-Guy. Docs (ARCHITECTURE §7a table, CLAUDE.md/AGENTS.md slot list) updated to match.
+
 ## [2.12.5] — 2026-06-08
 
 ### Fixed
