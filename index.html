@@ -65,8 +65,65 @@
     <span data-ar="English" data-en="العربية">English</span>
   </button>
 
-  <!-- SPLASH SCREEN (shown initially) -->
+  <!-- HOME SCREEN (master launcher, shown initially) -->
+  <section id="home-screen" class="home-screen">
+    <div class="home-bg"></div>
+    <div class="splash-frame"></div>
+    <div class="splash-corner tl"></div><div class="splash-corner tr"></div>
+    <div class="splash-corner bl"></div><div class="splash-corner br"></div>
+
+    <div class="home-inner">
+      <div class="home-header">
+        <h1 class="home-title" data-ar="الأئمة" data-en="The Imams">الأئمة</h1>
+        <p class="home-sub" data-ar="اختر المسار الذي تريد استكشافه" data-en="Choose a path to explore">اختر المسار الذي تريد استكشافه</p>
+        <div class="splash-divider">۞</div>
+      </div>
+
+      <div class="home-cards">
+        <!-- السيرة والخلافة -->
+        <div class="home-card" id="home-sera" role="button" tabindex="0">
+          <div class="hc-bg" style="background: linear-gradient(160deg, rgba(197,160,89,.2), rgba(6,53,41,.6))"></div>
+          <div class="hc-content">
+            <div class="hc-icon">🕌</div>
+            <div class="hc-name" data-ar="السيرة والخلافة" data-en="Seerah &amp; Caliphate">السيرة والخلافة</div>
+            <div class="hc-desc" data-ar="سيرة النبي ﷺ والخلفاء الراشدين — ٧٢ مرحلة عبر ١٠ عهود" data-en="The Prophet's ﷺ biography and the Rashidun Caliphs — 72 stages across 10 eras">سيرة النبي ﷺ والخلفاء الراشدين</div>
+            <div class="hc-stats">
+              <span class="hc-stat"><bdi data-ar="٧٢ مرحلة" data-en="72 stages">٧٢ مرحلة</bdi></span>
+              <span class="hc-dot">•</span>
+              <span class="hc-stat"><bdi data-ar="١٠ عهود" data-en="10 eras">١٠ عهود</bdi></span>
+            </div>
+            <div class="hc-btn" data-ar="استكشف السيرة" data-en="Explore Seerah">استكشف السيرة</div>
+          </div>
+        </div>
+
+        <!-- الأئمة الأربعة -->
+        <div class="home-card" id="home-imams" role="button" tabindex="0">
+          <div class="hc-bg" style="background: linear-gradient(160deg, rgba(197,160,89,.15), rgba(30,10,50,.6))"></div>
+          <div class="hc-content">
+            <div class="hc-icon">📚</div>
+            <div class="hc-name" data-ar="الأئمة الأربعة" data-en="The Four Imams">الأئمة الأربعة</div>
+            <div class="hc-desc" data-ar="سيرة أئمة المذاهب الفقهية — أبو حنيفة، مالك، الشافعي، أحمد" data-en="Lives of the founders of Islamic jurisprudence schools — Abu Hanifa, Malik, Al-Shafi'i, Ahmad">سيرة أئمة المذاهب الفقهية</div>
+            <div class="hc-stats">
+              <span class="hc-stat"><bdi data-ar="٢٠ مرحلة" data-en="20 stages">٢٠ مرحلة</bdi></span>
+              <span class="hc-dot">•</span>
+              <span class="hc-stat"><bdi data-ar="٤ أئمة" data-en="4 Imams">٤ أئمة</bdi></span>
+            </div>
+            <div class="hc-btn" data-ar="استكشف الأئمة" data-en="Explore Imams">استكشف الأئمة</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-foot">
+        <span data-ar="التصميم التفاعلي للخط الزمني" data-en="Interactive Timeline Design">التصميم التفاعلي للخط الزمني</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPLASH SCREEN (Sera era selection) -->
   <section id="splash" class="splash">
+    <button id="splash-back" class="splash-back-btn" type="button" aria-label="Back to home">
+      <span data-ar="← الرئيسية" data-en="← Home">← الرئيسية</span>
+    </button>
     <div class="splash-bg"></div>
     <div class="splash-frame"></div>
     <div class="splash-corner tl"></div><div class="splash-corner tr"></div>

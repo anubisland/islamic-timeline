@@ -26,6 +26,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Mode-toggle label clobbered by `applyLanguage()`** (B3b-class bug) — the `#btn-mode` span carried `data-ar`/`data-en`, so every language toggle / mount reset its text to "Verse" regardless of the actual mode. Removed the static attributes; `updateModeUI()` is now the single source of truth and is called on init, click, and language toggle.
 - **Narration cut off at 30 s** — the playback stuck-state timeout (30 s) was shorter than many narration clips (e.g. Hijra step 1 is 28 s; longer steps exceed 30 s). Raised to a 180 s backstop and guarded with a play-token so a stale timer can never stop a newer playback.
 
+## [2.10.0] — 2026-06-08
+
+### Added
+- **Master launcher homepage** — New abstract splash (`#home-screen`) with 2 tiled cards: "السيرة والخلافة" (Seerah & Caliphate) and "الأئمة الأربعة" (The Four Imams). Clicking Sera navigates to the existing era selection splash; clicking Imams is a placeholder for the next phase.
+- **MODE state routing** (`'home' | 'sera' | 'imams'`) in `app.js` with `showHome()`, `goToHome()`, `goToSera()`, `goToImams()` functions.
+- **Splash back button** (`#splash-back`) — returns to the master launcher from the era selection screen.
+- **Responsive 1-column stack** for home cards at ≤720px.
+
+### Changed
+- `init()` now shows `showHome()` instead of `showSplash()`.
+- `showSplash()` and `hideSplash()` now also toggle the home screen visibility.
+- Header 🏠 button goes to splash (era selection); splash "← الرئيسية" goes to home.
+
 ## [2.9.1] — 2026-06-08
 
 ### Fixed

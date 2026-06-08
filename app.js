@@ -14,6 +14,7 @@
 
   // ── State ──────────────────────────────────────────────
   const STORAGE = { lang: 'sera.lang', ttsMode: 'sera.tts', auto: 'sera.auto', evt: 'sera.evt', voice: 'sera.voice', reciter: 'sera.reciter' };
+  let MODE = 'home';   // 'home' | 'sera' | 'imams'
   let EVT = localStorage.getItem(STORAGE.evt) || 'hijra';
   let STEP = 0;
   let LANG = (localStorage.getItem(STORAGE.lang) || 'AR').toUpperCase();
@@ -56,8 +57,48 @@
   // ── Map viewBoxes ──────────────────────────────────────
   const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560] };
 
+  // ── Home screen (master launcher) ──────────────────────
+  function showHome() {
+    MODE = 'home';
+    const home = $('home-screen');
+    if (home) home.classList.remove('home-hidden');
+    const splash = $('splash');
+    if (splash) splash.classList.add('hidden');
+    const hdr = $('site-header');
+    if (hdr) hdr.classList.remove('visible');
+    // Keep splash lang toggle visible on home screen
+    const slb = $('splash-lang-toggle');
+    if (slb) slb.classList.remove('hidden');
+    document.body.style.background = '#060b0f';
+    document.body.style.overflow = 'hidden';
+    document.querySelector('meta[name=theme-color]').content = '#060b0f';
+    stopAudio();
+  }
+
+  function goToHome() {
+    STEP = 0;
+    showHome();
+  }
+
+  function goToSera() {
+    MODE = 'sera';
+    const home = $('home-screen');
+    if (home) home.classList.add('home-hidden');
+    showSplash();
+  }
+
+  function goToImams() {
+    MODE = 'imams';
+    const home = $('home-screen');
+    if (home) home.classList.add('home-hidden');
+    // Future: show imams selection screen
+    console.warn('Four Imams module not yet implemented');
+  }
+
   // ── Splash navigation ──────────────────────────────────
   function hideSplash() {
+    const home = $('home-screen');
+    if (home) home.classList.add('home-hidden');
     const sp = $('splash');
     if (sp) sp.classList.add('hidden');
     const hdr = $('site-header');
@@ -72,6 +113,9 @@
   }
 
   function showSplash() {
+    MODE = 'sera';
+    const home = $('home-screen');
+    if (home) home.classList.add('home-hidden');
     const sp = $('splash');
     if (sp) sp.classList.remove('hidden');
     const hdr = $('site-header');
@@ -685,6 +729,12 @@
 
   // ── Wire up DOM ─────────────────────────────────────────
   function init() {
+    // Home screen: click cards
+    const homeSera = $('home-sera');
+    if (homeSera) homeSera.addEventListener('click', goToSera);
+    const homeImams = $('home-imams');
+    if (homeImams) homeImams.addEventListener('click', goToImams);
+
     // Splash: click era cards
     document.querySelectorAll('.era-card, .caliph-card').forEach((el) => {
       el.addEventListener('click', () => switchEv(el.dataset.ev));
@@ -692,6 +742,9 @@
     // Back to splash
     const backBtn = $('btn-splash');
     if (backBtn) backBtn.addEventListener('click', goToSplash);
+    // Splash back to home
+    const splashBack = $('splash-back');
+    if (splashBack) splashBack.addEventListener('click', goToHome);
 
     // Language toggle (header + splash)
     const langToggle = (btn) => {
@@ -808,9 +861,9 @@
       if (e.key === 'l' || e.key === 'L') { e.preventDefault(); LANG = LANG === 'AR' ? 'EN' : 'AR'; applyLanguage(); }
     });
 
-    // Start with splash screen; CSS hides footer via #splash:not(.hidden) ~ .tl-foot
+    // Start with home screen (master launcher)
     buildTimeline();
-    showSplash();
+    showHome();
     applyLanguage();
 
     // Diag banner: click to dismiss
