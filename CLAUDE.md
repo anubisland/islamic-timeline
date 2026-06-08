@@ -40,9 +40,10 @@ Sera/
 ├── CONTRIBUTING.md         # How to add a step / era
 ├── LICENSE                 # MIT
 ├── docs/
-│   ├── ARCHITECTURE.md       # §7 = the audio system
+│   ├── ARCHITECTURE.md
 │   ├── BUGS.md               # Catalogue of bugs & lessons learned — READ FIRST
 │   ├── DATA_SCHEMA.md
+│   ├── MERGE_PLAN.md         # Plan to merge Four Imams project
 │   └── SOURCES.md
 └── .editorconfig
 ```

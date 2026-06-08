@@ -43,6 +43,7 @@ Sera/
 │   ├── ARCHITECTURE.md       # §7 = the audio system
 │   ├── BUGS.md               # Catalogue of bugs & lessons learned — READ FIRST
 │   ├── DATA_SCHEMA.md
+│   ├── MERGE_PLAN.md         # Plan to merge Four Imams project
 │   └── SOURCES.md
 └── .editorconfig
 ```
