@@ -1,6 +1,6 @@
 # Architecture
 
-This document explains how the Madani Era Timeline app is put together — for developers who want to extend it, debug it, or port it to another platform.
+This document explains how the Islamic Timeline app is put together — for developers who want to extend it, debug it, or port it to another platform.
 
 > For data shapes, see [`DATA_SCHEMA.md`](DATA_SCHEMA.md).
 > For the Islamic sources used, see [`SOURCES.md`](SOURCES.md).

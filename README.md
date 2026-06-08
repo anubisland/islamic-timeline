@@ -1,8 +1,8 @@
-# Madani Era Timeline (الخط الزمني للسيرة النبوية)
+# Islamic Timeline (الخط الزمني الإسلامي)
 
 > **Interactive bilingual (Arabic / English) timeline of the Prophet's biography and the era that followed — 10 eras, 72 stages: Pre-Prophethood (11), Meccan (16), Hijra (6), Badr (3), Medinan (11), and the five Rightly-Guided Caliphs (5 each).**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-anubisland.github.io-0a6b58?style=for-the-badge&logo=github)](https://anubisland.github.io/madani-era-timeline-app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-anubisland.github.io-0a6b58?style=for-the-badge&logo=github)](https://anubisland.github.io/islamic-timeline/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-C5A059?style=for-the-badge)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-2.1.0-063529?style=for-the-badge)](CHANGELOG.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)

@@ -1,7 +1,7 @@
 # AGENTS.md — Project Briefing for AI Coding Agents
 
-> **Repo:** `anubisland/madani-era-timeline-app` — public, GitHub Pages from `main`.
-> **Live:** https://anubisland.github.io/madani-era-timeline-app/
+> **Repo:** `anubisland/islamic-timeline` — public, GitHub Pages from `main`.
+> **Live:** https://anubisland.github.io/islamic-timeline/
 
 ## What this project is
 
