@@ -73,6 +73,7 @@ If a source is unavailable the app shows a brief "audio not available" notice �
     - **Verse:** the step's `ayahRefEn` MUST be a parseable Quran citation — either `"Surah <Name> (<num>), verse <n>"` / `"verses <n>-<m>"` **or** `"Surah <Name> — <surah>:<ayah>"` — so verse mode can stream the recitation. Verify the ayah resolves on everyayah.com before committing. (A non-Quran citation, e.g. a hadith, is allowed but that step will have no recitation.)
     - **Never** reintroduce live `speechSynthesis` / `translate_tts` — they were removed for sounding robotic and ignoring the chosen voice.
 11. **Keep `CLAUDE.md` and `AGENTS.md` in sync.** Both files must contain identical project knowledge (bug catalog, rules, file map, etc.). When you update one, update the other in the same commit.
+12. **Adding a new top-level UI state/overlay? Audit every splash/era-keyed assumption.** The app was built around a two-state model (`#splash` era-selection ↔ era view). The homepage (`#home-screen`) and Four Imams (`#imam-screen`) states each shipped a live-site regression because code that assumed the old model wasn't updated. When you add a `MODE`/overlay: (a) every `show*()` must explicitly set ALL overlays + `.wrap`/`.tl-foot`; (b) generalize anything keyed to `#splash` or `EVT` (the safety-net CSS, `applyMapFocus` diag gate, `narrationURL`, `setAudioPulse`) to be `MODE`-aware; (c) never rely on `requestAnimationFrame` alone (paused in hidden tabs); (d) test the full state graph. See the "Homepage + Four Imams integration regressions" catalogue.
 
 ## Adding a step (most common task)
 
@@ -201,6 +202,20 @@ Even **empty** (no text content), its padding + green background + border render
 | **Splash content too tall** (v2.7.2) | 10 cards + header + footer in single column | Reduced padding/font at each breakpoint; hides subtitle/divider at ≤360px |
 | **Timeline strip missing on load** (v2.4.3) | `buildTimeline()` not called from `init()` | Added call to `buildTimeline()` in `init()` before `applyLanguage()` |
 | **Map zoom controls reversed** (v2.9.1) | Click handlers had `zoomIdx--` on zIn (+ button) and `zoomIdx++` on zOut (- button) — opposite of correct pan/zoom math | Swapped directions: `zoomIdx++` on zIn (smaller viewBox = zoom in), `zoomIdx--` on zOut (larger viewBox = zoom out) |
+
+### Homepage + Four Imams integration regressions (v2.10.1 - v2.11.1) - the multi-state footgun
+
+> **Root pattern (read before adding any new screen):** the app assumed a TWO-state model - `#splash` (era selection) <-> era view. Phases 1-4 added new top-level states (`MODE: 'home' | 'sera' | 'imams'`, plus the `#home-screen` and `#imam-screen` overlays). **Each new state broke a place that still assumed the old two-state model**, shipping four separate live-site regressions from one pattern.
+
+| Bug (intro -> fix commit) | Root cause | Fix |
+|---|---|---|
+| **Homepage corruption - era UI + footer leaked below the launcher** (`4258fdc` -> `225ff45`) | The CSS safety-net that force-hides `.wrap` (4000px+ of maps) + `.tl-foot` was keyed only to `#splash:not(.hidden)`. `showHome()` sets `#splash` to `.hidden`, so the rule stopped firing -> the whole era UI rendered in flow beneath the fixed `#home-screen` -> a ~4700px scrollable broken page. | Extend the selector to also cover `#home-screen:not(.home-hidden) ~ .wrap, ~ .tl-foot`. |
+| **"Explore Imams" -> wrong page** (`4258fdc` -> `1ceea55`) | `goToImams()` hid the home screen but had no view to show, so the Seerah era view underneath became visible. | First a "coming soon" notice; now (module built) `goToImams()` calls `showImamScreen()`. |
+| **Green strip on the homepage** (`4258fdc` -> `1cbc045`) | `applyMapFocus()` showed the `#focus-diag` badge whenever `#splash` was hidden - but the home screen also hides `#splash`. | Show it only in a true step view (splash AND home both hidden); `showHome()` hides it as a safety net. |
+| **Imam play button played the wrong (Seerah) narration** (`218be0d` -> `dadbce6`) | `narrationURL()` used the global Seerah `EVT` regardless of `MODE`, so an imam step fetched a real Seerah clip (e.g. `hijra_0_ar.mp3`). | In imam mode the key is `imam-<id>` -> 404 -> "audio not available". |
+| **Imam map focus never positioned** (`d1ef067`) | `renderImam()` positioned the focus via `requestAnimationFrame`, which browsers pause in a hidden/backgrounded tab and on first paint. The Sera path also calls `applyMapFocus()` synchronously, so it was unaffected. | Call `applyMapFocus()` synchronously (SVG attribute writes need no layout). |
+
+**Lesson:** a new UI state is never "just one screen" - it interacts with every overlay-toggle, every `#splash`/`EVT`-keyed CSS/JS path, and the audio router. Treat `init()` and each `show*()` as "must set the entire state -> DOM mapping," and test home -> sera -> era -> back -> home -> imams -> imam -> back, checking at each node: no overflow, `.wrap`/footer correct, no stray green strip, correct audio source.
 
 ### Debugging methodology for future agents
 
