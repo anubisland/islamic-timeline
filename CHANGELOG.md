@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.12.3] — 2026-06-08
+
+### Fixed
+- **Imam selection cards oversized/uncentred on desktop** — the full-height "fill" behaviour (`flex` + `grid-auto-rows:1fr`, intended for mobile) was in the *base* rule, so on desktop the four cards stretched to the full screen height (~410px) with their content floating in the middle and a large empty band above. Moved the fill to mobile-only; on desktop the cards now have a natural height (~230px), the 2×2 grid is **centred** (`margin:0 auto`, `.imam-inner` `align-items:center`), and the content (icon / name / title / dates / description) is evenly distributed with balanced top/bottom margins. Mobile single-column fill unchanged.
+
 ## [2.12.2] — 2026-06-08
 
 ### Fixed
