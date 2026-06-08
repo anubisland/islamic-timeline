@@ -586,10 +586,15 @@
   // 'narrate' -> pre-generated neural MP3 under audio/. 'verse' -> real reciter
   // recitation from everyayah.com. No live TTS (Web Speech / translate_tts).
 
-  // ── Narration MP3 url for the current (voice, era, step, language) ──
+  // ── Narration MP3 url for the current (voice, era|imam, step, language) ──
+  // In imam mode the key is `imam-<id>` (NOT the Seerah EVT) — otherwise an imam
+  // step would resolve to a real Seerah clip (e.g. audio/classic/hijra_0_ar.mp3)
+  // and play the wrong narration. Imam audio isn't generated yet, so this path
+  // 404s → playVerse() shows "audio not available", which is the intended result.
   function narrationURL(slot) {
     const lang = LANG === 'AR' ? 'ar' : 'en';
-    return 'audio/' + (slot || VOICE) + '/' + EVT + '_' + STEP + '_' + lang + '.mp3';
+    const key = MODE === 'imams' ? ('imam-' + IMAM) : EVT;
+    return 'audio/' + (slot || VOICE) + '/' + key + '_' + STEP + '_' + lang + '.mp3';
   }
 
   // ── Verse recitation URLs (real reciter audio from everyayah.com) ──

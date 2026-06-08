@@ -28,6 +28,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.11.0] — 2026-06-08
 
+### Fixed
+- **Imam play button played the wrong (Seerah) narration** — `narrationURL()` used the global Seerah `EVT` regardless of mode, so pressing play on an imam step requested a real Seerah clip (e.g. `audio/classic/hijra_0_ar.mp3`) and played Hijra narration under an imam page. In imam mode the key is now `imam-<id>`; since imam audio isn't generated, that 404s and the player correctly shows "audio not available."
+
 ### Added
 - **Four Imams data module** (`data_imams.js`) — `window.FOUR_IMAMS_DB` with 4 imams × 5 phases = 20 stages in Sera's parallel-field format. Covers Abu Hanifa, Malik, Al-Shafi'i, and Ahmad ibn Hanbal.
 - **Imam selection splash** (`#imam-screen`) — 4 colored cards (gold/green/burgundy/purple) with gradient backgrounds, icons, names, titles, and dates. Responsive 2×2 grid (stacks at ≤720px).
