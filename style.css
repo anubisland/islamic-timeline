@@ -1909,6 +1909,7 @@ body::after {
   inset: 0;
   z-index: 105;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #060b0f;
@@ -1932,12 +1933,12 @@ body::after {
 .imam-inner {
   width: 100%;
   max-width: 880px;
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 14px;
   z-index: 10;
-  overflow: hidden;
 }
 
 .imam-header { text-align: center; width: 100%; }
@@ -1957,8 +1958,11 @@ body::after {
 
 /* ----- Imam cards (2×2 grid) ----- */
 .imam-cards {
+  flex: 1;
+  min-height: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
   gap: 14px;
   width: 100%;
   max-width: 700px;
@@ -1974,7 +1978,6 @@ body::after {
   transition: transform .25s, box-shadow .25s;
   display: flex;
   flex-direction: column;
-  min-height: 200px;
 }
 .imam-card:hover {
   transform: translateY(-4px);
@@ -2147,8 +2150,7 @@ body::after {
 
 @media (max-width: 720px) {
   .imam-screen { padding: 12px; }
-  .imam-cards { grid-template-columns: 1fr; gap: 10px; max-width: 400px; }
-  .imam-card { min-height: 160px; }
+  .imam-cards { grid-template-columns: 1fr; grid-auto-rows: 1fr; gap: 10px; max-width: 400px; }
   .ic-content { padding: 16px 14px; }
   .ic-icon { font-size: 1.6rem; }
   .imam-header h1 { font-size: 1.4rem; }
@@ -2160,7 +2162,6 @@ body::after {
 
 @media (max-width: 480px) {
   .imam-screen { padding: 8px; }
-  .imam-card { min-height: 130px; }
   .ic-content { padding: 12px 10px; }
   .ic-icon { font-size: 1.3rem; margin-bottom: 5px; }
   .ic-name { font-size: 1rem; }
@@ -2178,7 +2179,6 @@ body::after {
 
 @media (max-width: 360px) {
   .imam-screen { padding: 6px; }
-  .imam-card { min-height: 110px; }
   .imam-header h1 { font-size: 1rem; }
   .imam-sub { display: none; }
   .imam-cards { gap: 6px; }
