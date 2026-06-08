@@ -21,9 +21,9 @@ There is no bundler, no framework, no npm runtime dependency, no TypeScript. The
 
 | File | Role |
 |------|------|
-| `index.html` | Document structure. Loads fonts, CSS, `data.js`, then `app.js`. Inlines two `<svg>` maps. Holds the bilingual `data-ar` / `data-en` attributes for every user-facing string in the chrome. |
+| `index.html` | Document structure. Loads fonts, CSS, `data.js`, then `app.js`. Inlines ten `<svg>` maps (one per era). Holds the bilingual `data-ar` / `data-en` attributes for every user-facing string in the chrome. |
 | `style.css`  | All visual styling, organised by component: header → wrap → map panel → story panel → timeline footer. |
-| `data.js`    | The content of the app. Exposes a single global `window.SEERAH_DB` with two events (`hijra`, `badr`) and their step arrays. |
+| `data.js`    | The content of the app. Exposes a single global `window.SEERAH_DB` with ten events (`preb`, `meccan`, `hijra`, `badr`, `medinan`, `abubakr`, `umar`, `uthman`, `ali`, `hasan`) and their step arrays. |
 | `app.js`     | All behaviour. State management, rendering, navigation, language toggle, and the Google TTS audio engine. |
 | `timeline_data.geojson` | Pure spatial data, ready to be loaded by Leaflet / MapLibre / QGIS / Google Earth. |
 
@@ -49,7 +49,8 @@ browser GETs index.html
 Three values, all module-local to the IIFE in `app.js`:
 
 ```js
-let EVT  = 'hijra' | 'badr';   // current event
+let EVT  = 'preb' | 'meccan' | 'hijra' | 'badr' | 'medinan'
+         | 'abubakr' | 'umar' | 'uthman' | 'ali' | 'hasan';   // current event
 let STEP = 0..n;                // current step within that event
 let LANG = 'AR' | 'EN';         // current language
 ```
@@ -99,7 +100,7 @@ document.querySelectorAll('[data-ar][data-en]').forEach(el => {
 });
 ```
 
-This works for HTML elements *and* SVG elements, since both implement the `dataset` property in modern browsers. The two SVG maps therefore fully translate on the same click that translates the story panel.
+This works for HTML elements *and* SVG elements, since both implement the `dataset` property in modern browsers. All ten SVG maps therefore fully translate on the same click that translates the story panel.
 
 Dynamic content (steps, characters, lessons) lives in `data.js` and is read with the helper:
 
@@ -196,10 +197,11 @@ See [`../CONTRIBUTING.md`](../CONTRIBUTING.md#adding-a-new-event) for the step-b
 
 ## 11. Performance notes
 
-- `index.html` is ~25 KB, `style.css` ~18 KB, `app.js` ~12 KB, `data.js` ~32 KB. Total ~88 KB uncompressed.
-- The two SVG maps account for ~13 KB of the HTML.
+- `index.html` is ~113 KB, `style.css` ~43 KB, `app.js` ~33 KB, `data.js` ~278 KB. Total ~470 KB uncompressed for the core app.
+- The ten inline SVG maps account for the bulk of the HTML.
+- Pre-generated narration audio under `audio/` is ~140 MB total (~0.2 MB per clip); each clip is loaded only on demand when the user presses play.
 - All assets are static and cacheable. GitHub Pages serves them with `Cache-Control: public, max-age=600`.
-- The Google TTS request is the only external network call (and only fires on user gesture).
+- The only external network call is the per-ayah Quran recitation from everyayah.com in verse mode (fired on user gesture); narration plays the committed local MP3s.
 - A local serve (`npx serve .`) handles ~200 concurrent clients in testing on a single core.
 
 ## 12. Browser support

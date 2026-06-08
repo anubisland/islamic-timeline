@@ -1,18 +1,20 @@
 # Madani Era Timeline (الخط الزمني للسيرة النبوية)
 
-> **Interactive bilingual (Arabic / English) timeline of the Prophet's biography across four eras: Meccan (16), Hijra (6), Badr (3), and Medinan (11) — 36 stages in total.**
+> **Interactive bilingual (Arabic / English) timeline of the Prophet's biography and the era that followed — 10 eras, 72 stages: Pre-Prophethood (11), Meccan (16), Hijra (6), Badr (3), Medinan (11), and the five Rightly-Guided Caliphs (5 each).**
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-anubisland.github.io-0a6b58?style=for-the-badge&logo=github)](https://anubisland.github.io/madani-era-timeline-app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-C5A059?style=for-the-badge)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-2.1.0-063529?style=for-the-badge)](CHANGELOG.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
-A **single-page, no-build, vanilla-JS** website that walks through **36 chronological stages** of the Prophet Muhammad's ﷺ biography, organised into four eras:
+A **single-page, no-build, vanilla-JS** website that walks through **72 chronological stages** across **10 eras**:
 
-- 🕋 **Meccan Era** — 16 stages (Birth → First revelation → Public call → Boycott → Ta'if → Eve of the Hijra)
+- 🌅 **Pre-Prophethood** — 11 stages (the Arabian Peninsula → birth → Year of the Elephant → his youth and character)
+- 🕋 **Meccan Era** — 16 stages (First revelation → Public call → Boycott → Ta'if → Isra & Mi'raj → Eve of the Hijra)
 - 🧭 **The Hijra** — 6 stages (Departure → Cave of Thawr → Coastal route → Qudayd → Suraqah's chase → Arrival in Madinah)
 - ⚔️ **Battle of Badr** — 3 stages (Shura → March → The clash)
 - 🏛️ **Medinan Era** — 11 stages (Mosque & state → Badr → Uhud → Khandaq → Hudaybiyyah → Conquest of Makkah → Farewell Hajj → Death)
+- 🟢 **The Rightly-Guided Caliphs (Rashidun)** — 25 stages (Abu Bakr, Umar, Uthman, Ali, and al-Hasan — 5 each)
 
 Each step presents a unique Quranic verse, the historical narrative, key figures, leadership lessons, and authoritative sources from the classical Seerah literature.
 
@@ -109,8 +111,9 @@ Two data files are at the heart of the project:
 ### `data.js` — `window.SEERAH_DB`
 ```js
 SEERAH_DB = {
-  hijra: { labelAr, labelEn, steps: [Step, ...] },
-  badr:  { labelAr, labelEn, steps: [Step, ...] }
+  preb, meccan, hijra, badr, medinan,        // the Prophet's ﷺ biography
+  abubakr, umar, uthman, ali, hasan          // the Rashidun caliphs
+  // each: { labelAr, labelEn, mapLabelAr, mapLabelEn, steps: [Step, ...] }
 }
 
 Step = {
@@ -127,7 +130,7 @@ Step = {
 ```
 
 ### `timeline_data.geojson`
-Standard GeoJSON `FeatureCollection` of all 9 event locations with bilingual `name_ar` / `name_en` and `coordinates: [lng, lat]`.
+Standard GeoJSON `FeatureCollection` of all 24 event locations with bilingual `name_ar` / `name_en` and `coordinates: [lng, lat]`.
 
 > See [`docs/DATA_SCHEMA.md`](docs/DATA_SCHEMA.md) for the full type definitions and the meaning of `offsets[]`.
 

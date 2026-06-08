@@ -7,7 +7,7 @@ This document describes the structure of every data file in the project. Keep it
 
 ## 1. `data.js` — `window.SEERAH_DB`
 
-A single global object with two top-level keys: `hijra` and `badr`. Each is an *event* with the following shape:
+A single global object with ten top-level keys (one per era): `preb`, `meccan`, `hijra`, `badr`, `medinan`, `abubakr`, `umar`, `uthman`, `ali`, `hasan`. Each is an *event* with the following shape:
 
 ```ts
 type Event = {

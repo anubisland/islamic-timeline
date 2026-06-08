@@ -5,14 +5,20 @@
 
 ## TL;DR
 
-A static, no-build, vanilla-JS bilingual (AR RTL / EN LTR) timeline of the Prophet's biography. **4 eras / 36 stages**. Deployed to GitHub Pages from `main`. No build step, no framework, no npm runtime dependency.
+A static, no-build, vanilla-JS bilingual (AR RTL / EN LTR) timeline of the Prophet's biography and the Rashidun era. **10 eras / 72 stages**. Deployed to GitHub Pages from `main`. No build step, no framework, no npm runtime dependency.
 
 | Key | Era | Steps |
 |---|---|---|
+| `preb`    | Pre-Prophethood (c. 500 CE → birth & youth) | 11 |
 | `meccan`  | Meccan Era (570 CE → eve of Hijra) | 16 |
 | `hijra`   | The Hijra | 6 |
 | `badr`    | Battle of Badr | 3 |
 | `medinan` | Medinan Era (1 – 11 AH) | 11 |
+| `abubakr` | Caliphate of Abu Bakr al-Siddiq | 5 |
+| `umar`    | Caliphate of Umar ibn al-Khattab | 5 |
+| `uthman`  | Caliphate of Uthman ibn Affan | 5 |
+| `ali`     | Caliphate of Ali ibn Abi Talib | 5 |
+| `hasan`   | Caliphate of al-Hasan ibn Ali | 5 |
 
 ## File map (the entire surface area)
 
