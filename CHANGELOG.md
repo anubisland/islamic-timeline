@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.12.4] — 2026-06-08
+
+### Fixed
+- **Story boxes clipped their text (ayah / lesson) when content was tall or the font was enlarged** — `.story-scroll` is a flex column with `max-height: 70vh`. When the total content exceeded it, flex-shrink squeezed the children, and boxes with `overflow: hidden` (the ayah/quote box and the lesson box) have a flex `min-height` of **0**, so they collapsed to a sliver and clipped their text instead of letting the panel scroll. Added `.story-scroll > * { flex-shrink: 0 }` — boxes now keep their natural height and `.story-scroll` scrolls instead. Verified across Sera + imam views and at an enlarged 22px root font (boxes grow, no clipping).
+
 ## [2.12.3] — 2026-06-08
 
 ### Fixed

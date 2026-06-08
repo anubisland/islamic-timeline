@@ -606,6 +606,12 @@ body::after {
   gap: .8rem;
   max-height: 70vh;
 }
+/* Never let a story box shrink below its content. Without this, when the total
+   content exceeds max-height (e.g. a long verse, or the user enlarges the font),
+   flex-shrink squeezes the boxes — and boxes with overflow:hidden (ayah, lesson)
+   have a flex min-height of 0, so they collapse and CLIP their text instead of
+   letting .story-scroll scroll. flex-shrink:0 makes the container scroll instead. */
+.story-scroll > * { flex-shrink: 0; }
 
 @media (max-width: 880px) { .story-scroll { max-height: none; } }
 
