@@ -71,6 +71,7 @@ If a source is unavailable the app shows a brief "audio not available" notice �
     - **Narration:** after adding or editing any step's `descAr` / `descEn`, run `python tools/gen_tts.py` to (re)generate that step's MP3s for **all 4 voice slots × both languages**, and commit the new `audio/**` files + updated `audio/manifest.json` in the same commit. Use `--force` when you changed existing text.
     - **Verse:** the step's `ayahRefEn` MUST be a parseable Quran citation — either `"Surah <Name> (<num>), verse <n>"` / `"verses <n>-<m>"` **or** `"Surah <Name> — <surah>:<ayah>"` — so verse mode can stream the recitation. Verify the ayah resolves on everyayah.com before committing. (A non-Quran citation, e.g. a hadith, is allowed but that step will have no recitation.)
     - **Never** reintroduce live `speechSynthesis` / `translate_tts` — they were removed for sounding robotic and ignoring the chosen voice.
+11. **Keep `AGENTS.md` and `CLAUDE.md` in sync.** Both files must contain identical project knowledge (bug catalog, rules, file map, etc.). When you update one, update the other in the same commit.
 
 ## Adding a step (most common task)
 
