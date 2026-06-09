@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] — 2026-06-10
+
+### Added
+- **Umayyad Caliphate era (`umawi`) — 24 stages (41–132 AH / 661–750 CE).** New bilingual era covering Mu'awiya through the fall of the dynasty: 24 steps in `data.js`, an inline `#svg-umawi` map (key cities + expansion routes), 15 GeoJSON features, and 24 diacritized `narration_ar.json` entries. Wired into `MAP_VB`, the SVG show/zoom lists, and `switchEv`; selectable from the caliph-card grid. (Implemented by the co-developer; this release adds the version bump + changelog entry that the merge had dropped.)
+- **Shakir voice for the Umayyad era.** The era shipped with audio for only 4 voice slots; generated the missing 48 Shakir clips (24 steps × AR+EN) so all five voices cover Umayyad too, and rebuilt the full manifest.
+
 ## [2.13.0] — 2026-06-09
 
 ### Added
