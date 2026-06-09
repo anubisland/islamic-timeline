@@ -5,7 +5,7 @@
 
 ## What this project is
 
-A **single-page, no-build, vanilla-JS** bilingual (Arabic RTL / English LTR) timeline of the Prophet's biography and the Rashidun era. **10 eras / 72 stages**:
+A **single-page, no-build, vanilla-JS** bilingual (Arabic RTL / English LTR) timeline of the Prophet's biography, the Rashidun era, and the Umayyad Caliphate. **11 eras / ~96 stages**:
 
 | Key | Era | Steps |
 |---|---|---|
@@ -19,6 +19,7 @@ A **single-page, no-build, vanilla-JS** bilingual (Arabic RTL / English LTR) tim
 | `uthman`  | Caliphate of Uthman ibn Affan | 5 |
 | `ali`     | Caliphate of Ali ibn Abi Talib | 5 |
 | `hasan`   | Caliphate of al-Hasan ibn Ali | 5 |
+| `umawi`   | Umayyad Caliphate (design approved → ready for implementation) | ~24 |
 
 ## File map
 
@@ -27,7 +28,7 @@ Sera/
 ├── index.html              # Entry — UI + inline SVG maps
 ├── style.css               # Emerald (#063529) + gold (#C5A059) design system
 ├── app.js                  # All behaviour: language toggle, switchEv, step nav, audio
-├── data.js                 # Bilingual data module — window.SEERAH_DB (Seerah: 10 eras / 72 steps)
+├── data.js                 # Bilingual data module — window.SEERAH_DB (Seerah: 11 eras / ~96 steps)
 ├── data_imams.js           # Bilingual data module — window.FOUR_IMAMS_DB (4 imams × 5 phases); loaded before app.js
 ├── timeline_data.geojson   # geographic features (one per major location)
 ├── audio/                  # Pre-generated neural narration MP3s (COMMITTED)
@@ -47,6 +48,8 @@ Sera/
 │   ├── BUGS.md               # Catalogue of bugs & lessons learned — READ FIRST
 │   ├── DATA_SCHEMA.md
 │   ├── MERGE_PLAN.md         # Plan to merge Four Imams project
+│   ├── UMAYYAD_DESIGN.md     # Design doc for Umayyad Caliphate module (approved)
+│   ├── UMAYYAD_PROGRESS.md   # Implementation progress tracker for Umayyad module
 │   └── SOURCES.md
 └── .editorconfig
 ```
@@ -104,7 +107,7 @@ See `docs/DATA_SCHEMA.md` for the canonical field reference.
 
 ## Adding an era (rare)
 
-1. Add a new key to `window.SEERAH_DB` in `data.js` (insert in chronological order: meccan → hijra → badr → medinan).
+1. Add a new key to `window.SEERAH_DB` in `data.js` (insert in chronological order: meccan → hijra → badr → medinan → abubakr → umar → uthman → ali → hasan → umawi).
 2. Add a `<button class="ev-btn" data-ev="<key>" ...>` to `index.html`'s `.event-switch`.
 3. Add an inline `<svg id="svg-<key>" class="map-svg hidden" ...>` to `index.html` directly after `svg-badr`.
 4. Extend `app.js` `switchEv()` to toggle the new SVG (mirror the existing lines). Add the era's `viewBox` to `MAP_VB` and the SVG id to the `allSvgs` / zoom lists.

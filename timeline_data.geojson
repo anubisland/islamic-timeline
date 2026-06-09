@@ -384,6 +384,246 @@
         "type": "Point",
         "coordinates": [39.6111, 24.4682]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_damascus",
+        "event_id": "umawi_0",
+        "name_ar": "دمشق",
+        "name_en": "Damascus",
+        "year_ah": "41 AH",
+        "event_title_ar": "عام الجماعة — انتقال الخلافة إلى دمشق",
+        "event_title_en": "Year of Unity — Caliphate moves to Damascus"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [36.3, 33.5]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_kufa",
+        "event_id": "umawi_0",
+        "name_ar": "الكوفة",
+        "name_en": "Kufa",
+        "year_ah": "41 AH",
+        "event_title_ar": "تنازل الحسن بن علي في الكوفة",
+        "event_title_en": "Hasan ibn Ali's abdication in Kufa"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [44.4, 32.0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_qayrawan",
+        "event_id": "umawi_2",
+        "name_ar": "القيروان",
+        "name_en": "Qayrawan",
+        "year_ah": "50 AH",
+        "event_title_ar": "تأسيس القيروان — فتح المغرب",
+        "event_title_en": "Founding of Qayrawan — Conquest of the Maghreb"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [10.1, 35.7]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_constantinople",
+        "event_id": "umawi_3",
+        "name_ar": "القسطنطينية",
+        "name_en": "Constantinople",
+        "year_ah": "50 AH",
+        "event_title_ar": "حصار القسطنطينية الأول",
+        "event_title_en": "First Siege of Constantinople"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.9, 41.0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_karbala",
+        "event_id": "umawi_4",
+        "name_ar": "كربلاء",
+        "name_en": "Karbala",
+        "year_ah": "61 AH",
+        "event_title_ar": "مقتل الحسين بن علي في كربلاء",
+        "event_title_en": "Martyrdom of al-Husayn at Karbala"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [44.0, 32.6]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_makkah",
+        "event_id": "umawi_7",
+        "name_ar": "مكة المكرمة",
+        "name_en": "Makkah",
+        "year_ah": "73 AH",
+        "event_title_ar": "حصار مكة والقضاء على ابن الزبير",
+        "event_title_en": "Siege of Makkah — End of Ibn al-Zubayr"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [39.8, 21.4]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_quds",
+        "event_id": "umawi_9",
+        "name_ar": "القدس",
+        "name_en": "Jerusalem",
+        "year_ah": "72 AH",
+        "event_title_ar": "بناء قبة الصخرة",
+        "event_title_en": "Building the Dome of the Rock"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [35.2, 31.8]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_samarkand",
+        "event_id": "umawi_10",
+        "name_ar": "سمرقند",
+        "name_en": "Samarqand",
+        "year_ah": "86 AH",
+        "event_title_ar": "فتوحات قتيبة بن مسلم — بلاد ما وراء النهر",
+        "event_title_en": "Qutayba's conquests — Transoxiana"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [66.9, 39.6]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_sindh",
+        "event_id": "umawi_10",
+        "name_ar": "السند",
+        "name_en": "Sindh",
+        "year_ah": "90 AH",
+        "event_title_ar": "فتح السند بقيادة محمد بن القاسم",
+        "event_title_en": "Conquest of Sindh by Muhammad al-Qasim"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [68.5, 24.7]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_gibraltar",
+        "event_id": "umawi_11",
+        "name_ar": "مضيق جبل طارق",
+        "name_en": "Strait of Gibraltar",
+        "year_ah": "92 AH",
+        "event_title_ar": "عبور طارق بن زياد إلى الأندلس",
+        "event_title_en": "Tariq ibn Ziyad crosses into al-Andalus"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-5.4, 36.0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_cordoba",
+        "event_id": "umawi_11",
+        "name_ar": "قرطبة",
+        "name_en": "Cordoba",
+        "year_ah": "92 AH",
+        "event_title_ar": "فتح الأندلس",
+        "event_title_en": "Conquest of al-Andalus"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-4.8, 37.9]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_const_siege2",
+        "event_id": "umawi_12",
+        "name_ar": "القسطنطينية",
+        "name_en": "Constantinople",
+        "year_ah": "98 AH",
+        "event_title_ar": "الحصار الثاني للقسطنطينية",
+        "event_title_en": "Second Siege of Constantinople"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.9, 41.0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_dayr_siman",
+        "event_id": "umawi_17",
+        "name_ar": "دير سمعان",
+        "name_en": "Dayr Sim'an",
+        "year_ah": "101 AH",
+        "event_title_ar": "وفاة عمر بن عبد العزيز",
+        "event_title_en": "Death of Umar ibn Abd al-Aziz"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [36.5, 33.5]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_tours",
+        "event_id": "umawi_20",
+        "name_ar": "بلاط الشهداء — تور",
+        "name_en": "Tours — Battle of the Palace of Martyrs",
+        "year_ah": "114 AH",
+        "event_title_ar": "معركة بلاط الشهداء",
+        "event_title_en": "Battle of Tours/Poitiers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [0.7, 47.4]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_zab",
+        "event_id": "umawi_22",
+        "name_ar": "نهر الزاب",
+        "name_en": "River Zab",
+        "year_ah": "132 AH",
+        "event_title_ar": "معركة الزاب — نهاية الدولة الأموية",
+        "event_title_en": "Battle of the Zab — End of the Umayyad Caliphate"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [43.5, 36.0]
+      }
     }
   ]
 }

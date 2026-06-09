@@ -255,6 +255,17 @@
               <bdi>٦٦١ م</bdi>
             </div>
           </div>
+          <div class="caliph-card" data-ev="umawi" role="button" tabindex="0">
+            <span class="cc-icon">🏛️</span>
+            <div class="cc-name">
+              <span data-ar="الدولة الأموية" data-en="Umayyad Caliphate">الدولة الأموية</span>
+            </div>
+            <div class="cc-dates">
+              <bdi>٤١ - ١٣٢ هـ</bdi>
+              <span class="ec-sep">|</span>
+              <bdi>٦٦١ - ٧٥٠ م</bdi>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1626,6 +1637,104 @@
             <line x1="0" y1="-12" x2="0" y2="-6" stroke="#C5A059" stroke-width="1.5"/>
           </g>
           <g id="focus-hasan" style="display:none">
+            <circle class="focus-pulse" cx="0" cy="0" r="8" fill="none" stroke="#C5A059" stroke-width="3"/>
+            <polygon class="star-wake" points="0,-22 6,-6 22,0 6,6 0,22 -6,6 -22,0 -6,-6"/>
+          </g>
+          </g>
+        </svg>
+
+        <!-- UMAYYAD MAP -->
+        <svg id="svg-umawi" class="map-svg hidden" viewBox="0 0 1000 560" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+          <g class="map-frame" opacity=".55">
+            <g transform="translate(14,14)"><polygon points="0,0 18,2 14,8 18,14 8,14 2,18 0,0 8,2 14,0" fill="#C5A059" opacity=".6"/></g>
+            <g transform="translate(986,14) scale(-1,1)"><polygon points="0,0 18,2 14,8 18,14 8,14 2,18 0,0 8,2 14,0" fill="#C5A059" opacity=".6"/></g>
+            <g transform="translate(14,546) scale(1,-1)"><polygon points="0,0 18,2 14,8 18,14 8,14 2,18 0,0 8,2 14,0" fill="#C5A059" opacity=".6"/></g>
+            <g transform="translate(986,546) scale(-1,-1)"><polygon points="0,0 18,2 14,8 18,14 8,14 2,18 0,0 8,2 14,0" fill="#C5A059" opacity=".6"/></g>
+          </g>
+          <g class="map-pan" id="pan-umawi">
+          <defs>
+            <radialGradient id="umbg" cx="50%" cy="50%" r="65%"><stop offset="0%" stop-color="#1a1408" stop-opacity=".4"/><stop offset="100%" stop-color="#0a0e14" stop-opacity="1"/></radialGradient>
+            <linearGradient id="umdesert" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#5a4a32"/><stop offset="100%" stop-color="#2a1e10"/></linearGradient>
+            <marker id="um-ar1" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto"><polygon points="0,0 8,4 0,8" fill="#C5A059"/></marker>
+            <filter id="um-gf"><feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect width="1000" height="560" fill="url(#umdesert)"/><rect width="1000" height="560" fill="url(#umbg)"/>
+          <use href="#sym-arabesque" x="40" y="40" width="48" height="48" opacity=".5"/>
+          <use href="#sym-star8-lg" x="440" y="160" width="160" height="160" opacity=".2"/>
+          <use href="#sym-dune" x="420" y="380" width="180" height="44" opacity=".45"/>
+          <!-- Expansion routes -->
+          <path d="M 320 200 Q 250 340 130 410" fill="none" stroke="#C5A059" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#um-ar1)" opacity=".7"/>
+          <path d="M 320 200 Q 370 30 370 30" fill="none" stroke="#C5A059" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#um-ar1)" opacity=".7"/>
+          <path d="M 320 200 Q 480 290 630 250" fill="none" stroke="#C5A059" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#um-ar1)" opacity=".7"/>
+          <path d="M 630 250 Q 750 180 850 110" fill="none" stroke="#C5A059" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#um-ar1)" opacity=".7"/>
+          <path d="M 130 410 Q 80 470 40 470" fill="none" stroke="#C5A059" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#um-ar1)" opacity=".6"/>
+          <!-- Damascus -->
+          <g class="cdn" id="umnode-0" transform="translate(320,200)">
+            <circle class="pr" cx="0" cy="0" r="26"/>
+            <text y="-23" fill="#fde68a" font-size="11" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" filter="url(#um-gf)" data-ar="دمشق" data-en="Damascus">دمشق</text>
+            <text y="34" fill="#fcd34d" font-size="8.5" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="عاصمة الخلافة" data-en="Caliphal capital">عاصمة الخلافة</text>
+          </g>
+          <!-- Jerusalem -->
+          <g class="cdn" id="umnode-1" transform="translate(340,230)">
+            <circle class="pr" cx="0" cy="0" r="20"/>
+            <rect x="-12" y="-14" width="24" height="28" fill="rgba(5,150,105,.18)" stroke="#10b981" stroke-width="1.5"/>
+            <text y="-16" fill="#6ee7b7" font-size="9.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="القدس" data-en="Jerusalem">القدس</text>
+            <text y="30" fill="#6ee7b7" font-size="8" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="قبة الصخرة" data-en="Dome of the Rock">قبة الصخرة</text>
+          </g>
+          <!-- Madinah -->
+          <g class="cdn" id="umnode-2" transform="translate(420,350)">
+            <circle class="pr" cx="0" cy="0" r="20"/>
+            <text y="-16" fill="#bae6fd" font-size="9.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="المدينة" data-en="Madinah">المدينة</text>
+            <text y="30" fill="#7dd3fc" font-size="8" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="مركز العلم" data-en="Center of learning">مركز العلم</text>
+          </g>
+          <!-- Kufa -->
+          <g class="cdn" id="umnode-3" transform="translate(480,290)">
+            <circle class="pr" cx="0" cy="0" r="20"/>
+            <text y="-16" fill="#bae6fd" font-size="9.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="الكوفة" data-en="Kufa">الكوفة</text>
+            <text y="30" fill="#7dd3fc" font-size="8" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="العراق" data-en="Iraq">العراق</text>
+          </g>
+          <!-- Qayrawan -->
+          <g class="cdn" id="umnode-4" transform="translate(130,410)">
+            <circle class="pr" cx="0" cy="0" r="20"/>
+            <text y="-16" fill="#bae6fd" font-size="9" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="القيروان" data-en="Qayrawan">القيروان</text>
+            <text y="30" fill="#7dd3fc" font-size="8" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="إفريقية" data-en="Ifriqiya">إفريقية</text>
+          </g>
+          <!-- Constantinople -->
+          <g class="cdn" id="umnode-5" transform="translate(370,30)">
+            <circle class="pr" cx="0" cy="0" r="18"/>
+            <text y="-14" fill="#fca5a5" font-size="9" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="القسطنطينية" data-en="Constantinople">القسطنطينية</text>
+            <text y="26" fill="#f87171" font-size="7.5" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="حصار الأمويين" data-en="Umayyad sieges">حصار الأمويين</text>
+          </g>
+          <!-- Bukhara -->
+          <g class="cdn" id="umnode-6" transform="translate(850,110)">
+            <circle class="pr" cx="0" cy="0" r="18"/>
+            <text y="-14" fill="#bae6fd" font-size="9" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="بخارى" data-en="Bukhara">بخارى</text>
+            <text y="26" fill="#7dd3fc" font-size="7.5" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="بلاد ما وراء النهر" data-en="Transoxiana">بلاد ما وراء النهر</text>
+          </g>
+          <!-- Cordoba / Andalusia -->
+          <g class="cdn" id="umnode-7" transform="translate(40,470)">
+            <circle class="pr" cx="0" cy="0" r="18"/>
+            <text y="-14" fill="#bae6fd" font-size="9" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="الأندلس" data-en="Andalusia">الأندلس</text>
+            <text y="26" fill="#7dd3fc" font-size="7.5" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="قرطبة" data-en="Cordoba">قرطبة</text>
+          </g>
+          <!-- Rayy / Persia -->
+          <g class="cdn" id="umnode-8" transform="translate(630,250)">
+            <circle class="pr" cx="0" cy="0" r="16"/>
+            <text y="-13" fill="#bae6fd" font-size="8.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="الري" data-en="Rayy">الري</text>
+            <text y="24" fill="#7dd3fc" font-size="7" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="فارس" data-en="Persia">فارس</text>
+          </g>
+          <!-- Era badge -->
+          <g transform="translate(120,80)">
+            <rect x="-55" y="-22" width="110" height="44" rx="8" fill="rgba(1,10,7,.85)" stroke="rgba(197,160,89,.4)" stroke-width="1"/>
+            <text data-ar="٤١ - ١٣٢ هـ" data-en="41 – 132 AH" x="0" y="-3" fill="#C5A059" font-size="11.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif">٤١ - ١٣٢ هـ</text>
+            <text data-ar="الدولة الأموية" data-en="Umayyad Caliphate" x="0" y="14" fill="#94a3b8" font-size="9.5" text-anchor="middle" font-family="Cairo,sans-serif">الدولة الأموية</text>
+          </g>
+          <g transform="translate(948,508)">
+            <circle r="18" fill="rgba(6,78,59,.45)" stroke="rgba(197,160,89,.3)" stroke-width="1"/>
+            <text data-ar="ش" data-en="N" y="5" text-anchor="middle" fill="#C5A059" font-size="12" font-family="Cairo,sans-serif" font-weight="bold">ش</text>
+            <line x1="0" y1="-12" x2="0" y2="-6" stroke="#C5A059" stroke-width="1.5"/>
+          </g>
+          <g id="focus-umawi" style="display:none">
             <circle class="focus-pulse" cx="0" cy="0" r="8" fill="none" stroke="#C5A059" stroke-width="3"/>
             <polygon class="star-wake" points="0,-22 6,-6 22,0 6,6 0,22 -6,6 -22,0 -6,-6"/>
           </g>
