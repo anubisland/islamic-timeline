@@ -434,6 +434,37 @@ window.FOUR_IMAMS_DB = {
     mapZoom: 5,
     steps: [
       {
+        ayah: "",
+        ayahRef: "",
+        ayahEn: "",
+        ayahRefEn: "",
+        dateAr: "150 هـ",
+        dateEn: "150 AH",
+        titleAr: "ولادته",
+        titleEn: "His Birth",
+        mtAr: "غزة - فلسطين",
+        mtEn: "Gaza – Palestine",
+        mdAr: "ولد الإمام الشافعي في غزة بفلسطين سنة 150 هـ يتيماً، ونشأ في حضن أمه التي تحملت تربيته وحدها",
+        mdEn: "Al-Shafi'i was born in Gaza, Palestine in 150 AH as an orphan, raised by his mother alone",
+        amb: "day",
+        timeAr: "150 هـ",
+        timeEn: "150 AH",
+        distAr: "غزة",
+        distEn: "Gaza",
+        descAr: "اتفق المؤرخون أن ولادة الإمام الشافعي كانت في غزة من أرض فلسطين المباركة سنة 150 هـ (767 م)، وهي السنة التي توفي فيها الإمام أبو حنيفة. وقد ولد يتيماً، فلم ير والده الذي توفي وهو صغير. نشأ في حضن أمه التي تحملت تربيته وحدها.",
+        descEn: "Historians agree that Imam al-Shafi'i was born in Gaza, in the blessed land of Palestine, in 150 AH (767 CE) — the same year Imam Abu Hanifa died. He was born an orphan, never seeing his father who passed away while he was young. He grew up in the care of his mother, who bore his upbringing alone.",
+        charsAr: [
+          { i: "👤", n: "والدة الشافعي", r: "قامت على تربيته بعد وفاة والده" }
+        ],
+        charsEn: [
+          { i: "👤", n: "Al-Shafi'i's Mother", r: "Raised him after his father's death" }
+        ],
+        lessonAr: "اليتم ليس عائقاً للعظمة • الأم الصالحة تصنع الرجال • بركة الأرض المباركة تنعكس على أبنائها",
+        lessonEn: "Orphanhood is not a barrier to greatness • A righteous mother raises great men • The blessing of a sacred land reflects on its children",
+        srcs: ["سير أعلام النبلاء للذهبي (١٠/٢٠٠)", "قصة الإسلام - د. راغب السرجاني"],
+        mapFocus: { x: 96, y: 172, scale: 1.0 }
+      },
+      {
         ayah: "وَرَبَّكَ فَكَبِّر",
         ayahRef: "سورة المدثر، الآية ٣",
         ayahEn: "And your Lord magnify.",
@@ -442,17 +473,17 @@ window.FOUR_IMAMS_DB = {
         dateEn: "150 – 170 AH",
         titleAr: "النشأة والتكوين",
         titleEn: "Early Life & Formation",
-        mtAr: "غزة - فلسطين",
-        mtEn: "Gaza – Palestine",
-        mdAr: "ولد الإمام الشافعي في غزة بفلسطين سنة 150 هـ وهي السنة التي توفي فيها الإمام أبو حنيفة",
-        mdEn: "Al-Shafi'i was born in Gaza, Palestine in 150 AH, the same year Abu Hanifa died",
+        mtAr: "مكة المكرمة",
+        mtEn: "Mecca",
+        mdAr: "انتقلت به أمه إلى مكة وهو في عمر عامين، فنشأ فيها يتيماً فقيراً وبدأ طلب العلم",
+        mdEn: "His mother moved with him to Mecca at age 2, where he grew up a poor orphan and began seeking knowledge",
         amb: "day",
         timeAr: "150 - 170 هـ",
         timeEn: "150 – 170 AH",
         distAr: "غزة - مكة",
         distEn: "Gaza – Mecca",
-        descAr: "ولد الإمام الشافعي في غزة بفلسطين سنة 150 هـ (767 م) وهي السنة التي توفي فيها الإمام أبو حنيفة. توفي والده وهو صغير، فحملته أمه إلى مكة. نشأ في مكة، حفظ القرآن في 7 سنين، وحفظ الموطأ في 10 سنين. نشأ الشافعي يتيماً فقيراً في مكة. كان شديد الذكاء والحفظ. قال: 'كنت ألقط الكاغد من الطرق لأكتب عليه من قلة الشيء'. أذن له شيخه بالفتوى وهو ابن 15 سنة.",
-        descEn: "Al-Shafi'i was born in Gaza, Palestine in 150 AH, the same year Abu Hanifa died. His father died young, so his mother took him to Mecca. He memorized the Quran in 7 years and Al-Muwatta in 10 years. Al-Shafi'i grew up a poor orphan in Mecca. He was exceptionally intelligent. He said: 'I would pick up scraps of paper from the streets to write on due to poverty.' His teacher authorized him to give fatwas at 15.",
+        descAr: "لما رأت أمه أن ابنها يتيم خافت عليه وانتقلت به إلى مكة وهو في عمر عامين. نشأ في مكة، حفظ القرآن في 7 سنين، وحفظ الموطأ في 10 سنين. نشأ الشافعي يتيماً فقيراً في مكة. كان شديد الذكاء والحفظ. قال: 'كنت ألقط الكاغد من الطرق لأكتب عليه من قلة الشيء'. أذن له شيخه بالفتوى وهو ابن 15 سنة.",
+        descEn: "When his mother saw that her son was an orphan, she feared for him and moved with him to Mecca when he was two years old. He grew up in Mecca, memorized the Quran in 7 years and Al-Muwatta in 10 years. Al-Shafi'i grew up a poor orphan in Mecca. He was exceptionally intelligent. He said: 'I would pick up scraps of paper from the streets to write on due to poverty.' His teacher authorized him to give fatwas at 15.",
         charsAr: [
           { i: "🎓", n: "مسلم بن خالد الزنجي", r: "شيخ الشافعي الأول في مكة (ت 179 هـ)" },
           { i: "📖", n: "سفيان بن عيينة", r: "شيخه في الحديث بمكة (ت 198 هـ)" },
@@ -466,7 +497,7 @@ window.FOUR_IMAMS_DB = {
         lessonAr: "اليتم والفقر ليسا عائقاً أمام طلب العلم • حفظ القرآن في الصغر أساس التميز • النبوغ المبكر ليس مانعاً من الفتوى",
         lessonEn: "Orphanhood and poverty are no barriers to knowledge • Quran memorization in childhood is the foundation • Early brilliance does not prevent giving fatwa",
         srcs: ["سير أعلام النبلاء للذهبي (١٠/٢٠٠)", "قصة الإسلام - د. راغب السرجاني", "د. علي الصلابي"],
-        mapFocus: { x: 96, y: 172, scale: 1.0 }
+        mapFocus: { x: 229, y: 372, scale: 1.0 }
       },
       {
         ayah: "فَلَوْلَا نَفَرَ مِن كُلِّ فِرْقَةٍ مِّنْهُمْ طَائِفَةٌ لِّيَتَفَقَّهُوا فِي الدِّينِ",
