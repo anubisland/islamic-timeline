@@ -187,15 +187,15 @@ window.FOUR_IMAMS_DB = {
         timeEn: "150 AH",
         distAr: "بغداد - مقبرة الخيزران",
         distEn: "Baghdad – Khayzuran Cemetery",
-        descAr: "توفي الإمام أبو حنيفة في سجن بغداد سنة 150 هـ عن عمر 70 عاماً. ترك إرثاً علمياً هائلاً تمثل في المذهب الحنفي الذي انتشر في العراق وفارس وتركيا والهند والصين، وكان المذهب الرسمي للدولة العثمانية. رغم محنته، انتشر مذهب أبي حنيفة انتشاراً واسعاً بفضل تلاميذه الأوفياء. كان أبو يوسف أول من حمل لواء المذهب حين ولاه هارون الرشيد قضاء القضاة. انتشر المذهب الحنفي في العراق وبلاد الشام وتركيا والبلقان والقوقاز والهند وأفغانستان وبلاد ما وراء النهر والصين.",
-        descEn: "Abu Hanifa died in a Baghdad prison in 150 AH at age 70. He left a tremendous legacy — the Hanafi school spread across Iraq, Persia, Turkey, India, and China, becoming the official school of the Ottoman Empire. Despite his ordeal, the Hanafi school spread widely through his loyal students. Abu Yusuf became the first Chief Justice under Harun al-Rashid. The Hanafi school spread across Iraq, Syria, Turkey, the Balkans, the Caucasus, India, Afghanistan, Transoxiana, and China.",
+        descAr: "توفي الإمام أبو حنيفة في سجن بغداد سنة 150 هـ عن عمر 70 عاماً. ترك إرثاً علمياً هائلاً تمثل في المذهب الحنفي الذي انتشر في العراق وفارس وتركيا والهند والصين، وكان المذهب الرسمي للدولة العثمانية. رغم محنته، انتشر مذهب أبي حنيفة انتشاراً واسعاً بفضل تلاميذه الأوفياء. كان أبو يوسف أول من حمل لواء المذهب عندما ولاه الخليفة هارون الرشيد منصب قاضي القضاة. انتشر المذهب الحنفي في العراق وبلاد الشام وتركيا والبلقان والقوقاز والهند وأفغانستان وبلاد ما وراء النهر والصين.",
+        descEn: "Abu Hanifa died in a Baghdad prison in 150 AH at age 70. He left a tremendous legacy — the Hanafi school spread across Iraq, Persia, Turkey, India, and China, becoming the official school of the Ottoman Empire. Despite his ordeal, the Hanafi school spread widely through his loyal students. Abu Yusuf was the first to carry the banner of the school when Caliph Harun al-Rashid appointed him as Chief Justice. The Hanafi school spread across Iraq, Syria, Turkey, the Balkans, the Caucasus, India, Afghanistan, Transoxiana, and China.",
         charsAr: [
-          { i: "👑", n: "هارون الرشيد", r: "الخليفة الذي نشر مذهب أبي حنيفة" },
+          { i: "👑", n: "هارون الرشيد", r: "الخليفة الذي ساهم في نشر مذهب أبي حنيفة بتوليته لتلميذ الإمام أبي يوسف منصب قاضي القضاة" },
           { i: "📖", n: "أبو يوسف", r: "قاضي القضاة، نشر المذهب" },
           { i: "📖", n: "محمد بن الحسن الشيباني", r: "دون المذهب في كتبه" }
         ],
         charsEn: [
-          { i: "👑", n: "Harun al-Rashid", r: "Caliph who promoted the Hanafi school" },
+          { i: "👑", n: "Harun al-Rashid", r: "Caliph who helped spread the Hanafi school by appointing Abu Hanifa's student Abu Yusuf as Chief Justice" },
           { i: "📖", n: "Abu Yusuf", r: "Chief Justice, spread the school" },
           { i: "📖", n: "Muhammad al-Shaybani", r: "Codified the school in his books" }
         ],
