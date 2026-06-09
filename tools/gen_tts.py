@@ -97,14 +97,34 @@ def normalize_ar_for_tts(text):
     return text
 
 
-def text_for(step, lang):
+def text_for(step, lang, voc=None):
     """Narration text = the story description in the chosen language.
     We DO NOT strip punctuation — commas/periods give the neural voice its
-    natural pauses. We feed raw text; the neural model auto-diacritizes Arabic.
-    Arabic date abbreviations (هـ / م) are expanded so they're spoken naturally."""
+    natural pauses. Arabic date abbreviations (هـ / م) are expanded so they're
+    spoken naturally.
+
+    For Arabic we prefer a hand-vocalized (fully-diacritized) version when one
+    exists in tools/narration_ar.json (keyed `<era>_<step>`). Bare consonantal
+    text forces the neural voice to GUESS every harakah, and it sometimes guesses
+    the wrong fatha/kasra/damma or case ending. Feeding diacritized text removes
+    the guessing. Falls back to the on-screen descAr when no vocalized text is
+    provided, so rollout can be incremental. The on-screen text is never changed."""
     if lang == "ar":
-        return normalize_ar_for_tts(step.get("descAr") or "")
+        return normalize_ar_for_tts(voc or step.get("descAr") or "")
     return step.get("descEn") or ""
+
+
+VOC_PATH = os.path.join(ROOT, "tools", "narration_ar.json")
+
+
+def load_voc():
+    """Load the optional diacritized-narration sidecar (build-time only; the app
+    never reads it). Returns {} if absent so the generator still works."""
+    try:
+        with open(VOC_PATH, encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {}
 
 
 async def synth_one(sem, voice, text, out_path, force):
@@ -155,6 +175,8 @@ async def main_async(args):
         build_manifest(db, slots)
         return
 
+    voc = load_voc()
+    voc_hits = 0
     sem = asyncio.Semaphore(CONCURRENCY)
     tasks = []
     for slot in slots:
@@ -167,9 +189,14 @@ async def main_async(args):
                 for lang in langs:
                     voice = SLOTS[slot][lang]
                     out_path = os.path.join(AUDIO_DIR, slot, f"{era}_{i}_{lang}.mp3")
-                    tasks.append(synth_one(sem, voice, text_for(step, lang), out_path, args.force))
+                    override = voc.get(f"{era}_{i}") if lang == "ar" else None
+                    if override:
+                        voc_hits += 1
+                    tasks.append(synth_one(sem, voice, text_for(step, lang, override), out_path, args.force))
 
     print(f"Generating {len(tasks)} clips  (slots={slots}, eras={len(eras)}, langs={langs}) …")
+    if langs and "ar" in langs:
+        print(f"  vocalized (diacritized) Arabic used for {voc_hits} of the AR clips; rest fall back to descAr.")
     results = await asyncio.gather(*tasks)
 
     stats = {"ok": 0, "exists": 0, "skip-empty": 0, "error": 0}

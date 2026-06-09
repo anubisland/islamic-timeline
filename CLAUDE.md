@@ -34,7 +34,8 @@ Sera/
 │   ├── <slot>/<era>_<step>_<lang>.mp3   # 4 voices × every step × ar|en
 │   └── manifest.json       # index of generated clips + slot labels
 ├── tools/
-│   └── gen_tts.py          # Dev-only narration generator (edge-tts). NOT shipped.
+│   ├── gen_tts.py          # Dev-only narration generator (edge-tts). NOT shipped.
+│   └── narration_ar.json   # Build-only: diacritized (mushakkal) AR narration per <era>_<step>. App never loads it.
 ├── package.json            # version + npm start (npx serve)
 ├── README.md               # User-facing docs
 ├── CHANGELOG.md            # Keep-a-Changelog, semver
@@ -71,6 +72,7 @@ If a source is unavailable the app shows a brief "audio not available" notice �
 9. **Do not commit secrets, .env files, or `node_modules/`.**
 10. **🔊 Every new/changed step MUST have audio generated and a recitable verse.** Audio is pre-recorded only (no live TTS):
     - **Narration:** after adding or editing any step's `descAr` / `descEn`, run `python tools/gen_tts.py` to (re)generate that step's MP3s for **all 4 voice slots × both languages**, and commit the new `audio/**` files + updated `audio/manifest.json` in the same commit. Use `--force` when you changed existing text.
+    - **Arabic vocalization (tashkīl):** the on-screen `descAr` is bare (undiacritized), so edge-tts would *guess* the vowels and sometimes mispronounce (wrong fatḥa/kasra/ḍamma, case ending, or name). The generator therefore prefers a fully-diacritized version from `tools/narration_ar.json` (keyed `<era>_<step>`, build-time only — the app never loads it; the on-screen text stays bare). When you add/edit a step's `descAr`, also add/update its `narration_ar.json` entry with the mushakkal text **and keep the consonantal skeleton identical to `descAr`** (only add harakāt; leave the `هـ`/`م` date tokens bare). Steps with no entry fall back to bare `descAr`.
     - **Verse:** the step's `ayahRefEn` MUST be a parseable Quran citation — either `"Surah <Name> (<num>), verse <n>"` / `"verses <n>-<m>"` **or** `"Surah <Name> — <surah>:<ayah>"` — so verse mode can stream the recitation. Verify the ayah resolves on everyayah.com before committing. (A non-Quran citation, e.g. a hadith, is allowed but that step will have no recitation.)
     - **Never** reintroduce live `speechSynthesis` / `translate_tts` — they were removed for sounding robotic and ignoring the chosen voice.
 11. **Keep `CLAUDE.md` and `AGENTS.md` in sync.** Both files must contain identical project knowledge (bug catalog, rules, file map, etc.). When you update one, update the other in the same commit.

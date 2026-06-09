@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.12.8] — 2026-06-09
+
+### Fixed
+- **Arabic narration mispronounced vowels (tashkīl)** — the on-screen `descAr` text is only ~1.6% diacritized, so edge-tts had to *guess* every vowel and sometimes picked the wrong fatḥa/kasra/ḍamma, case ending, or name (e.g. `وَلَدَ` "begot" instead of `وُلِدَ` "was born"). Added a **build-time sidecar `tools/narration_ar.json`** holding a fully-diacritized (mushakkal) version of all 92 steps' narration, keyed `<era>_<step>`; the generator (`text_for`) now feeds that to edge-tts so it reads the intended harakāt instead of guessing. The on-screen text is unchanged — the sidecar is never loaded by the app. Regenerated all 368 Arabic clips (92 steps × 4 voices) from the diacritized text. A skeleton validator confirmed every diacritized entry's consonants match its `descAr` exactly (only vowels added).
+
+### Changed
+- **3 Arabic content fixes found while vocalizing** (on-screen text corrected): Umar's conversion narration `أخته وأختها أسلمتا` → `أخته وزوجها أسلما` ("his sister **and her husband**", matching the already-correct English and the sīrah); `رقبة المؤمنة` → `رقبة مؤمنة` (the kaffāra frees *a* believing slave); `ثلاثة طعنات` → `ثلاث طعنات` (number-gender agreement); and a `لينشأ` typo fix. Documented the vocalization workflow in rule #10 and the `narration_ar.json` sidecar in the CLAUDE.md / AGENTS.md file maps.
+
 ## [2.12.7] — 2026-06-08
 
 ### Added
