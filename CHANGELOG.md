@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.12.10] — 2026-06-09
+
+### Added
+- **`tools/check_voc.py` — narration sidecar integrity gate.** The diacritized `narration_ar.json` is keyed by step index, so it silently goes stale when a step's `descAr` is edited or a step is inserted/reordered (this already caused the Al-Shafi'i audio desync in v2.12.9). The script compares each entry's consonant skeleton against the current `descAr` and reports three failure modes — MISSING (step has no entry), EXTRA (entry matches no step), MISMATCH (text edited or index shifted) — exiting non-zero so it works as a pre-commit/CI gate. Wired into rule #10 and the build/verify command list; run `python tools/check_voc.py` after any data edit.
+
 ## [2.12.9] — 2026-06-09
 
 ### Fixed
