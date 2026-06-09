@@ -1433,10 +1433,10 @@ body::after {
 /* ----- Home cards (2-column grid) ----- */
 .home-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   width: 100%;
-  max-width: 640px;
+  max-width: 960px;
 }
 
 .home-card {

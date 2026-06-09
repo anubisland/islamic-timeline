@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] — 2026-06-10
+
+### Changed
+- **Umayyad Caliphate promoted to a dedicated home-screen card.** Previously the Umayyad era was only reachable buried inside the Seerah splash's "Rashidun Caliphate" box (categorically wrong, and invisible from the homepage). Added a 3rd launcher card (`#home-umawi`, الدولة الأموية / Umayyad Caliphate, 24 stages · 41–132 AH) alongside Seerah & Four Imams; clicking it opens straight into the Umayyad era view via `goToUmawi()` (`MODE='sera'; switchEv('umawi')`). Removed the miscategorised Umayyad card from the Rashidun grid, so the splash now lists exactly the 5 Rashidun caliphs. Back from the Umayyad era returns **home** (since `EVT==='umawi'` is only reachable from the launcher card). `.home-cards` grid widened to 3 columns on desktop; still single-column on mobile. Verified the full nav graph in-browser. `data-ar`/`data-en` balance 244/244.
+
 ## [3.0.0] — 2026-06-10
 
 ### Added

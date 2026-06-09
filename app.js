@@ -109,6 +109,20 @@
     showImamScreen();
   }
 
+  // Dedicated home-screen entry straight into the Umayyad era view (it has its
+  // own launcher card; it is NOT listed in the Seerah splash). switchEv() does
+  // the heavy lifting — hideSplash() also hides the home screen, and it toggles
+  // svg-umawi / labels / render. Back from this era returns home (see btn-splash
+  // handler), since EVT==='umawi' is only reachable from here.
+  function goToUmawi() {
+    if (!DB.umawi) {
+      console.warn('SEERAH_DB.umawi not loaded.');
+      return;
+    }
+    MODE = 'sera';
+    switchEv('umawi');
+  }
+
   // ── Splash navigation ──────────────────────────────────
   function hideSplash() {
     const home = $('home-screen');
@@ -1099,6 +1113,8 @@
     if (homeSera) homeSera.addEventListener('click', goToSera);
     const homeImams = $('home-imams');
     if (homeImams) homeImams.addEventListener('click', goToImams);
+    const homeUmawi = $('home-umawi');
+    if (homeUmawi) homeUmawi.addEventListener('click', goToUmawi);
 
     // Splash: click era cards
     document.querySelectorAll('.era-card, .caliph-card').forEach((el) => {
@@ -1112,6 +1128,7 @@
     const backBtn = $('btn-splash');
     if (backBtn) backBtn.addEventListener('click', () => {
       if (MODE === 'imams') goToImamSplash();
+      else if (EVT === 'umawi') goToHome();  // Umayyad has its own home card, not in the splash
       else goToSplash();
     });
     // Splash back to home
