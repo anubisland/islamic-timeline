@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.13.0] — 2026-06-09
+
+### Added
+- **5th narration voice: `shakir` (Egyptian ♂).** Re-added `ar-EG-ShakirNeural` (شاكر) — paired with `en-US-BrianNeural` for English — as a new voice slot alongside the existing four (it had been swapped off `warm` in v2.12.6 for sounding too like Hamed; now it returns as an extra option rather than a replacement, so Abdullah stays on `warm`). Added to `gen_tts.py` `SLOTS` and `app.js` `VOICE_SLOTS` in sync; generated all 186 clips (93 steps × AR+EN). The picker is data-driven so it now lists five voices with no UI change. Arabic uses the diacritized sidecar + the `بن`→`ابن` rule. Docs (ARCHITECTURE §7a, CLAUDE.md/AGENTS.md) updated to "five voice slots".
+
+### Changed
+- **Restored Hijri/Gregorian date expansion in narration (reverses v2.12.11's removal).** Per the project owner's call, `normalize_ar_for_tts` again expands `هـ`→`هجرية` and `م`→`ميلادية` so the voice doesn't read "م" as the bare letter / "meters" (the original v2.12.8 fix). v2.12.11 had removed it for screen/audio parity but only regenerated Al-Shafi'i, leaving dates pronounced inconsistently across the app. Regenerated **all** Arabic audio (5 slots × 93 steps) so every step + every voice is consistent again. On-screen abbreviations are unchanged.
+
 ## [2.12.11] — 2026-06-09
 
 ### Fixed

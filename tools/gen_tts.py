@@ -56,6 +56,8 @@ SLOTS = {
                 "labelAr": "سلمى",  "labelEn": "Salma",   "descAr": "حكواتي",     "descEn": "Storyteller ♀"},
     "warm":    {"ar": "ar-OM-AbdullahNeural", "en": "en-GB-RyanNeural",
                 "labelAr": "عبدالله", "labelEn": "Ryan",   "descAr": "صوت ودود",   "descEn": "Warm ♂"},
+    "shakir":  {"ar": "ar-EG-ShakirNeural",  "en": "en-US-BrianNeural",
+                "labelAr": "شاكر",  "labelEn": "Brian",   "descAr": "صوت مصري",   "descEn": "Egyptian ♂"},
 }
 
 # Storytelling pace: a touch slower than default, steady volume.
@@ -81,7 +83,20 @@ def load_db():
 
 import re
 
+# Arabic date abbreviations the neural voice otherwise spells out letter-by-letter
+# (e.g. "م" read as the Latin letter "m" / "meters"). Expand them ONLY in the TTS
+# input — the on-screen text keeps the proper abbreviations.
+_AR_LETTERS = "ء-ي"  # hamza .. ya
+_DIGITS = "0-9٠-٩"  # Latin + Arabic-indic
+
+
 def normalize_ar_for_tts(text):
+    # Hijri: "هـ" -> "هجرية"  (e.g. "سنة 80 هـ" -> "سنة 80 هجرية")
+    text = text.replace("هـ", "هجرية")
+    # Gregorian: a standalone "م" right after a number (Latin OR Arabic-indic)
+    # -> "ميلادية"  ("699 م)" / "٥٧٠ م" -> "… ميلادية"; not inside words like "محرم").
+    # Without this the voice reads "م" as the bare letter / "meters" (user-reported).
+    text = re.sub(r"([" + _DIGITS + r"])\s*م(?![" + _AR_LETTERS + r"])", r"\1 ميلادية", text)
     # Genealogical connector "بن"/"بْن" ("son of", between two names): written
     # without an alif, the neural voice clips the bare consonant cluster and it
     # sounds like "pon". Prepend the hamzat-waṣl alif ("ابن") so it reads a clear
@@ -89,8 +104,6 @@ def normalize_ar_for_tts(text):
     # the bā' + optional case vowel on the nūn) — so بِنْت (daughter), بَنِي (sons
     # of), بَنَى (built), and an already-alif'd ابن are left untouched.
     text = re.sub(r"(?<!\S)(بْ?ن[َُِ]?)(?=\s)", r"ا\1", text)
-    # Do NOT expand date abbreviations (هـ→هجرية, م→ميلادية) — the on-screen text
-    # IS the spoken text; expansion caused a mismatch between what users see and hear.
     return text
 
 
