@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.1] — 2026-06-10
+
+### Fixed
+- **Clicking the new Umayyad home card did nothing on the deployed site** — `index.html` loaded `app.js` / `data.js` / `data_imams.js` with no cache-busting query, so browsers (and the GitHub Pages `max-age=600` edge) served the fresh `index.html` (with the new card) but a **stale cached `app.js`** that lacked the `#home-umawi` click handler — so the card rendered but had no behaviour. Added `?v=<version>` to all script tags and bumped `style.css`'s stale `?v=2.12.5` to match. **Convention going forward:** bump the `?v=` on `style.css`, `data.js`, `data_imams.js`, and `app.js` in `index.html` to the new `package.json` version whenever any of them changes (documented in CLAUDE.md/AGENTS.md).
+
 ## [3.1.0] — 2026-06-10
 
 ### Changed

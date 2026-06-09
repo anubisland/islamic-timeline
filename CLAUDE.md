@@ -72,7 +72,7 @@ If a source is unavailable the app shows a brief "audio not available" notice �
 5. **MIT license for code; classical Seerah content stays public domain with citations.** Never remove a `srcs[]` entry.
 6. **Single state object** in `app.js`: `{ EVT, STEP, LANG }`. No new globals.
 7. **Commit format: Conventional Commits.** `feat:` / `fix:` / `docs:` / `style:` / `refactor:`.
-8. **Update `CHANGELOG.md` and bump `package.json` version** in the same commit that changes behaviour.
+8. **Update `CHANGELOG.md` and bump `package.json` version** in the same commit that changes behaviour. **And cache-bust:** if you change `app.js`, `data.js`, `data_imams.js`, or `style.css`, update the `?v=<version>` query on that file's `<script>`/`<link>` in `index.html` to the new version. GitHub Pages serves with `max-age=600`, so without this, browsers run a stale `app.js` against a fresh `index.html` (new HTML, no matching JS handler → "clicking does nothing"). This has bitten the project repeatedly.
 9. **Do not commit secrets, .env files, or `node_modules/`.**
 10. **🔊 Every new/changed step MUST have audio generated and a recitable verse.** Audio is pre-recorded only (no live TTS):
     - **Narration:** after adding or editing any step's `descAr` / `descEn`, run `python tools/gen_tts.py` to (re)generate that step's MP3s for **all 5 voice slots × both languages**, and commit the new `audio/**` files + updated `audio/manifest.json` in the same commit. Use `--force` when you changed existing text.
