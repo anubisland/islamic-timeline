@@ -94,6 +94,13 @@ def normalize_ar_for_tts(text):
     # Gregorian: a standalone "م" right after a number (Latin OR Arabic-indic)
     # -> "ميلادية"  ("699 م)" / "٥٧٠ م" -> "… ميلادية"; not inside words like "محرم")
     text = re.sub(r"([" + _DIGITS + r"])\s*م(?![" + _AR_LETTERS + r"])", r"\1 ميلادية", text)
+    # Genealogical connector "بن"/"بْن" ("son of", between two names): written
+    # without an alif, the neural voice clips the bare consonant cluster and it
+    # sounds like "pon". Prepend the hamzat-waṣl alif ("ابن") so it reads a clear
+    # "ibn". Matches ONLY the standalone token (space-bounded, optional sukūn on
+    # the bā' + optional case vowel on the nūn) — so بِنْت (daughter), بَنِي (sons
+    # of), بَنَى (built), and an already-alif'd ابن are left untouched.
+    text = re.sub(r"(?<!\S)(بْ?ن[َُِ]?)(?=\s)", r"ا\1", text)
     return text
 
 

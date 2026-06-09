@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.12.9] — 2026-06-09
+
+### Fixed
+- **"بن" between names was pronounced "pon" instead of "ibn"** — the genealogical connector (e.g. `عمر بن الخطاب`) is written without an alif, and the neural voice clipped the bare consonant cluster. Added a rule to `normalize_ar_for_tts` that prepends the hamzat-waṣl alif (`بن` → `ابن`) at generation time, so the voice reads a clear "ibn". Matches only the standalone connector (space-bounded, optional sukūn + case vowel) and leaves `بنت` (daughter), `بني` (sons of), `بنى` (built), and an already-alif'd `ابن` untouched. Applies to both the vocalized sidecar and the bare-`descAr` fallback, covering future steps automatically.
+- **Resynced the narration sidecar after the Al-Shafi'i / Abu Hanifa data edits** — the new Al-Shafi'i birth phase (`imam-shafii` 5→6 steps, all indices shifted) and the Abu Hanifa step-4 rewrite left `tools/narration_ar.json` keyed to the *old* text, so those imam clips narrated stale/mismatched content. Re-vocalized all 6 Al-Shafi'i steps + Abu Hanifa step 4 (skeleton-validated against the current `descAr`) and regenerated every Arabic clip (93 steps × 4 voices) so audio, on-screen text, and the diacritized sidecar are consistent again.
+
 ## [2.12.8] — 2026-06-09
 
 ### Fixed
