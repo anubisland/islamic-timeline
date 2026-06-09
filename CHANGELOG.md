@@ -4,6 +4,16 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.12.11] — 2026-06-09
+
+### Fixed
+- **TTS abbreviation expansion caused audio/text mismatch** — `normalize_ar_for_tts()` was expanding `هـ` → `هجرية` and `م` → `ميلادية`, so the audio said expanded words while the screen showed abbreviations. Removed the expansion while keeping the `بن`→`ابن` speech fix; the TTS now reads exactly what's on screen.
+- **Imam card last line truncated on mobile** — `grid-auto-rows: 1fr` and `overflow: hidden` on `.imam-screen` clipped content. Removed both; screen scrolls naturally at natural card height.
+- **Home screen text invisible** — `--text-muted` and `--gold-light` CSS variables were used in `.hc-*` styles but never defined in `:root`. Added both.
+
+### Changed
+- **Al-Shafi'i phase 4 (Egypt) character** — replaced `عبد الله بن وهب` with `أشهب بن عبد العزيز القيسي (ت 204 هـ)` / `Ashhab ibn Abd al-Aziz al-Qaysi (d. 204 AH)`.
+
 ## [2.12.10] — 2026-06-09
 
 ### Added

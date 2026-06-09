@@ -592,12 +592,12 @@ window.FOUR_IMAMS_DB = {
         charsAr: [
           { i: "📖", n: "الربيع بن سليمان المرادي", r: "تلميذه الرئيسي وراوي كتبه (ت 270 هـ)" },
           { i: "📖", n: "المزني", r: "تلميذه، صاحب المختصر (ت 264 هـ)" },
-          { i: "📖", n: "عبد الله بن وهب", r: "فقيه مصر (ت 197 هـ)" }
+          { i: "📖", n: "أشهب بن عبد العزيز القيسي", r: "ت 204 هـ" }
         ],
         charsEn: [
           { i: "📖", n: "Al-Rabi' ibn Sulayman", r: "Main student, transmitter (d. 270 AH)" },
           { i: "📖", n: "Al-Muzani", r: "Student, author of Mukhtasar (d. 264 AH)" },
-          { i: "📖", n: "Abdullah ibn Wahb", r: "Jurist of Egypt (d. 197 AH)" }
+          { i: "📖", n: "Ashhab ibn Abd al-Aziz al-Qaysi", r: "d. 204 AH" }
         ],
         lessonAr: "اجتهاد العالم يتغير بتغير البيئة والزمان • المذهب الجديد دليل على مرونة الاجتهاد • أهمية تسجيل العلم في الكتب",
         lessonEn: "A scholar's ijtihad changes with time and place • The New School shows flexibility in ijtihad • Importance of recording knowledge in books",
