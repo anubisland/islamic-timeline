@@ -30,10 +30,10 @@ window.FOUR_IMAMS_DB = {
     mapZoom: 6,
     steps: [
       {
-        ayah: "",
-        ayahRef: "",
-        ayahEn: "",
-        ayahRefEn: "",
+        ayah: "رِجَالٌ لَا تُلْهِيهِمْ تِجَارَةٌ وَلَا بَيْعٌ عَنْ ذِكْرِ اللَّهِ وَإِقَامِ الصَّلَاةِ وَإِيتَاءِ الزَّكَاةِ",
+        ayahRef: "سورة النور (٢٤)، آية ٣٧",
+        ayahEn: "Men whom neither commerce nor sale distracts from the remembrance of Allah and performance of prayer and giving of zakah.",
+        ayahRefEn: "Surah An-Nur (24), verse 37",
         dateAr: "80 - 100 هـ",
         dateEn: "80 – 100 AH",
         titleAr: "النشأة والتكوين",
@@ -65,10 +65,10 @@ window.FOUR_IMAMS_DB = {
         mapFocus: { x: 336, y: 160, scale: 1.0 }
       },
       {
-        ayah: "",
-        ayahRef: "",
-        ayahEn: "",
-        ayahRefEn: "",
+        ayah: "قَالَ لَهُ مُوسَىٰ هَلْ أَتَّبِعُكَ عَلَىٰ أَنْ تُعَلِّمَنِ مِمَّا عُلِّمْتَ رُشْدًا",
+        ayahRef: "سورة الكهف (١٨)، آية ٦٦",
+        ayahEn: "Moses said to him, 'May I follow you on [the condition] that you teach me from what you have been taught of sound judgement?'",
+        ayahRefEn: "Surah Al-Kahf (18), verse 66",
         dateAr: "100 - 120 هـ",
         dateEn: "100 – 120 AH",
         titleAr: "طلب العلم والتتلمذ",
@@ -100,10 +100,10 @@ window.FOUR_IMAMS_DB = {
         mapFocus: { x: 336, y: 160, scale: 1.0 }
       },
       {
-        ayah: "",
-        ayahRef: "",
-        ayahEn: "",
-        ayahRefEn: "",
+        ayah: "وَلَوْ رَدُّوهُ إِلَى الرَّسُولِ وَإِلَىٰ أُولِي الْأَمْرِ مِنْهُمْ لَعَلِمَهُ الَّذِينَ يَسْتَنْبِطُونَهُ مِنْهُمْ",
+        ayahRef: "سورة النساء (٤)، آية ٨٣",
+        ayahEn: "If they had referred it back to the Messenger and to those of authority among them, then those who can draw correct conclusions from it would have known it.",
+        ayahRefEn: "Surah An-Nisa (4), verse 83",
         dateAr: "120 - 140 هـ",
         dateEn: "120 – 140 AH",
         titleAr: "تأسيس المذهب الحنفي",

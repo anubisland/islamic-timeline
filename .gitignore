@@ -21,6 +21,9 @@ web-build/
 .tts-samples/
 # transient data export for the generator
 tools/_seerah.json
+# Python bytecode cache (build artifact)
+__pycache__/
+*.pyc
 
 # Local Claude Code / editor tooling (not part of the site)
 .blender-toolkit/

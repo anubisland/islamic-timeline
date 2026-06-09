@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.12.7] — 2026-06-08
+
+### Added
+- **Verse recitation now covers every imam step** — the three Abu Hanifa early-life phases (Formation / Seeking Knowledge / Founding the School) were the only imam steps left without a Quranic verse, so they had no recitation in verse mode. Added thematically-paired ayat (not asbāb al-nuzul — matching how the other 17 imam verses work): **An-Nur 24:37** ("men whom neither commerce nor sale distracts from the remembrance of Allah" — his trade-and-knowledge youth), **Al-Kahf 18:66** (Musa to al-Khidr, "may I follow you that you teach me" — his 18 years with Hammad), and **An-Nisa 4:83** ("those who draw correct conclusions — yastanbiṭūnahu" — founding a school of juristic inference). All three verified to resolve on everyayah.com.
+
+### Changed
+- **Merge-plan completion audit** — re-checked the Four Imams merge against the actual codebase: Phases 1–7 are all complete (data, UI, 160 narration clips, full verse coverage, accent colours, bilingual parity). Updated `docs/MERGE_PLAN.md` to reflect true status and recorded the remaining open *content* caveats (al-Shafi'i × Ibn Wahb chronology, etc.). Documented `data_imams.js` in the CLAUDE.md / AGENTS.md file maps (it was previously undocumented).
+
 ## [2.12.6] — 2026-06-08
 
 ### Changed
