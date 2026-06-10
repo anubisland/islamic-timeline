@@ -3716,7 +3716,7 @@ window.SEERAH_DB = {
           "lessonAr": "الوحدة مقدمة على الحقوق الشخصية — تنازل الحسن يعلم الأمة أن حقن دماء المسلمين ووحدة صفهم أعلى مقصداً من المناصب السياسية",
           "lessonEn": "Unity precedes personal rights — al-Hasan's abdication teaches that preserving Muslim lives is a higher objective than political office",
           "srcs": ["الطبري (تاريخ الأمم والملوك)", "ابن الأثير (الكامل في التاريخ)"],
-          "mapFocus": {"x":500,"y":280,"scale":1.0}
+          "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
           "ayah": "﴿ وَأَطِيعُوا اللَّهَ وَرَسُولَهُ وَلَا تَنَازَعُوا فَتَفْشَلُوا وَتَذْهَبَ رِيحُكُمْ ﴾",
@@ -3747,7 +3747,7 @@ window.SEERAH_DB = {
           "lessonAr": "التخطيط السياسي يحتاج إلى حلم وأناة — الحكم ليس غضباً وإنما إدارة للأزمات بحكمة",
           "lessonEn": "Political leadership requires forbearance and patience — governance is not about anger but managing crises with wisdom",
           "srcs": ["الطبري (تاريخ الأمم والملوك)", "د. الصلابي (الدولة الأموية)"],
-          "mapFocus": {"x":500,"y":280,"scale":1.0}
+          "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
           "ayah": "﴿ أُذِنَ لِلَّذِينَ يُقَاتَلُونَ بِأَنَّهُمْ ظُلِمُوا وَإِنَّ اللَّهَ عَلَى نَصْرِهِمْ لَقَدِيرٌ ﴾",
