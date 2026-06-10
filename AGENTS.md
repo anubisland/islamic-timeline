@@ -38,7 +38,8 @@ Sera/
 ├── tools/
 │   ├── gen_tts.py          # Dev-only narration generator (edge-tts). NOT shipped.
 │   ├── narration_ar.json   # Build-only: diacritized (mushakkal) AR narration per <era>_<step>. App never loads it.
-│   └── check_voc.py        # Gate: verifies narration_ar.json stays in sync with descAr (run after data edits).
+│   ├── check_voc.py        # Gate: sidecar in sync with descAr + really vocalized (density) + no foreign chars.
+│   └── check_release.py    # Gate: ALL checks in one shot (syntax, bilingual, voc, audio coverage, slot sync, cache-bust). Run before EVERY commit.
 ├── package.json            # version + npm start (npx serve)
 ├── README.md               # User-facing docs
 ├── CHANGELOG.md            # Keep-a-Changelog, semver
@@ -79,11 +80,12 @@ If a source is unavailable the app shows a brief "audio not available" notice �
 9. **Do not commit secrets, .env files, or `node_modules/`.**
 10. **🔊 Every new/changed step MUST have audio generated and a recitable verse.** Audio is pre-recorded only (no live TTS):
     - **Narration:** after adding or editing any step's `descAr` / `descEn`, run `python tools/gen_tts.py` to (re)generate that step's MP3s for **all 5 voice slots × both languages**, and commit the new `audio/**` files + updated `audio/manifest.json` in the same commit. Use `--force` when you changed existing text.
-    - **Arabic vocalization (tashkīl):** the on-screen `descAr` is bare (undiacritized), so edge-tts would *guess* the vowels and sometimes mispronounce (wrong fatḥa/kasra/ḍamma, case ending, or name). The generator therefore prefers a fully-diacritized version from `tools/narration_ar.json` (keyed `<era>_<step>`, build-time only — the app never loads it; the on-screen text stays bare). When you add/edit a step's `descAr`, also add/update its `narration_ar.json` entry with the mushakkal text **and keep the consonantal skeleton identical to `descAr`** (only add harakāt; leave the `هـ`/`م` date tokens bare). Steps with no entry fall back to bare `descAr`. **After any data edit, run `python tools/check_voc.py`** — it flags entries that went stale (edited text or a shifted step index) before they ship as wrong audio.
+    - **Arabic vocalization (tashkīl):** the on-screen `descAr` is bare (undiacritized), so edge-tts would *guess* the vowels and sometimes mispronounce (wrong fatḥa/kasra/ḍamma, case ending, or name). The generator therefore prefers a fully-diacritized version from `tools/narration_ar.json` (keyed `<era>_<step>`, build-time only — the app never loads it; the on-screen text stays bare). When you add/edit a step's `descAr`, also add/update its `narration_ar.json` entry with the mushakkal text **and keep the consonantal skeleton identical to `descAr`** (only add harakāt; leave the `هـ`/`م` date tokens bare). Steps with no entry fall back to bare `descAr`. **The entry must be REALLY vocalized — full tashkīl measures 80%+ harakāt-per-letter; an entry under 40% fails the gate as BARE.** (Copy-pasting `descAr` into the sidecar is exactly the bug that shipped the Umayyad era at 4.8% and the Abbasid era at 0.6% density — skeleton-valid, but the TTS guessed every vowel.) Narration text must contain **no non-Arabic letters** (an Abbasid step shipped with stray Chinese «足以» from machine translation — the gate's FOREIGN check now catches this in both `descAr` and the sidecar). **After any data edit, run `python tools/check_voc.py`** — it flags MISSING/EXTRA/MISMATCH (stale or shifted entries), BARE (insufficient tashkīl), and FOREIGN (corrupt characters) before they ship as wrong audio.
     - **Verse:** the step's `ayahRefEn` MUST be a parseable Quran citation — either `"Surah <Name> (<num>), verse <n>"` / `"verses <n>-<m>"` **or** `"Surah <Name> — <surah>:<ayah>"` — so verse mode can stream the recitation. Verify the ayah resolves on everyayah.com before committing. (A non-Quran citation, e.g. a hadith, is allowed but that step will have no recitation.)
     - **Never** reintroduce live `speechSynthesis` / `translate_tts` — they were removed for sounding robotic and ignoring the chosen voice.
 11. **Keep `AGENTS.md` and `CLAUDE.md` in sync.** Both files must contain identical project knowledge (bug catalog, rules, file map, etc.). When you update one, update the other in the same commit.
 12. **Adding a new top-level UI state/overlay? Audit every splash/era-keyed assumption.** The app was built around a two-state model (`#splash` era-selection ↔ era view). The homepage (`#home-screen`) and Four Imams (`#imam-screen`) states each shipped a live-site regression because code that assumed the old model wasn't updated. When you add a `MODE`/overlay: (a) every `show*()` must explicitly set ALL overlays + `.wrap`/`.tl-foot`; (b) generalize anything keyed to `#splash` or `EVT` (the safety-net CSS, `applyMapFocus` diag gate, `narrationURL`, `setAudioPulse`) to be `MODE`-aware; (c) never rely on `requestAnimationFrame` alone (paused in hidden tabs); (d) test the full state graph. See the "Homepage + Four Imams integration regressions" catalogue. **Note:** the Umayyad and Abbasid eras have dedicated home cards (`#home-umawi` → `goToUmawi()` → `switchEv('umawi')`; `#home-abassi` → `goToAbbassi()` → `switchEv('abassi')`) and are NOT listed in the Seerah splash, so the `btn-splash` back handler special-cases `EVT==='umawi'` → `goToHome()` and `EVT==='abassi'` → `goToHome()`. If you ever make these reachable from the splash again, revisit that back logic.
+13. **⛔ Run `python tools/check_release.py` before EVERY commit — exit 0 or don't commit.** Multiple agents develop this repo concurrently, and every gate in that script exists because its failure mode shipped to the live site at least once: stale index-keyed narration after a step insert (Al-Shafi'i, v2.12.9), a "vocalized" sidecar that was actually bare so TTS guessed every vowel (Umayyad/Abbasid, fixed v3.3.2), CJK characters in `descAr` (abassi_24), a new voice slot missing a whole era's clips (shakir × umawi), 0-byte MP3s from failed edge-tts calls being skipped as "exists", and three separate stale-cache incidents from unbumped `?v=` queries. Also: **always `git fetch` + rebase before pushing** (expect non-fast-forward rejects), and re-run the gate after every rebase — the other agent's commits can silently invalidate your audio or sidecar.
 
 ## Adding a step (most common task)
 
@@ -140,6 +142,15 @@ python tools/gen_tts.py --manifest-only # just rebuild audio/manifest.json
 # data.js / data_imams.js edit — catches stale entries from edited text or shifted
 # step indices). Exit 0 = clean, 1 = problems listed.
 python tools/check_voc.py
+
+# ⛔ MANDATORY before every commit: the consolidated release gate. Runs JS syntax,
+# GeoJSON parse, data-ar/data-en balance, check_voc (sync + density + foreign
+# chars), gen_tts↔app.js↔manifest slot sync, full audio coverage (every step ×
+# slot × lang exists and is non-empty), and the index.html ?v= cache-bust check.
+# Every one of these checks exists because its failure mode shipped live at
+# least once. Exit 0 = safe to commit; exit 1 = fix what it lists first.
+python tools/check_release.py
+python tools/check_release.py --no-coverage   # quicker iteration (skips audio scan)
 ```
 
 There is **no test framework, no linter, no formatter** in this project. Visual verification is by opening `index.html` in a browser.

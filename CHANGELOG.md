@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.3] — 2026-06-10
+
+### Added
+- **`tools/check_release.py` — consolidated pre-commit gate (now hard rule #13).** One command runs every mechanical check whose failure mode has shipped live: JS syntax, GeoJSON parse, `data-ar`/`data-en` balance, the vocalization gate, `gen_tts`↔`app.js`↔manifest voice-slot sync, **full audio coverage** (every step × slot × lang MP3 exists and is non-empty — catches half-generated eras like shakir×umawi and 0-byte files from failed edge-tts calls), and the `?v=` cache-bust check (any shipped asset that differs from `origin/main` must be pinned to the current `package.json` version in `index.html`). Exit 0 = safe to commit.
+- **`check_voc.py` gained two failure modes:** **BARE** — entry's harakāt density below 40% (real tashkīl measures 80%+; this is how Umayyad/Abbasid shipped with guessed vowels while passing the skeleton check) — and **FOREIGN** — non-Arabic letters in `descAr` or the sidecar (the «足以» class of corruption). Both verified with induced-failure tests.
+- **Rules codified for all agents** (CLAUDE.md + AGENTS.md, kept in sync): rule #13 (run the release gate before every commit; fetch+rebase before push; re-run the gate after every rebase), and rule #10 now states the density (≥80% target, <40% fails) and no-foreign-characters requirements explicitly.
+
 ## [3.3.2] — 2026-06-10
 
 ### Fixed
