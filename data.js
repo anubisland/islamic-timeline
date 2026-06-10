@@ -5283,7 +5283,7 @@ window.SEERAH_DB = {
         "timeEn": "🌙 640–655 AH",
         "distAr": "📍 بغداد — الاستعداد للأسوأ",
         "distEn": "📍 Baghdad — Preparing for the Worst",
-        "descAr": "تولى المستعصم بالله آخر خلفاء بغداد الخلافة في أسوأ توقيت ممكن. كان رجلاً ليناً محباً للعلم، لكنه افتقد الحزم السياسي والعسكري المطلوبين في هذه المرحلة الحرجة. قام وزيره ابن العلقمي — وكان رافضياً (شيعياً) — بإقناعه بتقليص عدد الجيش العباسي من 100 ألف إلى أقل من 10 آلاف مقاتل لتوفير النفقات! هذه الخيانة كانت القاتلة: بغداد فقدت قدرتها على الدفاع عن نفسها. عندما وصلت جيوش هولاكو إلى أسوار بغداد، لم يكن هناك جيش足以 الصمود.",
+        "descAr": "تولى المستعصم بالله آخر خلفاء بغداد الخلافة في أسوأ توقيت ممكن. كان رجلاً ليناً محباً للعلم، لكنه افتقد الحزم السياسي والعسكري المطلوبين في هذه المرحلة الحرجة. قام وزيره ابن العلقمي — وكان رافضياً (شيعياً) — بإقناعه بتقليص عدد الجيش العباسي من 100 ألف إلى أقل من 10 آلاف مقاتل لتوفير النفقات! هذه الخيانة كانت القاتلة: بغداد فقدت قدرتها على الدفاع عن نفسها. عندما وصلت جيوش هولاكو إلى أسوار بغداد، لم يكن هناك جيش قادر على الصمود.",
         "descEn": "Al-Musta'sim, the last caliph of Baghdad, assumed the caliphate at the worst possible time. He was a gentle man who loved learning, but lacked the political and military decisiveness required in this critical period. His vizier Ibn al-Alqami — a Rafidi (Shi'a) — convinced him to reduce the Abbasid army from 100,000 to fewer than 10,000 fighters to save expenses! This betrayal was fatal: Baghdad lost its ability to defend itself. When Hulagu's armies reached the walls of Baghdad, there was no army capable of resistance.",
         "charsAr": [
           {"i":"👑","n":"المستعصم بالله","r":"آخر خلفاء بغداد — ضعف ولين في أحلك الظروف"},

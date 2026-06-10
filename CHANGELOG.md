@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.2] — 2026-06-10
+
+### Fixed
+- **Umayyad + Abbasid narration regenerated from genuinely diacritized text.** The two new eras' `narration_ar.json` entries were essentially bare — measured harakāt density was **4.8%** (umawi) and **0.6%** (abassi) versus 82–86% for every previously vocalized era — so edge-tts was *guessing* the vowels across both eras (the original tashkīl bug, reintroduced). The skeleton gate couldn't catch this (bare text trivially matches its own consonants). Re-vocalized all 52 steps to full tashkīl (~83% density, validated skeleton-identical to `descAr`) and regenerated all 260 Arabic clips (52 steps × 5 voices).
+- **Stray Chinese characters in Abbasid step 24** — `descAr` read «لم يكن هناك جيش足以 الصمود» (machine-translation leftover, 足以 = "sufficient to"). Corrected to «جيش قادر على الصمود», matching the English ("no army capable of resistance"); on-screen text and audio both fixed.
+- **Cache-bust `app.js` → `?v=3.3.2`** — the map-amb overlay fix landed in `app.js` without a version bump on its `<script>` tag (rule #8), so cached browsers wouldn't have received it; `data.js` bumped too (step-24 text fix).
+
 ## [3.3.1] — 2026-06-10
 
 ### Fixed
