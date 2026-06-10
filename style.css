@@ -490,6 +490,11 @@ body::after {
 .amb-day  { background: radial-gradient(ellipse at 50% 10%, rgba(217, 162, 84, .05) 0%, transparent 55%); }
 .amb-golden { background: radial-gradient(ellipse at center, rgba(197, 160, 89, .2) 0%, rgba(197, 160, 89, .06) 50%, transparent 80%); }
 .amb-sack { background: radial-gradient(ellipse at center, rgba(180, 40, 20, .15) 0%, rgba(6, 10, 15, .85) 60%, transparent 100%); }
+/* Every amb value used in data MUST have a rule here — an undefined class
+   renders as a fully transparent overlay, i.e. the ambience silently vanishes. */
+.amb-noon   { background: radial-gradient(ellipse at 50% 0%, rgba(255, 235, 180, .12) 0%, transparent 50%); }
+.amb-winter { background: radial-gradient(ellipse at 50% 20%, rgba(150, 190, 220, .14) 0%, transparent 60%); }
+.amb-reform { background: radial-gradient(ellipse at center, rgba(197, 160, 89, .16) 0%, rgba(120, 160, 120, .06) 55%, transparent 85%); }
 
 .map-card {
   position: absolute;
@@ -1435,10 +1440,12 @@ body::after {
 /* ----- Home cards (2-column grid) ----- */
 .home-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* 4 launcher cards -> balanced 2×2 on desktop (3 columns orphaned the 4th
+     card alone on its own row); collapses to 1 column at <=720px below. */
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   width: 100%;
-  max-width: 960px;
+  max-width: 720px;
 }
 
 .home-card {

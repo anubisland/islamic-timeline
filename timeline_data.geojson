@@ -119,7 +119,7 @@
       "type": "Feature",
       "properties": {
         "id": "madinah",
-        "event_id": "hijra_5",
+        "event_id": "hijra_5_alt",
         "name_ar": "المدينة المنورة",
         "name_en": "Madinah Al-Munawwarah",
         "year_ah": "1 AH",
@@ -214,7 +214,7 @@
       "type": "Feature",
       "properties": {
         "id": "cave_hira",
-        "event_id": "meccan_8",
+        "event_id": "meccan_8_alt",
         "name_ar": "غار حراء",
         "name_en": "Cave of Hira",
         "year_ah": "610 CE",
@@ -480,7 +480,7 @@
       "type": "Feature",
       "properties": {
         "id": "umawi_kufa",
-        "event_id": "umawi_0",
+        "event_id": "umawi_0_alt",
         "name_ar": "الكوفة",
         "name_en": "Kufa",
         "year_ah": "41 AH",
@@ -613,7 +613,7 @@
       "type": "Feature",
       "properties": {
         "id": "umawi_sindh",
-        "event_id": "umawi_10",
+        "event_id": "umawi_10_alt",
         "name_ar": "السند",
         "name_en": "Sindh",
         "year_ah": "90 AH",
@@ -651,7 +651,7 @@
       "type": "Feature",
       "properties": {
         "id": "umawi_cordoba",
-        "event_id": "umawi_11",
+        "event_id": "umawi_11_alt",
         "name_ar": "قرطبة",
         "name_en": "Cordoba",
         "year_ah": "92 AH",
@@ -746,7 +746,7 @@
       "type": "Feature",
       "properties": {
         "id": "umawi_damascus",
-        "event_id": "umawi_22",
+        "event_id": "umawi_22_alt",
         "name_ar": "دمشق — الشام",
         "name_en": "Damascus — Levant",
         "year_ah": "132 AH",
@@ -765,7 +765,7 @@
       "type": "Feature",
       "properties": {
         "id": "umawi_egypt",
-        "event_id": "umawi_22",
+        "event_id": "umawi_22_alt2",
         "name_ar": "مصر",
         "name_en": "Egypt",
         "year_ah": "132 AH",
@@ -784,7 +784,7 @@
       "type": "Feature",
       "properties": {
         "id": "umawi_busir",
-        "event_id": "umawi_22",
+        "event_id": "umawi_22_alt3",
         "name_ar": "قرية بوصير",
         "name_en": "Busir (Egypt)",
         "year_ah": "132 AH",
@@ -974,7 +974,7 @@
       "type": "Feature",
       "properties": {
         "id": "makkah_qarmati",
-        "event_id": "abassi_13",
+        "event_id": "abassi_13_alt",
         "name_ar": "مكة المكرمة",
         "name_en": "Makkah",
         "year_ah": "317 AH",
@@ -1183,7 +1183,7 @@
       "type": "Feature",
       "properties": {
         "id": "cairo_abbasid",
-        "event_id": "abassi_27",
+        "event_id": "abassi_27_alt",
         "name_ar": "القاهرة",
         "name_en": "Cairo",
         "year_ah": "659 AH",

@@ -17,6 +17,7 @@
   const STORAGE = { lang: 'sera.lang', ttsMode: 'sera.tts', auto: 'sera.auto', evt: 'sera.evt', voice: 'sera.voice', reciter: 'sera.reciter', imam: 'sera.imam' };
   let MODE = 'home';   // 'home' | 'sera' | 'imams'
   let EVT = localStorage.getItem(STORAGE.evt) || 'hijra';
+  if (!DB[EVT]) EVT = 'hijra'; // restored key may not exist in a stale-cached data.js (Pages max-age skew)
   let IMAM = localStorage.getItem(STORAGE.imam) || 'abu-hanifa';
   if (IDB && !IDB[IMAM]) IMAM = 'abu-hanifa';
   let STEP = 0;
@@ -61,9 +62,53 @@
   // ── Map viewBoxes ──────────────────────────────────────
   const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560], umawi: [1000, 560], abassi: [1000, 560], imam: [700, 560] };
 
+  // ── Map zoom state ─────────────────────────────────────
+  // ONE writer owns the SVG viewBox: writeMapViewBox(). It composes the
+  // step's intended framing (mapFocus.scale) with the user's manual zoom
+  // (ZOOM_LEVELS[zoomIdx]) over the ACTIVE era's own base size (MAP_VB —
+  // umawi/abassi are 1000×560, not 700×560). Manual zoom resets to 1.0×
+  // on every step/era change so the % readout can never go stale.
+  const ZOOM_LEVELS = [0.5, 0.75, 1.0, 1.5, 2.0];
+  let zoomIdx = 2; // 1.0x
+
+  function writeMapViewBox() {
+    const inImam = MODE === 'imams';
+    const ev = inImam ? (IDB && IDB[IMAM]) : DB[EVT];
+    if (!ev) return;
+    const s = ev.steps[STEP];
+    const vb = MAP_VB[inImam ? 'imam' : EVT] || [700, 560];
+    const focus = (s && s.mapFocus) || { x: vb[0] / 2, y: vb[1] / 2 };
+    const scale = (focus.scale || 1.0) * ZOOM_LEVELS[zoomIdx];
+    const svgEl = $(inImam ? 'svg-imam' : 'svg-' + EVT);
+    if (!svgEl) return;
+    const w = vb[0] / scale;
+    const h = vb[1] / scale;
+    // Zoomed in (frame smaller than map): center on the focus point, clamped
+    // to the map on ALL four edges. Zoomed out (frame larger): center the map.
+    const vx = w >= vb[0] ? (vb[0] - w) / 2 : Math.min(Math.max(0, focus.x - w / 2), vb[0] - w);
+    const vy = h >= vb[1] ? (vb[1] - h) / 2 : Math.min(Math.max(0, focus.y - h / 2), vb[1] - h);
+    svgEl.setAttribute('viewBox', vx + ' ' + vy + ' ' + w + ' ' + h);
+    const zRst = $('z-rst');
+    if (zRst) zRst.textContent = Math.round(ZOOM_LEVELS[zoomIdx] * 100) + '%';
+  }
+
   // ── Home screen (master launcher) ──────────────────────
+  // switchEv() rewrites the <title> (text + data-ar/data-en) per era; capture
+  // the document defaults ONCE so returning home can restore them — otherwise
+  // the tab keeps the last era's title for the whole session (and applyLanguage
+  // keeps re-applying it from the clobbered data attributes).
+  const TITLE_EL = document.querySelector('title');
+  const TITLE_DEFAULT = TITLE_EL
+    ? { ar: TITLE_EL.getAttribute('data-ar'), en: TITLE_EL.getAttribute('data-en') }
+    : null;
+
   function showHome() {
     MODE = 'home';
+    if (TITLE_EL && TITLE_DEFAULT) {
+      TITLE_EL.setAttribute('data-ar', TITLE_DEFAULT.ar);
+      TITLE_EL.setAttribute('data-en', TITLE_DEFAULT.en);
+      TITLE_EL.textContent = LANG === 'AR' ? TITLE_DEFAULT.ar : TITLE_DEFAULT.en;
+    }
     const home = $('home-screen');
     if (home) home.classList.remove('home-hidden');
     const splash = $('splash');
@@ -588,7 +633,9 @@
     }
     // Header brand title: "الخط الزمني لل<era>" / "<era> Timeline"
     var arLabel = DB[key].labelAr;
-    var timelineAr = arLabel.indexOf('ال') === 0 ? 'الخط الزمني لل' + arLabel.slice(2) : 'الخط الزمني لـ ' + arLabel;
+    // Arabic lam-prefix: "ال..." -> "لل..." (للدولة); anything else takes an
+    // ATTACHED lam (لخلافة عمر), never the detached "لـ " + space form.
+    var timelineAr = arLabel.indexOf('ال') === 0 ? 'الخط الزمني لل' + arLabel.slice(2) : 'الخط الزمني ل' + arLabel;
     var timelineEn = DB[key].labelEn + ' Timeline';
     setBrandTitle(timelineAr, timelineEn);
     // Update page title
@@ -639,16 +686,13 @@
     const vb = MAP_VB[mapKey] || [700, 560];
     const focus = s.mapFocus || { x: vb[0] / 2, y: vb[1] / 2, scale: 1.0 };
 
-    // Use focus.scale to zoom the SVG viewBox around the focus point
-    const svgId = inImam ? 'svg-imam' : ('svg-' + EVT);
-    const svgEl = $(svgId);
-    if (svgEl && focus.scale) {
-      const w = vb[0] / focus.scale;
-      const h = vb[1] / focus.scale;
-      const vx = Math.max(0, focus.x - w / 2);
-      const vy = Math.max(0, focus.y - h / 2);
-      svgEl.setAttribute('viewBox', `${vx} ${vy} ${w} ${h}`);
-    }
+    // Frame the map for this step. Manual zoom resets to 1.0× on every
+    // step/era change (the step's mapFocus.scale is the new baseline), so the
+    // zoom % readout stays truthful. writeMapViewBox always writes — a step
+    // without mapFocus.scale gets the era's full map, never the previous
+    // step's stale frame.
+    zoomIdx = 2;
+    writeMapViewBox();
 
     // No transform on map-pan — the full map is always visible inside the frame
     const pan = $('pan-' + mapKey);
@@ -1037,8 +1081,10 @@
     $('btn-prev').disabled = STEP === 0;
     $('btn-next').disabled = STEP === tot - 1;
 
-    // Map focus pan/zoom (slight delay so layout has settled)
-    requestAnimationFrame(() => applyMapFocus(true));
+    // Map focus pan/zoom — synchronous on purpose: applyMapFocus only writes
+    // SVG attributes (no layout reads), and requestAnimationFrame is paused in
+    // hidden/backgrounded tabs (caused the imam map-focus regression, v2.11.x).
+    applyMapFocus(true);
   }
 
   // ── Audio-source picker UI (context-aware) ─────────────
@@ -1166,6 +1212,14 @@
     document.querySelectorAll('.imam-card').forEach((el) => {
       el.addEventListener('click', () => selectImam(el.dataset.imam));
     });
+    // All card "buttons" are divs with role=button tabindex=0 — divs don't
+    // synthesize click from Enter/Space, so without this the launcher and
+    // splash are unreachable by keyboard.
+    document.querySelectorAll('.home-card, .era-card, .caliph-card, .imam-card').forEach((el) => {
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+      });
+    });
     // Back to splash (from era) or imam splash (from imam step)
     const backBtn = $('btn-splash');
     if (backBtn) backBtn.addEventListener('click', () => {
@@ -1253,34 +1307,17 @@
     if (bn0) bn0.addEventListener('click', () => goTo(0));
     if (bn2) bn2.addEventListener('click', () => goTo(2));
 
-    // Map zoom controls — change the SVG viewBox to zoom in/out of the
-    // currently visible map. The default viewBox is "0 0 700 560".
-    // Smaller viewBox → zoom in (content grows on screen).
-    // Larger viewBox  → zoom out (content shrinks to fit more of the map).
-    const MAP_BASE = { w: 700, h: 560 };
-    const ZOOM_LEVELS = [0.5, 0.75, 1.0, 1.5, 2.0];
-    let zoomIdx = 2; // 1.0x
-    const zRst = $('z-rst');
+    // Map zoom controls — manual zoom multiplies the step's mapFocus.scale
+    // baseline; writeMapViewBox (the single viewBox writer) handles the math,
+    // the active era's own MAP_VB base (umawi/abassi are 1000×560), edge
+    // clamping, and the % readout. No init-time write: no map is visible at
+    // boot, and entering an era frames it via applyMapFocus.
     const zIn  = $('z-in');
     const zOut = $('z-out');
-    function applyZoom() {
-      const z = ZOOM_LEVELS[zoomIdx];
-      const w = MAP_BASE.w / z;
-      const h = MAP_BASE.h / z;
-      const x = (MAP_BASE.w - w) / 2;
-      const y = (MAP_BASE.h - h) / 2;
-      const vb = x + ' ' + y + ' ' + w + ' ' + h;
-       ['svg-preb','svg-hijra','svg-badr','svg-meccan','svg-medinan',
-         'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan','svg-umawi','svg-abassi','svg-imam'].forEach((id) => {
-        const svg = $(id);
-        if (svg) svg.setAttribute('viewBox', vb);
-      });
-      if (zRst) zRst.textContent = Math.round(z * 100) + '%';
-    }
-    if (zIn)  zIn.addEventListener('click',  () => { if (zoomIdx < ZOOM_LEVELS.length - 1) { zoomIdx++; applyZoom(); } });
-    if (zOut) zOut.addEventListener('click', () => { if (zoomIdx > 0) { zoomIdx--; applyZoom(); } });
-    if (zRst) zRst.addEventListener('click', () => { zoomIdx = 2; applyZoom(); });
-    applyZoom();
+    const zRstBtn = $('z-rst');
+    if (zIn)  zIn.addEventListener('click',  () => { if (zoomIdx < ZOOM_LEVELS.length - 1) { zoomIdx++; writeMapViewBox(); } });
+    if (zOut) zOut.addEventListener('click', () => { if (zoomIdx > 0) { zoomIdx--; writeMapViewBox(); } });
+    if (zRstBtn) zRstBtn.addEventListener('click', () => { zoomIdx = 2; writeMapViewBox(); });
 
     // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
