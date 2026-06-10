@@ -48,7 +48,13 @@ type Step = {
   mdEn:        string;   // English map card description
 
   // Time and distance badges
-  amb:         'night' | 'dawn' | 'day';  // map ambient gradient
+  amb:         'day' | 'dawn' | 'noon' | 'night' | 'winter'
+             | 'golden' | 'sack' | 'reform';
+             // map ambient gradient. EVERY value used here must have a matching
+             // .amb-<value> rule in style.css — an undefined class renders as a
+             // fully transparent overlay (the ambience silently vanishes).
+             // golden = Abbasid golden age; sack = fall of Baghdad; reform =
+             // Umar II's reforms. Prefer 'day' over omitting the field.
   timeAr:      string;   // Arabic time-of-day badge (e.g. '🌙 ليلاً')
   timeEn:      string;   // English time-of-day badge
   distAr:      string;   // Arabic distance badge

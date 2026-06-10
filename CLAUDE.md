@@ -19,7 +19,7 @@ A **single-page, no-build, vanilla-JS** bilingual (Arabic RTL / English LTR) tim
 | `uthman`  | Caliphate of Uthman ibn Affan | 5 |
 | `ali`     | Caliphate of Ali ibn Abi Talib | 5 |
 | `hasan`   | Caliphate of al-Hasan ibn Ali | 5 |
-| `umawi`   | Umayyad Caliphate (design reviewed ✅ — ready for implementation) | 24 |
+| `umawi`   | Umayyad Caliphate (implemented ✅) | 24 |
 | `abassi`  | Abbasid Caliphate (implemented ✅) | 28 |
 
 ## File map
@@ -96,7 +96,7 @@ If a source is unavailable the app shows a brief "audio not available" notice �
    dateAr, dateEn,
    titleAr, titleEn,
    mtAr, mtEn, mdAr, mdEn,
-   amb,                 // "day" | "dawn" | "noon" | "night" | "winter"
+   amb,                 // "day"|"dawn"|"noon"|"night"|"winter"|"golden"|"sack"|"reform" — every value MUST have a .amb-<value> rule in style.css
    timeAr, timeEn, distAr, distEn,
    descAr, descEn,
    charsAr[], charsEn[], // { i, n, r } per figure
