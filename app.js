@@ -570,8 +570,8 @@
     if (lbl) {
       lbl.textContent = LANG === 'AR' ? DB[key].labelAr : DB[key].labelEn;
     }
-    // Header brand title reflects the Seerah module
-    setBrandTitle('الخط الزمني للسيرة النبوية', 'Seerah Timeline');
+    // Header brand title reflects the selected era
+    setBrandTitle(DB[key].labelAr, DB[key].labelEn);
 
     // Toggle maps (include svg-imam so it's hidden when returning to a Sera era)
     const allSvgs = ['svg-preb','svg-hijra','svg-badr','svg-meccan','svg-medinan',
