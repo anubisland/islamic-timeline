@@ -488,6 +488,8 @@ body::after {
 .amb-night { background: radial-gradient(ellipse at center, rgba(0, 3, 2, .68) 0%, rgba(0, 3, 2, .28) 100%); }
 .amb-dawn { background: radial-gradient(ellipse at 50% 90%, rgba(140, 60, 5, .2) 0%, transparent 60%); }
 .amb-day  { background: radial-gradient(ellipse at 50% 10%, rgba(217, 162, 84, .05) 0%, transparent 55%); }
+.amb-golden { background: radial-gradient(ellipse at center, rgba(197, 160, 89, .2) 0%, rgba(197, 160, 89, .06) 50%, transparent 80%); }
+.amb-sack { background: radial-gradient(ellipse at center, rgba(180, 40, 20, .15) 0%, rgba(6, 10, 15, .85) 60%, transparent 100%); }
 
 .map-card {
   position: absolute;

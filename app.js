@@ -59,7 +59,7 @@
   const reciter = (id) => RECITERS.find((r) => r.id === (id || RECITER)) || RECITERS[0];
 
   // ── Map viewBoxes ──────────────────────────────────────
-  const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560], umawi: [1000, 560], imam: [700, 560] };
+  const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560], umawi: [1000, 560], abassi: [1000, 560], imam: [700, 560] };
 
   // ── Home screen (master launcher) ──────────────────────
   function showHome() {
@@ -121,6 +121,15 @@
     }
     MODE = 'sera';
     switchEv('umawi');
+  }
+
+  function goToAbbassi() {
+    if (!DB.abassi) {
+      console.warn('SEERAH_DB.abassi not loaded.');
+      return;
+    }
+    MODE = 'sera';
+    switchEv('abassi');
   }
 
   // ── Splash navigation ──────────────────────────────────
@@ -581,7 +590,7 @@
 
     // Toggle maps (include svg-imam so it's hidden when returning to a Sera era)
     const allSvgs = ['svg-preb','svg-hijra','svg-badr','svg-meccan','svg-medinan',
-                     'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan','svg-umawi','svg-imam'];
+                     'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan','svg-umawi','svg-abassi','svg-imam'];
     allSvgs.forEach((id) => {
       const el = $(id);
       if (el) el.classList.toggle('hidden', id !== 'svg-' + key);
@@ -1132,6 +1141,8 @@
     if (homeImams) homeImams.addEventListener('click', goToImams);
     const homeUmawi = $('home-umawi');
     if (homeUmawi) homeUmawi.addEventListener('click', goToUmawi);
+    const homeAbbassi = $('home-abassi');
+    if (homeAbbassi) homeAbbassi.addEventListener('click', goToAbbassi);
 
     // Splash: click era cards
     document.querySelectorAll('.era-card, .caliph-card').forEach((el) => {
@@ -1146,6 +1157,7 @@
     if (backBtn) backBtn.addEventListener('click', () => {
       if (MODE === 'imams') goToImamSplash();
       else if (EVT === 'umawi') goToHome();  // Umayyad has its own home card, not in the splash
+      else if (EVT === 'abassi') goToHome(); // Abbasid has its own home card, not in the splash
       else goToSplash();
     });
     // Splash back to home
@@ -1245,7 +1257,7 @@
       const y = (MAP_BASE.h - h) / 2;
       const vb = x + ' ' + y + ' ' + w + ' ' + h;
        ['svg-preb','svg-hijra','svg-badr','svg-meccan','svg-medinan',
-        'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan','svg-umawi','svg-imam'].forEach((id) => {
+         'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan','svg-umawi','svg-abassi','svg-imam'].forEach((id) => {
         const svg = $(id);
         if (svg) svg.setAttribute('viewBox', vb);
       });

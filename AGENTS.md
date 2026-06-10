@@ -5,7 +5,7 @@
 
 ## What this project is
 
-A **single-page, no-build, vanilla-JS** bilingual (Arabic RTL / English LTR) timeline of the Prophet's biography, the Rashidun era, and the Umayyad Caliphate. **11 eras / ~96 stages**:
+A **single-page, no-build, vanilla-JS** bilingual (Arabic RTL / English LTR) timeline of the Prophet's biography, the Rashidun era, the Umayyad Caliphate, and the Abbasid Caliphate. **12 eras / 124 stages**:
 
 | Key | Era | Steps |
 |---|---|---|
@@ -19,7 +19,8 @@ A **single-page, no-build, vanilla-JS** bilingual (Arabic RTL / English LTR) tim
 | `uthman`  | Caliphate of Uthman ibn Affan | 5 |
 | `ali`     | Caliphate of Ali ibn Abi Talib | 5 |
 | `hasan`   | Caliphate of al-Hasan ibn Ali | 5 |
-| `umawi`   | Umayyad Caliphate (design approved → ready for implementation) | ~24 |
+| `umawi`   | Umayyad Caliphate (design reviewed ✅ — ready for implementation) | 24 |
+| `abassi`  | Abbasid Caliphate (implemented ✅) | 28 |
 
 ## File map
 
@@ -28,7 +29,7 @@ Sera/
 ├── index.html              # Entry — UI + inline SVG maps
 ├── style.css               # Emerald (#063529) + gold (#C5A059) design system
 ├── app.js                  # All behaviour: language toggle, switchEv, step nav, audio
-├── data.js                 # Bilingual data module — window.SEERAH_DB (Seerah: 11 eras / ~96 steps)
+├── data.js                 # Bilingual data module — window.SEERAH_DB (Seerah: 12 eras / 124 steps)
 ├── data_imams.js           # Bilingual data module — window.FOUR_IMAMS_DB (4 imams × 5 phases); loaded before app.js
 ├── timeline_data.geojson   # geographic features (one per major location)
 ├── audio/                  # Pre-generated neural narration MP3s (COMMITTED)
@@ -50,6 +51,8 @@ Sera/
 │   ├── MERGE_PLAN.md         # Plan to merge Four Imams project
 │   ├── UMAYYAD_DESIGN.md     # Design doc for Umayyad Caliphate module (approved)
 │   ├── UMAYYAD_PROGRESS.md   # Implementation progress tracker for Umayyad module
+│   ├── ABBASID_DESIGN.md     # Design doc for Abbasid Caliphate module (approved)
+│   ├── ABBASID_PROGRESS.md   # Implementation progress tracker for Abbasid module
 │   └── SOURCES.md
 └── .editorconfig
 ```
@@ -80,7 +83,7 @@ If a source is unavailable the app shows a brief "audio not available" notice �
     - **Verse:** the step's `ayahRefEn` MUST be a parseable Quran citation — either `"Surah <Name> (<num>), verse <n>"` / `"verses <n>-<m>"` **or** `"Surah <Name> — <surah>:<ayah>"` — so verse mode can stream the recitation. Verify the ayah resolves on everyayah.com before committing. (A non-Quran citation, e.g. a hadith, is allowed but that step will have no recitation.)
     - **Never** reintroduce live `speechSynthesis` / `translate_tts` — they were removed for sounding robotic and ignoring the chosen voice.
 11. **Keep `AGENTS.md` and `CLAUDE.md` in sync.** Both files must contain identical project knowledge (bug catalog, rules, file map, etc.). When you update one, update the other in the same commit.
-12. **Adding a new top-level UI state/overlay? Audit every splash/era-keyed assumption.** The app was built around a two-state model (`#splash` era-selection ↔ era view). The homepage (`#home-screen`) and Four Imams (`#imam-screen`) states each shipped a live-site regression because code that assumed the old model wasn't updated. When you add a `MODE`/overlay: (a) every `show*()` must explicitly set ALL overlays + `.wrap`/`.tl-foot`; (b) generalize anything keyed to `#splash` or `EVT` (the safety-net CSS, `applyMapFocus` diag gate, `narrationURL`, `setAudioPulse`) to be `MODE`-aware; (c) never rely on `requestAnimationFrame` alone (paused in hidden tabs); (d) test the full state graph. See the "Homepage + Four Imams integration regressions" catalogue. **Note:** the Umayyad era has a dedicated home card (`#home-umawi` → `goToUmawi()` → `switchEv('umawi')`) and is NOT listed in the Seerah splash, so the `btn-splash` back handler special-cases `EVT==='umawi'` → `goToHome()`. If you ever make `umawi` reachable from the splash again, revisit that back logic.
+12. **Adding a new top-level UI state/overlay? Audit every splash/era-keyed assumption.** The app was built around a two-state model (`#splash` era-selection ↔ era view). The homepage (`#home-screen`) and Four Imams (`#imam-screen`) states each shipped a live-site regression because code that assumed the old model wasn't updated. When you add a `MODE`/overlay: (a) every `show*()` must explicitly set ALL overlays + `.wrap`/`.tl-foot`; (b) generalize anything keyed to `#splash` or `EVT` (the safety-net CSS, `applyMapFocus` diag gate, `narrationURL`, `setAudioPulse`) to be `MODE`-aware; (c) never rely on `requestAnimationFrame` alone (paused in hidden tabs); (d) test the full state graph. See the "Homepage + Four Imams integration regressions" catalogue. **Note:** the Umayyad and Abbasid eras have dedicated home cards (`#home-umawi` → `goToUmawi()` → `switchEv('umawi')`; `#home-abassi` → `goToAbbassi()` → `switchEv('abassi')`) and are NOT listed in the Seerah splash, so the `btn-splash` back handler special-cases `EVT==='umawi'` → `goToHome()` and `EVT==='abassi'` → `goToHome()`. If you ever make these reachable from the splash again, revisit that back logic.
 
 ## Adding a step (most common task)
 
@@ -107,7 +110,7 @@ See `docs/DATA_SCHEMA.md` for the canonical field reference.
 
 ## Adding an era (rare)
 
-1. Add a new key to `window.SEERAH_DB` in `data.js` (insert in chronological order: meccan → hijra → badr → medinan → abubakr → umar → uthman → ali → hasan → umawi).
+1. Add a new key to `window.SEERAH_DB` in `data.js` (insert in chronological order: meccan → hijra → badr → medinan → abubakr → umar → uthman → ali → hasan → umawi → abassi).
 2. Add a `<button class="ev-btn" data-ev="<key>" ...>` to `index.html`'s `.event-switch`.
 3. Add an inline `<svg id="svg-<key>" class="map-svg hidden" ...>` to `index.html` directly after `svg-badr`.
 4. Extend `app.js` `switchEv()` to toggle the new SVG (mirror the existing lines). Add the era's `viewBox` to `MAP_VB` and the SVG id to the `allSvgs` / zoom lists.

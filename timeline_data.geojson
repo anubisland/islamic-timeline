@@ -14,7 +14,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.8262, 21.4225]
+        "coordinates": [
+          39.8262,
+          21.4225
+        ]
       }
     },
     {
@@ -30,7 +33,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.8500, 21.3700]
+        "coordinates": [
+          39.85,
+          21.37
+        ]
       }
     },
     {
@@ -46,7 +52,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.4000, 22.0000]
+        "coordinates": [
+          39.4,
+          22
+        ]
       }
     },
     {
@@ -62,7 +71,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.5000, 22.7000]
+        "coordinates": [
+          39.5,
+          22.7
+        ]
       }
     },
     {
@@ -78,7 +90,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.3000, 23.5000]
+        "coordinates": [
+          39.3,
+          23.5
+        ]
       }
     },
     {
@@ -94,7 +109,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.6200, 24.4500]
+        "coordinates": [
+          39.62,
+          24.45
+        ]
       }
     },
     {
@@ -110,7 +128,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.6122, 24.4686]
+        "coordinates": [
+          39.6122,
+          24.4686
+        ]
       }
     },
     {
@@ -126,7 +147,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [38.7844, 23.7436]
+        "coordinates": [
+          38.7844,
+          23.7436
+        ]
       }
     },
     {
@@ -142,7 +166,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [38.7950, 23.7500]
+        "coordinates": [
+          38.795,
+          23.75
+        ]
       }
     },
     {
@@ -158,7 +185,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.5, 24.0]
+        "coordinates": [
+          39.5,
+          24
+        ]
       }
     },
     {
@@ -174,7 +204,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.8575, 21.4569]
+        "coordinates": [
+          39.8575,
+          21.4569
+        ]
       }
     },
     {
@@ -190,7 +223,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.8575, 21.4569]
+        "coordinates": [
+          39.8575,
+          21.4569
+        ]
       }
     },
     {
@@ -206,7 +242,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.8262, 21.4225]
+        "coordinates": [
+          39.8262,
+          21.4225
+        ]
       }
     },
     {
@@ -222,7 +261,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [38.7400, 9.0300]
+        "coordinates": [
+          38.74,
+          9.03
+        ]
       }
     },
     {
@@ -238,7 +280,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [40.4167, 21.4333]
+        "coordinates": [
+          40.4167,
+          21.4333
+        ]
       }
     },
     {
@@ -254,7 +299,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.6111, 24.4682]
+        "coordinates": [
+          39.6111,
+          24.4682
+        ]
       }
     },
     {
@@ -270,7 +318,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.5710, 24.4390]
+        "coordinates": [
+          39.571,
+          24.439
+        ]
       }
     },
     {
@@ -286,7 +337,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [38.7950, 23.7500]
+        "coordinates": [
+          38.795,
+          23.75
+        ]
       }
     },
     {
@@ -302,7 +356,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.6133, 24.5033]
+        "coordinates": [
+          39.6133,
+          24.5033
+        ]
       }
     },
     {
@@ -318,7 +375,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.6122, 24.4900]
+        "coordinates": [
+          39.6122,
+          24.49
+        ]
       }
     },
     {
@@ -334,7 +394,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.5500, 21.4500]
+        "coordinates": [
+          39.55,
+          21.45
+        ]
       }
     },
     {
@@ -350,7 +413,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.8262, 21.4225]
+        "coordinates": [
+          39.8262,
+          21.4225
+        ]
       }
     },
     {
@@ -366,7 +432,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.9842, 21.3547]
+        "coordinates": [
+          39.9842,
+          21.3547
+        ]
       }
     },
     {
@@ -382,7 +451,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.6111, 24.4682]
+        "coordinates": [
+          39.6111,
+          24.4682
+        ]
       }
     },
     {
@@ -398,7 +470,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [36.3, 33.5]
+        "coordinates": [
+          36.3,
+          33.5
+        ]
       }
     },
     {
@@ -414,7 +489,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [44.4, 32.0]
+        "coordinates": [
+          44.4,
+          32
+        ]
       }
     },
     {
@@ -430,7 +508,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [10.1, 35.7]
+        "coordinates": [
+          10.1,
+          35.7
+        ]
       }
     },
     {
@@ -446,7 +527,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [28.9, 41.0]
+        "coordinates": [
+          28.9,
+          41
+        ]
       }
     },
     {
@@ -462,7 +546,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [44.0, 32.6]
+        "coordinates": [
+          44,
+          32.6
+        ]
       }
     },
     {
@@ -478,7 +565,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [39.8, 21.4]
+        "coordinates": [
+          39.8,
+          21.4
+        ]
       }
     },
     {
@@ -494,7 +584,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [35.2, 31.8]
+        "coordinates": [
+          35.2,
+          31.8
+        ]
       }
     },
     {
@@ -510,7 +603,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [66.9, 39.6]
+        "coordinates": [
+          66.9,
+          39.6
+        ]
       }
     },
     {
@@ -526,7 +622,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [68.5, 24.7]
+        "coordinates": [
+          68.5,
+          24.7
+        ]
       }
     },
     {
@@ -542,7 +641,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-5.4, 36.0]
+        "coordinates": [
+          -5.4,
+          36
+        ]
       }
     },
     {
@@ -558,7 +660,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-4.8, 37.9]
+        "coordinates": [
+          -4.8,
+          37.9
+        ]
       }
     },
     {
@@ -574,7 +679,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [28.9, 41.0]
+        "coordinates": [
+          28.9,
+          41
+        ]
       }
     },
     {
@@ -590,7 +698,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [36.5, 33.5]
+        "coordinates": [
+          36.5,
+          33.5
+        ]
       }
     },
     {
@@ -606,7 +717,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [0.7, 47.4]
+        "coordinates": [
+          0.7,
+          47.4
+        ]
       }
     },
     {
@@ -622,7 +736,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [43.5, 36.0]
+        "coordinates": [
+          43.5,
+          36
+        ]
       }
     },
     {
@@ -638,7 +755,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [36.3, 33.5]
+        "coordinates": [
+          36.3,
+          33.5
+        ]
       }
     },
     {
@@ -654,7 +774,10 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [31.2, 30.0]
+        "coordinates": [
+          31.2,
+          30
+        ]
       }
     },
     {
@@ -670,7 +793,409 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [30.8, 28.5]
+        "coordinates": [
+          30.8,
+          28.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kufa",
+        "event_id": "abassi_0",
+        "name_ar": "الكوفة",
+        "name_en": "Kufa",
+        "year_ah": "132 AH",
+        "event_title_ar": "انطلاق الدعوة العباسية",
+        "event_title_en": "Launch of the Abbasid Revolution"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.4,
+          32.05
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "baghdad",
+        "event_id": "abassi_1",
+        "name_ar": "بغداد",
+        "name_en": "Baghdad",
+        "year_ah": "145 AH",
+        "event_title_ar": "تأسيس بغداد",
+        "event_title_en": "Foundation of Baghdad"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.3661,
+          33.3152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "baghdad_house",
+        "event_id": "abassi_2",
+        "name_ar": "بيت الحكمة",
+        "name_en": "House of Wisdom",
+        "year_ah": "~170 AH",
+        "event_title_ar": "بيت الحكمة وازدهار العلم",
+        "event_title_en": "House of Wisdom & Scientific Flourishing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.37,
+          33.32
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "baghdad_golden",
+        "event_id": "abassi_3",
+        "name_ar": "بغداد — العصر الذهبي",
+        "name_en": "Baghdad — Golden Age",
+        "year_ah": "170–193 AH",
+        "event_title_ar": "عهد هارون الرشيد الذهبي",
+        "event_title_en": "Golden Age of Harun al-Rashid"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.3661,
+          33.3152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "baghdad_siege",
+        "event_id": "abassi_5",
+        "name_ar": "بغداد",
+        "name_en": "Baghdad",
+        "year_ah": "198 AH",
+        "event_title_ar": "حصار بغداد",
+        "event_title_en": "Siege of Baghdad"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.3661,
+          33.3152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "amorium",
+        "event_id": "abassi_7",
+        "name_ar": "عمورية",
+        "name_en": "Amorium",
+        "year_ah": "223 AH",
+        "event_title_ar": "فتح عمورية",
+        "event_title_en": "Conquest of Amorium"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.5,
+          39.0167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "samarra",
+        "event_id": "abassi_9",
+        "name_ar": "سامراء",
+        "name_en": "Samarra",
+        "year_ah": "221–279 AH",
+        "event_title_ar": "عصر سامراء",
+        "event_title_en": "Samarra Era"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.6878,
+          34.2
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "basra_revolt",
+        "event_id": "abassi_11",
+        "name_ar": "البصرة — ثورة الزنج",
+        "name_en": "Basra — Zanj Rebellion",
+        "year_ah": "255–279 AH",
+        "event_title_ar": "ثورة الزنج",
+        "event_title_en": "Zanj Rebellion"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          47.8167,
+          30.5
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ahsa_qarmati",
+        "event_id": "abassi_13",
+        "name_ar": "الأحساء",
+        "name_en": "Al-Ahsa",
+        "year_ah": "317 AH",
+        "event_title_ar": "القرامطة واقتلاع الحجر الأسود",
+        "event_title_en": "Qarmatians & The Black Stone"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.5833,
+          25.4167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "makkah_qarmati",
+        "event_id": "abassi_13",
+        "name_ar": "مكة المكرمة",
+        "name_en": "Makkah",
+        "year_ah": "317 AH",
+        "event_title_ar": "هجوم القرامطة على مكة",
+        "event_title_en": "Qarmatian attack on Makkah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.8262,
+          21.4225
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "baghdad_buyid",
+        "event_id": "abassi_15",
+        "name_ar": "بغداد",
+        "name_en": "Baghdad",
+        "year_ah": "334 AH",
+        "event_title_ar": "دخول البويهيين بغداد",
+        "event_title_en": "Buyid entry into Baghdad"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.3661,
+          33.3152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "baghdad_seljuk",
+        "event_id": "abassi_17",
+        "name_ar": "بغداد",
+        "name_en": "Baghdad",
+        "year_ah": "447 AH",
+        "event_title_ar": "دخول السلاجقة بغداد",
+        "event_title_en": "Seljuk entry into Baghdad"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.3661,
+          33.3152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "baghdad_nizamiyya",
+        "event_id": "abassi_18",
+        "name_ar": "المدرسة النظامية — بغداد",
+        "name_en": "Nizamiyya Madrasa — Baghdad",
+        "year_ah": "459 AH",
+        "event_title_ar": "بناء المدرسة النظامية",
+        "event_title_en": "Building of the Nizamiyya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.371,
+          33.318
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "manzikert",
+        "event_id": "abassi_19",
+        "name_ar": "ملاذكرد",
+        "name_en": "Manzikert",
+        "year_ah": "463 AH",
+        "event_title_ar": "معركة ملاذكرد",
+        "event_title_en": "Battle of Manzikert"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.54,
+          39.15
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "jerusalem_crusade",
+        "event_id": "abassi_20",
+        "name_ar": "القدس",
+        "name_en": "Jerusalem",
+        "year_ah": "492 AH",
+        "event_title_ar": "احتلال القدس من الصليبيين",
+        "event_title_en": "Crusader occupation of Jerusalem"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.2137,
+          31.7683
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "hittin",
+        "event_id": "abassi_21",
+        "name_ar": "حطين",
+        "name_en": "Hittin",
+        "year_ah": "583 AH",
+        "event_title_ar": "معركة حطين",
+        "event_title_en": "Battle of Hattin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.45,
+          32.8
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "samarqand_mongol",
+        "event_id": "abassi_23",
+        "name_ar": "سمرقند",
+        "name_en": "Samarkand",
+        "year_ah": "617 AH",
+        "event_title_ar": "سقوط سمرقند أمام المغول",
+        "event_title_en": "Fall of Samarkand to the Mongols"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          66.9667,
+          39.65
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "baghdad_fall",
+        "event_id": "abassi_25",
+        "name_ar": "بغداد",
+        "name_en": "Baghdad",
+        "year_ah": "656 AH",
+        "event_title_ar": "سقوط بغداد",
+        "event_title_en": "Fall of Baghdad"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.3661,
+          33.3152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "baghdad_sack",
+        "event_id": "abassi_26",
+        "name_ar": "بغداد — المذبحة",
+        "name_en": "Baghdad — The Massacre",
+        "year_ah": "656 AH",
+        "event_title_ar": "المذبحة المغولية",
+        "event_title_en": "The Mongol Massacre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.3661,
+          33.3152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ayn_jalut",
+        "event_id": "abassi_27",
+        "name_ar": "عين جالوت",
+        "name_en": "Ayn Jalut",
+        "year_ah": "658 AH",
+        "event_title_ar": "معركة عين جالوت",
+        "event_title_en": "Battle of Ayn Jalut"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.4,
+          32.55
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cairo_abbasid",
+        "event_id": "abassi_27",
+        "name_ar": "القاهرة",
+        "name_en": "Cairo",
+        "year_ah": "659 AH",
+        "event_title_ar": "إعادة الخلافة العباسية في القاهرة",
+        "event_title_en": "Restoration of Abbasid Caliphate in Cairo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.2357,
+          30.0444
+        ]
       }
     }
   ]

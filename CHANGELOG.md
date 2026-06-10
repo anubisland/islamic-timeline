@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.0] — 2026-06-10
+
+### Added
+- **Abbasid Caliphate era (`abassi`) — 28 stages (132–656 AH / 750–1258 CE).** New bilingual era covering the Abbasid revolution through the Mongol sack of Baghdad: all 28 steps in `data.js` as a single flat array (consolidated from 4 sub-era design), an inline `#svg-abassi` map (1000×560 Baghdad-centered with Tigris/Euphrates rivers, 14 city nodes, 5 callout markers, trade routes, and decorative motifs), `MAP_VB` entry, SVG show/zoom list wiring, and home-screen card (`#home-abassi`). Two new ambient CSS classes: `.amb-golden` (radiant gold gradient for golden-age steps) and `.amb-sack` (dark crimson gradient for the Mongol catastrophe). `data-ar`/`data-en` balance 306/306.
+- **Abbasid home-screen card.** Dedicated launcher card on the homepage alongside Seerah, Umayyad, and Four Imams — click goes straight to `switchEv('abassi')`. Back button returns home (same pattern as Umayyad).
+- **Design documentation.** `docs/ABBASID_DESIGN.md` (full specification including 28-step breakdown, SVG map, integration checklist) and `docs/ABBASID_PROGRESS.md` (task tracking).
+- **Updated project totals** to 12 eras / ~124 stages across all eras.
+
 ## [3.2.0] — 2026-06-10
 
 ### Added
