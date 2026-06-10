@@ -570,8 +570,8 @@
     if (lbl) {
       lbl.textContent = LANG === 'AR' ? DB[key].labelAr : DB[key].labelEn;
     }
-    // Header brand title reflects the selected era
-    setBrandTitle(DB[key].labelAr, DB[key].labelEn);
+    // Header brand title: "الخط الزمني لـ <era>" / "<era> Timeline"
+    setBrandTitle('الخط الزمني لـ ' + DB[key].labelAr, DB[key].labelEn + ' Timeline');
 
     // Toggle maps (include svg-imam so it's hidden when returning to a Sera era)
     const allSvgs = ['svg-preb','svg-hijra','svg-badr','svg-meccan','svg-medinan',
