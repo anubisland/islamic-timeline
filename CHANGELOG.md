@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.1] — 2026-06-10
+
+### Fixed
+- **Ambient overlay fix for Abbasid map dimness.** Removed dark `amb-night`/`amb-sack`/`amb-golden` classes from abassi steps 6, 11, 14, 15, 16, 24, 25 — they now use the default `amb-day` (near-transparent gold gradient). Bumped cache-bust to `?v=3.3.1` to force CDN/browser to pick up the new `data.js`.
+
 ## [3.3.0] — 2026-06-10
 
 ### Added
