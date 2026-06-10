@@ -4174,7 +4174,7 @@ window.SEERAH_DB = {
           "lessonAr": "الدعوة مقدمة على الجباية — هدف الدولة الإسلامية هو هداية البشر وليس جمع الأموال وتكبير الخزائن",
           "lessonEn": "Dawah precedes taxation — the goal of the Islamic state is guiding humanity, not collecting wealth and filling treasuries",
           "srcs": ["د. الصلابي (الدولة الأموية)", "الطبري (تاريخ الأمم والملوك)"],
-          "mapFocus": {"x":320,"y":200,"scale":1.0}
+          "mapFocus": {"x":370,"y":30,"scale":1.0}
         },
         {
           "ayah": "﴿ إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ ﴾",
@@ -4364,7 +4364,7 @@ window.SEERAH_DB = {
           "lessonAr": "الحذر من الغرور والتسرع — القائد العظيم لا يغامر بجيشه في أرض غير مأمونة",
           "lessonEn": "Beware of arrogance and haste — a great commander does not risk his army in unsafe territory",
           "srcs": ["ابن الأثير (الكامل في التاريخ — بالتفصيل)", "د. الصلابي (الدولة الأموية)"],
-          "mapFocus": {"x":140,"y":80,"scale":1.0}
+          "mapFocus": {"x":55,"y":50,"scale":1.0}
         },
         {
           "ayah": "﴿ وَمَا ظَلَمْنَاهُمْ وَلَٰكِن كَانُوا أَنفُسَهُمْ يَظْلِمُونَ ﴾",
