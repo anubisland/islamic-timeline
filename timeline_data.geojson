@@ -624,6 +624,54 @@
         "type": "Point",
         "coordinates": [43.5, 36.0]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_damascus",
+        "event_id": "umawi_22",
+        "name_ar": "دمشق — الشام",
+        "name_en": "Damascus — Levant",
+        "year_ah": "132 AH",
+        "event_title_ar": "عاصمة الدولة الأموية",
+        "event_title_en": "Capital of the Umayyad Caliphate"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [36.3, 33.5]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_egypt",
+        "event_id": "umawi_22",
+        "name_ar": "مصر",
+        "name_en": "Egypt",
+        "year_ah": "132 AH",
+        "event_title_ar": "مصر تحت الحكم الأموي",
+        "event_title_en": "Egypt under Umayyad rule"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [31.2, 30.0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "umawi_busir",
+        "event_id": "umawi_22",
+        "name_ar": "قرية بوصير",
+        "name_en": "Busir (Egypt)",
+        "year_ah": "132 AH",
+        "event_title_ar": "مقتل مروان بن محمد في بوصير",
+        "event_title_en": "Death of Marwan II at Busir"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [30.8, 28.5]
+      }
     }
   ]
 }

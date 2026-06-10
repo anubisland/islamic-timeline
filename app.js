@@ -623,6 +623,17 @@
     const vb = MAP_VB[mapKey] || [700, 560];
     const focus = s.mapFocus || { x: vb[0] / 2, y: vb[1] / 2, scale: 1.0 };
 
+    // Use focus.scale to zoom the SVG viewBox around the focus point
+    const svgId = inImam ? 'svg-imam' : ('svg-' + EVT);
+    const svgEl = $(svgId);
+    if (svgEl && focus.scale) {
+      const w = vb[0] / focus.scale;
+      const h = vb[1] / focus.scale;
+      const vx = Math.max(0, focus.x - w / 2);
+      const vy = Math.max(0, focus.y - h / 2);
+      svgEl.setAttribute('viewBox', `${vx} ${vy} ${w} ${h}`);
+    }
+
     // No transform on map-pan — the full map is always visible inside the frame
     const pan = $('pan-' + mapKey);
     if (pan) {

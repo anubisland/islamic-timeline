@@ -4428,7 +4428,7 @@ window.SEERAH_DB = {
           "lessonAr": "سنن الله لا تحابي أحداً — الدولة التي قامت على جهاد ونشر الإسلام سقطت حين تخلت عن معايير العدل والشورى",
           "lessonEn": "Allah's laws favor no one — a state built on jihad and spreading Islam fell when it abandoned the standards of justice and consultation",
           "srcs": ["ابن الأثير (الكامل في التاريخ)", "د. عبد الشافي (موسوعته)"],
-          "mapFocus": {"x":500,"y":310,"scale":1.0}
+          "mapFocus": {"x":500,"y":310,"scale":0.65}
         },
         {
           "ayah": "﴿ إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّى يُغَيِّرُوا مَا بِأَنفُسِهِمْ ﴾",

@@ -4,6 +4,17 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.0] — 2026-06-10
+
+### Added
+- **Map focus zoom integrated into `applyMapFocus()`** — `focus.scale` now controls the SVG viewBox zoom around the focus point (scale < 1 zooms out, > 1 zooms in). Previously `scale` was defined in every step's `mapFocus` but never read by `app.js`. This makes step-level map framing work for the first time.
+- **Map region labels for Umayyad era** — Added `مصر/Egypt` and `الشام/Levant` region labels.
+- **GeoJSON features** for umawi_22: Busir, Egypt, Damascus/Levant entries.
+
+### Fixed
+- **Umayyad step 23 (Zab River) map framing** — set `scale: 0.65` to show Iraq, Levant, and Egypt simultaneously.
+- **Umayyad step 23 Busir label** — updated to "قرية بوصير / Busir village" for clarity.
+
 ## [3.1.1] — 2026-06-10
 
 ### Fixed
