@@ -3778,7 +3778,7 @@ window.SEERAH_DB = {
           "lessonAr": "التخطيط الاستراتيجي العسكري — بناء المدن العسكرية كالقيروان يوضح أهمية وجود قواعد ثابتة لتأمين الفتوحات",
           "lessonEn": "Strategic military planning — building military cities like Qayrawan demonstrates the importance of permanent bases to secure conquests",
           "srcs": ["ابن الأثير (الكامل في التاريخ)", "الطبري (تاريخ الأمم والملوك)"],
-          "mapFocus": {"x":140,"y":440,"scale":1.0}
+          "mapFocus": {"x":130,"y":410,"scale":1.0}
         },
         {
           "ayah": "﴿ وَأَعِدُّوا لَهُم مَّا اسْتَطَعْتُم مِّن قُوَّةٍ وَمِن رِّبَاطِ الْخَيْلِ ﴾",
@@ -3811,7 +3811,7 @@ window.SEERAH_DB = {
           "lessonAr": "التخطيط العسكري الطويل الأمد — الاستمرارية في الجهاد رغم عدم تحقيق النصر الكامل",
           "lessonEn": "Long-term military planning — persistence in jihad even without complete victory",
           "srcs": ["الطبري (تاريخ الأمم والملوك)", "ابن الأثير (الكامل في التاريخ)"],
-          "mapFocus": {"x":610,"y":50,"scale":1.0}
+          "mapFocus": {"x":370,"y":30,"scale":1.0}
         },
         {
           "ayah": "﴿ وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنتُمُ الْأَعْلَوْنَ إِن كُنتُم مُّؤْمِنِينَ ﴾",
@@ -3844,7 +3844,7 @@ window.SEERAH_DB = {
           "lessonAr": "ثبات الحق ولو كانت العواقب وخيمة — الحسين علم الأمة أن المبادئ لا تنتهك ولو كان الثمن الحياة",
           "lessonEn": "Steadfastness in truth even at great cost — al-Husayn taught the ummah that principles are not violated even at the price of life",
           "srcs": ["الطبري (تاريخ الأمم والملوك — بالإسناد)", "د. الصلابي (الدولة الأموية)"],
-          "mapFocus": {"x":570,"y":340,"scale":1.0}
+          "mapFocus": {"x":490,"y":310,"scale":1.0}
         },
         {
           "ayah": "﴿ إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّى يُغَيِّرُوا مَا بِأَنفُسِهِمْ ﴾",
@@ -3877,7 +3877,7 @@ window.SEERAH_DB = {
           "lessonAr": "الفرقة والفتنة شر مستطير — الأمة تدفع ثمن الانقسامات السياسية من وحدتها وقوتها",
           "lessonEn": "Division and fitna are a rampant evil — the ummah pays for its political divisions with its unity and strength",
           "srcs": ["الطبري (تاريخ الأمم والملوك)", "د. الصلابي (الدولة الأموية — منظور سني منصف)"],
-          "mapFocus": {"x":460,"y":450,"scale":1.0}
+          "mapFocus": {"x":435,"y":390,"scale":1.0}
         },
         {
           "ayah": "﴿ فَلَوْلَا نَفَرَ مِن كُلِّ فِرْقَةٍ مِّنْهُمْ طَائِفَةٌ لِّيَتَفَقَّهُوا فِي الدِّينِ ﴾",
@@ -3908,7 +3908,7 @@ window.SEERAH_DB = {
           "lessonAr": "في الأزمات العظمى يظهر القادة العظام — عبد الملك أعاد بناء الدولة من الفتنة إلى التماسك",
           "lessonEn": "Great leaders emerge in great crises — Abd al-Malik rebuilt the state from fitna to cohesion",
           "srcs": ["الطبري (تاريخ الأمم والملوك)", "د. عبد الشافي (موسوعته)"],
-          "mapFocus": {"x":500,"y":280,"scale":1.0}
+          "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
           "ayah": "﴿ وَاتَّقُوا فِتْنَةً لَّا تُصِيبَنَّ الَّذِينَ ظَلَمُوا مِنكُمْ خَاصَّةً ﴾",
@@ -3941,7 +3941,7 @@ window.SEERAH_DB = {
           "lessonAr": "الفتنة تبدأ صغيرة ثم تعظم — الحزم في بدايتها يمنع استشراءها",
           "lessonEn": "Fitna starts small then magnifies — decisiveness at its onset prevents its spread",
           "srcs": ["الطبري (تاريخ الأمم والملوك)", "ابن الأثير (الكامل في التاريخ)"],
-          "mapFocus": {"x":570,"y":340,"scale":1.0}
+          "mapFocus": {"x":430,"y":430,"scale":1.0}
         },
         {
           "ayah": "﴿ وَأَنزَلْنَا الْحَدِيدَ فِيهِ بَأْسٌ شَدِيدٌ وَمَنَافِعُ لِلنَّاسِ ﴾",
@@ -3974,7 +3974,7 @@ window.SEERAH_DB = {
           "lessonAr": "السيادة الثقافية والاقتصادية — استقلال الأمة لا يكتمل إلا بالاستقلال الاقتصادي والإداري عن التبعية الأجنبية",
           "lessonEn": "Cultural and economic sovereignty — a nation's independence is not complete without economic and administrative independence from foreign dependency",
           "srcs": ["د. عبد الشافي (موسوعته)", "الطبري (تاريخ الأمم والملوك)"],
-          "mapFocus": {"x":500,"y":280,"scale":1.0}
+          "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
           "ayah": "﴿ سُبْحَانَ الَّذِي أَسْرَى بِعَبْدِهِ لَيْلًا مِّنَ الْمَسْجِدِ الْحَرَامِ إِلَى الْمَسْجِدِ الْأَقْصَى ﴾",
@@ -4005,7 +4005,7 @@ window.SEERAH_DB = {
           "lessonAr": "الأمة تحتاج إلى معالم حضارية تعبر عن هويتها وترسخ وجودها في الأرض",
           "lessonEn": "A nation needs civilizational landmarks that express its identity and establish its presence on the land",
           "srcs": ["الطبري (تاريخ الأمم والملوك)", "د. عبد الشافي (موسوعته)"],
-          "mapFocus": {"x":480,"y":310,"scale":1.0}
+          "mapFocus": {"x":340,"y":230,"scale":1.0}
         },
         {
           "ayah": "﴿ إِنَّا فَتَحْنَا لَكَ فَتْحًا مُّبِينًا ﴾",
@@ -4040,7 +4040,7 @@ window.SEERAH_DB = {
           "lessonAr": "حسن اختيار القادة — نجاح الفتوحات كان ثمرة لوضع الرجل المناسب في المكان المناسب بناءً على الكفاءة",
           "lessonEn": "Good selection of leaders — the success of conquests resulted from placing the right man in the right place based on competence",
           "srcs": ["ابن الأثير (الكامل في التاريخ)", "د. عبد الشافي (موسوعته)"],
-          "mapFocus": {"x":940,"y":240,"scale":1.0}
+          "mapFocus": {"x":860,"y":120,"scale":1.0}
         },
         {
           "ayah": "﴿ الَّذِينَ أُخْرِجُوا مِن دِيَارِهِمْ بِغَيْرِ حَقٍّ إِلَّا أَن يَقُولُوا رَبُّنَا اللَّهُ ﴾",
@@ -4108,7 +4108,7 @@ window.SEERAH_DB = {
           "lessonAr": "أثر العلماء في توجيه الحكام — الرجاء بن حيوة كان سبباً في أعظم تحول في التاريخ الأموي",
           "lessonEn": "The influence of scholars in guiding rulers — Raja ibn Haywah was the cause of the greatest transformation in Umayyad history",
           "srcs": ["ابن الأثير (الكامل في التاريخ — بالتفصيل)", "د. الصلابي (الدولة الأموية)"],
-          "mapFocus": {"x":610,"y":50,"scale":1.0}
+          "mapFocus": {"x":370,"y":30,"scale":1.0}
         },
         {
           "ayah": "﴿ يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ لِلَّهِ شُهَدَاءَ بِالْقِسْطِ ﴾",
@@ -4141,7 +4141,7 @@ window.SEERAH_DB = {
           "lessonAr": "القدوة من القمة — لا ينجح أي إصلاح في الأمة ما لم يبدأ الحاكم بنفسه وبأهل بيته أولاً",
           "lessonEn": "Leadership by example from the top — no reform in the ummah succeeds unless the ruler begins with himself and his family first",
           "srcs": ["د. الصلابي (الدولة الأموية)", "ابن الأثير (الكامل في التاريخ)"],
-          "mapFocus": {"x":500,"y":280,"scale":1.0}
+          "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
           "ayah": "﴿ وَإِن جَنَحُوا لِلسَّلْمِ فَاجْنَحْ لَهَا وَتَوَكَّلْ عَلَى اللَّهِ ﴾",
@@ -4174,7 +4174,7 @@ window.SEERAH_DB = {
           "lessonAr": "الدعوة مقدمة على الجباية — هدف الدولة الإسلامية هو هداية البشر وليس جمع الأموال وتكبير الخزائن",
           "lessonEn": "Dawah precedes taxation — the goal of the Islamic state is guiding humanity, not collecting wealth and filling treasuries",
           "srcs": ["د. الصلابي (الدولة الأموية)", "الطبري (تاريخ الأمم والملوك)"],
-          "mapFocus": {"x":500,"y":280,"scale":1.0}
+          "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
           "ayah": "﴿ إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ ﴾",
@@ -4209,7 +4209,7 @@ window.SEERAH_DB = {
           "lessonAr": "حفظ المصدر الثاني للتشريع — جيل التابعين والعلماء استجابوا فوراً لأمر عمر فحفظوا السنة للأمة",
           "lessonEn": "Preserving the second source of legislation — the generation of Tabi'un and scholars responded immediately to Umar's order, preserving the Sunnah for the ummah",
           "srcs": ["د. الصلابي (الدولة الأموية)", "ابن الأثير (الكامل في التاريخ)"],
-          "mapFocus": {"x":460,"y":450,"scale":1.0}
+          "mapFocus": {"x":420,"y":350,"scale":1.0}
         },
         {
           "ayah": "﴿ إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ ﴾",
@@ -4240,7 +4240,7 @@ window.SEERAH_DB = {
           "lessonAr": "العدل هو أساس الاستقرار والنماء — أثبت عهد عمر أن بسط العدل ورد المظالم يثمر بركة اقتصادية حتى فاضت الأموال",
           "lessonEn": "Justice is the foundation of stability and prosperity — Umar's era proved that establishing justice yields economic blessings until wealth overflows",
           "srcs": ["د. الصلابي (الدولة الأموية)", "الطبري (تاريخ الأمم والملوك)"],
-          "mapFocus": {"x":500,"y":280,"scale":1.0}
+          "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
           "ayah": "﴿ إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ ﴾",
@@ -4271,7 +4271,7 @@ window.SEERAH_DB = {
           "lessonAr": "القصير مدةً الطويل أثراً — عمر بن عبد العزيز أثبت أن البركة في العطاء لا في طول المدة",
           "lessonEn": "Short in duration, long in impact — Umar ibn Abd al-Aziz proved that blessing is in giving, not in length of time",
           "srcs": ["ابن الأثير (الكامل في التاريخ)", "الطبري (تاريخ الأمم والملوك)"],
-          "mapFocus": {"x":480,"y":290,"scale":1.0}
+          "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
           "ayah": "﴿ وَمَا كَانَ رَبُّكَ لِيُهْلِكَ الْقُرَىٰ بِظُلْمٍ وَأَهْلُهَا مُصْلِحُونَ ﴾",
@@ -4302,7 +4302,7 @@ window.SEERAH_DB = {
           "lessonAr": "استمرارية الإصلاح أهم من بدايته — بموت المصلح قد يموت الإصلاح إن لم تكن المؤسسات حاضنة له",
           "lessonEn": "The continuity of reform is more important than its beginning — with the reformer's death, reform may die if institutions do not sustain it",
           "srcs": ["الطبري (تاريخ الأمم والملوك)", "د. عبد الشافي (موسوعته)"],
-          "mapFocus": {"x":500,"y":280,"scale":1.0}
+          "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
           "ayah": "﴿ وَأَمْرُهُمْ شُورَىٰ بَيْنَهُمْ ﴾",
@@ -4333,7 +4333,7 @@ window.SEERAH_DB = {
           "lessonAr": "الحزم المالي والإداري يحفظ الدولة — لكن الحزم وحده لا يكفي إذا غابت العدالة والمشاركة",
           "lessonEn": "Financial and administrative discipline preserves the state — but discipline alone is not enough when justice and participation are absent",
           "srcs": ["د. عبد الشافي (موسوعته)", "الطبري (تاريخ الأمم والملوك)"],
-          "mapFocus": {"x":500,"y":280,"scale":1.0}
+          "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
           "ayah": "﴿ وَلَا تَحْسَبَنَّ الَّذِينَ قُتِلُوا فِي سَبِيلِ اللَّهِ أَمْوَاتًا بَلْ أَحْيَاءٌ عِندَ رَبِّهِمْ يُرْزَقُونَ ﴾",
@@ -4397,7 +4397,7 @@ window.SEERAH_DB = {
           "lessonAr": "النزاع الداخلي يورث الفشل — إحياء العصبية القبلية والصراع داخل البيت الحاكم كان السكين التي قطعت أواصر الدولة",
           "lessonEn": "Internal conflict begets failure — reviving tribal partisanship and conflict within the ruling house was the knife that severed the state's bonds",
           "srcs": ["الطبري (تاريخ الأمم والملوك)", "ابن الأثير (الكامل في التاريخ)"],
-          "mapFocus": {"x":500,"y":280,"scale":1.0}
+          "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
           "ayah": "﴿ وَاتَّقُوا فِتْنَةً لَّا تُصِيبَنَّ الَّذِينَ ظَلَمُوا مِنكُمْ خَاصَّةً ﴾",
@@ -4428,7 +4428,7 @@ window.SEERAH_DB = {
           "lessonAr": "سنن الله لا تحابي أحداً — الدولة التي قامت على جهاد ونشر الإسلام سقطت حين تخلت عن معايير العدل والشورى",
           "lessonEn": "Allah's laws favor no one — a state built on jihad and spreading Islam fell when it abandoned the standards of justice and consultation",
           "srcs": ["ابن الأثير (الكامل في التاريخ)", "د. عبد الشافي (موسوعته)"],
-          "mapFocus": {"x":610,"y":360,"scale":1.0}
+          "mapFocus": {"x":500,"y":310,"scale":1.0}
         },
         {
           "ayah": "﴿ إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّى يُغَيِّرُوا مَا بِأَنفُسِهِمْ ﴾",
@@ -4461,7 +4461,7 @@ window.SEERAH_DB = {
           "lessonAr": "عودوا إلى دينكم وإلى سنن آبائكم — لا عز للأمة إلا بإسلامها وعدلها وشوراها، وأما القصور والسلطان فزائل",
           "lessonEn": "Return to your faith and the ways of your forefathers — the ummah's glory lies only in its Islam, justice, and consultation; palaces and power are transient",
           "srcs": ["د. الصلابي (الدولة الأموية)", "د. عبد الشافي (موسوعته)"],
-          "mapFocus": {"x":500,"y":280,"scale":1.0}
+          "mapFocus": {"x":320,"y":200,"scale":1.0}
         }
       ]
     }
