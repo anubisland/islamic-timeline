@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.5] — 2026-06-10
+
+### Fixed
+- **Historical fact-check of the Umayyad era (24 steps) — 15 corrections.** Same review process as the Abbasid pass (v3.3.4). The substantive ones: al-Mukhtar's revolt was crushed by **Muṣʿab ibn al-Zubayr in 67 AH** (the text credited al-Ḥajjāj — who was then sent against Ibn al-Zubayr by ʿAbd al-Malik); ʿUqba ibn Nāfiʿ **founded Qayrawan in 50 AH** and made his Atlantic expedition in his *second* governorship (62–63 AH, martyred at Tahūdha) — the text had merged them into one 50 AH campaign; the arabization of the dīwāns dated **c. 78–81 AH** and the first Islamic dinar **77 AH** (text claimed both in 73 AH "the same year"); Yazīd's Constantinople campaign (with Abū Ayyūb al-Anṣārī) redated to **49 AH onward** (was 54–60, incompatible with its own participants); Ibn al-Zubayr declared his caliphate **after Yazīd's death (64 AH)**, not during al-Ḥarra; Muḥammad ibn al-Qāsim took **Nīrūn**, not al-Manṣūra (founded decades later); the second siege of Constantinople failed to **Leo III's defenses, Greek fire, and the harsh winter** (text had "the city nearly fell" to vague "clever intervention"); ʿUmar II's death **"reportedly poisoned"** (hedged — one account, not established); Ṭāriq's ship-burning marked as a related report (graded legendary by Sunni scholarship); Balāṭ al-Shuhadāʾ identified as the **battle between Tours and Poitiers**, not a gloss for the city of Tours — and its lesson no longer blames the martyred al-Ghāfiqī for "arrogance"; the Dome of the Rock "retains its original design" (its dome was rebuilt after the 407 AH earthquake); Muʿāwiya **fortified** Acre (an ancient city); plus typos (Ubayd Allah, الفترة، وبري), missing date pairs, and the unverifiable "د. عبد الشافي (موسوعته)" source chip replaced with Ibn Kathīr's al-Bidāya in all 8 steps.
+- **Four-Imams touch-ups:** al-Shāfiʿī's Gaza birthplace now "according to the soundest report" (not "historians agree" — ʿAsqalān/Yemen reports exist); the self-contradictory "born an orphan, never seeing his father who died while he was young" rewritten; Ashhab's role chip corrected to **"leading Mālikī jurist of Egypt, contemporary of al-Shāfiʿī"** (he was not of al-Shāfiʿī's circle; his entry as Mālik's student in the Mālik module is correct and untouched).
+- Sidecar re-vocalized for every changed sentence (skeleton-validated 145/145); regenerated all Umayyad + al-Shāfiʿī audio (300 clips, 5 voices × AR+EN).
+
 ## [3.3.4] — 2026-06-10
 
 ### Fixed

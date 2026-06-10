@@ -3736,8 +3736,8 @@ window.SEERAH_DB = {
           "timeEn": "661 – 680 CE",
           "distAr": "📍 دمشق — عاصمة الدولة الجديدة",
           "distEn": "📍 Damascus — the new capital",
-          "descAr": "تميز عهد معاوية بن أبي سفيان بالاستقرار السياسي والإداري بعد سنوات الفتنة. كان معاوية معروفاً بدهائه السياسي وحلمه الواسع. وسميت إحدى صفاته 'شعرة معاوية' أي أنه كان يمتص الغضب ولا ينفعل. نظم معاوية شؤون الدولة وأسس دواوين جديدة، وأبقى على ولاة أقوياء لإدارة الأقاليم. طور الأسطول الإسلامي البحري، وبنى مدينة عكا قاعدة بحرية. ركز على توحيد الأمة بعد الانقسام، فكان لا يقطع رحماً ولا يؤذي خصماً أسلم واستسلم. استمرت خلافته 20 عاماً من أعوام الاستقرار والبناء التي مهدت لما بعده من فتوحات.",
-          "descEn": "Muawiyah ibn Abi Sufyan's reign was marked by political and administrative stability after years of fitna. He was known for his political acumen and vast forbearance. One of his defining traits was called 'Muawiyah's hair' — a metaphor for his ability to absorb anger without reacting. He organized state affairs, established new administrative departments (dawawin), and retained strong governors to manage the provinces. He developed the Islamic naval fleet and built the port city of Acre as a naval base. He focused on unifying the ummah after the division, avoiding severing family ties or harming opponents who submitted peacefully. His 20-year caliphate was a period of stability and construction that paved the way for the conquests that followed.",
+          "descAr": "تميز عهد معاوية بن أبي سفيان بالاستقرار السياسي والإداري بعد سنوات الفتنة. كان معاوية معروفاً بدهائه السياسي وحلمه الواسع. وسميت إحدى صفاته 'شعرة معاوية' أي أنه كان يمتص الغضب ولا ينفعل. نظم معاوية شؤون الدولة وأسس دواوين جديدة، وأبقى على ولاة أقوياء لإدارة الأقاليم. طور الأسطول الإسلامي البحري، وحصّن مدينة عكا وجعلها قاعدة بحرية. ركز على توحيد الأمة بعد الانقسام، فكان لا يقطع رحماً ولا يؤذي خصماً أسلم واستسلم. استمرت خلافته 20 عاماً من أعوام الاستقرار والبناء التي مهدت لما بعده من فتوحات.",
+          "descEn": "Muawiyah ibn Abi Sufyan's reign was marked by political and administrative stability after years of fitna. He was known for his political acumen and vast forbearance. One of his defining traits was called 'Muawiyah's hair' — a metaphor for his ability to absorb anger without reacting. He organized state affairs, established new administrative departments (dawawin), and retained strong governors to manage the provinces. He developed the Islamic naval fleet and fortified the port city of Acre as a naval base. He focused on unifying the ummah after the division, avoiding severing family ties or harming opponents who submitted peacefully. His 20-year caliphate was a period of stability and construction that paved the way for the conquests that followed.",
           "charsAr": [
             {"i":"👤","n":"معاوية بن أبي سفيان رضي الله عنه","r":"خليفة مسلم — مؤسس الدولة — صاحب الحلم السياسي العالي"}
           ],
@@ -3767,8 +3767,8 @@ window.SEERAH_DB = {
           "timeEn": "670 CE",
           "distAr": "📍 القيروان — إفريقية",
           "distEn": "📍 Qayrawan — Ifriqiya",
-          "descAr": "في عام 50 هـ قاد عقبة بن نافع الفهري حملة عسكرية عميقة في المغرب العربي حتى وصل إلى المحيط الأطلسي. وفي طريقه أسس مدينة القيروان لتكون قاعدة عسكرية وحضارية للمسلمين في إفريقية، اختار موقعها في منطقة بعيدة عن البحر لحمايتها من الهجمات البيزنطية. بنى فيها جامعاً لا يزال قائماً إلى اليوم، وجعلها منارة للعلم ونشر الإسلام في ربوع المغرب العربي. من القيروان انطلقت الجيوش الإسلامية لتفتح بقية مدن المغرب، حتى وصلت إلى طنجة على سواحل المحيط. كان عقبة بن نافع قائداً فذاً يجمع بين الشجاعة والتدبير العسكري، وظل حفر القيروان وبئرها رمزاً لتلك الفتوحات.",
-          "descEn": "In 50 AH, Uqbah ibn Nafi al-Fihri led a military campaign deep into the Maghreb, reaching the Atlantic Ocean. On his way, he founded the city of Qayrawan as a military and civilizational base for Muslims in Ifriqiya, choosing a location far from the sea to protect it from Byzantine attacks. He built a mosque there that still stands today, making the city a beacon of knowledge and Islamic propagation throughout the Maghreb. From Qayrawan, Islamic armies launched to conquer the remaining cities of the Maghreb, eventually reaching Tangier on the Atlantic coast. Uqbah ibn Nafi was an extraordinary commander, combining courage with military strategy. The digging of Qayrawan's well remains a symbol of those conquests.",
+          "descAr": "في عام 50 هـ أسس عقبة بن نافع الفهري مدينة القيروان لتكون قاعدة عسكرية وحضارية للمسلمين في إفريقية، اختار موقعها في منطقة بعيدة عن البحر لحمايتها من الهجمات البيزنطية. بنى فيها جامعاً لا يزال قائماً إلى اليوم، وجعلها منارة للعلم ونشر الإسلام في ربوع المغرب العربي. من القيروان انطلقت الجيوش الإسلامية لتفتح بقية مدن المغرب، حتى وصلت إلى طنجة على سواحل المحيط. وفي ولايته الثانية سنة 62 هـ قاد عقبة حملته الكبرى في عمق المغرب حتى وصل إلى المحيط الأطلسي، واستشهد في طريق عودته عند تهوذة سنة 63 هـ. كان عقبة بن نافع قائداً فذاً يجمع بين الشجاعة والتدبير العسكري، وظل حفر القيروان وبئرها رمزاً لتلك الفتوحات.",
+          "descEn": "In 50 AH, Uqbah ibn Nafi al-Fihri founded the city of Qayrawan as a military and civilizational base for Muslims in Ifriqiya, choosing a location far from the sea to protect it from Byzantine attacks. He built a mosque there that still stands today, making the city a beacon of knowledge and Islamic propagation throughout the Maghreb. From Qayrawan, Islamic armies launched to conquer the remaining cities of the Maghreb, eventually reaching Tangier on the Atlantic coast. In his second governorship (62 AH), Uqbah led his great expedition deep into the Maghreb, reaching the Atlantic Ocean, and was martyred at Tahudha on his return in 63 AH. Uqbah ibn Nafi was an extraordinary commander, combining courage with military strategy. The digging of Qayrawan's well remains a symbol of those conquests.",
           "charsAr": [
             {"i":"⚔️","n":"عقبة بن نافع الفهري","r":"قائد فذ اخترق المغرب العربي وبنى القيروان كقاعدة استراتيجية"}
           ],
@@ -3785,8 +3785,8 @@ window.SEERAH_DB = {
           "ayahRef": "سورة الأنفال — الآية ٦٠",
           "ayahEn": "And prepare against them whatever you can of power and of mounted steeds.",
           "ayahRefEn": "Surah Al-Anfal (8), verse 60",
-          "dateAr": "٥٤ - ٦٠ هـ",
-          "dateEn": "674 – 680 CE",
+          "dateAr": "٤٩ - ٦٠ هـ",
+          "dateEn": "669 – 680 CE",
           "titleAr": "حصار القسطنطينية الأول — الأسطول الإسلامي",
           "titleEn": "The First Siege of Constantinople — The Islamic Fleet",
           "mtAr": "القسطنطينية — الشام",
@@ -3798,8 +3798,8 @@ window.SEERAH_DB = {
           "timeEn": "674 – 680 CE",
           "distAr": "📍 من الشام إلى القسطنطينية",
           "distEn": "📍 From the Levant to Constantinople",
-          "descAr": "في عهد معاوية بن أبي سفيان قاد ابنه يزيد حملة بحرية وبرية لفتح القسطنطينية عاصمة البيزنطيين. استمر الحصار عدة سنوات متقطعة كانت الأولى من نوعها في تاريخ الإسلام. شارك في هذه الحملة عدد من كبار الصحابة ومنهم أبو أيوب الأنصاري صاحب ضيافة النبي ﷺ في المدينة، الذي توفي ودفن على أسوار القسطنطينية. رغم عدم نجاح الحصار في فتح المدينة، إلا أنه أظهر قوة الأسطول الإسلامي الناشئ ورسخ هيبة المسلمين في البحر. كانت هذه الحملة تدريباً عملياً للجيوش الإسلامية على الحروب البحرية التي ستصبح أساساً لفتوحات ما بعد.",
-          "descEn": "During Muawiyah's reign, his son Yazid led a naval and land campaign to conquer Constantinople, the Byzantine capital. The siege lasted several intermittent years, the first of its kind in Islamic history. Many senior Companions participated, including Abu Ayyub al-Ansari — the host of the Prophet ﷺ in Madinah — who died and was buried at the walls of Constantinople. Although the siege did not succeed in capturing the city, it demonstrated the strength of the emerging Islamic fleet and established Muslim naval prestige. This campaign served as practical training for Islamic armies in naval warfare, which would become the foundation for later conquests.",
+          "descAr": "في عهد معاوية بن أبي سفيان قاد ابنه يزيد سنة 49 هـ حملة بحرية وبرية لفتح القسطنطينية عاصمة البيزنطيين. واستمرت الحملات عليها سنوات متقطعة، وكانت الأولى من نوعها في تاريخ الإسلام. شارك في هذه الحملة عدد من كبار الصحابة ومنهم أبو أيوب الأنصاري صاحب ضيافة النبي ﷺ في المدينة، الذي توفي ودفن على أسوار القسطنطينية. رغم عدم نجاح الحصار في فتح المدينة، إلا أنه أظهر قوة الأسطول الإسلامي الناشئ ورسخ هيبة المسلمين في البحر. كانت هذه الحملة تدريباً عملياً للجيوش الإسلامية على الحروب البحرية التي ستصبح أساساً لفتوحات ما بعد.",
+          "descEn": "During Muawiyah's reign, his son Yazid led a naval and land campaign in 49 AH to conquer Constantinople, the Byzantine capital. Campaigns against it continued intermittently for years — the first of their kind in Islamic history. Many senior Companions participated, including Abu Ayyub al-Ansari — the host of the Prophet ﷺ in Madinah — who died and was buried at the walls of Constantinople. Although the siege did not succeed in capturing the city, it demonstrated the strength of the emerging Islamic fleet and established Muslim naval prestige. This campaign served as practical training for Islamic armies in naval warfare, which would become the foundation for later conquests.",
           "charsAr": [
             {"i":"⚓","n":"يزيد بن معاوية","r":"قائد الحملة البحرية والبرية على القسطنطينية"},
             {"i":"🕊️","n":"أبو أيوب الأنصاري","r":"صحابي جليل توفي على أسوار القسطنطينية"}
@@ -3832,7 +3832,7 @@ window.SEERAH_DB = {
           "distAr": "📍 من المدينة إلى كربلاء",
           "distEn": "📍 From Madinah to Karbala",
           "descAr": "توفي معاوية بن أبي سفيان في رجب سنة 60 هـ بعد خلافة دامت 20 عاماً. تولى بعده ابنه يزيد الذي واجه تحديات كبيرة، أبرزها رفض الحسين بن علي رضي الله عنهما بيعة الوليد بن عتبة والي المدينة. خرج الحسين إلى مكة ثم توجه إلى العراق بعد دعوات من أهل الكوفة لنصرته. في طريقه اعترضه جيش عبيد الله بن زياد في كربلاء. في يوم عاشوراء 10 محرم سنة 61 هـ وقعت المعركة غير المتكافئة التي استشهد فيها الحسين وأهل بيته وأصحابه رضي الله عنهم. كانت هذه الفاجعة من أعظم المحن في تاريخ الأمة الإسلامية، وأثرت في ضمير الأمة جمعاء.",
-          "descEn": "Muawiyah ibn Abi Sufyan died in Rajab 60 AH after a 20-year caliphate. His son Yazid succeeded him and faced major challenges, most notably al-Husayn ibn Ali's (RA) refusal to pledge allegiance to the governor al-Walid ibn Utbah in Madinah. Al-Husayn left for Makkah and then headed to Iraq following invitations from the people of Kufa who promised their support. On his way, Ubadayd Allah ibn Ziyad's army intercepted him at Karbala. On the day of Ashura, 10 Muharram 61 AH, an unequal battle took place in which al-Husayn, his family members, and his companions were martyred. This tragedy was one of the greatest trials in Islamic history and left a lasting impact on the conscience of the entire ummah.",
+          "descEn": "Muawiyah ibn Abi Sufyan died in Rajab 60 AH after a 20-year caliphate. His son Yazid succeeded him and faced major challenges, most notably al-Husayn ibn Ali's (RA) refusal to pledge allegiance to the governor al-Walid ibn Utbah in Madinah. Al-Husayn left for Makkah and then headed to Iraq following invitations from the people of Kufa who promised their support. On his way, Ubayd Allah ibn Ziyad's army intercepted him at Karbala. On the day of Ashura, 10 Muharram 61 AH, an unequal battle took place in which al-Husayn, his family members, and his companions were martyred. This tragedy was one of the greatest trials in Islamic history and left a lasting impact on the conscience of the entire ummah.",
           "charsAr": [
             {"i":"👤","n":"معاوية بن أبي سفيان رضي الله عنه","r":"توفي بعد 20 عاماً من الخلافة المستقرة"},
             {"i":"🕊️","n":"الحسين بن علي رضي الله عنهما","r":"استشهد في كربلاء دفاعاً عن الحق والمبدأ"}
@@ -3864,8 +3864,8 @@ window.SEERAH_DB = {
           "timeEn": "Dhu al-Hijjah 63 AH",
           "distAr": "📍 المدينة المنورة — الحجاز",
           "distEn": "📍 Madinah — Hejaz",
-          "descAr": "بعد مقتل الحسين بن علي اشتدت الاضطرابات السياسية في أنحاء الدولة الإسلامية. في المدينة المنورة ثار أبناء الصحابة على حكم يزيد بن معاوية وأعلنوا خلعه، ودارت معركة الحرة بين جيش يزيد بقيادة مسلم بن عقبة وبين أهل المدينة. انتهت المعركة باقتحام المدينة وقتل عدد كبير من التابعين وأبناء الصحابة. في هذه الأثناء كان عبد الله بن الزبير قد أعلن نفسه خليفة في مكة وبدأت حركته في الحجاز والعراق. هذه الأحداث أوضحت عمق الانقسام السياسي في المجتمع الإسلامي بعد نصف قرن من وفاة النبي ﷺ.",
-          "descEn": "After al-Husayn's martyrdom, political turmoil intensified across the Islamic state. In Madinah, the sons of the Companions revolted against Yazid ibn Muawiyah's rule and declared his removal. The Battle of al-Harrah took place between Yazid's army led by Muslim ibn Uqbah and the people of Madinah. The battle ended with the storming of the city and the killing of many Tabi'un and sons of the Companions. During this time, Abd Allah ibn al-Zubayr declared himself caliph in Makkah, beginning his movement in the Hejaz and Iraq. These events revealed the depth of political division in Islamic society half a century after the Prophet's death.",
+          "descAr": "بعد مقتل الحسين بن علي اشتدت الاضطرابات السياسية في أنحاء الدولة الإسلامية. في المدينة المنورة ثار أبناء الصحابة على حكم يزيد بن معاوية وأعلنوا خلعه، ودارت معركة الحرة بين جيش يزيد بقيادة مسلم بن عقبة وبين أهل المدينة. انتهت المعركة باقتحام المدينة وقتل عدد كبير من التابعين وأبناء الصحابة. في هذه الأثناء كان عبد الله بن الزبير قد رفض البيعة واعتصم بمكة، ثم أعلن خلافته بعد وفاة يزيد سنة 64 هـ، وبدأت حركته في الحجاز والعراق. هذه الأحداث أوضحت عمق الانقسام السياسي في المجتمع الإسلامي بعد نصف قرن من وفاة النبي ﷺ.",
+          "descEn": "After al-Husayn's martyrdom, political turmoil intensified across the Islamic state. In Madinah, the sons of the Companions revolted against Yazid ibn Muawiyah's rule and declared his removal. The Battle of al-Harrah took place between Yazid's army led by Muslim ibn Uqbah and the people of Madinah. The battle ended with the storming of the city and the killing of many Tabi'un and sons of the Companions. During this time, Abd Allah ibn al-Zubayr had refused allegiance and taken sanctuary in Makkah — declaring his caliphate after Yazid's death in 64 AH — and his movement began in the Hejaz and Iraq. These events revealed the depth of political division in Islamic society half a century after the Prophet's death.",
           "charsAr": [
             {"i":"⚔️","n":"عبد الله بن الزبير","r":"أعلن خلافته في مكة — بداية حركة مستقلة في الحجاز"},
             {"i":"👑","n":"يزيد بن معاوية","r":"واجه تحديات سياسية كبرى بعد وفاة أبيه"}
@@ -3907,7 +3907,7 @@ window.SEERAH_DB = {
           ],
           "lessonAr": "في الأزمات العظمى يظهر القادة العظام — عبد الملك أعاد بناء الدولة من الفتنة إلى التماسك",
           "lessonEn": "Great leaders emerge in great crises — Abd al-Malik rebuilt the state from fitna to cohesion",
-          "srcs": ["الطبري (تاريخ الأمم والملوك)", "د. عبد الشافي (موسوعته)"],
+          "srcs": ["الطبري (تاريخ الأمم والملوك)", "ابن كثير (البداية والنهاية)"],
           "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
@@ -3928,8 +3928,8 @@ window.SEERAH_DB = {
           "timeEn": "687 – 692 CE",
           "distAr": "📍 العراق — الجزيرة",
           "distEn": "📍 Iraq — Jazirah",
-          "descAr": "بعد تولي عبد الملك بن مروان الخلافة عمل على القضاء على الفتن الداخلية التي مزقت الدولة. في العراق قضى الحجاج بن يوسف الثقفي على حركة المختار الثقفي الذي كان يدعو لنفسه في الكوفة. ثم توجه لمواجهة عبد الله بن الزبير في مكة الذي كان قد أعلن نفسه خليفة وحكم الحجاز والعراق ومصر لسنوات. حاصر الحجاج مكة المكرمة وقصف الكعبة بالمنجنيق مما أدى إلى تدميرها ثم إعادة بنائها من جديد. قتل ابن الزبير في المعركة سنة 73 هـ وتمت بيعة عبد الملك بن مروان في جميع أقاليم الدولة الإسلامية، وانتهى الانقسام بترسيخ الحكم الأموي.",
-          "descEn": "After assuming the caliphate, Abd al-Malik ibn Marwan worked to eliminate the internal fitnas that had torn the state apart. In Iraq, al-Hajjaj ibn Yusuf al-Thaqafi crushed the movement of al-Mukhtar al-Thaqafi, who had claimed leadership in Kufa. He then confronted Abd Allah ibn al-Zubayr in Makkah, who had declared himself caliph and ruled the Hejaz, Iraq, and Egypt for years. Al-Hajjaj besieged Makkah and bombarded the Kaaba with catapults, causing its destruction, after which it was rebuilt. Ibn al-Zubayr was killed in battle in 73 AH, and Abd al-Malik received allegiance from all regions of the Islamic state, ending the division and cementing Umayyad rule.",
+          "descAr": "بعد تولي عبد الملك بن مروان الخلافة عمل على القضاء على الفتن الداخلية التي مزقت الدولة. في العراق قضى مصعب بن الزبير على حركة المختار الثقفي سنة 67 هـ، ثم هزم عبد الملك مصعباً وأرسل الحجاج بن يوسف الثقفي لمواجهة عبد الله بن الزبير في مكة الذي كان قد أعلن نفسه خليفة وحكم الحجاز والعراق ومصر لسنوات. حاصر الحجاج مكة المكرمة وقصف الكعبة بالمنجنيق مما أدى إلى تدميرها ثم إعادة بنائها من جديد. قتل ابن الزبير في المعركة سنة 73 هـ وتمت بيعة عبد الملك بن مروان في جميع أقاليم الدولة الإسلامية، وانتهى الانقسام بترسيخ الحكم الأموي.",
+          "descEn": "After assuming the caliphate, Abd al-Malik ibn Marwan worked to eliminate the internal fitnas that had torn the state apart. In Iraq, Mus'ab ibn al-Zubayr crushed the movement of al-Mukhtar al-Thaqafi in 67 AH; Abd al-Malik then defeated Mus'ab and sent al-Hajjaj ibn Yusuf al-Thaqafi to confront Abd Allah ibn al-Zubayr in Makkah, who had declared himself caliph and ruled the Hejaz, Iraq, and Egypt for years. Al-Hajjaj besieged Makkah and bombarded the Kaaba with catapults, causing its destruction, after which it was rebuilt. Ibn al-Zubayr was killed in battle in 73 AH, and Abd al-Malik received allegiance from all regions of the Islamic state, ending the division and cementing Umayyad rule.",
           "charsAr": [
             {"i":"👑","n":"عبد الملك بن مروان","r":"قاد عملية توحيد الدولة بعد سنوات الانقسام"},
             {"i":"⚔️","n":"الحجاج بن يوسف الثقفي","r":"والي العراق — قاد الحملات العسكرية لتوحيد الدولة"}
@@ -3948,8 +3948,8 @@ window.SEERAH_DB = {
           "ayahRef": "سورة الحديد — الآية ٢٥",
           "ayahEn": "And We sent down iron, wherein is great military might and benefits for the people.",
           "ayahRefEn": "Surah Al-Hadid (57), verse 25",
-          "dateAr": "٧٣ هـ / ٦٩٢ م",
-          "dateEn": "73 AH / 692 CE",
+          "dateAr": "٧٣ - ٨١ هـ / ٦٩٢ - ٧٠٠ م",
+          "dateEn": "73–81 AH / 692–700 CE",
           "titleAr": "تعريب الدواوين وسك العملة الإسلامية",
           "titleEn": "Arabization of the Diwans and Islamic Coinage",
           "mtAr": "دمشق",
@@ -3961,8 +3961,8 @@ window.SEERAH_DB = {
           "timeEn": "692 CE",
           "distAr": "📍 دمشق — عاصمة الدولة",
           "distEn": "📍 Damascus — state capital",
-          "descAr": "في عام 73 هـ أمر عبد الملك بن مروان بتعريب الدواوين، أي تحويل اللغة الإدارية من اليونانية والفارسية إلى اللغة العربية في جميع أقاليم الدولة. كانت هذه خطوة حضارية كبرى لترسيخ الهوية الإسلامية وجعل اللغة العربية لغة العلم والإدارة والحكم. وفي نفس السنة أمر بسك أول دينار إسلامي أموي خالص، نقش عليه آيات قرآنية بدلاً من الصور البشرية التي كانت على العملات البيزنطية والفارسية. كان هذا الإجراء ثورياً لأنه رسخ الاستقلال الاقتصادي والثقافي للدولة الإسلامية. الدينار الذهبي الأموي أصبح العملة الأقوى في العالم لقرون طويلة.",
-          "descEn": "In 73 AH, Abd al-Malik ibn Marwan ordered the arabization of the diwans, converting the administrative language from Greek and Persian to Arabic in all regions of the state. This was a major civilizational step to establish Islamic identity and make Arabic the language of knowledge, administration, and governance. In the same year, he ordered the minting of the first pure Islamic Umayyad dinar, inscribed with Quranic verses instead of the human images found on Byzantine and Persian coins. This was a revolutionary measure that cemented the economic and cultural independence of the Islamic state. The Umayyad gold dinar became the world's strongest currency for centuries.",
+          "descAr": "أمر عبد الملك بن مروان بتعريب الدواوين (نحو 78 - 81 هـ)، أي تحويل اللغة الإدارية من اليونانية والفارسية إلى اللغة العربية في جميع أقاليم الدولة. كانت هذه خطوة حضارية كبرى لترسيخ الهوية الإسلامية وجعل اللغة العربية لغة العلم والإدارة والحكم. وفي سنة 77 هـ أمر بسك أول دينار إسلامي أموي خالص، نقش عليه آيات قرآنية بدلاً من الصور البشرية التي كانت على العملات البيزنطية والفارسية. كان هذا الإجراء ثورياً لأنه رسخ الاستقلال الاقتصادي والثقافي للدولة الإسلامية. الدينار الذهبي الأموي أصبح العملة الأقوى في العالم لقرون طويلة.",
+          "descEn": "Abd al-Malik ibn Marwan ordered the arabization of the diwans (c. 78–81 AH), converting the administrative language from Greek and Persian to Arabic in all regions of the state. This was a major civilizational step to establish Islamic identity and make Arabic the language of knowledge, administration, and governance. In 77 AH, he ordered the minting of the first pure Islamic Umayyad dinar, inscribed with Quranic verses instead of the human images found on Byzantine and Persian coins. This was a revolutionary measure that cemented the economic and cultural independence of the Islamic state. The Umayyad gold dinar became the world's strongest currency for centuries.",
           "charsAr": [
             {"i":"👑","n":"عبد الملك بن مروان","r":"أمر بتعريب الدواوين وسك أول دينار إسلامي"},
             {"i":"📜","n":"الحجاج بن يوسف","r":"نفذ سياسة التعريب في العراق والمشرق"}
@@ -3973,7 +3973,7 @@ window.SEERAH_DB = {
           ],
           "lessonAr": "السيادة الثقافية والاقتصادية — استقلال الأمة لا يكتمل إلا بالاستقلال الاقتصادي والإداري عن التبعية الأجنبية",
           "lessonEn": "Cultural and economic sovereignty — a nation's independence is not complete without economic and administrative independence from foreign dependency",
-          "srcs": ["د. عبد الشافي (موسوعته)", "الطبري (تاريخ الأمم والملوك)"],
+          "srcs": ["ابن كثير (البداية والنهاية)", "الطبري (تاريخ الأمم والملوك)"],
           "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
@@ -3994,8 +3994,8 @@ window.SEERAH_DB = {
           "timeEn": "692 CE",
           "distAr": "📍 القدس — فلسطين",
           "distEn": "📍 Jerusalem — Palestine",
-          "descAr": "أمر عبد الملك بن مروان ببناء قبة الصخرة في القدس على الصخرة المقدسة التي عرج منها النبي ﷺ إلى السماء. كان القصد من بنائها إنشاء معلم إسلامي يضاهي قبّة القيامة البيزنطية ويعبر عن حضور الإسلام في المدينة المقدسة. تمتاز القبة بهندستها المعمارية الفريدة وزخارفها الفسيفسائية الرائعة التي تعتبر من أبدع ما أنتجته الحضارة الإسلامية. بقيت قبة الصخرة عبر القرون أيقونة القدس الإسلامية وأقدم أثر إسلامي قائم لم يتغير شكله منذ بنائه. يعتبر بناؤها تأكيداً على الهوية الإسلامية للقدس في مواجهة التحديات البيزنطية.",
-          "descEn": "Abd al-Malik ibn Marwan ordered the construction of the Dome of the Rock in Jerusalem atop the sacred rock from which the Prophet ﷺ ascended to heaven. The purpose was to create an Islamic monument rivaling the Byzantine Church of the Holy Sepulchre and expressing Islam's presence in the holy city. The dome features unique architectural design and magnificent mosaic decorations, among the finest produced by Islamic civilization. Over the centuries, the Dome of the Rock has remained the icon of Islamic Jerusalem and the oldest Islamic architectural monument unchanged since its construction. Its building affirmed the Islamic identity of Jerusalem against Byzantine challenges.",
+          "descAr": "أمر عبد الملك بن مروان ببناء قبة الصخرة في القدس على الصخرة المقدسة التي عرج منها النبي ﷺ إلى السماء. كان القصد من بنائها إنشاء معلم إسلامي يضاهي قبّة القيامة البيزنطية ويعبر عن حضور الإسلام في المدينة المقدسة. تمتاز القبة بهندستها المعمارية الفريدة وزخارفها الفسيفسائية الرائعة التي تعتبر من أبدع ما أنتجته الحضارة الإسلامية. بقيت قبة الصخرة عبر القرون أيقونة القدس الإسلامية وأقدم أثر إسلامي قائم محتفظ بتصميمه الأصلي. يعتبر بناؤها تأكيداً على الهوية الإسلامية للقدس في مواجهة التحديات البيزنطية.",
+          "descEn": "Abd al-Malik ibn Marwan ordered the construction of the Dome of the Rock in Jerusalem atop the sacred rock from which the Prophet ﷺ ascended to heaven. The purpose was to create an Islamic monument rivaling the Byzantine Church of the Holy Sepulchre and expressing Islam's presence in the holy city. The dome features unique architectural design and magnificent mosaic decorations, among the finest produced by Islamic civilization. Over the centuries, the Dome of the Rock has remained the icon of Islamic Jerusalem and the oldest surviving Islamic monument retaining its original design. Its building affirmed the Islamic identity of Jerusalem against Byzantine challenges.",
           "charsAr": [
             {"i":"🏛️","n":"عبد الملك بن مروان","r":"أمر ببناء قبة الصخرة — أيقونة القدس الإسلامية"}
           ],
@@ -4004,7 +4004,7 @@ window.SEERAH_DB = {
           ],
           "lessonAr": "الأمة تحتاج إلى معالم حضارية تعبر عن هويتها وترسخ وجودها في الأرض",
           "lessonEn": "A nation needs civilizational landmarks that express its identity and establish its presence on the land",
-          "srcs": ["الطبري (تاريخ الأمم والملوك)", "د. عبد الشافي (موسوعته)"],
+          "srcs": ["الطبري (تاريخ الأمم والملوك)", "ابن كثير (البداية والنهاية)"],
           "mapFocus": {"x":340,"y":230,"scale":1.0}
         },
         {
@@ -4025,8 +4025,8 @@ window.SEERAH_DB = {
           "timeEn": "705 – 715 CE",
           "distAr": "📍 من خراسان إلى السند",
           "distEn": "📍 From Khurasan to Sindh",
-          "descAr": "في عهد الخليفة الوليد بن عبد الملك بلغت الفتوحات الإسلامية ذروتها غرباً وشرقاً. في المشرق قاد قتيبة بن مسلم الباهلي حملات مظفرة في بلاد ما وراء النهر، ففتح بخارى وسمرقند وخوارزم وفرغانة. امتازت فتوحاته بالتنظيم الدقيق والعناية بنشر الإسلام بين السكان المحليين. في نفس الوقت قاد محمد بن القاسم الثقفي حملة إلى بلاد السند ففتح الديبل وملتان ومنصورة ووصل إلى أعماق شبه القارة الهندية. كان محمد بن القاسم مثالاً للقائد الفاتح الإنسان، فعامل السكان المحليين بعدل وأمان وترك انطباعاً إيجابياً عن الإسلام. أصبحت السند ولاية إسلامية.",
-          "descEn": "During the reign of Caliph al-Walid ibn Abd al-Malik, Islamic conquests reached their peak east and west. In the East, Qutaybah ibn Muslim al-Bahili led victorious campaigns in Transoxiana, conquering Bukhara, Samarkand, Khwarazm, and Farghana. His conquests were characterized by meticulous organization and care in spreading Islam among the local population. At the same time, Muhammad ibn al-Qasim al-Thaqafi led a campaign to Sindh, conquering Debal, Multan, and Mansura, reaching deep into the Indian subcontinent. Muhammad ibn al-Qasim exemplified the humane conqueror, treating locals with justice and trustworthiness, leaving a positive impression of Islam. Sindh became an Islamic province.",
+          "descAr": "في عهد الخليفة الوليد بن عبد الملك بلغت الفتوحات الإسلامية ذروتها غرباً وشرقاً. في المشرق قاد قتيبة بن مسلم الباهلي حملات مظفرة في بلاد ما وراء النهر، ففتح بخارى وسمرقند وخوارزم وفرغانة. امتازت فتوحاته بالتنظيم الدقيق والعناية بنشر الإسلام بين السكان المحليين. في نفس الوقت قاد محمد بن القاسم الثقفي حملة إلى بلاد السند ففتح الديبل والنيرون وملتان ووصل إلى أعماق شبه القارة الهندية. كان محمد بن القاسم مثالاً للقائد الفاتح الإنسان، فعامل السكان المحليين بعدل وأمان وترك انطباعاً إيجابياً عن الإسلام. أصبحت السند ولاية إسلامية.",
+          "descEn": "During the reign of Caliph al-Walid ibn Abd al-Malik, Islamic conquests reached their peak east and west. In the East, Qutaybah ibn Muslim al-Bahili led victorious campaigns in Transoxiana, conquering Bukhara, Samarkand, Khwarazm, and Farghana. His conquests were characterized by meticulous organization and care in spreading Islam among the local population. At the same time, Muhammad ibn al-Qasim al-Thaqafi led a campaign to Sindh, conquering Debal, Nirun, and Multan, reaching deep into the Indian subcontinent. Muhammad ibn al-Qasim exemplified the humane conqueror, treating locals with justice and trustworthiness, leaving a positive impression of Islam. Sindh became an Islamic province.",
           "charsAr": [
             {"i":"👑","n":"الوليد بن عبد الملك","r":"الخليفة الذي تفرغ للفتوح والتعمير"},
             {"i":"⚔️","n":"قتيبة بن مسلم الباهلي","r":"فاتح ما وراء النهر — بخارى وسمرقند"},
@@ -4039,7 +4039,7 @@ window.SEERAH_DB = {
           ],
           "lessonAr": "حسن اختيار القادة — نجاح الفتوحات كان ثمرة لوضع الرجل المناسب في المكان المناسب بناءً على الكفاءة",
           "lessonEn": "Good selection of leaders — the success of conquests resulted from placing the right man in the right place based on competence",
-          "srcs": ["ابن الأثير (الكامل في التاريخ)", "د. عبد الشافي (موسوعته)"],
+          "srcs": ["ابن الأثير (الكامل في التاريخ)", "ابن كثير (البداية والنهاية)"],
           "mapFocus": {"x":860,"y":120,"scale":1.0}
         },
         {
@@ -4060,8 +4060,8 @@ window.SEERAH_DB = {
           "timeEn": "July 711 – August 712 CE",
           "distAr": "📍 من طنجة إلى قرطبة",
           "distEn": "📍 From Tangier to Cordoba",
-          "descAr": "في عام 92 هـ عبر طارق بن زياد بقواته المضيق الفاصل بين المغرب والأندلس (الذي سمي بمضيق جبل طارق باسمه). نزل في شبه الجزيرة الإيبيرية وأحرق السفن ليقول لجنوده: 'العدو أمامكم والبحر وراءكم'. التقى بجيش القوط بقيادة الملك لذريق في معركة شذونة (وادي لكة) التي انتهت بنصر حاسم للمسلمين. ثم تابع طارق فتح المدن الأندلسية واحدة تلو الأخرى. في العام التالي عبر موسى بن نصير بقوات إضافية وأكملا معاً فتح الأندلس حتى وصلت جيوش المسلمين إلى شمال شبه الجزيرة. أصبحت الأندلس ولاية إسلامية ستبقى ثمانية قرون.",
-          "descEn": "In 92 AH, Tariq ibn Ziyad crossed the strait between Morocco and Al-Andalus (later named Gibraltar — Jabal Tariq — after him) with his forces. He landed in the Iberian Peninsula and burned the ships, telling his soldiers: 'The enemy is before you and the sea is behind you.' He met the Visigothic army under King Roderic at the Battle of Guadalete (Wadi Lakka), which ended in a decisive Muslim victory. Tariq then proceeded to conquer Andalusian cities one after another. The following year, Musa ibn Nusayr crossed with additional forces, and together they completed the conquest of Al-Andalus, with Muslim armies reaching the north of the peninsula. Al-Andalus became an Islamic province that would remain for eight centuries.",
+          "descAr": "في عام 92 هـ عبر طارق بن زياد بقواته المضيق الفاصل بين المغرب والأندلس (الذي سمي بمضيق جبل طارق باسمه). نزل في شبه الجزيرة الإيبيرية ويُروى أنه أحرق السفن وقال لجنوده: 'العدو أمامكم والبحر وراءكم'. التقى بجيش القوط بقيادة الملك لذريق في معركة شذونة (وادي لكة) التي انتهت بنصر حاسم للمسلمين. ثم تابع طارق فتح المدن الأندلسية واحدة تلو الأخرى. في العام التالي عبر موسى بن نصير بقوات إضافية وأكملا معاً فتح الأندلس حتى وصلت جيوش المسلمين إلى شمال شبه الجزيرة. أصبحت الأندلس ولاية إسلامية ستبقى ثمانية قرون.",
+          "descEn": "In 92 AH, Tariq ibn Ziyad crossed the strait between Morocco and Al-Andalus (later named Gibraltar — Jabal Tariq — after him) with his forces. He landed in the Iberian Peninsula and it is related that he burned the ships, telling his soldiers: 'The enemy is before you and the sea is behind you.' He met the Visigothic army under King Roderic at the Battle of Guadalete (Wadi Lakka), which ended in a decisive Muslim victory. Tariq then proceeded to conquer Andalusian cities one after another. The following year, Musa ibn Nusayr crossed with additional forces, and together they completed the conquest of Al-Andalus, with Muslim armies reaching the north of the peninsula. Al-Andalus became an Islamic province that would remain for eight centuries.",
           "charsAr": [
             {"i":"⚔️","n":"طارق بن زياد","r":"قائد فذ عبر المضيق وأحرق السفن — فتح الأندلس"},
             {"i":"⚔️","n":"موسى بن نصير","r":"والی إفريقية — أكمل فتح الأندلس بعد طارق"}
@@ -4093,8 +4093,8 @@ window.SEERAH_DB = {
           "timeEn": "717 CE",
           "distAr": "📍 الشام — القسطنطينية",
           "distEn": "📍 Levant — Constantinople",
-          "descAr": "تولى سليمان بن عبد الملك الخلافة سنة 96 هـ وكان طموحاً كبيراً لفتح القسطنطينية. أرسل أخاه مسلمة بن عبد الملك على رأس جيش كبير وحصار بحري وبر للقسطنطينية سنة 98 هـ. شارك في هذه الحملة متطوعون من جميع أقاليم الدولة الإسلامية. استمر الحصار شهوراً طويلة كادت المدينة أن تسقط، لكن التدخل البيزنطي الحاذق قاد إلى فشل الحصار في النهاية. في أواخر عهد سليمان كتب وصية الخلافة لعمر بن عبد العزيز بناءً على نصيحة العالم الرباني الرجاء بن حيوة الذي أدرك في عمر بن عبد العزيز الصلاح والعدل. كانت هذه الفتة من أهم مفاصل التاريخ الأموي لأنها نقلت الحكم إلى رجل مختلف تماماً.",
-          "descEn": "Sulayman ibn Abd al-Malik assumed the caliphate in 96 AH with a great ambition to conquer Constantinople. He sent his brother Maslamah ibn Abd al-Malik at the head of a large army with a naval and land siege of Constantinople in 98 AH. Volunteers from all regions of the Islamic state participated. The siege lasted many months, and the city nearly fell, but clever Byzantine intervention eventually led to the siege's failure. Near the end of Sulayman's reign, he wrote the succession covenant for Umar ibn Abd al-Aziz based on the advice of the righteous scholar Raja ibn Haywah, who recognized in Umar ibn Abd al-Aziz righteousness and justice. This moment was one of the most important turning points in Umayyad history, as it transferred rule to a completely different kind of man.",
+          "descAr": "تولى سليمان بن عبد الملك الخلافة سنة 96 هـ وكان طموحاً كبيراً لفتح القسطنطينية. أرسل أخاه مسلمة بن عبد الملك على رأس جيش كبير وحصار بحري وبري للقسطنطينية سنة 98 هـ. شارك في هذه الحملة متطوعون من جميع أقاليم الدولة الإسلامية. استمر الحصار شهوراً طويلة، لكن دفاعات ليون الثالث والنار الإغريقية وقسوة الشتاء والمجاعة أدت إلى فشل الحصار في النهاية. في أواخر عهد سليمان كتب وصية الخلافة لعمر بن عبد العزيز بناءً على نصيحة العالم الرباني الرجاء بن حيوة الذي أدرك في عمر بن عبد العزيز الصلاح والعدل. كانت هذه الفترة من أهم مفاصل التاريخ الأموي لأنها نقلت الحكم إلى رجل مختلف تماماً.",
+          "descEn": "Sulayman ibn Abd al-Malik assumed the caliphate in 96 AH with a great ambition to conquer Constantinople. He sent his brother Maslamah ibn Abd al-Malik at the head of a large army with a naval and land siege of Constantinople in 98 AH. Volunteers from all regions of the Islamic state participated. The siege lasted many months, but Leo III's defenses, Greek fire, and a harsh winter with famine eventually led to its failure. Near the end of Sulayman's reign, he wrote the succession covenant for Umar ibn Abd al-Aziz based on the advice of the righteous scholar Raja ibn Haywah, who recognized in Umar ibn Abd al-Aziz righteousness and justice. This moment was one of the most important turning points in Umayyad history, as it transferred rule to a completely different kind of man.",
           "charsAr": [
             {"i":"👑","n":"سليمان بن عبد الملك","r":"خليفة طموح أراد فتح القسطنطينية"},
             {"i":"⚔️","n":"مسلمة بن عبد الملك","r":"قائد الحصار العسكري على القسطنطينية"},
@@ -4115,8 +4115,8 @@ window.SEERAH_DB = {
           "ayahRef": "سورة المائدة — الآية ٨",
           "ayahEn": "O you who believe, be persistently standing for Allah, witnesses in justice.",
           "ayahRefEn": "Surah Al-Ma'idah (5), verse 8",
-          "dateAr": "٩٩ هـ / ٧١٨ م",
-          "dateEn": "99 AH / 718 CE",
+          "dateAr": "٩٩ هـ / ٧١٧ م",
+          "dateEn": "99 AH / 717 CE",
           "titleAr": "🌟 عمر بن عبد العزيز — تولي الخلافة ورد المظالم",
           "titleEn": "🌟 Umar ibn Abd al-Aziz — Caliphate and Restitution of Rights",
           "mtAr": "دمشق",
@@ -4161,8 +4161,8 @@ window.SEERAH_DB = {
           "timeEn": "718 CE",
           "distAr": "📍 دمشق — الشام",
           "distEn": "📍 Damascus — Levant",
-          "descAr": "أمر عمر بن عبد العزيز مسلمة بن عبد الملك برفع الحصار عن القسطنطينية فوراً، وقال: 'إن الله لم يبعث محمداً جابياً وإنما بعثه هادياً'. غير السياسة العسكرية للدولة كلها من التوسع إلى تحقيق الأمن ونشر الإسلام بالدعوة والحكمة والموعظة الحسنة. أوقف الغزوات العسكرية وأمر بإرسال الدعاة والعلماء إلى البلاد المفتوحة لتعليم الناس الإسلام بالرفق واللين. قال كلمته الشهيرة: 'إن الله بعث محمداً هادياً ولم يبعثه جابياً'. كان هذا تحولاً استراتيجياً شاملاً من دولة الفتوحات إلى دولة الدعوة والعدل.",
-          "descEn": "Umar ibn Abd al-Aziz ordered Maslamah ibn Abd al-Malik to immediately lift the siege of Constantinople, saying: 'Allah did not send Muhammad as a tax collector, but as a guide.' He changed the entire military policy of the state from expansion to achieving security and spreading Islam through dawah, wisdom, and good counsel. He stopped military campaigns and ordered the sending of scholars and preachers to the conquered lands to teach people Islam with gentleness and kindness. His famous words were: 'Allah sent Muhammad as a guide, not as a tax collector.' This was a comprehensive strategic shift from a state of conquest to a state of dawah and justice.",
+          "descAr": "أمر عمر بن عبد العزيز مسلمة بن عبد الملك برفع الحصار عن القسطنطينية فوراً، وقال: 'إن الله لم يبعث محمداً جابياً وإنما بعثه هادياً'. غير السياسة العسكرية للدولة كلها من التوسع إلى تحقيق الأمن ونشر الإسلام بالدعوة والحكمة والموعظة الحسنة. أوقف الغزوات العسكرية وأمر بإرسال الدعاة والعلماء إلى البلاد المفتوحة لتعليم الناس الإسلام بالرفق واللين. كان هذا تحولاً استراتيجياً شاملاً من دولة الفتوحات إلى دولة الدعوة والعدل.",
+          "descEn": "Umar ibn Abd al-Aziz ordered Maslamah ibn Abd al-Malik to immediately lift the siege of Constantinople, saying: 'Allah did not send Muhammad as a tax collector, but as a guide.' He changed the entire military policy of the state from expansion to achieving security and spreading Islam through dawah, wisdom, and good counsel. He stopped military campaigns and ordered the sending of scholars and preachers to the conquered lands to teach people Islam with gentleness and kindness. This was a comprehensive strategic shift from a state of conquest to a state of dawah and justice.",
           "charsAr": [
             {"i":"🌟","n":"عمر بن عبد العزيز رضي الله عنه","r":"غير السياسة العسكرية من التوسع إلى الدعوة والهداية"},
             {"i":"⚔️","n":"مسلمة بن عبد الملك","r":"أمره عمر برفع حصار القسطنطينية فأطاع فوراً"}
@@ -4260,8 +4260,8 @@ window.SEERAH_DB = {
           "timeEn": "Rajab 101 AH / February 720 CE",
           "distAr": "📍 دير سمعان — الشام",
           "distEn": "📍 Dayr Sim'an — Levant",
-          "descAr": "توفي عمر بن عبد العزيز رضي الله عنه في رجب سنة 101 هـ بدير سمعان في الشام، مسموماً عن عمر يناهز 40 عاماً. لم تدم خلافته سوى سنتين وخمسة أشهر، لكنها كانت أغنى فترة في التاريخ الإسلامي بالعبر والدروس. دفن في دير سمعان، وحزن عليه المسلمون حزناً شديداً. قال فيه بعض المؤرخين: 'الخلفاء الراشدون خمسة: أبو بكر وعمر وعثمان وعلي وعمر بن عبد العزيز'. ورغم قصر مدة خلافته، ترك أثراً خالداً في ضمير الأمة. قيل إنه لم تمت خلافة عمر بن عبد العزيز بموته بل استمر نورها قروناً. إنه نموذج الحاكم الذي جعل من العدل والتقوى منهاج حكم.",
-          "descEn": "Umar ibn Abd al-Aziz (RA) died in Rajab 101 AH at Dayr Sim'an in the Levant, poisoned at about 40 years of age. His caliphate lasted only two years and five months, yet it was the richest period in Islamic history in lessons and examples. He was buried at Dayr Sim'an, and the Muslims grieved deeply for him. Some historians said: 'The Rightly-Guided Caliphs are five: Abu Bakr, Umar, Uthman, Ali, and Umar ibn Abd al-Aziz.' Despite his short reign, he left an eternal legacy on the conscience of the ummah. It is said that the caliphate of Umar ibn Abd al-Aziz did not die with his death; its light continued for centuries. He is the model of a ruler who made justice and piety the foundation of governance.",
+          "descAr": "توفي عمر بن عبد العزيز رضي الله عنه في رجب سنة 101 هـ بدير سمعان في الشام عن عمر يناهز 40 عاماً، وقيل إنه مات مسموماً. لم تدم خلافته سوى سنتين وخمسة أشهر، لكنها كانت أغنى فترة في التاريخ الإسلامي بالعبر والدروس. دفن في دير سمعان، وحزن عليه المسلمون حزناً شديداً. قال فيه بعض المؤرخين: 'الخلفاء الراشدون خمسة: أبو بكر وعمر وعثمان وعلي وعمر بن عبد العزيز'. ورغم قصر مدة خلافته، ترك أثراً خالداً في ضمير الأمة. قيل إنه لم تمت خلافة عمر بن عبد العزيز بموته بل استمر نورها قروناً. إنه نموذج الحاكم الذي جعل من العدل والتقوى منهاج حكم.",
+          "descEn": "Umar ibn Abd al-Aziz (RA) died in Rajab 101 AH at Dayr Sim'an in the Levant at about 40 years of age — reportedly poisoned, according to some accounts. His caliphate lasted only two years and five months, yet it was the richest period in Islamic history in lessons and examples. He was buried at Dayr Sim'an, and the Muslims grieved deeply for him. Some historians said: 'The Rightly-Guided Caliphs are five: Abu Bakr, Umar, Uthman, Ali, and Umar ibn Abd al-Aziz.' Despite his short reign, he left an eternal legacy on the conscience of the ummah. It is said that the caliphate of Umar ibn Abd al-Aziz did not die with his death; its light continued for centuries. He is the model of a ruler who made justice and piety the foundation of governance.",
           "charsAr": [
             {"i":"🌟","n":"عمر بن عبد العزيز رضي الله عنه","r":"توفي مسموماً عن 40 عاماً — خلافة قصيرة مدةً خالدة أثراً"}
           ],
@@ -4291,7 +4291,7 @@ window.SEERAH_DB = {
           "timeEn": "720 – 724 CE",
           "distAr": "📍 دمشق — الشام",
           "distEn": "📍 Damascus — Levant",
-          "descAr": "بعد وفاة عمر بن عبد العزيز تولى الخلافة يزيد بن عبد الملك (ابن عبد الملك بن مروان). رجع يزيد عن سياسات عمر الإصلاحية بشكل كامل تقريباً. أعاد العمل بالسياسات المالية السابقة، وأعاد تعيين الولاة الذين كان عمر قد عزلهم. رجع الحجاجيون إلى سابق عهدهم في جمع الأموال والضرائب. بدأ واضمحلال الإصلاحات العمرية يظهر سريعاً. لم يستطع يزيد أن يحافظ على روح العدل والزهد التي غرسها عمر، وعادت الدولة إلى سيرتها الأولى. كان هذا درساً مؤلماً: الإصلاح لا يعيش إلا بمن يقيمه، وبموت المصلح قد يموت الإصلاح إذا لم تكن المؤسسات حاضنة له.",
+          "descAr": "بعد وفاة عمر بن عبد العزيز تولى الخلافة يزيد بن عبد الملك (ابن عبد الملك بن مروان). رجع يزيد عن سياسات عمر الإصلاحية بشكل كامل تقريباً. أعاد العمل بالسياسات المالية السابقة، وأعاد تعيين الولاة الذين كان عمر قد عزلهم. رجع الحجاجيون إلى سابق عهدهم في جمع الأموال والضرائب. وبدأ اضمحلال الإصلاحات العمرية يظهر سريعاً. لم يستطع يزيد أن يحافظ على روح العدل والزهد التي غرسها عمر، وعادت الدولة إلى سيرتها الأولى. كان هذا درساً مؤلماً: الإصلاح لا يعيش إلا بمن يقيمه، وبموت المصلح قد يموت الإصلاح إذا لم تكن المؤسسات حاضنة له.",
           "descEn": "After the death of Umar ibn Abd al-Aziz, Yazid ibn Abd al-Malik (son of Abd al-Malik ibn Marwan) assumed the caliphate. Yazid almost completely reversed Umar's reform policies. He reinstated the previous financial policies and reappointed governors whom Umar had dismissed. The Hajjajites returned to their former ways of collecting wealth and taxes. The decline of Umar's reforms became apparent quickly. Yazid could not maintain the spirit of justice and asceticism that Umar had cultivated, and the state returned to its former ways. This was a painful lesson: reform only lives through those who uphold it, and with the reformer's death, reform may die if not institutionalized.",
           "charsAr": [
             {"i":"👑","n":"يزيد بن عبد الملك","r":"رجع عن سياسات عمر الإصلاحية وأعاد السياسات السابقة"}
@@ -4301,7 +4301,7 @@ window.SEERAH_DB = {
           ],
           "lessonAr": "استمرارية الإصلاح أهم من بدايته — بموت المصلح قد يموت الإصلاح إن لم تكن المؤسسات حاضنة له",
           "lessonEn": "The continuity of reform is more important than its beginning — with the reformer's death, reform may die if institutions do not sustain it",
-          "srcs": ["الطبري (تاريخ الأمم والملوك)", "د. عبد الشافي (موسوعته)"],
+          "srcs": ["الطبري (تاريخ الأمم والملوك)", "ابن كثير (البداية والنهاية)"],
           "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
@@ -4332,7 +4332,7 @@ window.SEERAH_DB = {
           ],
           "lessonAr": "الحزم المالي والإداري يحفظ الدولة — لكن الحزم وحده لا يكفي إذا غابت العدالة والمشاركة",
           "lessonEn": "Financial and administrative discipline preserves the state — but discipline alone is not enough when justice and participation are absent",
-          "srcs": ["د. عبد الشافي (موسوعته)", "الطبري (تاريخ الأمم والملوك)"],
+          "srcs": ["ابن كثير (البداية والنهاية)", "الطبري (تاريخ الأمم والملوك)"],
           "mapFocus": {"x":320,"y":200,"scale":1.0}
         },
         {
@@ -4353,16 +4353,16 @@ window.SEERAH_DB = {
           "timeEn": "October 732 CE",
           "distAr": "📍 فرنسا — بلاد الغال",
           "distEn": "📍 France — Gaul",
-          "descAr": "في رمضان 114 هـ قاد عبد الرحمن الغافقي جيش المسلمين في عمق فرنسا حتى وصل إلى مدينة تور (بلاط الشهداء). كانت الحملة تهدف إلى نشر الإسلام في أوروبا الغربية وفتح فرنسا. التقى الجيش الإسلامي بجيش الفرنجة بقيادة شارل مارتل في معركة دامية استمرت سبعة أيام. في وسط المعركة استشهد عبد الرحمن الغافقي، مما أدى إلى اضطراب صفوف المسلمين وتراجعهم. رغم أن المعركة لم تكن هزيمة ساحقة، إلا أنها أوقفت الزحف الإسلامي في عمق أوروبا الغربية. استشهد معه عدد كبير من المسلمين فسميت 'بلاط الشهداء'. بقيت هذه المعركة درساً في أن فتح الأندلس العظيم وصل إلى أقصى مداه.",
-          "descEn": "In Ramadan 114 AH, Abd al-Rahman al-Ghafiqi led the Muslim army deep into France, reaching the city of Tours (Balat al-Shuhada — Court of the Martyrs). The campaign aimed to spread Islam in Western Europe and conquer France. The Muslim army met the Frankish army under Charles Martel in a bloody battle lasting seven days. In the midst of the battle, Abd al-Rahman al-Ghafiqi was martyred, causing disarray in the Muslim ranks and their retreat. Although the battle was not a decisive defeat, it halted Islamic advance deep into Western Europe. A large number of Muslims were martyred, giving the battle its name. The battle remained a lesson that the great conquest of Al-Andalus had reached its farthest extent.",
+          "descAr": "في رمضان 114 هـ قاد عبد الرحمن الغافقي جيش المسلمين في عمق فرنسا حتى وصل إلى ما بين تور وبواتييه حيث وقعت معركة بلاط الشهداء. كانت الحملة تهدف إلى نشر الإسلام في أوروبا الغربية وفتح فرنسا. التقى الجيش الإسلامي بجيش الفرنجة بقيادة شارل مارتل في معركة دامية استمرت سبعة أيام. في وسط المعركة استشهد عبد الرحمن الغافقي، مما أدى إلى اضطراب صفوف المسلمين وتراجعهم. رغم أن المعركة لم تكن هزيمة ساحقة، إلا أنها أوقفت الزحف الإسلامي في عمق أوروبا الغربية. استشهد معه عدد كبير من المسلمين فسميت 'بلاط الشهداء'. بقيت هذه المعركة درساً في أن فتح الأندلس العظيم وصل إلى أقصى مداه.",
+          "descEn": "In Ramadan 114 AH, Abd al-Rahman al-Ghafiqi led the Muslim army deep into France, reaching the area between Tours and Poitiers, where the battle known as Balat al-Shuhada (Court of the Martyrs) took place. The campaign aimed to spread Islam in Western Europe and conquer France. The Muslim army met the Frankish army under Charles Martel in a bloody battle lasting seven days. In the midst of the battle, Abd al-Rahman al-Ghafiqi was martyred, causing disarray in the Muslim ranks and their retreat. Although the battle was not a decisive defeat, it halted Islamic advance deep into Western Europe. A large number of Muslims were martyred, giving the battle its name. The battle remained a lesson that the great conquest of Al-Andalus had reached its farthest extent.",
           "charsAr": [
             {"i":"⚔️","n":"عبد الرحمن الغافقي","r":"قائد عسكري شهير — استشهد في بلاط الشهداء في فرنسا"}
           ],
           "charsEn": [
             {"i":"⚔️","n":"Abd al-Rahman al-Ghafiqi","r":"Famous military commander — martyred at the Battle of Tours in France"}
           ],
-          "lessonAr": "الحذر من الغرور والتسرع — القائد العظيم لا يغامر بجيشه في أرض غير مأمونة",
-          "lessonEn": "Beware of arrogance and haste — a great commander does not risk his army in unsafe territory",
+          "lessonAr": "ثبات الصفوف سر النصر — اضطراب الجند بعد سقوط القائد حوّل المعركة إلى تراجع",
+          "lessonEn": "Holding ranks is the secret of victory — the troops' disarray after their commander fell turned the battle into a retreat",
           "srcs": ["ابن الأثير (الكامل في التاريخ — بالتفصيل)", "د. الصلابي (الدولة الأموية)"],
           "mapFocus": {"x":55,"y":50,"scale":1.0}
         },
@@ -4427,7 +4427,7 @@ window.SEERAH_DB = {
           ],
           "lessonAr": "سنن الله لا تحابي أحداً — الدولة التي قامت على جهاد ونشر الإسلام سقطت حين تخلت عن معايير العدل والشورى",
           "lessonEn": "Allah's laws favor no one — a state built on jihad and spreading Islam fell when it abandoned the standards of justice and consultation",
-          "srcs": ["ابن الأثير (الكامل في التاريخ)", "د. عبد الشافي (موسوعته)"],
+          "srcs": ["ابن الأثير (الكامل في التاريخ)", "ابن كثير (البداية والنهاية)"],
           "mapFocus": {"x":500,"y":310,"scale":0.65}
         },
         {
@@ -4435,8 +4435,8 @@ window.SEERAH_DB = {
           "ayahRef": "سورة الرعد — الآية ١١",
           "ayahEn": "Indeed Allah does not change the condition of a people until they change what is within themselves.",
           "ayahRefEn": "Surah Ar-Ra'd (13), verse 11",
-          "dateAr": "١٣٢ هـ",
-          "dateEn": "750 CE",
+          "dateAr": "١٣٢ هـ / ٧٥٠ م",
+          "dateEn": "132 AH / 750 CE",
           "titleAr": "خاتمة — دروس وعبر من الدولة الأموية",
           "titleEn": "Conclusion — Lessons from the Umayyad State",
           "mtAr": "—",
@@ -4460,7 +4460,7 @@ window.SEERAH_DB = {
           ],
           "lessonAr": "عودوا إلى دينكم وإلى سنن آبائكم — لا عز للأمة إلا بإسلامها وعدلها وشوراها، وأما القصور والسلطان فزائل",
           "lessonEn": "Return to your faith and the ways of your forefathers — the ummah's glory lies only in its Islam, justice, and consultation; palaces and power are transient",
-          "srcs": ["د. الصلابي (الدولة الأموية)", "د. عبد الشافي (موسوعته)"],
+          "srcs": ["د. الصلابي (الدولة الأموية)", "ابن كثير (البداية والنهاية)"],
           "mapFocus": {"x":320,"y":200,"scale":1.0}
         }
       ]

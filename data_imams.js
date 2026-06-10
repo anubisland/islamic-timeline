@@ -451,8 +451,8 @@ window.FOUR_IMAMS_DB = {
         timeEn: "150 AH",
         distAr: "غزة",
         distEn: "Gaza",
-        descAr: "اتفق المؤرخون أن ولادة الإمام الشافعي كانت في غزة من أرض فلسطين المباركة سنة 150 هـ (767 م)، وهي السنة التي توفي فيها الإمام أبو حنيفة. وقد ولد يتيماً، فلم ير والده الذي توفي وهو صغير. نشأ في حضن أمه التي تحملت تربيته وحدها.",
-        descEn: "Historians agree that Imam al-Shafi'i was born in Gaza, in the blessed land of Palestine, in 150 AH (767 CE) — the same year Imam Abu Hanifa died. He was born an orphan, never seeing his father who passed away while he was young. He grew up in the care of his mother, who bore his upbringing alone.",
+        descAr: "على الأشهر الأصح كانت ولادة الإمام الشافعي في غزة من أرض فلسطين المباركة سنة 150 هـ (767 م)، وهي السنة التي توفي فيها الإمام أبو حنيفة. وقد توفي والده وهو طفل صغير، فنشأ يتيماً. نشأ في حضن أمه التي تحملت تربيته وحدها.",
+        descEn: "According to the soundest and most widespread report, Imam al-Shafi'i was born in Gaza, in the blessed land of Palestine, in 150 AH (767 CE) — the same year Imam Abu Hanifa died. His father died while he was an infant, and he grew up an orphan. He grew up in the care of his mother, who bore his upbringing alone.",
         charsAr: [
           { i: "👤", n: "والدة الشافعي", r: "قامت على تربيته بعد وفاة والده" }
         ],
@@ -592,12 +592,12 @@ window.FOUR_IMAMS_DB = {
         charsAr: [
           { i: "📖", n: "الربيع بن سليمان المرادي", r: "تلميذه الرئيسي وراوي كتبه (ت 270 هـ)" },
           { i: "📖", n: "المزني", r: "تلميذه، صاحب المختصر (ت 264 هـ)" },
-          { i: "📖", n: "أشهب بن عبد العزيز القيسي", r: "فقيه مصر (ت 204 هـ)" }
+          { i: "📖", n: "أشهب بن عبد العزيز القيسي", r: "كبير فقهاء المالكية بمصر ومعاصر للشافعي (ت 204 هـ)" }
         ],
         charsEn: [
           { i: "📖", n: "Al-Rabi' ibn Sulayman", r: "Main student, transmitter (d. 270 AH)" },
           { i: "📖", n: "Al-Muzani", r: "Student, author of Mukhtasar (d. 264 AH)" },
-          { i: "📖", n: "Ashhab ibn Abd al-Aziz al-Qaysi", r: "Jurist of Egypt (d. 204 AH)" }
+          { i: "📖", n: "Ashhab ibn Abd al-Aziz al-Qaysi", r: "Leading Maliki jurist of Egypt, contemporary of al-Shafi'i (d. 204 AH)" }
         ],
         lessonAr: "اجتهاد العالم يتغير بتغير البيئة والزمان • المذهب الجديد دليل على مرونة الاجتهاد • أهمية تسجيل العلم في الكتب",
         lessonEn: "A scholar's ijtihad changes with time and place • The New School shows flexibility in ijtihad • Importance of recording knowledge in books",
