@@ -573,7 +573,11 @@
     // Header brand title: "الخط الزمني لل<era>" / "<era> Timeline"
     var arLabel = DB[key].labelAr;
     var timelineAr = arLabel.indexOf('ال') === 0 ? 'الخط الزمني لل' + arLabel.slice(2) : 'الخط الزمني لـ ' + arLabel;
-    setBrandTitle(timelineAr, DB[key].labelEn + ' Timeline');
+    var timelineEn = DB[key].labelEn + ' Timeline';
+    setBrandTitle(timelineAr, timelineEn);
+    // Update page title
+    var pt = document.querySelector('title');
+    if (pt) { pt.setAttribute('data-ar', timelineAr); pt.setAttribute('data-en', timelineEn); pt.textContent = LANG === 'AR' ? timelineAr : timelineEn; }
 
     // Toggle maps (include svg-imam so it's hidden when returning to a Sera era)
     const allSvgs = ['svg-preb','svg-hijra','svg-badr','svg-meccan','svg-medinan',
