@@ -335,8 +335,15 @@
     $('mc-desc').textContent = s[t('md')];
     $('map-card').classList.add('up');
 
-    // Map ambient
-    $('map-amb').className = 'map-amb amb-' + (s.amb || 'day');
+    // Map ambient — hide the overlay entirely when step has no amb field
+    const ambEl = $('map-amb');
+    if (s.amb) {
+      ambEl.className = 'map-amb amb-' + s.amb;
+      ambEl.style.display = '';
+    } else {
+      ambEl.className = 'map-amb';
+      ambEl.style.display = 'none';
+    }
 
     // Timeline fill
     const pct = tot > 1 ? (STEP / (tot - 1)) * 100 : 100;
@@ -962,8 +969,15 @@
     $('mc-desc').textContent = s[t('md')];
     $('map-card').classList.add('up');
 
-    // Map ambient
-    $('map-amb').className = 'map-amb amb-' + (s.amb || 'day');
+    // Map ambient — hide the overlay entirely when step has no amb field
+    const ambEl = $('map-amb');
+    if (s.amb) {
+      ambEl.className = 'map-amb amb-' + s.amb;
+      ambEl.style.display = '';
+    } else {
+      ambEl.className = 'map-amb';
+      ambEl.style.display = 'none';
+    }
 
     // Hijra: route progress + node states
     if (EVT === 'hijra') {

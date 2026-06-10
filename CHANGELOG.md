@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - **Ambient overlay fix for Abbasid map dimness.** Removed dark `amb-night`/`amb-sack`/`amb-golden` classes from abassi steps 6, 11, 14, 15, 16, 24, 25 — they now use the default `amb-day` (near-transparent gold gradient). Bumped cache-bust to `?v=3.3.1` to force CDN/browser to pick up the new `data.js`.
+- **Hide `map-amb` entirely when step has no `amb` field.** Changed `render()` and `renderImam()` in `app.js` to set `display: none` on the ambient overlay when `s.amb` is falsy. This eliminates the 1.8s CSS transition crossfade from previous step's dark class, preventing the perceived dimness on Abbasid steps 6, 11, 14, 24 after navigating from adjacent `amb-night` steps.
 
 ## [3.3.0] — 2026-06-10
 
