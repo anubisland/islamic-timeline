@@ -118,6 +118,8 @@
     if (imamScr) imamScr.classList.add('hidden');
     const ottomanScr = $('ottoman-screen');
     if (ottomanScr) ottomanScr.classList.add('hidden');
+    const abbScr = $('abbasid-screen');
+    if (abbScr) abbScr.classList.add('hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.remove('visible');
     // Keep splash lang toggle visible on home screen
@@ -218,6 +220,8 @@
     if (sp) sp.classList.remove('hidden');
     const ottomanScr = $('ottoman-screen');
     if (ottomanScr) ottomanScr.classList.add('hidden');
+    const abbScr = $('abbasid-screen');
+    if (abbScr) abbScr.classList.add('hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.remove('visible');
     const slb = $('splash-lang-toggle');
@@ -245,6 +249,8 @@
     if (home) home.classList.add('home-hidden');
     const ottomanScr = $('ottoman-screen');
     if (ottomanScr) ottomanScr.classList.add('hidden');
+    const abbScr = $('abbasid-screen');
+    if (abbScr) abbScr.classList.add('hidden');
     const imamScr = $('imam-screen');
     if (imamScr) imamScr.classList.remove('hidden');
     const hdr = $('site-header');
@@ -277,6 +283,8 @@
     if (home) home.classList.add('home-hidden');
     const imamScr = $('imam-screen');
     if (imamScr) imamScr.classList.add('hidden');
+    const abbScr = $('abbasid-screen');
+    if (abbScr) abbScr.classList.add('hidden');
     const ottomanScr = $('ottoman-screen');
     if (ottomanScr) ottomanScr.classList.remove('hidden');
     const hdr = $('site-header');
