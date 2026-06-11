@@ -5,7 +5,7 @@
 
 ## What this project is
 
-A **single-page, no-build, vanilla-JS** bilingual (Arabic RTL / English LTR) timeline of the Prophet's biography, the Rashidun era, the Umayyad Caliphate, the Abbasid Caliphate, and the Ottoman Empire. **13 eras / 152 stages**:
+A **single-page, no-build, vanilla-JS** bilingual (Arabic RTL / English LTR) timeline of the Prophet's biography, the Rashidun era, the Umayyad Caliphate, the Abbasid Caliphate, and the Ottoman Empire. **16 eras / 152 stages**:
 
 | Key | Era | Steps |
 |---|---|---|
@@ -19,9 +19,12 @@ A **single-page, no-build, vanilla-JS** bilingual (Arabic RTL / English LTR) tim
 | `uthman`  | Caliphate of Uthman ibn Affan | 5 |
 | `ali`     | Caliphate of Ali ibn Abi Talib | 5 |
 | `hasan`   | Caliphate of al-Hasan ibn Ali | 5 |
-| `umawi`   | Umayyad Caliphate (implemented ✅) | 24 |
-| `abassi`  | Abbasid Caliphate (implemented ✅) | 28 |
-| `uthmani` | Ottoman Empire (implemented ✅) | 28 |
+| `umawi`   | Umayyad Caliphate | 24 |
+| `abassi1` | Abbasid Golden Age (132–232 AH) | 9 |
+| `abassi2` | Abbasid Turkish Influence (232–334 AH) | 6 |
+| `abassi3` | Abbasid Buyid Era (334–447 AH) | 3 |
+| `abassi4` | Abbasid Seljuk→Fall (447–656 AH) | 10 |
+| `uthmani` | Ottoman Empire | 28 |
 
 ## File map
 

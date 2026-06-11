@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.0] — 2026-06-11
+
+### Changed
+- **Abbasid Caliphate split into 4 sub-eras.** The single 28-step `abassi` era has been divided into `abassi1` (9 steps, Golden Age 132-232 AH), `abassi2` (6 steps, Turkish Influence 232-334 AH), `abassi3` (3 steps, Buyid Era 334-447 AH), and `abassi4` (10 steps, Seljuk to Fall 447-656 AH). Each sub-era has its own home card, `MAP_VB` entry, and audio namespace. The shared `#svg-abassi` map is reused across all 4 sub-eras via an `EVT.startsWith('abassi')` SVG toggle rule. Audio files renamed and manifest regenerated. Narration keys and GeoJSON event_ids updated accordingly.
+
 ## [3.4.1] — 2026-06-11
 
 ### Fixed

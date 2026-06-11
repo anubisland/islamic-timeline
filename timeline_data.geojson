@@ -803,7 +803,7 @@
       "type": "Feature",
       "properties": {
         "id": "kufa",
-        "event_id": "abassi_0",
+        "event_id": "abassi1_0",
         "name_ar": "الكوفة",
         "name_en": "Kufa",
         "year_ah": "132 AH",
@@ -822,7 +822,7 @@
       "type": "Feature",
       "properties": {
         "id": "baghdad",
-        "event_id": "abassi_1",
+        "event_id": "abassi1_1",
         "name_ar": "بغداد",
         "name_en": "Baghdad",
         "year_ah": "145 AH",
@@ -841,7 +841,7 @@
       "type": "Feature",
       "properties": {
         "id": "baghdad_house",
-        "event_id": "abassi_2",
+        "event_id": "abassi1_2",
         "name_ar": "بيت الحكمة",
         "name_en": "House of Wisdom",
         "year_ah": "~170 AH",
@@ -860,7 +860,7 @@
       "type": "Feature",
       "properties": {
         "id": "baghdad_golden",
-        "event_id": "abassi_3",
+        "event_id": "abassi1_3",
         "name_ar": "بغداد — العصر الذهبي",
         "name_en": "Baghdad — Golden Age",
         "year_ah": "170–193 AH",
@@ -879,7 +879,7 @@
       "type": "Feature",
       "properties": {
         "id": "baghdad_siege",
-        "event_id": "abassi_5",
+        "event_id": "abassi1_5",
         "name_ar": "بغداد",
         "name_en": "Baghdad",
         "year_ah": "198 AH",
@@ -898,7 +898,7 @@
       "type": "Feature",
       "properties": {
         "id": "amorium",
-        "event_id": "abassi_7",
+        "event_id": "abassi1_7",
         "name_ar": "عمورية",
         "name_en": "Amorium",
         "year_ah": "223 AH",
@@ -917,7 +917,7 @@
       "type": "Feature",
       "properties": {
         "id": "samarra",
-        "event_id": "abassi_9",
+        "event_id": "abassi2_0",
         "name_ar": "سامراء",
         "name_en": "Samarra",
         "year_ah": "221–279 AH",
@@ -936,7 +936,7 @@
       "type": "Feature",
       "properties": {
         "id": "basra_revolt",
-        "event_id": "abassi_11",
+        "event_id": "abassi2_2",
         "name_ar": "البصرة — ثورة الزنج",
         "name_en": "Basra — Zanj Rebellion",
         "year_ah": "255–279 AH",
@@ -955,7 +955,7 @@
       "type": "Feature",
       "properties": {
         "id": "ahsa_qarmati",
-        "event_id": "abassi_13",
+        "event_id": "abassi2_4",
         "name_ar": "الأحساء",
         "name_en": "Al-Ahsa",
         "year_ah": "317 AH",
@@ -974,7 +974,7 @@
       "type": "Feature",
       "properties": {
         "id": "makkah_qarmati",
-        "event_id": "abassi_13_alt",
+        "event_id": "abassi2_4",
         "name_ar": "مكة المكرمة",
         "name_en": "Makkah",
         "year_ah": "317 AH",
@@ -993,7 +993,7 @@
       "type": "Feature",
       "properties": {
         "id": "baghdad_buyid",
-        "event_id": "abassi_15",
+        "event_id": "abassi3_0",
         "name_ar": "بغداد",
         "name_en": "Baghdad",
         "year_ah": "334 AH",
@@ -1012,7 +1012,7 @@
       "type": "Feature",
       "properties": {
         "id": "baghdad_seljuk",
-        "event_id": "abassi_17",
+        "event_id": "abassi3_2",
         "name_ar": "بغداد",
         "name_en": "Baghdad",
         "year_ah": "447 AH",
@@ -1031,7 +1031,7 @@
       "type": "Feature",
       "properties": {
         "id": "baghdad_nizamiyya",
-        "event_id": "abassi_18",
+        "event_id": "abassi4_0",
         "name_ar": "المدرسة النظامية — بغداد",
         "name_en": "Nizamiyya Madrasa — Baghdad",
         "year_ah": "459 AH",
@@ -1050,7 +1050,7 @@
       "type": "Feature",
       "properties": {
         "id": "manzikert",
-        "event_id": "abassi_19",
+        "event_id": "abassi4_1",
         "name_ar": "ملاذكرد",
         "name_en": "Manzikert",
         "year_ah": "463 AH",
@@ -1069,7 +1069,7 @@
       "type": "Feature",
       "properties": {
         "id": "jerusalem_crusade",
-        "event_id": "abassi_20",
+        "event_id": "abassi4_2",
         "name_ar": "القدس",
         "name_en": "Jerusalem",
         "year_ah": "492 AH",
@@ -1088,7 +1088,7 @@
       "type": "Feature",
       "properties": {
         "id": "hittin",
-        "event_id": "abassi_21",
+        "event_id": "abassi4_3",
         "name_ar": "حطين",
         "name_en": "Hittin",
         "year_ah": "583 AH",
@@ -1107,7 +1107,7 @@
       "type": "Feature",
       "properties": {
         "id": "samarqand_mongol",
-        "event_id": "abassi_23",
+        "event_id": "abassi4_5",
         "name_ar": "سمرقند",
         "name_en": "Samarkand",
         "year_ah": "617 AH",
@@ -1126,7 +1126,7 @@
       "type": "Feature",
       "properties": {
         "id": "baghdad_fall",
-        "event_id": "abassi_25",
+        "event_id": "abassi4_7",
         "name_ar": "بغداد",
         "name_en": "Baghdad",
         "year_ah": "656 AH",
@@ -1145,7 +1145,7 @@
       "type": "Feature",
       "properties": {
         "id": "baghdad_sack",
-        "event_id": "abassi_26",
+        "event_id": "abassi4_8",
         "name_ar": "بغداد — المذبحة",
         "name_en": "Baghdad — The Massacre",
         "year_ah": "656 AH",
@@ -1164,7 +1164,7 @@
       "type": "Feature",
       "properties": {
         "id": "ayn_jalut",
-        "event_id": "abassi_27",
+        "event_id": "abassi4_9",
         "name_ar": "عين جالوت",
         "name_en": "Ayn Jalut",
         "year_ah": "658 AH",
@@ -1183,7 +1183,7 @@
       "type": "Feature",
       "properties": {
         "id": "cairo_abbasid",
-        "event_id": "abassi_27_alt",
+        "event_id": "abassi4_9",
         "name_ar": "القاهرة",
         "name_en": "Cairo",
         "year_ah": "659 AH",

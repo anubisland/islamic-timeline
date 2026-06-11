@@ -4468,16 +4468,16 @@ window.SEERAH_DB = {
       ]
     },
 
-  "abassi": {
-    "labelAr": "الدولة العباسية",
-    "labelEn": "Abbasid Caliphate",
-    "mapLabelAr": "الدولة العباسية في أقصى اتساعها",
-    "mapLabelEn": "Abbasid Caliphate at Its Greatest Extent",
+    "abassi1": {
+    "labelAr": "العصر العباسي الذهبي",
+    "labelEn": "Abbasid Golden Age",
+    "mapLabelAr": "الدولة العباسية في عصرها الذهبي",
+    "mapLabelEn": "Abbasid Caliphate — Golden Age",
     "stepCountAr": "مرحلة",
     "stepCountEn": "stages",
     "offsets": [],
     "steps": [
-{
+      {
         "ayah": "﴿ يَا أَيُّهَا الَّذِينَ آمَنُوا هَلْ أَدُلُّكُمْ عَلَى تِجَارَةٍ تُنجِيكُم مِّنْ عَذَابٍ أَلِيمٍ ﴾",
         "ayahRef": "سورة الصف — الآية ١٠",
         "ayahEn": "O you who have believed, shall I guide you to a transaction that will save you from a painful punishment?",
@@ -4777,8 +4777,20 @@ window.SEERAH_DB = {
         "lessonEn": "True civilization is not palaces and luxury but knowledge and scholars — this great heritage is our responsibility to protect and develop",
         "srcs": ["د. طقوش (تاريخ الدولة العباسية)", "د. الصلابي (الدولة العباسية)"],
         "mapFocus": {"x":470,"y":280,"scale":1.0}
-      },
-{
+      }
+    ]
+  },
+
+  "abassi2": {
+    "labelAr": "عصر النفوذ التركي",
+    "labelEn": "Age of Turkish Influence",
+    "mapLabelAr": "الدولة العباسية في عصر النفوذ التركي",
+    "mapLabelEn": "Abbasid Caliphate — Turkish Influence",
+    "stepCountAr": "مرحلة",
+    "stepCountEn": "stages",
+    "offsets": [],
+    "steps": [
+      {
         "ayah": "﴿ وَالَّذِينَ آمَنُوا وَهَاجَرُوا وَجَاهَدُوا فِي سَبِيلِ اللَّهِ وَالَّذِينَ آوَوا وَنَصَرُوا أُولَئِكَ هُمُ الْمُؤْمِنُونَ حَقًّا ﴾",
         "ayahRef": "سورة الأنفال — الآية ٧٤",
         "ayahEn": "And those who believed, emigrated, and strove in the cause of Allah, and those who gave shelter and supported — those are the believers truly.",
@@ -4975,7 +4987,19 @@ window.SEERAH_DB = {
         "lessonEn": "When central authority weakens, the body disintegrates — Islamic unity requires just central power",
         "srcs": ["ابن الأثير (الكامل في التاريخ)", "د. طقوش (تاريخ الدولة العباسية)"],
         "mapFocus": {"x":470,"y":280,"scale":1.0}
-      },
+      }
+    ]
+  },
+
+  "abassi3": {
+    "labelAr": "العصر البويهي",
+    "labelEn": "The Buyid Era",
+    "mapLabelAr": "الدولة العباسية تحت السيطرة البويهية",
+    "mapLabelEn": "Abbasid Caliphate — Buyid Control",
+    "stepCountAr": "مرحلة",
+    "stepCountEn": "stages",
+    "offsets": [],
+    "steps": [
       {
         "ayah": "﴿ وَاعْتَصِمُوا بِحَبْلِ اللَّهِ جَمِيعًا وَلَا تَفَرَّقُوا ﴾",
         "ayahRef": "سورة آل عمران — الآية ١٠٣",
@@ -5009,7 +5033,7 @@ window.SEERAH_DB = {
         "srcs": ["ابن الأثير (الكامل في التاريخ)", "د. طقوش (تاريخ الدولة العباسية)"],
         "mapFocus": {"x":470,"y":280,"scale":1.0}
       },
-{
+      {
         "ayah": "﴿ لِلَّهِ الْأَمْرُ مِن قَبْلُ وَمِن بَعْدُ ﴾",
         "ayahRef": "سورة الروم — الآية ٤",
         "ayahEn": "To Allah belongs the matter before and after.",
@@ -5074,7 +5098,19 @@ window.SEERAH_DB = {
         "lessonEn": "Allah's victory comes after patience — the Shi'a Buyids humiliated Sunni caliphs for a century, then victory came from where they least expected",
         "srcs": ["ابن الأثير (الكامل في التاريخ)", "د. الصلابي (الدولة السلجوقية)"],
         "mapFocus": {"x":470,"y":280,"scale":1.0}
-      },
+      }
+    ]
+  },
+
+  "abassi4": {
+    "labelAr": "العصر السلجوقي حتى السقوط",
+    "labelEn": "Seljuk Era to the Fall",
+    "mapLabelAr": "الدولة العباسية — السلاجقة حتى سقوط بغداد",
+    "mapLabelEn": "Abbasid Caliphate — Seljuks to the Fall of Baghdad",
+    "stepCountAr": "مرحلة",
+    "stepCountEn": "stages",
+    "offsets": [],
+    "steps": [
       {
         "ayah": "﴿ يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ ﴾",
         "ayahRef": "سورة المجادلة — الآية ١١",
@@ -5306,7 +5342,7 @@ window.SEERAH_DB = {
         "srcs": ["ابن كثير (البداية والنهاية)", "د. الصلابي (الدولة العباسية)"],
         "mapFocus": {"x":470,"y":280,"scale":1.0}
       },
-{
+      {
         "ayah": "﴿ وَلِلَّهِ الْعِزَّةُ وَلِرَسُولِهِ وَلِلْمُؤْمِنِينَ وَلَكِنَّ الْمُنَافِقِينَ لَا يَعْلَمُونَ ﴾",
         "ayahRef": "سورة المنافقون — الآية ٨",
         "ayahEn": "And to Allah belongs honor, and to His Messenger, and to the believers, but the hypocrites do not know.",
@@ -5409,8 +5445,8 @@ window.SEERAH_DB = {
         "srcs": ["ابن كثير (البداية والنهاية)", "د. الصلابي (الدولة العباسية)"],
         "mapFocus": {"x":310,"y":390,"scale":1.0}
       }
-      ]
-    },
+    ]
+  },
   "uthmani": {
     "labelAr": "الدولة العثمانية",
     "labelEn": "Ottoman Empire",

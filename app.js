@@ -60,7 +60,7 @@
   const reciter = (id) => RECITERS.find((r) => r.id === (id || RECITER)) || RECITERS[0];
 
   // ── Map viewBoxes ──────────────────────────────────────
-  const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560], umawi: [1000, 560], abassi: [1000, 560], uthmani: [1000, 560], imam: [700, 560] };
+  const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560], umawi: [1000, 560], abassi1: [1000, 560], abassi2: [1000, 560], abassi3: [1000, 560], abassi4: [1000, 560], uthmani: [1000, 560], imam: [700, 560] };
 
   // ── Map zoom state ─────────────────────────────────────
   // ONE writer owns the SVG viewBox: writeMapViewBox(). It composes the
@@ -170,14 +170,14 @@
     switchEv('umawi');
   }
 
-  function goToAbbassi() {
-    if (!DB.abassi) {
-      console.warn('SEERAH_DB.abassi not loaded.');
-      return;
-    }
-    MODE = 'sera';
-    switchEv('abassi');
-  }
+  ['abassi1','abassi2','abassi3','abassi4'].forEach(function(key) {
+    var fnName = 'goTo' + key.charAt(0).toUpperCase() + key.slice(1);
+    window[fnName] = function() {
+      if (!DB[key]) { console.warn('SEERAH_DB.' + key + ' not loaded.'); return; }
+      MODE = 'sera';
+      switchEv(key);
+    };
+  });
 
   function goToUthmani() {
     if (!DB.uthmani) {
@@ -691,7 +691,11 @@
                      'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan','svg-umawi','svg-abassi','svg-uthmani','svg-imam'];
     allSvgs.forEach((id) => {
       const el = $(id);
-      if (el) el.classList.toggle('hidden', id !== 'svg-' + key);
+      if (el) {
+        // abassi sub-eras (1-4) all share svg-abassi
+        var svgKey = key.startsWith('abassi') ? 'abassi' : key;
+        el.classList.toggle('hidden', id !== 'svg-' + svgKey);
+      }
     });
     const imamMapCard = $('imam-map');
     if (imamMapCard) imamMapCard.classList.add('hidden');
@@ -1245,8 +1249,10 @@
     if (homeImams) homeImams.addEventListener('click', goToImams);
     const homeUmawi = $('home-umawi');
     if (homeUmawi) homeUmawi.addEventListener('click', goToUmawi);
-    const homeAbbassi = $('home-abassi');
-    if (homeAbbassi) homeAbbassi.addEventListener('click', goToAbbassi);
+    ['abassi1','abassi2','abassi3','abassi4'].forEach(function(key) {
+      var el = $('home-' + key);
+      if (el) el.addEventListener('click', window['goTo' + key.charAt(0).toUpperCase() + key.slice(1)]);
+    });
     const homeUthmani = $('home-uthmani');
     if (homeUthmani) homeUthmani.addEventListener('click', goToUthmani);
 
@@ -1271,7 +1277,7 @@
     if (backBtn) backBtn.addEventListener('click', () => {
       if (MODE === 'imams') goToImamSplash();
       else if (EVT === 'umawi') goToHome();  // Umayyad has its own home card, not in the splash
-      else if (EVT === 'abassi') goToHome(); // Abbasid has its own home card, not in the splash
+      else if (EVT.startsWith('abassi')) goToHome(); // Abbasid sub-eras have their own home cards
       else if (EVT === 'uthmani') showOttomanScreen(); // Ottoman back to phase selection
       else goToSplash();
     });

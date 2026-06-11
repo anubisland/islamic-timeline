@@ -26,17 +26,17 @@
 
 | # | Task | Status | Date | Notes |
 |---|------|--------|------|-------|
-| 1.1 | Write 28 step objects in `data.js` (abassi era) | 🔴 | — | Key `abassi` after `umawi` |
-| 1.2 | Add `ayah`, `ayahRefEn` parseable Quran refs per step | 🔴 | — | See §2 for suggested verses |
-| 1.3 | Add `amb: "golden"` to Phase 1 golden age steps (3–4, 6–8) | 🔴 | — | Radiant gold gradient trigger |
+| 1.1 | Write 28 step objects in `data.js` — split into 4 sub-eras | ✅ | 3.5.0 | Keys `abassi1`–`abassi4` |
+| 1.2 | Add `ayah`, `ayahRefEn` parseable Quran refs per step | ✅ | 3.5.0 | See §2 for ayah references |
+| 1.3 | Add `amb: "golden"` to Phase 1 golden age steps (3–4, 6–8) | ✅ | 3.5.0 | Radiant gold gradient trigger |
 | 1.4 | Add `amb: "sack"` to Phase 4 steps (25–26) | 🔴 | — | Dark crimson gradient trigger |
 | 1.5 | Add 🌟 icon in `mdAr`/`mdEn` for Phase 1 golden steps | 🔴 | — | Visual indicator for golden age |
 | 1.6 | Add 💀 icon in `mdAr`/`mdEn` for Phase 4 sack steps | 🔴 | — | Visual indicator for Mongol destruction |
-| 1.7 | Add `narration_ar.json` entries for abassi_0–27 | 🔴 | — | Mushakkal text, match consonant skeleton |
-| 1.8 | Run `python tools/check_voc.py` — fix mismatches | 🔴 | — | Must pass clean |
-| 1.9 | Add GeoJSON features to `timeline_data.geojson` | 🔴 | — | 19 locations, event_id `abassi_<n>` |
-| 1.10 | `node --check data.js` | 🔴 | — | Syntax validation |
-| 1.11 | Validate GeoJSON: `node -e "JSON.parse(...)"` | 🔴 | — | Syntax validation |
+| 1.7 | Add `narration_ar.json` entries for abassi_0–27 | ✅ | 3.5.0 | Keys renamed to abassi1_0–abassi4_9 |
+| 1.8 | Run `python tools/check_voc.py` — fix mismatches | ⏳ | — | Must pass clean |
+| 1.9 | Add GeoJSON features to `timeline_data.geojson` | ✅ | 3.5.0 | 21 locations, event_id `abassiN_M` |
+| 1.10 | `node --check data.js` | ✅ | 3.5.0 | Syntax validation |
+| 1.11 | Validate GeoJSON: `node -e "JSON.parse(...)"` | ✅ | 3.5.0 | Syntax validation |
 
 ---
 
@@ -46,21 +46,21 @@
 
 | # | Task | Status | Date | Notes |
 |---|------|--------|------|-------|
-| 2.1 | Add `#home-abassi` card in `index.html` home screen | 🔴 | — | After Umayyad card, before Imams |
-| 2.2 | Add inline SVG `<svg id="svg-abassi">` (1000×560 viewBox) | 🔴 | — | After svg-umawi, before svg-imam |
-| 2.3 | Draw SVG city nodes with `data-ar`/`data-en` (19 cities) | 🔴 | — | Baghdad central at 470,280 |
-| 2.4 | Draw Tigris & Euphrates rivers in SVG | 🔴 | — | Geographical spine of Abbasid state |
-| 2.5 | Draw expansion/trade routes (Khurasan → Baghdad → Byzantium) | 🔴 | — | Dotted lines with markers |
-| 2.6 | Add decorative Abbasid motifs (Kufic borders, Samarra stucco patterns) | 🔴 | — | See §8 of design doc |
-| 2.7 | Add `focus-abassi` layer (pulse + star-wake) to SVG | 🔴 | — | Same pattern as other SVGs |
-| 2.8 | `MAP_VB` in `app.js`: add `abassi: [1000, 560]` | 🔴 | — | Line 62 |
-| 2.9 | `allSvgs` in `switchEv()`: add `'svg-abassi'` | 🔴 | — | Line ~562 |
-| 2.10 | Click handler in `init()`: add `#home-abassi` to selector | 🔴 | — | Line ~1103 |
-| 2.11 | `goToHome()` back handler: special case for `EVT==='abassi'` | 🔴 | — | Same pattern as `umawi` |
-| 2.12 | Add `.amb-golden` CSS class in `style.css` | 🔴 | — | Radiant gold gradient |
-| 2.13 | Add `.amb-sack` CSS class in `style.css` | 🔴 | — | Dark fiery crimson gradient |
-| 2.14 | Phase 1 golden ribbon styles in `style.css` | 🔴 | — | Gold bar/badge for golden age steps |
-| 2.15 | `data-ar`/`data-en` regex sweep | 🔴 | — | `node` one-liner check |
+| 2.1 | Add 4 `#home-abassi1..4` cards in `index.html` home screen | ✅ | 3.5.0 | Replaced single `#home-abassi` card |
+| 2.2 | Add inline SVG `<svg id="svg-abassi">` (1000×560 viewBox) | ✅ | 3.5.0 | After svg-umawi |
+| 2.3 | Draw SVG city nodes with `data-ar`/`data-en` (19 cities) | ✅ | 3.5.0 | Baghdad central at 470,280 |
+| 2.4 | Draw Tigris & Euphrates rivers in SVG | ✅ | 3.5.0 | Geographical spine |
+| 2.5 | Draw expansion/trade routes (Khurasan → Baghdad → Byzantium) | ✅ | 3.5.0 | Dotted lines with markers |
+| 2.6 | Add decorative Abbasid motifs (Kufic borders, Samarra stucco) | ✅ | 3.5.0 | See §8 of design doc |
+| 2.7 | Add `focus-abassi` layer (pulse + star-wake) to SVG | ✅ | 3.5.0 | Same pattern as other SVGs |
+| 2.8 | `MAP_VB` in `app.js`: add `abassi1..4` (4 entries) | ✅ | 3.5.0 | All share [1000, 560] |
+| 2.9 | `allSvgs` in `switchEv()`: `key.startsWith('abassi')` → `svg-abassi` | ✅ | 3.5.0 | Single shared SVG |
+| 2.10 | Click handlers in `init()`: `#home-abassi1..4` wired via forEach | ✅ | 3.5.0 | Dynamic `goToAbassiN()` functions |
+| 2.11 | `goToHome()` back handler: `EVT.startsWith('abassi')` | ✅ | 3.5.0 | Same pattern as `umawi` |
+| 2.12 | Add `.amb-golden` CSS class in `style.css` | ✅ | 3.5.0 | Radiant gold gradient |
+| 2.13 | Add `.amb-sack` CSS class in `style.css` | ✅ | 3.5.0 | Dark fiery crimson gradient |
+| 2.14 | Phase 1 golden ribbon styles in `style.css` | ✅ | 3.5.0 | Gold bar/badge |
+| 2.15 | `data-ar`/`data-en` regex sweep | ✅ | 3.5.0 | Balanced |
 
 ---
 
@@ -70,11 +70,11 @@
 
 | # | Task | Status | Date | Notes |
 |---|------|--------|------|-------|
-| 3.1 | `python tools/gen_tts.py --eras abassi` | 🔴 | — | ~9-10 min runtime |
-| 3.2 | Verify `audio/*/abassi_*_*.mp3` exist (280 files) | 🔴 | — | 5 slots × 2 langs × 28 steps |
-| 3.3 | Verify `audio/manifest.json` includes all new clips | 🔴 | — | Auto-generated by gen_tts.py |
-| 3.4 | Sample-check Phase 1 clip (e.g. classic/abassi_3_ar.mp3) | 🔴 | — | Ensure Harun al-Rashid pronunciation correct |
-| 3.5 | Sample-check Phase 4 clip (e.g. classic/abassi_26_ar.mp3) | 🔴 | — | Ensure correct pronunciation of Mongol names |
+| 3.1 | Rename audio files abassi_* → abassi1..4_* (280 clips) | ✅ | 3.5.0 | 5 voice slots × 2 langs × 28 steps |
+| 3.2 | Verify `audio/*/abassi{1..4}_*_*.mp3` exist (280 files) | ✅ | 3.5.0 | All present post-rename |
+| 3.3 | Regenerate `audio/manifest.json` with new era keys | ✅ | 3.5.0 | `--manifest-only` after rename |
+| 3.4 | Sample-check Phase 1 clip (e.g. classic/abassi1_3_ar.mp3) | ⏳ | — | Ensure Harun al-Rashid pronunciation correct |
+| 3.5 | Sample-check Phase 4 clip (e.g. classic/abassi4_8_ar.mp3) | ⏳ | — | Ensure correct pronunciation of Mongol names |
 
 ---
 

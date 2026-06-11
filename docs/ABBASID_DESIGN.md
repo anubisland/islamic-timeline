@@ -2,7 +2,7 @@
 
 > **Status:** Design reviewed ✅ — ready for implementation.
 > **Sources (exclusive):** الطبري (تاريخ الأمم والملوك), ابن الأثير (الكامل في التاريخ), ابن كثير (البداية والنهاية), د. الصلابي (الدولة العباسية), د. طقوش (تاريخ الدولة العباسية)
-> **Total steps:** 28 across 4 phases (9+7+9+3), inserted chronologically after `umawi` in `window.SEERAH_DB`.
+> **Total steps:** 28 across 4 phases (9+6+3+10), implemented as 4 separate era keys (`abassi1`–`abassi4`) in `window.SEERAH_DB`.
 > **Map:** 1000×560 viewBox (matching Umayyad extent, Baghdad-centered).
 > **Special treatments:**
 >   - Phase 1 (golden age): New `amb-golden` CSS class with radiant gold gradient for المأمون/الرشيد era
@@ -10,13 +10,13 @@
 
 ---
 
-## 1. Content Structure: Four Phases, One Era
+## 1. Content Structure: Four Sub-Eras, One Caliphate
 
-The Abbasid period (132–656 AH / 750–1258 CE) is added as a **single era key `abassi`** in `data.js`'s `SEERAH_DB`, between `umawi` and any future module. The four phases are logical groupings within the flat `steps[]` array — no sub-eras or UI nesting.
+The Abbasid period (132–656 AH / 750–1258 CE) is implemented as **four separate era keys** (`abassi1`–`abassi4`) in `data.js`'s `SEERAH_DB`, inserted between `umawi` and `uthmani`. Each sub-era gets its own home-screen card and appears in the home screen grid alongside Umayyad, Ottoman, etc. All four share the same SVG map (`#svg-abassi`).
 
 ```
 SEERAH_DB (data.js) — chronological order:
-  preb → meccan → hijra → badr → medinan → abubakr → umar → uthman → ali → hasan → umawi → abassi (NEW)
+  preb → meccan → hijra → badr → medinan → abubakr → umar → uthman → ali → hasan → umawi → abassi1 → abassi2 → abassi3 → abassi4 → uthmani
 ```
 
 | Phase | Title (Ar) | Title (En) | AH Range | Steps | Emphasis |
