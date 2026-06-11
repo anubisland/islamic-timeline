@@ -708,12 +708,12 @@
   }
 
   // ── Switch event ───────────────────────────────────────
-  function switchEv(key, startStep) {
+  function switchEv(key, startStep, phaseRange) {
     if (!DB[key]) return;
     EVT = key;
     localStorage.setItem(STORAGE.evt, key);
     STEP = startStep != null ? startStep : 0;
-    PHASE_RANGE = null; // clear any Ottoman phase range
+    PHASE_RANGE = phaseRange || null;
     stopAudio();
     hideSplash();
 
@@ -1348,9 +1348,8 @@
         const limits = { 1: { start: 0, end: 7 }, 2: { start: 8, end: 15 }, 3: { start: 16, end: 21 }, 4: { start: 22, end: 27 } };
         if (offsets[phase] === undefined) return;
         MODE = 'sera';
-        PHASE_RANGE = limits[phase];
         hideOttomanScreen();
-        switchEv('uthmani', offsets[phase]);
+        switchEv('uthmani', offsets[phase], limits[phase]);
       });
     });
     // Abbasid screen back to home
