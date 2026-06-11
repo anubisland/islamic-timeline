@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.2] — 2026-06-11
+
+### Added
+- **Umayyad phase-selection screen** — clicking the Umayyad home card now shows a 4-phase selection screen (Foundation & Stability, Marwanids & Conquests, Umar's Reform, Weakness & Fall), matching the Ottoman and Abbasid patterns. Each phase shows only its steps in the timeline.
+
+### Fixed
+- **`.ot-phase-card` missing keyboard handler** — phase cards (Ottoman, Abbasid, Umayyad) now respond to Enter/Space for keyboard accessibility.
+
 ## [3.5.1] — 2026-06-11
 
 ### Fixed

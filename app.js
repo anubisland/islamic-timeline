@@ -120,6 +120,8 @@
     if (ottomanScr) ottomanScr.classList.add('hidden');
     const abbScr = $('abbasid-screen');
     if (abbScr) abbScr.classList.add('hidden');
+    const umScr = $('umawi-screen');
+    if (umScr) umScr.classList.add('hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.remove('visible');
     // Keep splash lang toggle visible on home screen
@@ -159,18 +161,12 @@
     showImamScreen();
   }
 
-  // Dedicated home-screen entry straight into the Umayyad era view (it has its
-  // own launcher card; it is NOT listed in the Seerah splash). switchEv() does
-  // the heavy lifting — hideSplash() also hides the home screen, and it toggles
-  // svg-umawi / labels / render. Back from this era returns home (see btn-splash
-  // handler), since EVT==='umawi' is only reachable from here.
   function goToUmawi() {
     if (!DB.umawi) {
       console.warn('SEERAH_DB.umawi not loaded.');
       return;
     }
-    MODE = 'sera';
-    switchEv('umawi');
+    showUmawiScreen();
   }
 
   function goToAbassi() {
@@ -201,6 +197,8 @@
     if (ottomanScr) ottomanScr.classList.add('hidden');
     const abbScr = $('abbasid-screen');
     if (abbScr) abbScr.classList.add('hidden');
+    const umScr = $('umawi-screen');
+    if (umScr) umScr.classList.add('hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.add('visible');
     const slb = $('splash-lang-toggle');
@@ -222,6 +220,8 @@
     if (ottomanScr) ottomanScr.classList.add('hidden');
     const abbScr = $('abbasid-screen');
     if (abbScr) abbScr.classList.add('hidden');
+    const umScr = $('umawi-screen');
+    if (umScr) umScr.classList.add('hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.remove('visible');
     const slb = $('splash-lang-toggle');
@@ -251,6 +251,8 @@
     if (ottomanScr) ottomanScr.classList.add('hidden');
     const abbScr = $('abbasid-screen');
     if (abbScr) abbScr.classList.add('hidden');
+    const umScr = $('umawi-screen');
+    if (umScr) umScr.classList.add('hidden');
     const imamScr = $('imam-screen');
     if (imamScr) imamScr.classList.remove('hidden');
     const hdr = $('site-header');
@@ -287,6 +289,8 @@
     if (imamScr) imamScr.classList.add('hidden');
     const abbScr = $('abbasid-screen');
     if (abbScr) abbScr.classList.add('hidden');
+    const umScr = $('umawi-screen');
+    if (umScr) umScr.classList.add('hidden');
     const ottomanScr = $('ottoman-screen');
     if (ottomanScr) ottomanScr.classList.remove('hidden');
     const hdr = $('site-header');
@@ -317,6 +321,8 @@
     if (imamScr) imamScr.classList.add('hidden');
     const ottomanScr = $('ottoman-screen');
     if (ottomanScr) ottomanScr.classList.add('hidden');
+    const umScr = $('umawi-screen');
+    if (umScr) umScr.classList.add('hidden');
     const abbScr = $('abbasid-screen');
     if (abbScr) abbScr.classList.remove('hidden');
     const hdr = $('site-header');
@@ -334,6 +340,39 @@
   function hideAbbasidScreen() {
     const abbScr = $('abbasid-screen');
     if (abbScr) abbScr.classList.add('hidden');
+  }
+
+  // ── Umayyad screen (phase selection) ─────────────────────
+  function showUmawiScreen() {
+    MODE = 'home';
+    PHASE_RANGE = null;
+    const home = $('home-screen');
+    if (home) home.classList.add('home-hidden');
+    const splash = $('splash');
+    if (splash) splash.classList.add('hidden');
+    const imamScr = $('imam-screen');
+    if (imamScr) imamScr.classList.add('hidden');
+    const ottomanScr = $('ottoman-screen');
+    if (ottomanScr) ottomanScr.classList.add('hidden');
+    const abbScr = $('abbasid-screen');
+    if (abbScr) abbScr.classList.add('hidden');
+    const umScr = $('umawi-screen');
+    if (umScr) umScr.classList.remove('hidden');
+    const hdr = $('site-header');
+    if (hdr) hdr.classList.remove('visible');
+    const slb = $('splash-lang-toggle');
+    if (slb) slb.classList.remove('hidden');
+    stopAudio();
+    document.body.style.background = '#060b0f';
+    document.body.style.overflow = 'hidden';
+    document.querySelector('meta[name=theme-color]').content = '#060b0f';
+    const diag = $('focus-diag');
+    if (diag) diag.style.display = 'none';
+  }
+
+  function hideUmawiScreen() {
+    const umScr = $('umawi-screen');
+    if (umScr) umScr.classList.add('hidden');
   }
 
   function selectImam(key) {
@@ -728,16 +767,27 @@
     // ATTACHED lam (لخلافة عمر), never the detached "لـ " + space form.
     var timelineAr = arLabel.indexOf('ال') === 0 ? 'الخط الزمني لل' + arLabel.slice(2) : 'الخط الزمني ل' + arLabel;
     var timelineEn = DB[key].labelEn + ' Timeline';
-    // Append phase name when viewing an Ottoman phase
-    if (key === 'uthmani' && PHASE_RANGE) {
+    // Append phase name when viewing a phase-restricted era
+    if (PHASE_RANGE) {
       const phaseNames = {
-        0:  { ar: ' — التأسيس والنشوء', en: ' — Foundation & Rise' },
-        8:  { ar: ' — القوة والفتوحات الكبرى', en: ' — Power & Great Conquests' },
-        16: { ar: ' — الركود والاضطراب السياسي', en: ' — Stagnation & Political Turmoil' },
-        22: { ar: ' — الضعف والإنهاء', en: ' — Weakness & Termination' }
+        'uthmani': {
+          0:  { ar: ' — التأسيس والنشوء', en: ' — Foundation & Rise' },
+          8:  { ar: ' — القوة والفتوحات الكبرى', en: ' — Power & Great Conquests' },
+          16: { ar: ' — الركود والاضطراب السياسي', en: ' — Stagnation & Political Turmoil' },
+          22: { ar: ' — الضعف والإنهاء', en: ' — Weakness & Termination' }
+        },
+        'umawi': {
+          0:  { ar: ' — التأسيس والاستقرار', en: ' — Foundation & Stability' },
+          5:  { ar: ' — المروانيون والفتوحات الكبرى', en: ' — Marwanids & Great Conquests' },
+          13: { ar: ' — الإصلاح الراشدي — عمر بن عبد العزيز', en: ' — Rightly-Guided Reform — Umar II' },
+          18: { ar: ' — الضعف وسقوط الدولة', en: ' — Weakness & Fall' }
+        }
       };
-      const pn = phaseNames[PHASE_RANGE.start];
-      if (pn) { timelineAr += pn.ar; timelineEn += pn.en; }
+      const eraPhases = phaseNames[key];
+      if (eraPhases) {
+        const pn = eraPhases[PHASE_RANGE.start];
+        if (pn) { timelineAr += pn.ar; timelineEn += pn.en; }
+      }
     }
     setBrandTitle(timelineAr, timelineEn);
     // Update page title
@@ -1327,7 +1377,7 @@
     // All card "buttons" are divs with role=button tabindex=0 — divs don't
     // synthesize click from Enter/Space, so without this the launcher and
     // splash are unreachable by keyboard.
-    document.querySelectorAll('.home-card, .era-card, .caliph-card, .imam-card').forEach((el) => {
+    document.querySelectorAll('.home-card, .era-card, .caliph-card, .imam-card, .ot-phase-card').forEach((el) => {
       el.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
       });
@@ -1336,7 +1386,7 @@
     const backBtn = $('btn-splash');
     if (backBtn) backBtn.addEventListener('click', () => {
       if (MODE === 'imams') goToImamSplash();
-      else if (EVT === 'umawi') goToHome();  // Umayyad has its own home card, not in the splash
+      else if (EVT === 'umawi') showUmawiScreen();  // Umayyad back to phase selection
       else if (EVT.startsWith('abassi')) showAbbasidScreen(); // Abbasid sub-eras go back to phase selection
       else if (EVT === 'uthmani') showOttomanScreen(); // Ottoman back to phase selection
       else goToSplash();
@@ -1351,7 +1401,7 @@
     const ottomanBack = $('ottoman-back');
     if (ottomanBack) ottomanBack.addEventListener('click', goToHome);
     // Ottoman phase cards → enter era at step offset within phase range
-    document.querySelectorAll('.ot-phase-card').forEach((el) => {
+    document.querySelectorAll('#ot-phase-cards .ot-phase-card').forEach((el) => {
       el.addEventListener('click', () => {
         const phase = parseInt(el.dataset.phase, 10);
         if (!phase || !DB.uthmani) return;
@@ -1361,6 +1411,22 @@
         MODE = 'sera';
         hideOttomanScreen();
         switchEv('uthmani', offsets[phase], limits[phase]);
+      });
+    });
+    // Umayyad screen back to home
+    const umawiBack = $('umawi-back');
+    if (umawiBack) umawiBack.addEventListener('click', goToHome);
+    // Umayyad phase cards → enter era at step offset within phase range
+    document.querySelectorAll('#um-phase-cards .ot-phase-card').forEach((el) => {
+      el.addEventListener('click', () => {
+        const phase = parseInt(el.dataset.phase, 10);
+        if (!phase || !DB.umawi) return;
+        const offsets = { 1: 0, 2: 5, 3: 13, 4: 18 };
+        const limits = { 1: { start: 0, end: 4 }, 2: { start: 5, end: 12 }, 3: { start: 13, end: 17 }, 4: { start: 18, end: 23 } };
+        if (offsets[phase] === undefined) return;
+        MODE = 'sera';
+        hideUmawiScreen();
+        switchEv('umawi', offsets[phase], limits[phase]);
       });
     });
     // Abbasid screen back to home

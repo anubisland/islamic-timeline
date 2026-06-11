@@ -18,9 +18,14 @@
     #splash:not(.hidden) ~ .tl-foot {
       display: none !important;
     }
+    /* Hide main content when Umayyad phase selection is visible */
+    #umawi-screen:not(.hidden) ~ .wrap,
+    #umawi-screen:not(.hidden) ~ .tl-foot {
+      display: none !important;
+    }
     /* focus-diag and diag hidden by default (green bg), shown during era */
   </style>
-  <link rel="stylesheet" href="style.css?v=3.5.1" />
+  <link rel="stylesheet" href="style.css?v=3.5.2" />
 </head>
 <body>
 
@@ -545,6 +550,87 @@
 
       <div class="ottoman-foot">
         <span data-ar="الدولة العباسية — ٢٨ مرحلة عبر ٤ عهود (٥٢٤ عاماً)" data-en="The Abbasid Caliphate — 28 stages across 4 eras (524 years)">الدولة العباسية — ٢٨ مرحلة عبر ٤ عهود</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- الدولة الأموية — قسم اختيار المرحلة -->
+  <section id="umawi-screen" class="ottoman-screen">
+    <button id="umawi-back" class="splash-back-btn" type="button" aria-label="Back to home">
+      <span data-ar="← الرئيسية" data-en="← Home">← الرئيسية</span>
+    </button>
+    <div class="ottoman-bg"></div>
+    <div class="splash-frame"></div>
+    <div class="splash-corner tl"></div><div class="splash-corner tr"></div>
+    <div class="splash-corner bl"></div><div class="splash-corner br"></div>
+
+    <div class="ottoman-inner">
+      <div class="ottoman-header">
+        <div class="ottoman-icon">🏛️</div>
+        <h1 data-ar="الدولة الأموية" data-en="Umayyad Caliphate">الدولة الأموية</h1>
+        <p class="ottoman-sub" data-ar="أول خلافة إسلامية كبرى بعد الراشدين — اختر مرحلة لاستكشاف أحداثها"
+           data-en="The first great Islamic caliphate after the Rashidun — choose a phase to explore">
+           اختر مرحلة لاستكشاف أحداثها
+        </p>
+        <div class="splash-divider">۞</div>
+      </div>
+
+      <div class="ot-phase-cards" id="um-phase-cards">
+        <div class="ot-phase-card" data-phase="1" role="button" tabindex="0">
+          <div class="opc-bg" style="background: linear-gradient(160deg, rgba(197,160,89,.2), rgba(20,42,60,.5))"></div>
+          <div class="opc-content">
+            <div class="opc-step">١</div>
+            <div class="opc-text">
+              <div class="opc-name" data-ar="التأسيس والاستقرار" data-en="Foundation & Stability">التأسيس والاستقرار</div>
+              <div class="opc-dates" data-ar="٤١ - ٦٤ هـ / ٦٦١ - ٦٨٤ م" data-en="41–64 AH / 661–684 CE">٤١ - ٦٤ هـ</div>
+              <div class="opc-desc" data-ar="عام الجماعة، بناء الدولة الأموية، تأسيس القيروان، حصار القسطنطينية، كربلاء" data-en="Year of Unity, Umayyad state-building, founding of Qayrawan, siege of Constantinople, Karbala">عام الجماعة وبناء الدولة</div>
+            </div>
+            <div class="opc-steps-count" data-ar="٥ مراحل" data-en="5 stages">٥ مراحل</div>
+          </div>
+        </div>
+        <div class="ot-phase-card" data-phase="2" role="button" tabindex="0">
+          <div class="opc-bg" style="background: linear-gradient(160deg, rgba(197,160,89,.25), rgba(20,42,60,.5))"></div>
+          <div class="opc-content">
+            <div class="opc-step">٢</div>
+            <div class="opc-text">
+              <div class="opc-name" data-ar="المروانيون والفتوحات الكبرى" data-en="Marwanids & Great Conquests">المروانيون والفتوحات</div>
+              <div class="opc-dates" data-ar="٦٥ - ٩٩ هـ / ٦٨٥ - ٧١٧ م" data-en="65–99 AH / 685–717 CE">٦٥ - ٩٩ هـ</div>
+              <div class="opc-desc" data-ar="عبد الملك بن مروان، تعريب الدواوين، قبة الصخرة، فتح الأندلس وما وراء النهر" data-en="Abd al-Malik, Arabization, Dome of the Rock, conquest of Spain and Transoxiana">عبد الملك وقبة الصخرة والفتوحات</div>
+            </div>
+            <div class="opc-steps-count" data-ar="٨ مراحل" data-en="8 stages">٨ مراحل</div>
+          </div>
+        </div>
+        <div class="ot-phase-card" data-phase="3" role="button" tabindex="0">
+          <div class="opc-bg" style="background: linear-gradient(160deg, rgba(197,160,89,.3), rgba(6,53,41,.5))"></div>
+          <div class="opc-content">
+            <div class="opc-step">٣</div>
+            <div class="opc-text">
+              <div class="opc-name" data-ar="الإصلاح الراشدي — عمر بن عبد العزيز" data-en="Rightly-Guided Reform — Umar II">الإصلاح الراشدي — عمر بن عبد العزيز</div>
+              <div class="opc-dates" data-ar="٩٩ - ١٠١ هـ / ٧١٧ - ٧٢٠ م" data-en="99–101 AH / 717–720 CE">٩٩ - ١٠١ هـ</div>
+              <div class="opc-desc" data-ar="تولي الخلافة، رد المظالم، تدوين السنة، الإصلاح الاقتصادي" data-en="Caliphate, restitution, hadith compilation, economic reform">الخليفة الزاهد والمصلح</div>
+            </div>
+            <div class="opc-steps-count" data-ar="٥ مراحل" data-en="5 stages">٥ مراحل</div>
+          </div>
+        </div>
+        <div class="ot-phase-card" data-phase="4" role="button" tabindex="0">
+          <div class="opc-bg" style="background: linear-gradient(160deg, rgba(140,70,20,.15), rgba(10,6,15,.7))"></div>
+          <div class="opc-content">
+            <div class="opc-step">٤</div>
+            <div class="opc-text">
+              <div class="opc-name" data-ar="الضعف وسقوط الدولة" data-en="Weakness & Fall">الضعف وسقوط الدولة</div>
+              <div class="opc-dates" data-ar="١٠١ - ١٣٢ هـ / ٧٢٠ - ٧٥٠ م" data-en="101–132 AH / 720–750 CE">١٠١ - ١٣٢ هـ</div>
+              <div class="opc-desc" data-ar="الخلفاء بعد عمر، هشام بن عبد الملك، بلاط الشهداء، الفتنة الداخلية، سقوط الدولة" data-en="Caliphs after Umar, Hisham, Tours, internal strife, fall of the state">الضعف والفتنة والسقوط</div>
+            </div>
+            <div class="opc-steps-count" data-ar="٦ مراحل" data-en="6 stages">٦ مراحل</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ottoman-foot">
+        <span data-ar="الدولة الأموية — ٢٤ مرحلة عبر ٤ عهود (٩١ عاماً)"
+              data-en="The Umayyad Caliphate — 24 stages across 4 eras (91 years)">
+          الدولة الأموية — ٢٤ مرحلة عبر ٤ عهود
+        </span>
       </div>
     </div>
   </section>
@@ -2533,8 +2619,8 @@
     </div>
   </footer>
 
-  <script src="data.js?v=3.5.1"></script>
-  <script src="data_imams.js?v=3.5.1"></script>
-  <script src="app.js?v=3.5.1"></script>
+  <script src="data.js?v=3.5.2"></script>
+  <script src="data_imams.js?v=3.5.2"></script>
+  <script src="app.js?v=3.5.2"></script>
 </body>
 </html>

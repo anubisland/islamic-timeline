@@ -1090,7 +1090,9 @@ body::after {
 #ottoman-screen:not(.hidden) ~ .wrap,
 #ottoman-screen:not(.hidden) ~ .tl-foot,
 #abbasid-screen:not(.hidden) ~ .wrap,
-#abbasid-screen:not(.hidden) ~ .tl-foot {
+#abbasid-screen:not(.hidden) ~ .tl-foot,
+#umawi-screen:not(.hidden) ~ .wrap,
+#umawi-screen:not(.hidden) ~ .tl-foot {
   display: none !important;
 }
 
@@ -2111,6 +2113,7 @@ body::after {
 }
 .ottoman-screen.hidden { display: none; }
 #abbasid-screen.hidden { display: none; }
+#umawi-screen.hidden { display: none; }
 
 .ottoman-bg {
   position: fixed;
