@@ -728,6 +728,17 @@
     // ATTACHED lam (لخلافة عمر), never the detached "لـ " + space form.
     var timelineAr = arLabel.indexOf('ال') === 0 ? 'الخط الزمني لل' + arLabel.slice(2) : 'الخط الزمني ل' + arLabel;
     var timelineEn = DB[key].labelEn + ' Timeline';
+    // Append phase name when viewing an Ottoman phase
+    if (key === 'uthmani' && PHASE_RANGE) {
+      const phaseNames = {
+        0:  { ar: ' — التأسيس والنشوء', en: ' — Foundation & Rise' },
+        8:  { ar: ' — القوة والفتوحات الكبرى', en: ' — Power & Great Conquests' },
+        16: { ar: ' — الركود والاضطراب السياسي', en: ' — Stagnation & Political Turmoil' },
+        22: { ar: ' — الضعف والإنهاء', en: ' — Weakness & Termination' }
+      };
+      const pn = phaseNames[PHASE_RANGE.start];
+      if (pn) { timelineAr += pn.ar; timelineEn += pn.en; }
+    }
     setBrandTitle(timelineAr, timelineEn);
     // Update page title
     var pt = document.querySelector('title');

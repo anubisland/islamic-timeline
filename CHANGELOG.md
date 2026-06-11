@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.1] — 2026-06-11
+
+### Fixed
+- **Ottoman phase range cleared by `switchEv()`** — `switchEv()` had `PHASE_RANGE = null` after the phase card handler set it, so timeline dots and navigation always showed all 28 steps instead of only the phase's steps. `switchEv()` now accepts a third `phaseRange` parameter.
+- **Phase name not shown in header** — the era header now appends the phase name (e.g. " — التأسيس والنشوء / Foundation & Rise") when viewing an Ottoman phase.
+
 ## [3.5.0] — 2026-06-11
 
 ### Changed
