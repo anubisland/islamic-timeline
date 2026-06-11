@@ -21,6 +21,7 @@
   let IMAM = localStorage.getItem(STORAGE.imam) || 'abu-hanifa';
   if (IDB && !IDB[IMAM]) IMAM = 'abu-hanifa';
   let STEP = 0;
+  let PHASE_RANGE = null; // { start, end } for Ottoman phase, null otherwise
   let LANG = (localStorage.getItem(STORAGE.lang) || 'AR').toUpperCase();
   let currentAudio = null;
   let isPlaying = false;
@@ -270,6 +271,7 @@
   // ── Ottoman screen (phase selection) ──────────────────────
   function showOttomanScreen() {
     MODE = 'home';
+    PHASE_RANGE = null;
     const home = $('home-screen');
     if (home) home.classList.add('home-hidden');
     const imamScr = $('imam-screen');
@@ -627,11 +629,13 @@
       buildImamTimeline();
       return;
     }
-    const steps = DB[EVT].steps;
+    const allSteps = DB[EVT].steps;
     const wrap = $('tl-nodes');
     if (!wrap) return;
     wrap.innerHTML = '';
-    steps.forEach((s, i) => {
+    allSteps.forEach((s, i) => {
+      // Skip steps outside the current Ottoman phase range
+      if (PHASE_RANGE && (i < PHASE_RANGE.start || i > PHASE_RANGE.end)) return;
       const n = document.createElement('div');
       n.className = 'tl-nd';
       n.id = 'tn' + i;
@@ -639,7 +643,8 @@
 
       const dot = document.createElement('div');
       dot.className = 'tl-dot';
-      dot.textContent = LANG === 'AR' ? arNum(i + 1) : (i + 1);
+      const dotNum = PHASE_RANGE ? (i - PHASE_RANGE.start + 1) : (i + 1);
+      dot.textContent = LANG === 'AR' ? arNum(dotNum) : dotNum;
 
       const lbl = document.createElement('div');
       lbl.className = 'tl-lbl';
@@ -667,6 +672,7 @@
     EVT = key;
     localStorage.setItem(STORAGE.evt, key);
     STEP = startStep != null ? startStep : 0;
+    PHASE_RANGE = null; // clear any Ottoman phase range
     stopAudio();
     hideSplash();
 
@@ -810,7 +816,9 @@
     const ev = MODE === 'imams' ? (IDB ? IDB[IMAM] : null) : DB[EVT];
     if (!ev) return;
     const l = ev.steps.length;
-    if (i < 0 || i >= l) return;
+    const min = PHASE_RANGE ? PHASE_RANGE.start : 0;
+    const max = PHASE_RANGE ? PHASE_RANGE.end : l - 1;
+    if (i < min || i > max) return;
     STEP = i;
     stopAudio();
     render();
@@ -1000,6 +1008,8 @@
     const s = ev.steps[STEP];
     const tot = ev.steps.length;
     const k = t(''); // 'Ar' or 'En'
+    const phaseTot = PHASE_RANGE ? (PHASE_RANGE.end - PHASE_RANGE.start + 1) : tot;
+    const phaseStep = PHASE_RANGE ? (STEP - PHASE_RANGE.start + 1) : (STEP + 1);
 
     // Ayah + ref
     $('ayah-text').textContent = s.ayah;
@@ -1012,8 +1022,8 @@
 
     // Stage badge
     const stageText = LANG === 'AR'
-      ? 'المرحلة ' + arNum(STEP + 1) + ' من ' + arNum(tot)
-      : 'Step ' + (STEP + 1) + ' of ' + tot;
+      ? 'المرحلة ' + arNum(phaseStep) + ' من ' + arNum(phaseTot)
+      : 'Step ' + phaseStep + ' of ' + phaseTot;
     $('stage-badge').textContent = stageText;
 
     // Date
@@ -1107,7 +1117,7 @@
     }
 
     // Timeline strip
-    const pct = tot > 1 ? (STEP / (tot - 1)) * 100 : 100;
+    const pct = phaseTot > 1 ? ((STEP - (PHASE_RANGE ? PHASE_RANGE.start : 0)) / (phaseTot - 1)) * 100 : 100;
     $('tl-fill').style.width = pct + '%';
     $('hdr-prog').style.width = pct + '%';
     for (let i = 0; i < tot; i++) {
@@ -1122,12 +1132,12 @@
     const footerTitle = s[t('title')];
     $('tl-name').textContent = footerTitle;
     $('tl-counter').textContent = LANG === 'AR'
-      ? arNum(STEP + 1) + ' / ' + arNum(tot)
-      : (STEP + 1) + ' / ' + tot;
+      ? arNum(phaseStep) + ' / ' + arNum(phaseTot)
+      : phaseStep + ' / ' + phaseTot;
 
     // Nav buttons
-    $('btn-prev').disabled = STEP === 0;
-    $('btn-next').disabled = STEP === tot - 1;
+    $('btn-prev').disabled = PHASE_RANGE ? STEP === PHASE_RANGE.start : STEP === 0;
+    $('btn-next').disabled = PHASE_RANGE ? STEP === PHASE_RANGE.end : STEP === tot - 1;
 
     // Map focus pan/zoom — synchronous on purpose: applyMapFocus only writes
     // SVG attributes (no layout reads), and requestAnimationFrame is paused in
@@ -1290,14 +1300,16 @@
     // Ottoman screen back to home
     const ottomanBack = $('ottoman-back');
     if (ottomanBack) ottomanBack.addEventListener('click', goToHome);
-    // Ottoman phase cards → enter era at step offset
+    // Ottoman phase cards → enter era at step offset within phase range
     document.querySelectorAll('.ot-phase-card').forEach((el) => {
       el.addEventListener('click', () => {
         const phase = parseInt(el.dataset.phase, 10);
         if (!phase || !DB.uthmani) return;
         const offsets = { 1: 0, 2: 8, 3: 16, 4: 22 };
+        const limits = { 1: { start: 0, end: 7 }, 2: { start: 8, end: 15 }, 3: { start: 16, end: 21 }, 4: { start: 22, end: 27 } };
         if (offsets[phase] === undefined) return;
         MODE = 'sera';
+        PHASE_RANGE = limits[phase];
         hideOttomanScreen();
         switchEv('uthmani', offsets[phase]);
       });
