@@ -1088,7 +1088,9 @@ body::after {
 #imam-screen:not(.hidden) ~ .wrap,
 #imam-screen:not(.hidden) ~ .tl-foot,
 #ottoman-screen:not(.hidden) ~ .wrap,
-#ottoman-screen:not(.hidden) ~ .tl-foot {
+#ottoman-screen:not(.hidden) ~ .tl-foot,
+#abbasid-screen:not(.hidden) ~ .wrap,
+#abbasid-screen:not(.hidden) ~ .tl-foot {
   display: none !important;
 }
 
@@ -2108,6 +2110,7 @@ body::after {
   min-height: 100dvh;
 }
 .ottoman-screen.hidden { display: none; }
+#abbasid-screen.hidden { display: none; }
 
 .ottoman-bg {
   position: fixed;

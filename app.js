@@ -171,14 +171,13 @@
     switchEv('umawi');
   }
 
-  ['abassi1','abassi2','abassi3','abassi4'].forEach(function(key) {
-    var fnName = 'goTo' + key.charAt(0).toUpperCase() + key.slice(1);
-    window[fnName] = function() {
-      if (!DB[key]) { console.warn('SEERAH_DB.' + key + ' not loaded.'); return; }
-      MODE = 'sera';
-      switchEv(key);
-    };
-  });
+  function goToAbassi() {
+    if (!DB.abassi1) {
+      console.warn('SEERAH_DB.abassi1 not loaded.');
+      return;
+    }
+    showAbbasidScreen();
+  }
 
   function goToUthmani() {
     if (!DB.uthmani) {
@@ -198,6 +197,8 @@
     if (imamScr) imamScr.classList.add('hidden');
     const ottomanScr = $('ottoman-screen');
     if (ottomanScr) ottomanScr.classList.add('hidden');
+    const abbScr = $('abbasid-screen');
+    if (abbScr) abbScr.classList.add('hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.add('visible');
     const slb = $('splash-lang-toggle');
@@ -293,6 +294,32 @@
   function hideOttomanScreen() {
     const ottomanScr = $('ottoman-screen');
     if (ottomanScr) ottomanScr.classList.add('hidden');
+  }
+
+  function showAbbasidScreen() {
+    MODE = 'home';
+    PHASE_RANGE = null;
+    const home = $('home-screen');
+    if (home) home.classList.add('home-hidden');
+    const imamScr = $('imam-screen');
+    if (imamScr) imamScr.classList.add('hidden');
+    const abbScr = $('abbasid-screen');
+    if (abbScr) abbScr.classList.remove('hidden');
+    const hdr = $('site-header');
+    if (hdr) hdr.classList.remove('visible');
+    const slb = $('splash-lang-toggle');
+    if (slb) slb.classList.remove('hidden');
+    stopAudio();
+    document.body.style.background = '#060b0f';
+    document.body.style.overflow = 'hidden';
+    document.querySelector('meta[name=theme-color]').content = '#060b0f';
+    const diag = $('focus-diag');
+    if (diag) diag.style.display = 'none';
+  }
+
+  function hideAbbasidScreen() {
+    const abbScr = $('abbasid-screen');
+    if (abbScr) abbScr.classList.add('hidden');
   }
 
   function selectImam(key) {
@@ -1259,10 +1286,8 @@
     if (homeImams) homeImams.addEventListener('click', goToImams);
     const homeUmawi = $('home-umawi');
     if (homeUmawi) homeUmawi.addEventListener('click', goToUmawi);
-    ['abassi1','abassi2','abassi3','abassi4'].forEach(function(key) {
-      var el = $('home-' + key);
-      if (el) el.addEventListener('click', window['goTo' + key.charAt(0).toUpperCase() + key.slice(1)]);
-    });
+    const homeAbassi = $('home-abassi');
+    if (homeAbassi) homeAbassi.addEventListener('click', goToAbassi);
     const homeUthmani = $('home-uthmani');
     if (homeUthmani) homeUthmani.addEventListener('click', goToUthmani);
 
@@ -1287,7 +1312,7 @@
     if (backBtn) backBtn.addEventListener('click', () => {
       if (MODE === 'imams') goToImamSplash();
       else if (EVT === 'umawi') goToHome();  // Umayyad has its own home card, not in the splash
-      else if (EVT.startsWith('abassi')) goToHome(); // Abbasid sub-eras have their own home cards
+      else if (EVT.startsWith('abassi')) showAbbasidScreen(); // Abbasid sub-eras go back to phase selection
       else if (EVT === 'uthmani') showOttomanScreen(); // Ottoman back to phase selection
       else goToSplash();
     });
@@ -1312,6 +1337,19 @@
         PHASE_RANGE = limits[phase];
         hideOttomanScreen();
         switchEv('uthmani', offsets[phase]);
+      });
+    });
+    // Abbasid screen back to home
+    const abbasidBack = $('abbasid-back');
+    if (abbasidBack) abbasidBack.addEventListener('click', goToHome);
+    // Abbasid phase cards → enter sub-era directly
+    document.querySelectorAll('#ab-phase-cards .ot-phase-card').forEach((el) => {
+      el.addEventListener('click', () => {
+        const era = el.dataset.era;
+        if (!era || !DB[era]) return;
+        MODE = 'sera';
+        hideAbbasidScreen();
+        switchEv(era);
       });
     });
 
