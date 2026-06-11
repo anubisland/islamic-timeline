@@ -662,11 +662,11 @@
   }
 
   // ── Switch event ───────────────────────────────────────
-  function switchEv(key) {
+  function switchEv(key, startStep) {
     if (!DB[key]) return;
     EVT = key;
     localStorage.setItem(STORAGE.evt, key);
-    STEP = 0;
+    STEP = startStep != null ? startStep : 0;
     stopAudio();
     hideSplash();
 
@@ -1292,9 +1292,8 @@
         const offsets = { 1: 0, 2: 8, 3: 16, 4: 22 };
         if (offsets[phase] === undefined) return;
         MODE = 'sera';
-        STEP = offsets[phase];
         hideOttomanScreen();
-        switchEv('uthmani');
+        switchEv('uthmani', offsets[phase]);
       });
     });
 
