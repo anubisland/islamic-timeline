@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.3] — 2026-06-11
+
+### Added
+- **Independent States & Kingdoms module (muq)** — 3 stages covering the Umayyad state in Andalusia, Fatimids, Ayyubids, Mamluks, Battle of Hattin, and Battle of Ain Jalut. Added to the home screen with dedicated card (`#home-muq`). Narration audio generated for all 3 steps × 5 voice slots × 2 languages with fully diacritized Arabic sidecar entries.
+
 ## [3.5.2] — 2026-06-11
 
 ### Added

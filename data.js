@@ -5447,6 +5447,128 @@ window.SEERAH_DB = {
       }
     ]
   },
+  "muq": {
+    "labelAr": "الدول والممالك المستقلة",
+    "labelEn": "Independent States & Kingdoms",
+    "mapLabelAr": "الدول والممالك المستقلة في العصر العباسي",
+    "mapLabelEn": "Independent States in the Abbasid Era",
+    "stepCountAr": "مرحلة",
+    "stepCountEn": "stages",
+    "offsets": [],
+    "steps": [
+      {
+        "ayah": "﴿ وَتِلْكَ الْأَيَّامُ نُدَاوِلُهَا بَيْنَ النَّاسِ وَلِيَعْلَمَ اللَّهُ الَّذِينَ آمَنُوا ﴾",
+        "ayahRef": "سورة آل عمران — الآية ١٤٠",
+        "ayahEn": "And those days We alternate among the people so that Allah may make evident those who believe",
+        "ayahRefEn": "Surah Al-Imran (3), verse 140",
+        "dateAr": "ح. ١٣٨ - ٩٢٣ هـ / ٧٥٦ - ١٥١٧ م",
+        "dateEn": "c. 138–923 AH / 756–1517 CE",
+        "titleAr": "الدول والممالك المستقلة والملامسة للحقب الكبرى",
+        "titleEn": "Independent States & Kingdoms Touching the Great Eras",
+        "mtAr": "من الأندلس إلى مصر والشام",
+        "mtEn": "From Andalusia to Egypt and the Levant",
+        "mdAr": "نظرة شاملة على الدول والممالك المستقلة التي نشأت في ظل الخلافة العباسية",
+        "mdEn": "A comprehensive overview of the independent states that arose under the Abbasid Caliphate",
+        "amb": "day",
+        "timeAr": "🌤 قرون من التاريخ الإسلامي",
+        "timeEn": "🌤 Centuries of Islamic history",
+        "distAr": "📍 الأندلس · مصر · الشام · الحجاز",
+        "distEn": "📍 Andalusia · Egypt · Levant · Hejaz",
+        "descAr": "خلال العصر العباسي الثاني، استقلت عدة دول في أقاليمها مع بقاء ولاء بعضها الاسمي للخليفة. أول هذه الدول كانت الدولة الأموية في الأندلس التي أسسها عبد الرحمن الداخل (صقر قريش) عام 138 هـ بعد هروبه من العباسيين. استمرت 275 عاماً وبلغت ذروتها في عهد عبد الرحمن الناصر الذي أعلن نفسه خليفة عام 316 هـ. كانت الأندلس منارة للحضارة الإسلامية في أوروبا، ولكن الصراع الداخلي والأنانية السياسية حولتها إلى ملوك طوائف متناحرة حتى سقطت تماماً عام 422 هـ. أما الدولة الفاطمية (العبيدية) فقد قامت على المذهب الإسماعيلي ونافست العباسيين على الخلافة. أسسها عبيد الله المهدي عام 297 هـ في شمال إفريقيا، ونقلها المعز لدين الله إلى القاهرة عام 360 هـ. بنى الفاطميون القاهرة والأزهر الشريف، لكن فرضهم لمذهبهم بالقوة أحدث فجوة بين السلطة والشعب، واعتمادهم على الوزرات أسقط هيبتهم تدريجياً حتى قضى صلاح الدين الأيوبي على دولتهم عام 567 هـ. أما الدولة الأيوبية فقد أسسها صلاح الدين الأيوبي بعد توحيد مصر والشام والقضاء على الدولة الفاطمية. استمرت 76 عاماً فقط لكنها صنعت أعظم انتصارات العصر بتحرير القدس في معركة حطين عام 583 هـ. كانت وحدة مصر والشام تحت راية واحدة هي الصخرة التي تحطمت عليها كل الغزوات الصليبية. أما دولة المماليك فقد بدأت بعد وفاة آخر سلطان أيوبي وتولي المماليك الحكم. في 648 هـ استلموا زمام الأمور، وفي 658 هـ حققوا النصر الأعظم في عين جالوت ضد المغول بقيادة قطز وبيبرس. استمرت دولتهم 267 عاماً، دحروا فيها التتار وصفوا الوجود الصليبي تماماً من الشام. الكفاءة العسكرية والعدالة الاجتماعية وقت الأزمات هما سر بقائهم.",
+        "descEn": "During the second Abbasid era, several states became independent in their regions while some maintained nominal allegiance to the caliph. The first was the Umayyad State in Andalusia, founded by Abd al-Rahman al-Dakhil (the Falcon of Quraysh) in 138 AH after his escape from the Abbasids. It lasted 275 years, peaking under Abd al-Rahman al-Nasir who proclaimed himself caliph in 316 AH. Andalusia was a beacon of Islamic civilization in Europe, but internal conflict and political selfishness fragmented it into warring taifa kingdoms until its fall in 422 AH. The Fatimid (Ubaydid) Caliphate followed the Isma'ili creed and rivaled the Abbasids for the caliphate. Founded by Ubayd Allah al-Mahdi in 297 AH in North Africa, al-Mu'izz li-Din Allah moved it to Cairo in 360 AH. The Fatimids built Cairo and al-Azhar Mosque, but imposing their creed by force created a legitimacy gap, and reliance on viziers collapsed their authority until Saladin ended their state in 567 AH. The Ayyubid dynasty was founded by Saladin after uniting Egypt and Syria and eliminating the Fatimid Caliphate. It lasted only 76 years but achieved the greatest victory of the age: liberating Jerusalem at the Battle of Hattin in 583 AH. The unity of Egypt and Syria under one banner was the rock on which all Crusader invasions shattered. The Mamluk Sultanate began after the death of the last Ayyubid sultan, with the Mamluks taking power. In 648 AH they assumed leadership, and in 658 AH they achieved their greatest victory at Ain Jalut against the Mongols under Qutuz and Baybars. Their state lasted 267 years, repelling the Tatars and completely eliminating Crusader presence from the Levant. Military competence and social justice in times of crisis were the secrets of their endurance.",
+        "charsAr": [
+          {"i":"🏛️","n":"الدولة الأموية في الأندلس","r":"عبد الرحمن الداخل — ٢٧٥ عاماً من الحضارة"},
+          {"i":"🔯","n":"الدولة الفاطمية (العبيدية)","r":"المعز لدين الله — القاهرة — منافسة الخلافة"},
+          {"i":"⚔️","n":"الدولة الأيوبية","r":"صلاح الدين — تحرير القدس — وحدة مصر والشام"},
+          {"i":"🛡️","n":"دولة المماليك","r":"قطز وبيبرس — عين جالوت — صفوة الحضارة الإسلامية"}
+        ],
+        "charsEn": [
+          {"i":"🏛️","n":"Umayyad State in Andalusia","r":"Abd al-Rahman al-Dakhil — 275 years of civilization"},
+          {"i":"🔯","n":"Fatimid (Ubaydid) Caliphate","r":"al-Mu'izz li-Din Allah — Cairo — rival caliphate"},
+          {"i":"⚔️","n":"Ayyubid Dynasty","r":"Saladin — Liberation of Jerusalem — Unity of Egypt & Syria"},
+          {"i":"🛡️","n":"Mamluk Sultanate","r":"Qutuz & Baybars — Ain Jalut — Shield of Islamic civilization"}
+        ],
+        "lessonAr": "الدول تقوم بالعدل وتنهى بالظلم — الأندلس سقطت بالتفرق، الفاطميون بالابتداع، والأيوبيون والمماليك قاموا بتوحيد الصف وحماية الأمة",
+        "lessonEn": "States rise through justice and fall through oppression — Andalusia fell to division, the Fatimids to innovation, while the Ayyubids and Mamluks rose through unity and protection of the nation",
+        "srcs": ["ابن الأثير (الكامل في التاريخ)", "د. راغب السرجاني (قصة الأندلس)", "د. الصلابي (الدولة العباسية)"],
+        "mapFocus": {"x":380,"y":300,"scale":1.0}
+      },
+      {
+        "ayah": "﴿ أُذِنَ لِلَّذِينَ يُقَاتَلُونَ بِأَنَّهُمْ ظُلِمُوا وَإِنَّ اللَّهَ عَلَى نَصْرِهِمْ لَقَدِيرٌ ﴾",
+        "ayahRef": "سورة الحج — الآية ٣٩",
+        "ayahEn": "Permission to fight has been granted to those who are fought against, because they have been wronged, and Allah is indeed capable of giving them victory",
+        "ayahRefEn": "Surah Al-Hajj (22), verse 39",
+        "dateAr": "٢٥ ربيع الآخر ٥٨٣ هـ / ٤ يوليو ١١٨٧ م",
+        "dateEn": "25 Rabi' al-Akhir 583 AH / 4 July 1187 CE",
+        "titleAr": "معركة حطين — تحرير القدس",
+        "titleEn": "Battle of Hattin — Liberation of Jerusalem",
+        "mtAr": "حطين — قرب طبرية — فلسطين",
+        "mtEn": "Hattin — near Tiberias — Palestine",
+        "mdAr": "عبقرية صلاح الدين العسكرية — محو جيش الصليبيين بالكامل",
+        "mdEn": "Saladin's military genius — the complete annihilation of the Crusader army",
+        "amb": "dawn",
+        "timeAr": "🌅 صباح ٢٥ ربيع الآخر ٥٨٣ هـ",
+        "timeEn": "🌅 Morning of 25 Rabi' al-Akhir 583 AH",
+        "distAr": "📍 من صفورية إلى حطين — ٢٧ كم في قيظ يوليو",
+        "distEn": "📍 From Saffuriya to Hattin — 27 km in the July heat",
+        "descAr": "تعتبر معركة حطين نموذجاً فذاً في عبقرية التخطيط العسكري والاستراتيجي، ولم تكن مجرد مواجهة عشوائية بين جيشين، بل كانت أشبه بنهاية لمباراة شطرنج طويلة أدارها السلطان صلاح الدين الأيوبي بصبر ودهاء. أمضى صلاح الدين أكثر من عقد من الزمان في توحيد مصر والشام والجزيرة تحت راية واحدة، مما وفر عمقاً استراتيجياً هائلاً وقطع طرق الإمداد عن الممالك الصليبية. جاءت الفرصة عندما خرق أرناط (رينو دي شاتيون) هدنة كانت قائمة بين الطرفين بهجومه على قافلة تجارية إسلامية غنية. استغل صلاح الدين هذا الغدر لإعلان الجهاد العام، فتحرك بجيشه وهاجم مدينة طبرية واحتلها. وقعت القيادة الصليبية في الفخ وقررت الزحف لإنقاذ طبرية بدلاً من البقاء في موقعهم الحصين في صفورية حيث المياه الوفيرة. أجبر صلاح الدين الصليبيين على السير ٢٧ كيلومتراً في قيظ يوليو وهم يرتدون الدروع الحديدية الثقيلة، بينما كانت قواته تشن غارات خاطفة لتعطيل المسير. وعندما وصل الصليبيون مجهدين إلى حطين وجدوا أن صلاح الدين قد سبقهم واحتل جميع مصادر المياه. ليلة المعركة أمر جنوده بإشعال النيران في الأعشاب الجافة حول معسكر الصليبيين، فاجتمع عليهم حر الشمس وحر الدروع وعطش الجسد ودخان النيران. في صباح ٤ يوليو، طوق الجيش الإسلامي الصليبيين بالكامل. هرب المشاة إلى قرون حطين تاركين فرسانهم مكشوفين. أسر الملك غي دي لوزينيان، وقتل صلاح الدين أرناط بيده جزاء لنكثه العهد. كانت حطين معركة إبادة — انتهى جيش الصليبيين بالكامل، وخلال ثلاثة أشهر تحررت القدس بعد ٨٨ عاماً من الاحتلال.",
+        "descEn": "The Battle of Hattin stands as a unique example of military and strategic genius — it was not merely a random confrontation between two armies but the climax of a long chess match that Sultan Saladin conducted with patience and cunning. Saladin spent over a decade uniting Egypt, Syria, and Mesopotamia under one banner, providing a vast strategic depth and cutting off Crusader supply lines. The opportunity came when Reynald de Chatillon violated a truce by attacking a wealthy Muslim caravan. Saladin seized this betrayal to declare a general jihad, then attacked and captured Tiberias. The Crusader leadership fell into the trap, marching to save Tiberias instead of staying at their fortified position at Saffuriya with abundant water. Saladin forced the Crusaders to march 27 km in the July heat wearing full plate armor while his light cavalry harassed them constantly. When the exhausted Crusaders reached Hattin, they found Saladin had seized all water sources. The night before the battle, Saladin's troops set fire to dry brush around the Crusader camp — combining the heat of the sun, the weight of armor, the agony of thirst, and the suffocation of smoke. On the morning of July 4, the Muslim army completely encircled the Crusaders. The infantry fled to the Horns of Hattin, leaving the knights exposed. King Guy of Lusignan was captured, and Saladin personally executed Reynald for oath-breaking. Hattin was a battle of annihilation — the entire Crusader army was destroyed, and within three months Jerusalem was liberated after 88 years of occupation.",
+        "charsAr": [
+          {"i":"👑","n":"صلاح الدين الأيوبي","r":"القائد العبقري — محرر القدس"},
+          {"i":"⚔️","n":"الملك العادل","r":"أخو صلاح الدين وقائد ميمنة الجيش"},
+          {"i":"🗡️","n":"تقي الدين عمر","r":"ابن أخ صلاح الدين — قائد المقدمة"},
+          {"i":"💀","n":"أرناط (رينو دي شاتيون)","r":"ناقض العهد — قتله صلاح الدين بيده"}
+        ],
+        "charsEn": [
+          {"i":"👑","n":"Saladin (Salah al-Din al-Ayyubi)","r":"The genius commander — Liberator of Jerusalem"},
+          {"i":"⚔️","n":"Al-Malik al-Adil","r":"Saladin's brother — right wing commander"},
+          {"i":"🗡️","n":"Taqi al-Din Umar","r":"Saladin's nephew — vanguard commander"},
+          {"i":"💀","n":"Reynald de Chatillon","r":"Oath-breaker — executed personally by Saladin"}
+        ],
+        "lessonAr": "الوحدة الاستراتيجية لمصر والشام هي الصخرة التي تتحطم عليها كل الغزوات — والعلم بالتضاريس والجغرافيا سلاح لا يقل عن السلاح",
+        "lessonEn": "The strategic unity of Egypt and Syria is the rock on which all invasions shatter — and knowledge of terrain and geography is a weapon no less powerful than the sword",
+        "srcs": ["ابن الأثير (الكامل في التاريخ)", "د. راغب السرجاني (قصة صلاح الدين)", "د. شوقي أبو خليل (حطين)"],
+        "mapFocus": {"x":370,"y":300,"scale":1.0}
+      },
+      {
+        "ayah": "﴿ وَيَمْكُرُونَ وَيَمْكُرُ اللَّهُ وَاللَّهُ خَيْرُ الْمَاكِرِينَ ﴾",
+        "ayahRef": "سورة الأنفال — الآية ٣٠",
+        "ayahEn": "And they plan, and Allah plans, and Allah is the best of planners",
+        "ayahRefEn": "Surah Al-Anfal (8), verse 30",
+        "dateAr": "٢٥ رمضان ٦٥٨ هـ / ٣ سبتمبر ١٢٦٠ م",
+        "dateEn": "25 Ramadan 658 AH / 3 September 1260 CE",
+        "titleAr": "معركة عين جالوت — كسر أسطورة المغول",
+        "titleEn": "Battle of Ain Jalut — Breaking the Mongol Myth",
+        "mtAr": "عين جالوت — قرب الناصرة — فلسطين",
+        "mtEn": "Ain Jalut — near Nazareth — Palestine",
+        "mdAr": "قطز وبيبرس — كمين العصر الذي أنقذ الحضارة الإسلامية من الفناء",
+        "mdEn": "Qutuz and Baybars — the ambush of the century that saved Islamic civilization from annihilation",
+        "amb": "dawn",
+        "timeAr": "🌅 فجر ٢٥ رمضان ٦٥٨ هـ",
+        "timeEn": "🌅 Dawn of 25 Ramadan 658 AH",
+        "distAr": "📍 من مصر إلى عين جالوت — حملة استباقية بطول ٢٠٠ كم",
+        "distEn": "📍 From Egypt to Ain Jalut — a 200 km preemptive campaign",
+        "descAr": "تعتبر معركة عين جالوت واحدة من أهم المعارك الفاصلة في التاريخ الإنساني والمسار العسكري الإسلامي. قبل هذه المعركة، كان التتار والمغول قوة أسطورية تلتهم الإمبراطوريات ولا تقهر — أسقطوا الخلافة العباسية في بغداد عام ٦٥٦ هـ، واجتاحوا الشام، وباتت مصر والعالم الإسلامي على شفا الفناء الحتمي. قاد سيف الدين قطز والقائد الفذ الظاهر بيبرس هذه الملحمة بتخطيط استراتيجي وعسكري استثنائي. استلم قطز الحكم بعزل الطفل المنصور علي وضمان قيادة حازمة، ثم صادر أموال الأمراء والمماليك لتمويل الجيش قبل فرض الضرائب على الشعب، مما خلق حالة من الرضا الشعبي خلف القيادة. أرسل قطز سفارة إلى الصليبيين في عكا وهددهم بالإبادة إن خانوا، فالتزموا الحياد وسمحوا للجيش الإسلامي بالمرور عبر أراضيهم. لم ينتظر وصول المغول إلى مصر بل تقدم بجيشه نحو الشام لملاقاتهم، ناقلاً المبادأة والرعب النفسي إلى المعسكر المغولي. اختار وادي عين جالوت بعناية — واد تحيط به الجبال من ثلاث جهات، يحيد أسلوب المغول في الإحاطة والالتفاف. قسّم جيشه إلى قسمين: المقدمة بقيادة بيبرس كطعم، والجيش الرئيسي بقيادة قطز مختبئاً خلف التلال. عندما اشتبك بيبرس مع المغول، نفذ انسحاباً تكتيكياً متدرجاً متظاهراً بالهزيمة، فاندفع كتبغا بغطرسة خلفه إلى داخل المصيدة. أطلق قطز إشارة الهجوم وانحدرت الجيوش المختبئة كالسيول، فأطبقت الحصار على المغول. عندما كادت الميسرة المغولية تخرق الصفوف، صرخ قطز صيحته الشهيرة 'واإسلاماه' واقتحم القتال بنفسه، مما أشعل حماس الجنود. قتل جمال الدين أقوش القائد كتبغا، فانهارت معنويات المغول وبدؤوا في الفرار لأول مرة في تاريخهم. كانت عين جالوت أول هزيمة عسكرية ساحقة للمغول في معركة ميدانية مفتوحة منذ انطلاقهم من منغوليا.",
+        "descEn": "The Battle of Ain Jalut is one of the most decisive battles in human history. Before this battle, the Tatars and Mongols were a legendary force that devoured empires and seemed unconquerable — they had sacked the Abbasid Caliphate in Baghdad in 656 AH, swept through Syria, and Egypt and the Islamic world stood on the brink of annihilation. Sultan Qutuz and the brilliant commander al-Zahir Baybars led this epic with exceptional strategic planning. Qutuz seized power by deposing the child sultan al-Mansur Ali, ensuring decisive leadership, then liquidated wealthy amirs to finance the army before taxing the people, creating popular support. He sent an embassy to the Crusaders at Acre, threatening annihilation if they cooperated with the Mongols — they chose neutrality and allowed the Muslim army to pass through their lands. Rather than waiting for the Mongols to reach Egypt, Qutuz advanced toward Syria, taking the psychological initiative. He chose the Valley of Ain Jalut carefully — a valley surrounded by hills on three sides, neutralizing the Mongol encirclement tactics. He divided his army into two: the vanguard under Baybars as bait, and the main army under Qutuz hidden behind the hills. When Baybars engaged the Mongols under Kitbuqa, he performed a staged retreat, feigning defeat. Kitbuqa arrogantly pursued into the trap. Qutuz signaled the attack, and the hidden armies descended like floods, encircling the Mongols. When the Mongol left wing nearly broke through, Qutuz screamed his famous cry 'Wa Islāmāh!' and charged into battle himself, igniting the soldiers' fervor. Jamal al-Din Aqqush killed Kitbuqa, and Mongol morale collapsed — they fled in panic for the first time in their history. Ain Jalut was the first devastating open-field defeat of the Mongols since their emergence from Mongolia.",
+        "charsAr": [
+          {"i":"👑","n":"سيف الدين قطز","r":"السلطان المجاهد — صاحب صيحة واإسلاماه"},
+          {"i":"⚔️","n":"الظاهر بيبرس","r":"القائد العبقري — مهندس خطة الكمين"},
+          {"i":"🗡️","n":"جمال الدين أقوش","r":"قائد مملوكي — قاتل كتبغا قائد المغول"},
+          {"i":"💀","n":"كتبغا","r":"القائد المغولي — قُتل في المعركة"}
+        ],
+        "charsEn": [
+          {"i":"👑","n":"Sayf al-Din Qutuz","r":"The sultan-mujahid — author of 'Wa Islāmāh'"},
+          {"i":"⚔️","n":"Al-Zahir Baybars","r":"The brilliant commander — architect of the ambush"},
+          {"i":"🗡️","n":"Jamal al-Din Aqqush","r":"Mamluk commander — slayer of Kitbuqa"},
+          {"i":"💀","n":"Kitbuqa","r":"Mongol commander — killed in battle"}
+        ],
+        "lessonAr": "الإيمان بالله والعمل بالأسباب يقلب الموازين — لا يقهر جيش في الأرض إذا توحدت كلمته وأخلص جنوده لله",
+        "lessonEn": "Faith in Allah combined with taking the means can overturn any balance — no army on earth is unbeatable when its word is united and its soldiers are sincere to Allah",
+        "srcs": ["ابن كثير (البداية والنهاية)", "د. راغب السرجاني (قصة المماليك)", "د. شوقي أبو خليل (عين جالوت)"],
+        "mapFocus": {"x":390,"y":290,"scale":1.0}
+      }
+    ]
+  },
   "uthmani": {
     "labelAr": "الدولة العثمانية",
     "labelEn": "Ottoman Empire",
