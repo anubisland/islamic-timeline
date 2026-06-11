@@ -60,7 +60,7 @@
   const reciter = (id) => RECITERS.find((r) => r.id === (id || RECITER)) || RECITERS[0];
 
   // ── Map viewBoxes ──────────────────────────────────────
-  const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560], umawi: [1000, 560], abassi: [1000, 560], imam: [700, 560] };
+  const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560], umawi: [1000, 560], abassi: [1000, 560], uthmani: [1000, 560], imam: [700, 560] };
 
   // ── Map zoom state ─────────────────────────────────────
   // ONE writer owns the SVG viewBox: writeMapViewBox(). It composes the
@@ -115,6 +115,8 @@
     if (splash) splash.classList.add('hidden');
     const imamScr = $('imam-screen');
     if (imamScr) imamScr.classList.add('hidden');
+    const ottomanScr = $('ottoman-screen');
+    if (ottomanScr) ottomanScr.classList.add('hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.remove('visible');
     // Keep splash lang toggle visible on home screen
@@ -177,12 +179,22 @@
     switchEv('abassi');
   }
 
+  function goToUthmani() {
+    if (!DB.uthmani) {
+      console.warn('SEERAH_DB.uthmani not loaded.');
+      return;
+    }
+    showOttomanScreen();
+  }
+
   // ── Splash navigation ──────────────────────────────────
   function hideSplash() {
     const home = $('home-screen');
     if (home) home.classList.add('home-hidden');
     const sp = $('splash');
     if (sp) sp.classList.add('hidden');
+    const ottomanScr = $('ottoman-screen');
+    if (ottomanScr) ottomanScr.classList.add('hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.add('visible');
     const slb = $('splash-lang-toggle');
@@ -200,6 +212,8 @@
     if (home) home.classList.add('home-hidden');
     const sp = $('splash');
     if (sp) sp.classList.remove('hidden');
+    const ottomanScr = $('ottoman-screen');
+    if (ottomanScr) ottomanScr.classList.add('hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.remove('visible');
     const slb = $('splash-lang-toggle');
@@ -225,6 +239,8 @@
     MODE = 'imams';
     const home = $('home-screen');
     if (home) home.classList.add('home-hidden');
+    const ottomanScr = $('ottoman-screen');
+    if (ottomanScr) ottomanScr.classList.add('hidden');
     const imamScr = $('imam-screen');
     if (imamScr) imamScr.classList.remove('hidden');
     const hdr = $('site-header');
@@ -247,6 +263,32 @@
   function goToImamSplash() {
     STEP = 0;
     showImamScreen();
+  }
+
+  // ── Ottoman screen (phase selection) ──────────────────────
+  function showOttomanScreen() {
+    MODE = 'home';
+    const home = $('home-screen');
+    if (home) home.classList.add('home-hidden');
+    const imamScr = $('imam-screen');
+    if (imamScr) imamScr.classList.add('hidden');
+    const ottomanScr = $('ottoman-screen');
+    if (ottomanScr) ottomanScr.classList.remove('hidden');
+    const hdr = $('site-header');
+    if (hdr) hdr.classList.remove('visible');
+    const slb = $('splash-lang-toggle');
+    if (slb) slb.classList.remove('hidden');
+    stopAudio();
+    document.body.style.background = '#060b0f';
+    document.body.style.overflow = 'hidden';
+    document.querySelector('meta[name=theme-color]').content = '#060b0f';
+    const diag = $('focus-diag');
+    if (diag) diag.style.display = 'none';
+  }
+
+  function hideOttomanScreen() {
+    const ottomanScr = $('ottoman-screen');
+    if (ottomanScr) ottomanScr.classList.add('hidden');
   }
 
   function selectImam(key) {
@@ -644,7 +686,7 @@
 
     // Toggle maps (include svg-imam so it's hidden when returning to a Sera era)
     const allSvgs = ['svg-preb','svg-hijra','svg-badr','svg-meccan','svg-medinan',
-                     'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan','svg-umawi','svg-abassi','svg-imam'];
+                     'svg-abubakr','svg-umar','svg-uthman','svg-ali','svg-hasan','svg-umawi','svg-abassi','svg-uthmani','svg-imam'];
     allSvgs.forEach((id) => {
       const el = $(id);
       if (el) el.classList.toggle('hidden', id !== 'svg-' + key);
@@ -1203,6 +1245,8 @@
     if (homeUmawi) homeUmawi.addEventListener('click', goToUmawi);
     const homeAbbassi = $('home-abassi');
     if (homeAbbassi) homeAbbassi.addEventListener('click', goToAbbassi);
+    const homeUthmani = $('home-uthmani');
+    if (homeUthmani) homeUthmani.addEventListener('click', goToUthmani);
 
     // Splash: click era cards
     document.querySelectorAll('.era-card, .caliph-card').forEach((el) => {
@@ -1226,6 +1270,7 @@
       if (MODE === 'imams') goToImamSplash();
       else if (EVT === 'umawi') goToHome();  // Umayyad has its own home card, not in the splash
       else if (EVT === 'abassi') goToHome(); // Abbasid has its own home card, not in the splash
+      else if (EVT === 'uthmani') showOttomanScreen(); // Ottoman back to phase selection
       else goToSplash();
     });
     // Splash back to home
@@ -1234,6 +1279,22 @@
     // Imam screen back to home
     const imamBack = $('imam-back');
     if (imamBack) imamBack.addEventListener('click', goToHome);
+    // Ottoman screen back to home
+    const ottomanBack = $('ottoman-back');
+    if (ottomanBack) ottomanBack.addEventListener('click', goToHome);
+    // Ottoman phase cards → enter era at step offset
+    document.querySelectorAll('.ot-phase-card').forEach((el) => {
+      el.addEventListener('click', () => {
+        const phase = parseInt(el.dataset.phase, 10);
+        if (!phase || !DB.uthmani) return;
+        const offsets = { 1: 0, 2: 8, 3: 16, 4: 22 };
+        if (offsets[phase] === undefined) return;
+        MODE = 'sera';
+        STEP = offsets[phase];
+        hideOttomanScreen();
+        switchEv('uthmani');
+      });
+    });
 
     // Language toggle (header + splash)
     const langToggle = (btn) => {

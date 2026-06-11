@@ -20,7 +20,7 @@
     }
     /* focus-diag and diag hidden by default (green bg), shown during era */
   </style>
-  <link rel="stylesheet" href="style.css?v=3.3.4" />
+  <link rel="stylesheet" href="style.css?v=3.4.0" />
 </head>
 <body>
 
@@ -141,6 +141,22 @@
               <span class="hc-stat"><bdi data-ar="١٣٢ - ٦٥٦ هـ" data-en="132–656 AH">١٣٢ - ٦٥٦ هـ</bdi></span>
             </div>
             <div class="hc-btn" data-ar="استكشف الدولة العباسية" data-en="Explore the Abbasids">استكشف الدولة العباسية</div>
+          </div>
+        </div>
+
+        <!-- الدولة العثمانية -->
+        <div class="home-card" id="home-uthmani" role="button" tabindex="0">
+          <div class="hc-bg" style="background: linear-gradient(160deg, rgba(197,160,89,.18), rgba(6,20,35,.7))"></div>
+          <div class="hc-content">
+            <div class="hc-icon">☪️</div>
+            <div class="hc-name" data-ar="الدولة العثمانية" data-en="Ottoman Empire">الدولة العثمانية</div>
+            <div class="hc-desc" data-ar="آخر الخلافة الإسلامية الكبرى — من الإمارة إلى سقوط الخلافة (٦٢٥ عاماً)" data-en="The last great Islamic caliphate — from beylik to abolition (625 years)">آخر الخلافة الإسلامية الكبرى</div>
+            <div class="hc-stats">
+              <span class="hc-stat"><bdi data-ar="٢٨ مرحلة" data-en="28 stages">٢٨ مرحلة</bdi></span>
+              <span class="hc-dot">•</span>
+              <span class="hc-stat"><bdi data-ar="ح. ٦٩٩ - ١٣٤٢ هـ" data-en="c. 699–1342 AH">ح. ٦٩٩ - ١٣٤٢ هـ</bdi></span>
+            </div>
+            <div class="hc-btn" data-ar="استكشف الدولة العثمانية" data-en="Explore the Ottomans">استكشف الدولة العثمانية</div>
           </div>
         </div>
       </div>
@@ -373,6 +389,86 @@
 
       <div class="imam-foot">
         <span data-ar="سير أئمة المذاهب الفقهية الأربعة — ٢١ مرحلة" data-en="Biographies of the Four Great Imams — 21 stages">سير أئمة المذاهب الفقهية الأربعة — ٢١ مرحلة</span>
+      </div>
+    </div>
+  <!-- OTTOMAN SCREEN (phase selection, shown after home→uthmani) -->
+  <section id="ottoman-screen" class="ottoman-screen">
+    <button id="ottoman-back" class="splash-back-btn" type="button" aria-label="Back to home">
+      <span data-ar="← الرئيسية" data-en="← Home">← الرئيسية</span>
+    </button>
+    <div class="ottoman-bg"></div>
+    <div class="splash-frame"></div>
+    <div class="splash-corner tl"></div><div class="splash-corner tr"></div>
+    <div class="splash-corner bl"></div><div class="splash-corner br"></div>
+
+    <div class="ottoman-inner">
+      <div class="ottoman-header">
+        <div class="ottoman-icon">☪️</div>
+        <h1 data-ar="الدولة العثمانية" data-en="Ottoman Empire">الدولة العثمانية</h1>
+        <p class="ottoman-sub" data-ar="آخر الخلافة الإسلامية الكبرى — اختر مرحلة لاستكشاف أحداثها" data-en="The last great Islamic caliphate — choose a phase to explore">آخر الخلافة الإسلامية الكبرى — اختر مرحلة</p>
+        <div class="splash-divider">۞</div>
+      </div>
+
+      <div class="ot-phase-cards" id="ot-phase-cards">
+        <!-- المرحلة الأولى: التأسيس والنشوء -->
+        <div class="ot-phase-card" data-phase="1" role="button" tabindex="0">
+          <div class="opc-bg" style="background: linear-gradient(160deg, rgba(14,165,233,.15), rgba(6,53,41,.5))"></div>
+          <div class="opc-content">
+            <div class="opc-step">١</div>
+            <div class="opc-text">
+              <div class="opc-name" data-ar="التأسيس والنشوء" data-en="Foundation & Rise">التأسيس والنشوء</div>
+              <div class="opc-dates" data-ar="ح. ٦٩٩ - ٨٥٧ هـ / ١٢٩٩ - ١٤٥٣ م" data-en="c. 699–857 AH / 1299–1453 CE">ح. ٦٩٩ - ٨٥٧ هـ</div>
+              <div class="opc-desc" data-ar="ظهور إمارة بني عثمان، الجهاد ضد البيزنطيين، الجيش الإنكشاري، التوسع في البلقان، التعافي بعد أنقرة" data-en="Emergence of the Ottoman beylik, jihad against Byzantines, Janissary corps, Balkan expansion, recovery after Ankara">ظهور الإمارة والجهاد المبكر</div>
+            </div>
+            <div class="opc-steps-count">٨ مراحل</div>
+          </div>
+        </div>
+
+        <!-- المرحلة الثانية: القوة والفتوحات الكبرى -->
+        <div class="ot-phase-card" data-phase="2" role="button" tabindex="0">
+          <div class="opc-bg" style="background: linear-gradient(160deg, rgba(197,160,89,.2), rgba(6,53,41,.5))"></div>
+          <div class="opc-content">
+            <div class="opc-step">٢</div>
+            <div class="opc-text">
+              <div class="opc-name" data-ar="القوة والفتوحات الكبرى" data-en="Power & Great Conquests">القوة والفتوحات الكبرى</div>
+              <div class="opc-dates" data-ar="٨٥٧ - ٩٧٤ هـ / ١٤٥٣ - ١٥٦٦ م" data-en="857–974 AH / 1453–1566 CE">٨٥٧ - ٩٧٤ هـ</div>
+              <div class="opc-desc" data-ar="فتح القسطنطينية، توحيد المشرق الإسلامي، الخلافة وحماية الحرمين، العصر الذهبي لسليمان القانوني" data-en="Conquest of Constantinople, unification of the Islamic East, caliphate & Haramayn protection, Suleiman's golden age">فتح القسطنطينية والعصر الذهبي</div>
+            </div>
+            <div class="opc-steps-count">٨ مراحل</div>
+          </div>
+        </div>
+
+        <!-- المرحلة الثالثة: الركود والاضطراب السياسي -->
+        <div class="ot-phase-card" data-phase="3" role="button" tabindex="0">
+          <div class="opc-bg" style="background: linear-gradient(160deg, rgba(140,70,20,.15), rgba(6,10,15,.6))"></div>
+          <div class="opc-content">
+            <div class="opc-step">٣</div>
+            <div class="opc-text">
+              <div class="opc-name" data-ar="الركود والاضطراب السياسي" data-en="Stagnation & Political Turmoil">الركود والاضطراب السياسي</div>
+              <div class="opc-dates" data-ar="٩٧٤ - ١٢٠٣ هـ / ١٥٦٦ - ١٧٨٩ م" data-en="974–1203 AH / 1566–1789 CE">٩٧٤ - ١٢٠٣ هـ</div>
+              <div class="opc-desc" data-ar="تمرد الإنكشارية، إصلاح مراد الرابع، نهضة آل كوبريلي، حصار فيينا الثاني، بداية الانحسار" data-en="Janissary rebellion, Murad IV's reform, Köprülü revival, Second Siege of Vienna, beginning of decline">الركود وتمرد الجيش</div>
+            </div>
+            <div class="opc-steps-count">٦ مراحل</div>
+          </div>
+        </div>
+
+        <!-- المرحلة الرابعة: الضعف والإنهاء -->
+        <div class="ot-phase-card" data-phase="4" role="button" tabindex="0">
+          <div class="opc-bg" style="background: linear-gradient(160deg, rgba(180,40,20,.12), rgba(6,10,15,.7))"></div>
+          <div class="opc-content">
+            <div class="opc-step">٤</div>
+            <div class="opc-text">
+              <div class="opc-name" data-ar="الضعف والإنهاء" data-en="Weakness & Termination">الضعف والإنهاء</div>
+              <div class="opc-dates" data-ar="١٢٠٣ - ١٣٤٢ هـ / ١٧٨٩ - ١٩٢٤ م" data-en="1203–1342 AH / 1789–1924 CE">١٢٠٣ - ١٣٤٢ هـ</div>
+              <div class="opc-desc" data-ar="إلغاء الإنكشارية، التنظيمات، الجامعة الإسلامية، الحرب العالمية، إلغاء الخلافة" data-en="Janissary abolition, Tanzimat, Pan-Islamism, World War I, abolition of the caliphate">الضعف وسقوط الخلافة</div>
+            </div>
+            <div class="opc-steps-count">٦ مراحل</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ottoman-foot">
+        <span data-ar="آخر الخلافة الإسلامية — ٢٨ مرحلة عبر ٤ عهود (ح. ٦٢٥ عاماً)" data-en="The last Islamic caliphate — 28 stages across 4 eras (c. 625 years)">آخر الخلافة الإسلامية — ٢٨ مرحلة عبر ٤ عهود</span>
       </div>
     </div>
   </section>
@@ -2017,10 +2113,154 @@
             <polygon class="star-wake" points="0,-22 6,-6 22,0 6,6 0,22 -6,6 -22,0 -6,-6"/>
           </g>
           </g>
-        </svg>
+</svg>
 
-        <!-- ============ FOUR IMAMS MAP (shared, classical Islamic heartland) ============ -->
-        <svg id="svg-imam" class="map-svg hidden" viewBox="0 0 700 560" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- ============ OTTOMAN EMPIRE MAP (Balkans–Anatolia–Levant axis, 1000×560, Istanbul-centered) ============ -->
+  <svg id="svg-uthmani" class="map-svg hidden" viewBox="0 0 1000 560" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+    <g class="map-frame" opacity=".55">
+      <rect x="0" y="0" width="1000" height="560" fill="none" stroke="#C5A059" stroke-width="1" opacity=".2"/>
+      <rect x="8" y="8" width="984" height="544" fill="none" stroke="#C5A059" stroke-width=".5" opacity=".15"/>
+    </g>
+    <g class="map-pan" id="pan-uthmani">
+      <defs>
+        <radialGradient id="otbg" cx="45%" cy="50%" r="70%">
+          <stop offset="0%" stop-color="#1a2e24" stop-opacity=".4"/>
+          <stop offset="100%" stop-color="#060b0f" stop-opacity="1"/>
+        </radialGradient>
+        <linearGradient id="otland" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#2d5a3d"/>
+          <stop offset="50%" stop-color="#3a5a3a"/>
+          <stop offset="100%" stop-color="#4a3a20"/>
+        </linearGradient>
+        <marker id="ot-ar" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto">
+          <polygon points="0,0 8,4 0,8" fill="#C5A059"/>
+        </marker>
+        <filter id="ot-gf">
+          <feGaussianBlur stdDeviation="1.2" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <rect width="1000" height="560" fill="url(#otland)"/>
+      <rect width="1000" height="560" fill="url(#otbg)"/>
+
+      <!-- Bosphorus / Dardanelles water -->
+      <path d="M 420 160 Q 435 220 450 280 Q 440 340 410 400" fill="none" stroke="#0ea5e9" stroke-width="5" opacity=".25"/>
+      <path d="M 400 180 Q 385 240 370 260 Q 380 300 390 360" fill="none" stroke="#0ea5e9" stroke-width="3" opacity=".18"/>
+
+      <!-- Ottoman expansion routes -->
+      <path d="M 450 280 Q 400 250 370 260 Q 340 240 320 220 Q 290 210 260 190 Q 210 140 140 80" fill="none" stroke="#C5A059" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ot-ar)" opacity=".6"/>
+      <path d="M 450 280 Q 380 300 330 320 Q 300 360 270 410" fill="none" stroke="#C5A059" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ot-ar)" opacity=".55"/>
+      <path d="M 450 280 Q 480 310 520 300 Q 550 310 530 290" fill="none" stroke="#C5A059" stroke-width="1.5" stroke-dasharray="4 4" opacity=".45"/>
+      <path d="M 330 320 Q 280 380 220 450 Q 200 470 180 480" fill="none" stroke="#C5A059" stroke-width="1.5" stroke-dasharray="4 4" opacity=".4"/>
+
+      <!-- Istanbul (capital) -->
+      <g class="cdn" id="ot-node-0" transform="translate(450, 280)">
+        <circle class="pr" cx="0" cy="0" r="30"/>
+        <circle cx="0" cy="0" r="12" fill="#C5A059" opacity=".3"/>
+        <circle cx="0" cy="0" r="6" fill="#C5A059"/>
+        <text y="-26" fill="#fde68a" font-size="12" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" filter="url(#ot-gf)" data-ar="إسطنبول" data-en="Istanbul">إسطنبول</text>
+        <text y="36" fill="#fcd34d" font-size="9" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="عاصمة الخلافة" data-en="Capital of the Caliphate">عاصمة الخلافة</text>
+      </g>
+
+      <!-- Bursa -->
+      <g class="cdn" id="ot-node-1" transform="translate(410, 310)">
+        <circle class="pr" cx="0" cy="0" r="18"/>
+        <text y="-14" fill="#bae6fd" font-size="9" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="بورصة" data-en="Bursa">بورصة</text>
+        <text y="24" fill="#7dd3fc" font-size="7.5" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="العاصمة الأولى" data-en="First capital">العاصمة الأولى</text>
+      </g>
+
+      <!-- Edirne -->
+      <g class="cdn" id="ot-node-2" transform="translate(370, 260)">
+        <circle class="pr" cx="0" cy="0" r="18"/>
+        <text y="-14" fill="#bae6fd" font-size="9" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="أدرنة" data-en="Edirne">أدرنة</text>
+        <text y="24" fill="#7dd3fc" font-size="7.5" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="العاصمة الثانية" data-en="Second capital">العاصمة الثانية</text>
+      </g>
+
+      <!-- Ankara -->
+      <g class="cdn" id="ot-node-3" transform="translate(480, 310)">
+        <circle class="pr" cx="0" cy="0" r="14"/>
+        <text y="-12" fill="#bae6fd" font-size="8" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="أنقرة" data-en="Ankara">أنقرة</text>
+      </g>
+
+      <!-- Sofia -->
+      <g class="cdn" id="ot-node-4" transform="translate(320, 220)">
+        <circle class="pr" cx="0" cy="0" r="14"/>
+        <text y="-12" fill="#bae6fd" font-size="8" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="صوفيا" data-en="Sofia">صوفيا</text>
+      </g>
+
+      <!-- Cairo -->
+      <g class="cdn" id="ot-node-5" transform="translate(270, 410)">
+        <circle class="pr" cx="0" cy="0" r="18"/>
+        <text y="-14" fill="#fca5a5" font-size="9" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="القاهرة" data-en="Cairo">القاهرة</text>
+        <text y="24" fill="#f87171" font-size="7.5" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="مصر — انتقال الخلافة" data-en="Egypt — Caliphate transfer">مصر</text>
+      </g>
+
+      <!-- Damascus -->
+      <g class="cdn" id="ot-node-6" transform="translate(310, 320)">
+        <circle class="pr" cx="0" cy="0" r="16"/>
+        <text y="-13" fill="#6ee7b7" font-size="8.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="دمشق" data-en="Damascus">دمشق</text>
+      </g>
+
+      <!-- Makkah -->
+      <g class="cdn" id="ot-node-7" transform="translate(180, 480)">
+        <circle class="pr" cx="0" cy="0" r="20"/>
+        <text y="-16" fill="#fca5a5" font-size="9.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="مكة" data-en="Makkah">مكة</text>
+        <text y="26" fill="#f87171" font-size="8" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="الحرمين — تحت الحماية" data-en="Haramayn — under protection">الحرمين</text>
+      </g>
+
+      <!-- Madinah -->
+      <g class="cdn" id="ot-node-8" transform="translate(220, 450)">
+        <circle class="pr" cx="0" cy="0" r="16"/>
+        <text y="-13" fill="#fca5a5" font-size="8.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="المدينة" data-en="Madinah">المدينة</text>
+      </g>
+
+      <!-- Belgrade -->
+      <g class="cdn" id="ot-node-9" transform="translate(260, 190)">
+        <circle class="pr" cx="0" cy="0" r="14"/>
+        <text y="-12" fill="#93c5fd" font-size="8" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="بلغراد" data-en="Belgrade">بلغراد</text>
+      </g>
+
+      <!-- Budapest -->
+      <g class="cdn" id="ot-node-10" transform="translate(210, 140)">
+        <circle class="pr" cx="0" cy="0" r="14"/>
+        <text y="-12" fill="#93c5fd" font-size="8" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="بودابست" data-en="Budapest">بودابست</text>
+      </g>
+
+      <!-- Vienna -->
+      <g class="cdn" id="ot-node-11" transform="translate(140, 80)">
+        <circle class="pr" cx="0" cy="0" r="12"/>
+        <text y="-10" fill="#93c5fd" font-size="7.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="فيينا" data-en="Vienna">فيينا</text>
+      </g>
+
+      <!-- Baghdad -->
+      <g class="cdn" id="ot-node-12" transform="translate(480, 370)">
+        <circle class="pr" cx="0" cy="0" r="14"/>
+        <text y="-12" fill="#bae6fd" font-size="8" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="بغداد" data-en="Baghdad">بغداد</text>
+      </g>
+
+      <!-- Chaldiran -->
+      <g class="cdn" id="ot-node-13" transform="translate(520, 300)">
+        <circle class="pr" cx="0" cy="0" r="12"/>
+        <text y="-10" fill="#93c5fd" font-size="7.5" font-weight="bold" text-anchor="middle" font-family="Cairo,sans-serif" data-ar="جالديران" data-en="Chaldiran">جالديران</text>
+      </g>
+
+      <!-- compass rose -->
+      <g transform="translate(948, 508)">
+        <circle r="18" fill="rgba(6,78,59,.45)" stroke="rgba(197,160,89,.3)" stroke-width="1"/>
+        <text data-ar="ش" data-en="N" y="5" text-anchor="middle" fill="#C5A059" font-size="12" font-family="Cairo,sans-serif" font-weight="bold">ش</text>
+        <line x1="0" y1="-12" x2="0" y2="-6" stroke="#C5A059" stroke-width="1.5"/>
+      </g>
+
+      <!-- Focus layer -->
+      <g id="focus-uthmani" style="display:none">
+        <circle class="focus-pulse" cx="0" cy="0" r="8" fill="none" stroke="#C5A059" stroke-width="3"/>
+        <polygon class="star-wake" points="0,-22 6,-6 22,0 6,6 0,22 -6,6 -22,0 -6,-6"/>
+      </g>
+    </g>
+  </svg>
+
+  <!-- ============ FOUR IMAMS MAP (shared, classical Islamic heartland) ============ -->
+  <svg id="svg-imam" class="map-svg hidden" viewBox="0 0 700 560" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
           <g class="map-frame" opacity=".55">
             <g transform="translate(14,14)"><polygon points="0,0 18,2 14,8 18,14 8,14 2,18 0,0 8,2 14,0" fill="#C5A059" opacity=".6"/></g>
             <g transform="translate(686,14) scale(-1,1)"><polygon points="0,0 18,2 14,8 18,14 8,14 2,18 0,0 8,2 14,0" fill="#C5A059" opacity=".6"/></g>
@@ -2217,8 +2457,8 @@
     </div>
   </footer>
 
-  <script src="data.js?v=3.3.6"></script>
-  <script src="data_imams.js?v=3.3.5"></script>
-  <script src="app.js?v=3.3.4"></script>
+  <script src="data.js?v=3.4.0"></script>
+  <script src="data_imams.js?v=3.4.0"></script>
+  <script src="app.js?v=3.4.0"></script>
 </body>
 </html>

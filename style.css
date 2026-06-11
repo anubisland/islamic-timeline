@@ -490,11 +490,15 @@ body::after {
 .amb-day  { background: radial-gradient(ellipse at 50% 10%, rgba(217, 162, 84, .05) 0%, transparent 55%); }
 .amb-golden { background: radial-gradient(ellipse at center, rgba(197, 160, 89, .2) 0%, rgba(197, 160, 89, .06) 50%, transparent 80%); }
 .amb-sack { background: radial-gradient(ellipse at center, rgba(180, 40, 20, .15) 0%, rgba(6, 10, 15, .85) 60%, transparent 100%); }
+<<<<<<< HEAD
 /* Every amb value used in data MUST have a rule here — an undefined class
    renders as a fully transparent overlay, i.e. the ambience silently vanishes. */
 .amb-noon   { background: radial-gradient(ellipse at 50% 0%, rgba(255, 235, 180, .12) 0%, transparent 50%); }
 .amb-winter { background: radial-gradient(ellipse at 50% 20%, rgba(150, 190, 220, .14) 0%, transparent 60%); }
 .amb-reform { background: radial-gradient(ellipse at center, rgba(197, 160, 89, .16) 0%, rgba(120, 160, 120, .06) 55%, transparent 85%); }
+=======
+.amb-dusk { background: radial-gradient(ellipse at center, rgba(100, 30, 50, .15) 0%, rgba(6, 10, 15, .45) 50%, transparent 100%); }
+>>>>>>> 266e21b (feat: Ottoman Empire module — 28 stages, SVG map, phase selection, narration audio (v3.4.0))
 
 .map-card {
   position: absolute;
@@ -1082,7 +1086,9 @@ body::after {
 #home-screen:not(.home-hidden) ~ .wrap,
 #home-screen:not(.home-hidden) ~ .tl-foot,
 #imam-screen:not(.hidden) ~ .wrap,
-#imam-screen:not(.hidden) ~ .tl-foot {
+#imam-screen:not(.hidden) ~ .tl-foot,
+#ottoman-screen:not(.hidden) ~ .wrap,
+#ottoman-screen:not(.hidden) ~ .tl-foot {
   display: none !important;
 }
 
@@ -2085,6 +2091,180 @@ body::after {
   flex-shrink: 0;
 }
 
+/* ===================== OTTOMAN SCREEN (phase selection) ===================== */
+
+.ottoman-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 105;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #060b0f;
+  padding: 16px;
+  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+.ottoman-screen.hidden { display: none; }
+
+.ottoman-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(14,165,233,.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(197,160,89,.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.ottoman-inner {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  z-index: 10;
+}
+
+.ottoman-header { text-align: center; width: 100%; }
+.ottoman-header h1 {
+  font-family: "Amiri", serif;
+  font-size: 2rem;
+  color: #ffd700;
+  text-shadow: 0 3px 12px rgba(255,215,0,.2);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+.ottoman-sub {
+  font-size: .85rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.ottoman-icon {
+  font-size: 2.4rem;
+  margin-bottom: 4px;
+  filter: drop-shadow(0 2px 8px rgba(197,160,89,.2));
+}
+
+/* ----- Ottoman phase cards (2×2 grid, larger) ----- */
+.ot-phase-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.ot-phase-card {
+  position: relative;
+  border-radius: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  background: rgba(12,22,31,.92);
+  border: 1px solid rgba(212,175,55,.2);
+  transition: transform .25s, box-shadow .25s;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+.ot-phase-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,.5), 0 0 0 1.5px rgba(212,175,55,.3);
+}
+.ot-phase-card:active { transform: translateY(-2px); }
+
+.opc-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: .85;
+}
+
+.opc-content {
+  position: relative;
+  z-index: 1;
+  padding: 20px 18px;
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px 14px;
+  align-items: start;
+  align-content: start;
+  background: rgba(1,10,7,.35);
+  min-height: 0;
+}
+
+.opc-step {
+  font-family: "Amiri", serif;
+  font-size: 2rem;
+  color: #C5A059;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.3));
+  justify-self: center;
+  align-self: start;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+.opc-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.opc-name {
+  font-family: "Amiri", serif;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 1px 4px rgba(0,0,0,.5);
+  line-height: 1.3;
+}
+[lang="en"] .opc-name { font-family: "Inter", sans-serif; }
+
+.opc-dates {
+  font-family: "Cairo", sans-serif;
+  font-size: .78rem;
+  color: var(--gold);
+  background: rgba(0,0,0,.4);
+  padding: 1px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(197,160,89,.25);
+  align-self: start;
+  direction: ltr;
+  unicode-bidi: plaintext;
+  white-space: nowrap;
+}
+[lang="en"] .opc-dates { font-family: "Inter", sans-serif; }
+
+.opc-desc {
+  font-size: .82rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+.opc-steps-count {
+  font-size: .72rem;
+  color: #64748b;
+  text-align: right;
+  padding: 2px 0;
+  flex: 0;
+  grid-column: 1 / -1;
+}
+
+.ottoman-foot {
+  font-size: .72rem;
+  color: #64748b;
+  text-align: center;
+  padding: 4px 0 2px;
+  flex-shrink: 0;
+}
+
 /* ===================== IMAM MAP CARD (in map panel) ===================== */
 
 .imam-map-card {
@@ -2187,6 +2367,16 @@ body::after {
   .imam-sub { font-size: .8rem; }
   .imam-mc-icon { font-size: 2.4rem; }
   .imam-mc-content { padding: 20px 16px; }
+  /* Ottoman responsive */
+  .ottoman-screen { overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 12px; }
+  .ottoman-inner { gap: 12px; }
+  .ot-phase-cards { grid-template-columns: 1fr; gap: 12px; max-width: 400px; }
+  .ot-phase-card { min-height: 0; }
+  .opc-content { padding: 16px 14px; gap: 10px 14px; }
+  .opc-step { font-size: 1.6rem; }
+  .opc-dates { font-size: .72rem; padding: 1px 10px; }
+  .ottoman-header h1 { font-size: 1.5rem; }
+  .ottoman-sub { font-size: .8rem; }
 }
 
 @media (max-width: 480px) {
@@ -2205,6 +2395,17 @@ body::after {
   .imam-mc-content { padding: 16px 12px; }
   .imam-mc-name { font-size: 1.1rem; }
   .imam-mc-intro { font-size: .72rem; }
+  /* Ottoman responsive */
+  .ottoman-screen { padding: 12px; }
+  .ottoman-inner { gap: 14px; }
+  .ot-phase-cards { grid-template-columns: 1fr; gap: 12px; max-width: 400px; }
+  .ot-phase-card { min-height: 0; }
+  .opc-content { padding: 16px 14px; gap: 10px 14px; }
+  .opc-step { font-size: 1.6rem; }
+  .opc-dates { font-size: .72rem; }
+  .ottoman-header h1 { font-size: 1.5rem; }
+  .ottoman-sub { font-size: .8rem; }
+  .ottoman-icon { font-size: 2rem; }
 }
 
 @media (max-width: 360px) {
@@ -2220,6 +2421,17 @@ body::after {
   .ic-dates { font-size: .52rem; padding: 0 6px; }
   .ic-desc { font-size: .58rem; }
   .imam-foot { font-size: .55rem; }
+  .ottoman-screen { padding: 6px; }
+  .ottoman-header h1 { font-size: 1.05rem; }
+  .ottoman-sub { display: none; }
+  .ot-phase-cards { gap: 8px; }
+  .opc-content { padding: 10px 8px; gap: 6px 8px; }
+  .opc-step { font-size: 1.3rem; }
+  .opc-dates { font-size: .52rem; padding: 0 6px; }
+  .opc-desc { font-size: .58rem; }
+  .opc-name { font-size: .88rem; }
+  .ottoman-foot { font-size: .55rem; }
+  .ottoman-icon { font-size: 1.6rem; }
 
   /* Narrow phones (≤360px): compact the audio control row so its 6 buttons fit.
      Hide the voice/reciter name (the 🎙️ icon remains; the full name is in the
