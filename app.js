@@ -281,6 +281,8 @@
     PHASE_RANGE = null;
     const home = $('home-screen');
     if (home) home.classList.add('home-hidden');
+    const splash = $('splash');
+    if (splash) splash.classList.add('hidden');
     const imamScr = $('imam-screen');
     if (imamScr) imamScr.classList.add('hidden');
     const abbScr = $('abbasid-screen');
@@ -309,8 +311,12 @@
     PHASE_RANGE = null;
     const home = $('home-screen');
     if (home) home.classList.add('home-hidden');
+    const splash = $('splash');
+    if (splash) splash.classList.add('hidden');
     const imamScr = $('imam-screen');
     if (imamScr) imamScr.classList.add('hidden');
+    const ottomanScr = $('ottoman-screen');
+    if (ottomanScr) ottomanScr.classList.add('hidden');
     const abbScr = $('abbasid-screen');
     if (abbScr) abbScr.classList.remove('hidden');
     const hdr = $('site-header');
