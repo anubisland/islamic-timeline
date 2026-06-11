@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.6] — 2026-06-11
+
+### Changed
+- **Source-verification pass over all v3.3.4/v3.3.5 fact-check corrections** — every correction was checked against the project's accepted canon (al-Ṭabarī, Ibn Kathīr's al-Bidāya, Ibn al-Athīr, adh-Dhahabī's Siyar, al-Balādhurī's Futūḥ, al-Suyūṭī via shamela/islamweb, plus islamstory.com / alsalabi.com). **18 of 21 verified with explicit citations and stand as-is.** Three values were honest "partly" results — my replacement figure was right in direction but came from outside the canon — and are now aligned to what the accepted sources state: (1) **first Islamic dinar → 76 AH** (Ibn Kathīr/al-Ṭabarī, events of 76; was corrected to 77 from numismatic literature; the original 73 has no support anywhere); (2) **dīwān arabization → c. 81 AH** (islamstory: Shām kharāj dīwāns 81, Egypt 86; the 78 AH Iraq figure was not in accepted sources); (3) **second Constantinople siege**: causes now match Ibn Kathīr exactly — Leo III's stratagems/defenses and the severe famine in the Muslim camp (Greek fire + harsh-winter wording removed; not in the canon text). Also **reverted** al-Saffāḥ's CE date to 750 (islamstory itself prints 750 CE; the 749 conversion, while astronomically supportable, is not what the accepted source states). Sidecar re-vocalized for the changed sentences; 20 clips regenerated (umawi 8 & 12 × 5 voices × AR+EN).
+
 ## [3.3.5] — 2026-06-10
 
 ### Fixed
