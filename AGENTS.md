@@ -31,7 +31,7 @@ Sera/
 ├── style.css               # Emerald (#063529) + gold (#C5A059) design system
 ├── app.js                  # All behaviour: language toggle, switchEv, step nav, audio
 ├── data.js                 # Bilingual data module — window.SEERAH_DB (Seerah: 13 eras / 152 steps)
-├── data_imams.js           # Bilingual data module — window.FOUR_IMAMS_DB (4 imams × 5 phases); loaded before app.js
+├── data_imams.js           # Bilingual data module — window.FOUR_IMAMS_DB (4 imams × 5-6 phases each = 21 stages); loaded before app.js
 ├── timeline_data.geojson   # geographic features (one per major location)
 ├── audio/                  # Pre-generated neural narration MP3s (COMMITTED)
 │   ├── <slot>/<era>_<step>_<lang>.mp3   # 5 voices × every step × ar|en

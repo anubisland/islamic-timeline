@@ -1,8 +1,8 @@
 {
   "name": "islamic-timeline",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "private": true,
-  "description": "Interactive bilingual (AR/EN) seerah timeline — 13 eras / 152 stages across Pre-Prophethood (11), Meccan (16), Hijra (6), Badr (3), Medinan (11), 5 Rashidun Caliphs (25), Umayyad (24), Abbasid (28), Ottoman (28). Splash landing page, SVG maps, TTS, bilingual.",
+  "description": "Interactive bilingual (AR/EN) seerah timeline — 13 eras / 152 stages (11+16+6+3+11+5+5+5+5+5+24+28+28) + Four Imams / 21 stages (5+5+6+5). Splash landing page, SVG maps, TTS, bilingual.",
   "scripts": {
     "start": "npx --yes serve .",
     "dev": "npx --yes serve ."

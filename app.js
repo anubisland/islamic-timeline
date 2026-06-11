@@ -193,6 +193,8 @@
     if (home) home.classList.add('home-hidden');
     const sp = $('splash');
     if (sp) sp.classList.add('hidden');
+    const imamScr = $('imam-screen');
+    if (imamScr) imamScr.classList.add('hidden');
     const ottomanScr = $('ottoman-screen');
     if (ottomanScr) ottomanScr.classList.add('hidden');
     const hdr = $('site-header');

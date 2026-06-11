@@ -3175,6 +3175,8 @@ window.SEERAH_DB = {
         "amb": "dawn",
         "timeAr": "السنة الثالثة من البعثة",
         "timeEn": "The 3rd year of the mission",
+        "distAr": "مكة المكرمة",
+        "distEn": "Makkah",
         "descAr": "ولد عثمان بن عفان بن أبي العاص بن أمية في مكة، من بني أمية، أسلم بعد البعثة بقليل على يد أبي بكر الصديق، فكان من السابقين الأولين. هاجر الهجرتين: إلى الحبشة ثم إلى المدينة. تزوج من رقية بنت رسول الله ﷺ، فلما توفيت تزوج من أم كلثوم بنت رسول الله ﷺ، فلم يجمع رجل بين ابنتي نبي غيره، فقيل له ذو النورين. قال النبي ﷺ: 'لو كان عندنا ثالثة لزوجناكها يا عثمان'. كان شديد الحياء حتى إن النبي ﷺ قال: 'ألا أستحي من رجل تستحي منه الملائكة'.",
         "descEn": "Uthman ibn Affan was born in Makkah to the Umayyad clan. He converted shortly after the Prophet's mission began at the hands of Abu Bakr, becoming one of the earliest Muslims. He made both migrations: to Abyssinia and then to Madinah. He married Ruqayyah, the Prophet's daughter, and after her death married Umm Kulthum, another daughter of the Prophet. No man other than him married two daughters of a prophet, earning him the title Dhu al-Nurayn (Possessor of Two Lights). The Prophet said: 'If we had a third, I would have married her to you, O Uthman.' He was exceedingly modest; the Prophet said: 'Should I not feel shy before a man of whom the angels feel shy?'",
         "charsAr": [

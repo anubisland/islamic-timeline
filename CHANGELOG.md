@@ -4,6 +4,15 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.4.1] — 2026-06-11
+
+### Fixed
+- **`uthman_0` missing `distAr`/`distEn` fields** — step 0 (His Conversion) had no location context; added `"مكة المكرمة"` / `"Makkah"`.
+- **`shafii` step 0 (His Birth) empty ayah** — added Surah An-Nahl 16:78 (Allah brings forth from the womb knowing nothing) matching the birth theme.
+- **Step count documentation out of sync** — Al-Shafi'i has 6 phases (not 5); updated AGENTS.md, CLAUDE.md, data_imams.js header, and package.json description to reflect 21 total imam stages (5+5+6+5).
+- **CHANGELOG.md leftover merge conflict marker** — removed `>>>>>>> 266e21b` artifact from v3.4.0 entry.
+- **`hideSplash()` defensive safety** — now also hides `imam-screen` to prevent dual-overlay regression risk.
+
 ## [3.4.0] — 2026-06-11
 
 ### Added
@@ -15,7 +24,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Safety-net CSS extended to `#ottoman-screen`** — prevents era UI overflow under the phase selection overlay.
 - **All `show*()` functions now hide every other overlay** — `showOttomanScreen()` hides imam-screen, `showImamScreen()` hides ottoman-screen, preventing dual-overlay render.
 - **Cache-bust bumped to `?v=3.4.0`** for `app.js`, `data.js`, `style.css`, `data_imams.js` — all changed since last cache-bust (v3.3.2/v3.3.1).
->>>>>>> 266e21b (feat: Ottoman Empire module — 28 stages, SVG map, phase selection, narration audio (v3.4.0))
 
 ## [3.3.3] — 2026-06-10
 

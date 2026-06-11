@@ -1,6 +1,6 @@
 /* ============================================================
    FOUR IMAMS — Bilingual Data Module (Sera-compatible format)
-   Abu Hanifa (5) + Malik (5) + Al-Shafi'i (5) + Ahmad (5) = 20 stages
+   Abu Hanifa (5) + Malik (5) + Al-Shafi'i (6) + Ahmad (5) = 21 stages
    Parallel-field {fieldAr, fieldEn} format matching SEERAH_DB
    ============================================================ */
 
@@ -434,10 +434,10 @@ window.FOUR_IMAMS_DB = {
     mapZoom: 5,
     steps: [
       {
-        ayah: "",
-        ayahRef: "",
-        ayahEn: "",
-        ayahRefEn: "",
+        ayah: "وَاللَّهُ أَخْرَجَكُم مِّن بُطُونِ أُمَّهَاتِكُمْ لَا تَعْلَمُونَ شَيْئًا وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ لَعَلَّكُمْ تَشْكُرُونَ",
+        ayahRef: "سورة النحل، الآية ٧٨",
+        ayahEn: "And Allah has brought you out from the wombs of your mothers knowing nothing, and He gave you hearing, sight, and hearts that perhaps you would be grateful.",
+        ayahRefEn: "Surah An-Nahl (16), verse 78",
         dateAr: "150 هـ",
         dateEn: "150 AH",
         titleAr: "ولادته",
