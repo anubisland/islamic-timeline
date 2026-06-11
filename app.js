@@ -61,7 +61,7 @@
   const reciter = (id) => RECITERS.find((r) => r.id === (id || RECITER)) || RECITERS[0];
 
   // ── Map viewBoxes ──────────────────────────────────────
-  const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560], umawi: [1000, 560], abassi1: [1000, 560], abassi2: [1000, 560], abassi3: [1000, 560], abassi4: [1000, 560], uthmani: [1000, 560], imam: [700, 560] };
+  const MAP_VB = { preb: [700, 560], hijra: [700, 560], badr: [700, 500], meccan: [700, 560], medinan: [700, 560], abubakr: [700, 560], umar: [700, 560], uthman: [700, 560], ali: [700, 560], hasan: [700, 560], umawi: [1000, 560], abassi1: [1000, 560], abassi2: [1000, 560], abassi3: [1000, 560], abassi4: [1000, 560], uthmani: [1000, 560], muq: [1000, 560], imam: [700, 560] };
 
   // ── Map zoom state ─────────────────────────────────────
   // ONE writer owns the SVG viewBox: writeMapViewBox(). It composes the
@@ -80,7 +80,7 @@
     const vb = MAP_VB[inImam ? 'imam' : EVT] || [700, 560];
     const focus = (s && s.mapFocus) || { x: vb[0] / 2, y: vb[1] / 2 };
     const scale = (focus.scale || 1.0) * ZOOM_LEVELS[zoomIdx];
-    const svgEl = $(inImam ? 'svg-imam' : 'svg-' + EVT);
+    const svgEl = $(inImam ? 'svg-imam' : 'svg-' + (EVT.startsWith('abassi') || EVT === 'muq' ? 'abassi' : EVT));
     if (!svgEl) return;
     const w = vb[0] / scale;
     const h = vb[1] / scale;
@@ -183,6 +183,16 @@
       return;
     }
     showOttomanScreen();
+  }
+
+  function goToMuq() {
+    if (!DB.muq) {
+      console.warn('SEERAH_DB.muq not loaded.');
+      return;
+    }
+    MODE = 'sera';
+    hideSplash();
+    switchEv('muq');
   }
 
   // ── Splash navigation ──────────────────────────────────
@@ -800,8 +810,8 @@
     allSvgs.forEach((id) => {
       const el = $(id);
       if (el) {
-        // abassi sub-eras (1-4) all share svg-abassi
-        var svgKey = key.startsWith('abassi') ? 'abassi' : key;
+        // abassi sub-eras (1-4) and muq all share svg-abassi
+        var svgKey = key.startsWith('abassi') || key === 'muq' ? 'abassi' : key;
         el.classList.toggle('hidden', id !== 'svg-' + svgKey);
       }
     });
@@ -839,6 +849,7 @@
     const s = ev.steps[STEP];
     if (!s) return;
     const mapKey = inImam ? 'imam' : EVT;
+    const layerKey = mapKey.startsWith('abassi') || mapKey === 'muq' ? 'abassi' : mapKey;
     const vb = MAP_VB[mapKey] || [700, 560];
     const focus = s.mapFocus || { x: vb[0] / 2, y: vb[1] / 2, scale: 1.0 };
 
@@ -851,14 +862,14 @@
     writeMapViewBox();
 
     // No transform on map-pan — the full map is always visible inside the frame
-    const pan = $('pan-' + mapKey);
+    const pan = $('pan-' + layerKey);
     if (pan) {
       pan.style.transform = '';
       pan.style.transformOrigin = '';
     }
 
     // Show & position the focus layer (pulse + 8-point star wake) at (focus.x, focus.y)
-    const focusLayer = $('focus-' + mapKey);
+    const focusLayer = $('focus-' + layerKey);
     if (focusLayer) {
       focusLayer.style.display = '';
       const pulse = focusLayer.querySelector('.focus-pulse');
@@ -1365,6 +1376,8 @@
     if (homeAbassi) homeAbassi.addEventListener('click', goToAbassi);
     const homeUthmani = $('home-uthmani');
     if (homeUthmani) homeUthmani.addEventListener('click', goToUthmani);
+    const homeMuq = $('home-muq');
+    if (homeMuq) homeMuq.addEventListener('click', goToMuq);
 
     // Splash: click era cards
     document.querySelectorAll('.era-card, .caliph-card').forEach((el) => {
@@ -1389,6 +1402,7 @@
       else if (EVT === 'umawi') showUmawiScreen();  // Umayyad back to phase selection
       else if (EVT.startsWith('abassi')) showAbbasidScreen(); // Abbasid sub-eras go back to phase selection
       else if (EVT === 'uthmani') showOttomanScreen(); // Ottoman back to phase selection
+      else if (EVT === 'muq') goToHome(); // Independent States back to home
       else goToSplash();
     });
     // Splash back to home
