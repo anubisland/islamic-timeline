@@ -3,6 +3,32 @@
 > **Repo:** `anubisland/islamic-timeline` — public, GitHub Pages from `main`.
 > **Live:** https://anubisland.github.io/islamic-timeline/
 
+## 🚨 PENDING TASK — regenerate muq + uthmani Arabic narration audio (do this FIRST if you can)
+
+> **Status as of v3.6.6 (2026-06-12): the narration *text* is fixed, the shipped *audio* is not.**
+> In v3.6.4/v3.6.5 the `tools/narration_ar.json` entries for `muq` (all 8 steps — punctuation
+> restored + ~80 vocalization corrections, e.g. حِطِّين) and `uthmani` (all 28 steps — rewritten
+> from scratch; the old entries were mechanically fake-vocalized) were repaired, and two `descAr`
+> typos were fixed in v3.6.6 (uthmani_24 الوحدة, uthmani_25 قراراتهم, muq_0 ودعوته in v3.6.4).
+> **But the committed MP3s under `audio/*/muq_*` and `audio/*/uthmani_*` were generated from the
+> OLD flawed text and still narrate wrong vowels / fused words.** The cloud agent environment
+> could not regenerate them: its egress proxy blocks the edge-tts hosts
+> (`speech.platform.bing.com`, `api.msedgeservices.com` → HTTP 403 `host_not_allowed`).
+>
+> **If your environment can reach those hosts** (test: `python tools/gen_tts.py --eras muq --force`
+> produces non-empty MP3s — `--force` ZEROES the files before writing, so on failure restore with
+> `git checkout -- audio/` and do NOT commit), complete the fix:
+>
+> ```bash
+> pip install edge-tts
+> python tools/gen_tts.py --eras muq --force        # 80 clips
+> python tools/gen_tts.py --eras uthmani --force    # 280 clips
+> python tools/check_release.py                     # must exit 0
+> # commit audio/** + audio/manifest.json (Conventional Commits, bump patch version)
+> ```
+>
+> Then delete this section from BOTH `CLAUDE.md` and `AGENTS.md` (rule 11) in the same commit.
+
 ## What this project is
 
 A **single-page, no-build, vanilla-JS** bilingual (Arabic RTL / English LTR) timeline of the Prophet's biography, the Rashidun era, the Umayyad Caliphate, the Abbasid Caliphate, the Ottoman Empire, and independent states. **17 eras / 160 stages**:
