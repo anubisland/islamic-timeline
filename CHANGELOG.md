@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.3] — 2026-06-12
+
+### Fixed
+- **Removed "circa" prefix from the Independent States home card dates** — the `#home-muq` date stat read «ح. ١٣٨ - ٩٢٣ هـ» / "c. 138–923 AH"; the `ح.` / `c.` prefix is now dropped in both languages, matching the earlier Ottoman home card cleanup (3c20ead). index.html only — no cache-bust needed.
+
 ## [3.6.2] — 2026-06-12
 
 ### Fixed
