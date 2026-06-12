@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.0] — 2026-06-12
+
+### Added
+- **Independent States & Kingdoms phase selection screen** — the muq module now has a 4-phase selection screen (الأندلس / الفاطميون / الأيوبيون / المماليك), matching the Umayyad/Abbasid/Ottoman pattern. Content expanded from 3 to 8 stages across 4 phases: Andalus foundation & golden age, Fatimid rise & fall, Saladin's unification & Battle of Hattin, Mamluk rise & Battle of Ain Jalut. Each phase has 2 steps with dedicated narration audio (80 clips across 5 voice slots × 2 languages) and fully diacritized Arabic sidecar entries.
+
 ## [3.5.3] — 2026-06-11
 
 ### Added

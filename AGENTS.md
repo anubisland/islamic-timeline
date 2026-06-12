@@ -5,7 +5,7 @@
 
 ## What this project is
 
-A **single-page, no-build, vanilla-JS** bilingual (Arabic RTL / English LTR) timeline of the Prophet's biography, the Rashidun era, the Umayyad Caliphate, the Abbasid Caliphate, the Ottoman Empire, and independent states. **17 eras / 155 stages**:
+A **single-page, no-build, vanilla-JS** bilingual (Arabic RTL / English LTR) timeline of the Prophet's biography, the Rashidun era, the Umayyad Caliphate, the Abbasid Caliphate, the Ottoman Empire, and independent states. **17 eras / 160 stages**:
 
 | Key | Era | Steps |
 |---|---|---|
@@ -24,7 +24,7 @@ A **single-page, no-build, vanilla-JS** bilingual (Arabic RTL / English LTR) tim
 | `abassi2` | Abbasid Turkish Influence (232–334 AH) | 6 |
 | `abassi3` | Abbasid Buyid Era (334–447 AH) | 3 |
 | `abassi4` | Abbasid Seljuk→Fall (447–656 AH) | 10 |
-| `muq`     | Independent States & Kingdoms (c. 138–923 AH) | 3 |
+| `muq`     | Independent States & Kingdoms (c. 138–923 AH) | 8 |
 | `uthmani` | Ottoman Empire | 28 |
 
 ## File map
@@ -34,7 +34,7 @@ Sera/
 ├── index.html              # Entry — UI + inline SVG maps
 ├── style.css               # Emerald (#063529) + gold (#C5A059) design system
 ├── app.js                  # All behaviour: language toggle, switchEv, step nav, audio
-├── data.js                 # Bilingual data module — window.SEERAH_DB (Seerah: 14 eras / 155 steps)
+├── data.js                 # Bilingual data module — window.SEERAH_DB (Seerah: 14 eras / 160 steps)
 ├── data_imams.js           # Bilingual data module — window.FOUR_IMAMS_DB (4 imams × 5-6 phases each = 21 stages); loaded before app.js
 ├── timeline_data.geojson   # geographic features (one per major location)
 ├── audio/                  # Pre-generated neural narration MP3s (COMMITTED)

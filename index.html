@@ -23,9 +23,14 @@
     #umawi-screen:not(.hidden) ~ .tl-foot {
       display: none !important;
     }
+    /* Hide main content when Muq phase selection is visible */
+    #muq-screen:not(.hidden) ~ .wrap,
+    #muq-screen:not(.hidden) ~ .tl-foot {
+      display: none !important;
+    }
     /* focus-diag and diag hidden by default (green bg), shown during era */
   </style>
-  <link rel="stylesheet" href="style.css?v=3.5.3" />
+  <link rel="stylesheet" href="style.css?v=3.6.0" />
 </head>
 <body>
 
@@ -173,7 +178,7 @@
             <div class="hc-name" data-ar="الدول والممالك المستقلة" data-en="Independent States &amp; Kingdoms">الدول والممالك المستقلة</div>
             <div class="hc-desc" data-ar="الأندلس، الفاطميون، الأيوبيون، المماليك — حطين وعين جالوت" data-en="Andalusia, Fatimids, Ayyubids, Mamluks — Hattin &amp; Ain Jalut">الأندلس — حطين — عين جالوت</div>
             <div class="hc-stats">
-              <span class="hc-stat"><bdi data-ar="٣ مراحل" data-en="3 stages">٣ مراحل</bdi></span>
+              <span class="hc-stat"><bdi data-ar="٨ مراحل عبر ٤ دول" data-en="8 stages across 4 states">٨ مراحل عبر ٤ دول</bdi></span>
               <span class="hc-dot">•</span>
               <span class="hc-stat"><bdi data-ar="ح. ١٣٨ - ٩٢٣ هـ" data-en="c. 138–923 AH">ح. ١٣٨ - ٩٢٣ هـ</bdi></span>
             </div>
@@ -184,6 +189,85 @@
 
       <div class="home-foot">
         <span data-ar="التصميم التفاعلي للخط الزمني" data-en="Interactive Timeline Design">التصميم التفاعلي للخط الزمني</span>
+      </div>
+    </div>
+  <!-- الدول والممالك المستقلة — شاشة الأقسام -->
+  <section id="muq-screen" class="ottoman-screen">
+    <button id="muq-back" class="splash-back-btn" type="button" aria-label="Back to home">
+      <span data-ar="← الرئيسية" data-en="← Home">← الرئيسية</span>
+    </button>
+    <div class="ottoman-bg"></div>
+    <div class="splash-frame"></div>
+    <div class="splash-corner tl"></div><div class="splash-corner tr"></div>
+    <div class="splash-corner bl"></div><div class="splash-corner br"></div>
+
+    <div class="ottoman-inner">
+      <div class="ottoman-header">
+        <div class="ottoman-icon">🌍</div>
+        <h1 data-ar="الدول والممالك المستقلة" data-en="Independent States &amp; Kingdoms">الدول والممالك المستقلة</h1>
+        <p class="ottoman-sub" data-ar="أربع دول كبرى نشأت في ظل الخلافة العباسية — اختر دولة لاستكشاف أحداثها"
+           data-en="Four great states that arose under the Abbasid Caliphate — choose a state to explore">
+           اختر دولة لاستكشاف أحداثها
+        </p>
+        <div class="splash-divider">۞</div>
+      </div>
+
+      <div class="ot-phase-cards" id="muq-phase-cards">
+        <div class="ot-phase-card" data-phase="1" role="button" tabindex="0">
+          <div class="opc-bg" style="background: linear-gradient(160deg, rgba(197,160,89,.2), rgba(30,20,10,.5))"></div>
+          <div class="opc-content">
+            <div class="opc-step">١</div>
+            <div class="opc-text">
+              <div class="opc-name" data-ar="الدولة الأموية في الأندلس" data-en="Umayyad State in Andalusia">الدولة الأموية في الأندلس</div>
+              <div class="opc-dates" data-ar="١٣٨ - ٤٢٢ هـ / ٧٥٦ - ١٠٣١ م" data-en="138–422 AH / 756–1031 CE">١٣٨ - ٤٢٢ هـ</div>
+              <div class="opc-desc" data-ar="صقر قريش، قرطبة، الحضارة الأندلسية، الازدهار والسقوط" data-en="Falcon of Quraysh, Cordoba, Andalusian civilization, rise and fall">صقر قريش وقرطبة والحضارة</div>
+            </div>
+            <div class="opc-steps-count" data-ar="٢ مرحلتان" data-en="2 stages">٢ مرحلتان</div>
+          </div>
+        </div>
+        <div class="ot-phase-card" data-phase="2" role="button" tabindex="0">
+          <div class="opc-bg" style="background: linear-gradient(160deg, rgba(100,60,150,.2), rgba(10,6,30,.5))"></div>
+          <div class="opc-content">
+            <div class="opc-step">٢</div>
+            <div class="opc-text">
+              <div class="opc-name" data-ar="الدولة الفاطمية (العبيدية)" data-en="Fatimid (Ubaydid) Caliphate">الدولة الفاطمية (العبيدية)</div>
+              <div class="opc-dates" data-ar="٢٩٧ - ٥٦٧ هـ / ٩٠٩ - ١١٧١ م" data-en="297–567 AH / 909–1171 CE">٢٩٧ - ٥٦٧ هـ</div>
+              <div class="opc-desc" data-ar="الدعوة الإسماعيلية، المهدية، القاهرة والأزهر، الانحدار والسقوط" data-en="Isma'ili da'wa, Mahdia, Cairo and al-Azhar, decline and fall">المهدية — القاهرة — الأزهر</div>
+            </div>
+            <div class="opc-steps-count" data-ar="٢ مرحلتان" data-en="2 stages">٢ مرحلتان</div>
+          </div>
+        </div>
+        <div class="ot-phase-card" data-phase="3" role="button" tabindex="0">
+          <div class="opc-bg" style="background: linear-gradient(160deg, rgba(197,160,89,.3), rgba(6,53,41,.5))"></div>
+          <div class="opc-content">
+            <div class="opc-step">٣</div>
+            <div class="opc-text">
+              <div class="opc-name" data-ar="الدولة الأيوبية" data-en="Ayyubid Dynasty">الدولة الأيوبية</div>
+              <div class="opc-dates" data-ar="٥٦٤ - ٥٨٣ هـ / ١١٦٩ - ١١٨٧ م" data-en="564–583 AH / 1169–1187 CE">٥٦٤ - ٥٨٣ هـ</div>
+              <div class="opc-desc" data-ar="صلاح الدين، توحيد مصر والشام، معركة حطين، تحرير القدس" data-en="Saladin, uniting Egypt and Syria, Battle of Hattin, Liberation of Jerusalem">صلاح الدين — حطين — تحرير القدس</div>
+            </div>
+            <div class="opc-steps-count" data-ar="٢ مرحلتان" data-en="2 stages">٢ مرحلتان</div>
+          </div>
+        </div>
+        <div class="ot-phase-card" data-phase="4" role="button" tabindex="0">
+          <div class="opc-bg" style="background: linear-gradient(160deg, rgba(140,70,20,.2), rgba(10,6,15,.7))"></div>
+          <div class="opc-content">
+            <div class="opc-step">٤</div>
+            <div class="opc-text">
+              <div class="opc-name" data-ar="دولة المماليك" data-en="Mamluk Sultanate">دولة المماليك</div>
+              <div class="opc-dates" data-ar="٦٤٨ - ٦٥٨ هـ / ١٢٥٠ - ١٢٦٠ م" data-en="648–658 AH / 1250–1260 CE">٦٤٨ - ٦٥٨ هـ</div>
+              <div class="opc-desc" data-ar="قيام المماليك، قطز وبيبرس، معركة عين جالوت، كسر شوكة المغول" data-en="Rise of the Mamluks, Qutuz and Baybars, Battle of Ain Jalut, breaking the Mongols">المماليك — عين جالوت — كسر المغول</div>
+            </div>
+            <div class="opc-steps-count" data-ar="٢ مرحلتان" data-en="2 stages">٢ مرحلتان</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ottoman-foot">
+        <span data-ar="الدول والممالك المستقلة — ٨ مراحل عبر ٤ دول (ح. ٧٨٥ عاماً)"
+              data-en="Independent States &amp; Kingdoms — 8 stages across 4 states (c. 785 years)">
+          الدول والممالك المستقلة — ٨ مراحل عبر ٤ دول
+        </span>
       </div>
     </div>
   </section>
@@ -2635,8 +2719,8 @@
     </div>
   </footer>
 
-  <script src="data.js?v=3.5.3"></script>
-  <script src="data_imams.js?v=3.5.3"></script>
-  <script src="app.js?v=3.5.3"></script>
+  <script src="data.js?v=3.6.0"></script>
+  <script src="data_imams.js?v=3.6.0"></script>
+  <script src="app.js?v=3.6.0"></script>
 </body>
 </html>

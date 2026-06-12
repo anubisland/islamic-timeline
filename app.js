@@ -185,14 +185,27 @@
     showOttomanScreen();
   }
 
+  function showMuqScreen() {
+    MODE = 'home';
+    const home = $('home-screen');
+    if (home) home.classList.add('home-hidden');
+    const muqScr = $('muq-screen');
+    if (muqScr) muqScr.classList.remove('hidden');
+    const diag = $('focus-diag');
+    if (diag) diag.style.display = 'none';
+  }
+
+  function hideMuqScreen() {
+    const muqScr = $('muq-screen');
+    if (muqScr) muqScr.classList.add('hidden');
+  }
+
   function goToMuq() {
     if (!DB.muq) {
       console.warn('SEERAH_DB.muq not loaded.');
       return;
     }
-    MODE = 'sera';
-    hideSplash();
-    switchEv('muq');
+    showMuqScreen();
   }
 
   // ── Splash navigation ──────────────────────────────────
@@ -209,6 +222,8 @@
     if (abbScr) abbScr.classList.add('hidden');
     const umScr = $('umawi-screen');
     if (umScr) umScr.classList.add('hidden');
+    const muqScr = $('muq-screen');
+    if (muqScr) muqScr.classList.add('hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.add('visible');
     const slb = $('splash-lang-toggle');
@@ -367,7 +382,9 @@
     const abbScr = $('abbasid-screen');
     if (abbScr) abbScr.classList.add('hidden');
     const umScr = $('umawi-screen');
-    if (umScr) umScr.classList.remove('hidden');
+    if (umScr) umScr.classList.add('hidden');
+    const muqScr = $('muq-screen');
+    if (muqScr) muqScr.classList.add('hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.remove('visible');
     const slb = $('splash-lang-toggle');
@@ -791,6 +808,12 @@
           5:  { ar: ' — المروانيون والفتوحات الكبرى', en: ' — Marwanids & Great Conquests' },
           13: { ar: ' — الإصلاح الراشدي — عمر بن عبد العزيز', en: ' — Rightly-Guided Reform — Umar II' },
           18: { ar: ' — الضعف وسقوط الدولة', en: ' — Weakness & Fall' }
+        },
+        'muq': {
+          0: { ar: ' — الأندلس', en: ' — Andalusia' },
+          2: { ar: ' — الفاطميون', en: ' — The Fatimids' },
+          4: { ar: ' — الأيوبيون', en: ' — The Ayyubids' },
+          6: { ar: ' — المماليك', en: ' — The Mamluks' }
         }
       };
       const eraPhases = phaseNames[key];
@@ -1402,7 +1425,7 @@
       else if (EVT === 'umawi') showUmawiScreen();  // Umayyad back to phase selection
       else if (EVT.startsWith('abassi')) showAbbasidScreen(); // Abbasid sub-eras go back to phase selection
       else if (EVT === 'uthmani') showOttomanScreen(); // Ottoman back to phase selection
-      else if (EVT === 'muq') goToHome(); // Independent States back to home
+      else if (EVT === 'muq') showMuqScreen(); // Independent States back to phase selection
       else goToSplash();
     });
     // Splash back to home
@@ -1454,6 +1477,22 @@
         MODE = 'sera';
         hideAbbasidScreen();
         switchEv(era);
+      });
+    });
+    // Muq screen back to home
+    const muqBack = $('muq-back');
+    if (muqBack) muqBack.addEventListener('click', goToHome);
+    // Muq phase cards → enter era at step offset within phase range
+    document.querySelectorAll('#muq-phase-cards .ot-phase-card').forEach((el) => {
+      el.addEventListener('click', () => {
+        const phase = parseInt(el.dataset.phase, 10);
+        if (!phase || !DB.muq) return;
+        const offsets = { 1: 0, 2: 2, 3: 4, 4: 6 };
+        const limits = { 1: { start: 0, end: 1 }, 2: { start: 2, end: 3 }, 3: { start: 4, end: 5 }, 4: { start: 6, end: 7 } };
+        if (offsets[phase] === undefined) return;
+        MODE = 'sera';
+        hideMuqScreen();
+        switchEv('muq', offsets[phase], limits[phase]);
       });
     });
 
