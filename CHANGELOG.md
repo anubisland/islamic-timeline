@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.4] — 2026-06-12
+
+### Fixed
+- **Proofread the entire `muq` era narration tashkīl (`muq_0`–`muq_7`)** — the 8 sidecar entries in `tools/narration_ar.json` were machine-vocalized and never reviewed. Rebuilt every entry from `descAr` so the consonantal skeleton now reproduces the on-screen text exactly: restored all sentence-boundary punctuation that had been stripped (deleted `. `/`: `/` — `/parentheses had fused adjacent words, e.g. «الْوَافِرَةِلَكِنّ», «عَامِ 648 هالْمَمَالِيكُ»), removed stray leading spaces and French-style spaces around «،» and parentheses, and restored the bare `هـ` date token. Applied ~80 word-level vocalization corrections: misread names (الْحَكَم المستنصر not الْحُكْم, عُبَيْد الله not عَبِيد, حِطِّين not حُطِين, مُضَر not مُضِرّ, بَنِي أُمَيَّة not بُنَّي أُمِّيَّة), wrong verb forms (تَمَكَّنَ, تَفَرَّغَ, تَدَرَّجَ, وَصَلَ, أَمَرَ, طَوَّقَ, خَرَقَ, وَفَّرَ, مَهَّدَ, خَلَقَ...), iʿrāb noise (objects in nominative, wrong case after لَكِنَّ, kasra-tanwīn on diptotes like قُرْطُبَة/طَبَرِيَّة/جَالُوت/تُونِس), أَنّ before verbs → أَنْ, dual ـيَّيْن → sound plural ـيِّين (العباسيِّين/الفاطميِّين), and صَلِيبِيّ family case endings. All 8 entries now measure 80–86% harakāt density (was skeleton-valid but mis-vocalized).
+- **Typo in `data.js` `muq_0` `descAr`** — «ودعوايته» (not an Arabic word) corrected to «ودعوته» in «وحكمته توحيد القبائل المتناحرة ودعوته وإقناعهم».
+- **Note:** the corrected narration MP3s could NOT be regenerated in this environment — the edge-tts endpoint (`speech.platform.bing.com`) is blocked by the egress proxy (`host_not_allowed`). The previously committed muq audio is kept so the site stays functional, but it still narrates the old mis-vocalized text. Run `python tools/gen_tts.py --eras muq --force` from a machine with network access and commit the regenerated `audio/**` + `audio/manifest.json`.
+
 ## [3.6.3] — 2026-06-12
 
 ### Fixed
