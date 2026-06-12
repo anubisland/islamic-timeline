@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.6] — 2026-06-12
+
+### Fixed
+- **Two `descAr` typos in the Ottoman era** — uthmani_24 «الوحطة» → «الوحدة», uthmani_25 «قراراهم» → «قراراتهم», with the narration sidecar updated in sync (skeleton + correct iʿrāb قَرَارَاتُهُمُ).
+
+### Added
+- **`check_voc.py` hardened with FAKE and FUSION checks** — FAKE flags mechanically-generated marks (fatḥa share > 70%, zero sukūn+shadda, or ≥ 5 harakāt on plain alif), the failure mode that passed the density gate at 91–96% on all 28 pre-v3.6.5 uthmani entries; FUSION flags entries whose letter-run (word) structure differs from `descAr` — a dropped space/punctuation separator fusing adjacent words, the pre-v3.6.4 muq failure mode. Verified: the hardened gate fails the pre-fix tree with 36 FAKE + 8 FUSION findings and passes the current one.
+
 ## [3.6.5] — 2026-06-12
 
 ### Fixed

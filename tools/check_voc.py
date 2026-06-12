@@ -9,7 +9,7 @@ guessing. That sidecar is keyed BY INDEX, so it silently goes stale whenever a
 step's `descAr` is edited, or a step is inserted/removed/reordered (every later
 index shifts). When that happens the audio narrates the wrong text.
 
-This script catches five failure modes:
+This script catches seven failure modes:
 
   - MISSING  : a step has narration text but no sidecar entry  -> bare-descAr TTS
   - EXTRA    : a sidecar key no longer matches any step        -> stale/renamed
@@ -24,6 +24,21 @@ This script catches five failure modes:
                Cyrillic, stray Latin words...) — e.g. the machine-translation
                leftover «جيش足以 الصمود» that shipped in abassi_24. Latin digits,
                punctuation, ﷺ and whitespace are allowed.
+  - FAKE     : marks are mechanically generated, not real tashkil. The original
+               28 uthmani entries sailed past the density gate at 91-96% while
+               being phonologically impossible (92% fatha, ZERO sukun/shadda, a
+               fatha stamped on nearly every plain alif), forcing the TTS to
+               read garbage vowels on every word (fixed v3.6.5). Three signals,
+               any one fails the entry: fatha share > 70% of marks; no sukun AND
+               no shadda in the whole entry; >= 5 harakat on plain alif (a few
+               are legit — sentence-initial alif-wasl like اِنْطَلَقَ — but real
+               text never has many).
+  - FUSION   : the letter-run (word) structure differs from descAr — a separator
+               (space/punctuation) was dropped between two words, fusing them
+               into one token the TTS reads as a non-word with no sentence pause
+               (e.g. «الْوَافِرَةِلَكِنّ» for «الوافرة. لكن» — shipped in the
+               v3.6.0 muq entries, fixed v3.6.4). The skeleton check is blind to
+               this because it strips everything but letters before comparing.
 
 The skeleton check guarantees the vocalized text is the SAME words as descAr
 (only vowels added); it deliberately does not judge harakat *choices* — those
@@ -117,6 +132,40 @@ def foreign_chars(s):
     return set(_FOREIGN.findall(s))
 
 
+def letter_runs(s):
+    """Word structure: the sequence of Arabic-letter/digit runs after dropping
+    harakat and folding spelling variants (same folds as skeleton()). Two texts
+    with equal skeletons but different runs have lost/gained a separator —
+    i.e. words were fused or split."""
+    s = _HARAKAT.sub("", s)
+    s = re.sub(r"[آأإٱ]", "ا", s)
+    s = s.replace("ؤ", "و").replace("ئ", "ي")
+    s = s.replace("ى", "ي").replace("ء", "")
+    return re.findall(r"[ا-ي0-9٠-٩]+", s)
+
+
+_MARKS_ALL = re.compile(r"[ً-ْ]")          # tanwin + harakat + shadda + sukun
+_ALIF_MARKED = re.compile(r"ا[َُِّْ]")      # fatha/damma/kasra/shadda/sukun on plain alif
+
+
+def fake_signals(s):
+    """Mechanical-vocalization signatures. Returns a list of reasons (empty =
+    plausible tashkil). Only meaningful on entries with enough marks to judge."""
+    marks = _MARKS_ALL.findall(s)
+    if len(marks) < 20:
+        return []
+    reasons = []
+    fatha_share = marks.count("َ") / len(marks)
+    if fatha_share > 0.70:
+        reasons.append("fatha is %.0f%% of marks" % (fatha_share * 100))
+    if marks.count("ْ") == 0 and marks.count("ّ") == 0:
+        reasons.append("no sukun and no shadda")
+    alif_marked = len(_ALIF_MARKED.findall(s))
+    if alif_marked >= 5:
+        reasons.append("%d harakat on plain alif" % alif_marked)
+    return reasons
+
+
 def main():
     ap = argparse.ArgumentParser(description="Validate the diacritized narration sidecar.")
     ap.add_argument("--quiet", action="store_true", help="print only the summary line")
@@ -143,27 +192,38 @@ def main():
         bad = foreign_chars(orig[k]) | foreign_chars(voc.get(k, ""))
         if bad:
             foreign.append("%s (%s)" % (k, " ".join(repr(c) for c in sorted(bad))))
+    # FAKE: mark distribution is mechanically generated, not real tashkil.
+    fake = ["%s (%s)" % (k, "; ".join(fake_signals(voc[k]))) for k in sorted(voc)
+            if k in orig and voc[k].strip() and fake_signals(voc[k])]
+    # FUSION: a separator was dropped/added — word structure differs from descAr.
+    fusion = [k for k in sorted(orig) if k in voc and voc[k].strip()
+              and letter_runs(orig[k]) != letter_runs(voc[k])]
 
-    problems = len(missing) + len(extra) + len(mismatch) + len(bare) + len(foreign)
+    problems = (len(missing) + len(extra) + len(mismatch) + len(bare)
+                + len(foreign) + len(fake) + len(fusion))
 
     if not args.quiet:
         def show(label, keys, hint):
             if keys:
                 print(f"\n{label} ({len(keys)}) — {hint}")
-                for k in keys if label in ("BARE", "FOREIGN") else sorted(keys):
+                for k in keys if label in ("BARE", "FOREIGN", "FAKE") else sorted(keys):
                     print(f"    {k}")
         show("MISSING", missing, "step has narration but no diacritized entry (will use bare descAr)")
         show("EXTRA", extra, "sidecar key matches no step (stale after a rename/removal)")
         show("MISMATCH", mismatch, "consonants differ from descAr (text edited or index shifted)")
         show("BARE", bare, f"harakat density < {args.min_density:.0f}%% — entry is not really vocalized; TTS will guess vowels")
         show("FOREIGN", foreign, "non-Arabic letters in the narration text (CJK/Latin/... corruption)")
+        show("FAKE", fake, "mark distribution is mechanically generated, not real tashkil — TTS reads garbage vowels")
+        show("FUSION", fusion, "word structure differs from descAr — a space/punctuation separator was dropped, fusing words")
 
     if problems == 0:
         print(f"OK: narration_ar.json is in sync — {len(voc)} entries, all skeletons match descAr, "
-              f"all vocalized (>= {args.min_density:.0f}%), no foreign characters.")
+              f"all vocalized (>= {args.min_density:.0f}%), no foreign characters, "
+              f"plausible tashkil, no fused words.")
         return 0
     print(f"\nFAIL: {problems} problem(s) — {len(missing)} missing, {len(extra)} extra, "
-          f"{len(mismatch)} mismatched, {len(bare)} bare, {len(foreign)} with foreign chars. "
+          f"{len(mismatch)} mismatched, {len(bare)} bare, {len(foreign)} with foreign chars, "
+          f"{len(fake)} fake-vocalized, {len(fusion)} with fused words. "
           f"Re-vocalize the listed steps in tools/narration_ar.json (keep the consonant skeleton "
           f"identical to descAr), fix any corrupted descAr in data.js, then regenerate AR audio.")
     return 1
