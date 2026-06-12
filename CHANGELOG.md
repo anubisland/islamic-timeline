@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.1] — 2026-06-12
+
+### Fixed
+- **Home screen cards broken / blank screen on every navigation** — the `#muq-screen` section added in v3.6.0 was inserted *before* `#home-screen`'s closing `</section>` and had no closing tag of its own, so it consumed home-screen's. In the parsed DOM the entire rest of the app (splash, all phase screens, `.wrap` era UI, footer) became *descendants* of `#home-screen`: the sibling-combinator CSS safety nets (`#home-screen:not(.home-hidden) ~ .wrap` etc.) stopped matching, the 4000px+ era UI rendered inside the centered flex home screen crushing the cards, and adding `.home-hidden` (any card click / navigation) `display:none`'d the whole app. Same root pattern as the v3.4.3 `#imam-screen` missing-`</section>` bug. Fixed by restoring the `</section>` that closes `#home-screen`.
+
 ## [3.6.0] — 2026-06-12
 
 ### Added

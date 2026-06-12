@@ -237,6 +237,7 @@ Even **empty** (no text content), its padding + green background + border render
 | **Splash content too tall** (v2.7.2) | 10 cards + header + footer in single column | Reduced padding/font at each breakpoint; hides subtitle/divider at ≤360px |
 | **Timeline strip missing on load** (v2.4.3) | `buildTimeline()` not called from `init()` | Added call to `buildTimeline()` in `init()` before `applyLanguage()` |
 | **Map zoom controls reversed** (v2.9.1) | Click handlers had `zoomIdx--` on zIn (+ button) and `zoomIdx++` on zOut (- button) — opposite of correct pan/zoom math | Swapped directions: `zoomIdx++` on zIn (smaller viewBox = zoom in), `zoomIdx--` on zOut (larger viewBox = zoom out) |
+| **Home screen cards broken + blank app on navigation** (v3.6.0 → v3.6.1) | `#muq-screen` `<section>` inserted before `#home-screen`'s `</section>` with no closing tag of its own — it consumed home-screen's, nesting the ENTIRE app (splash, era `.wrap`, footer, all screens) inside `#home-screen`. Sibling `~` safety nets stopped matching; `.home-hidden` hid everything. Recurrence of the v3.4.3 `#imam-screen` missing-`</section>` bug. | Restored the `</section>` closing `#home-screen`. **After ANY index.html edit, verify `<section` count == `</section>` count** — the release gate does not parse HTML nesting. |
 
 ### Homepage + Four Imams integration regressions (v2.10.1 - v2.11.1) - the multi-state footgun
 
