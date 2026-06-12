@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.5] — 2026-06-12
+
+### Fixed
+- **Ottoman (uthmani) narration sidecar was fake-vocalized — TTS read wrong vowels on every word** — all 28 `uthmani_*` entries in `tools/narration_ar.json` had marks inserted mechanically (a fatḥa after nearly every letter, including plain alifs and definite-article lāms; kasra after yāʾ). The mark histogram across the era was 92% fatḥa with **zero sukūn and zero shadda** — phonologically impossible Arabic — so the entries passed the density gate (91–96%) while forcing the neural voice to read garbage like «عَثَمَاَنَ بَنَ أَرَطَغَرَلَ» instead of «عُثْمَانُ بْنُ أَرْطُغْرُل». All 28 entries were rewritten from scratch with genuine tashkīl (correct verb forms, iʿrāb/case endings, shadda, sukūn; verified proper names: عُثْمَان بْن أَرْطُغْرُل، أُورْخَان، مُرَاد، بَايَزِيد، مُحَمَّد الْفَاتِح، سَلِيم، سُلَيْمَانُ الْقَانُونِيّ، الْقُسْطَنْطِينِيَّة، أَدِرْنَة، بُورْصَة، الْإِنْكِشَارِيَّة، جَالْدِيرَان، مَرْج دَابِق…), keeping the consonantal skeleton character-identical to `descAr`. New mark distribution: fatḥa 3448 / kasra 1754 / sukūn 1329 / ḍamma 844 / shadda 662 / tanwīn 218; density 75.7–85.6% (mean 82.2%; `uthmani_19` sits below 80% only because it is saturated with transliterated names — كوبريلي ×4 — and bare هـ/م date tokens).
+- **⚠️ Audio regeneration pending:** `python tools/gen_tts.py --eras uthmani --force` could not run in the sandboxed build environment (egress proxy returns `403 host_not_allowed` for `speech.platform.bing.com` / `api.msedgeservices.com`). The committed Ottoman MP3s are still the ones generated from the old fake-vocalized text — run the gen_tts command above from an unrestricted machine and commit the 280 regenerated `audio/**/uthmani_*` clips to complete this fix.
+
 ## [3.6.4] — 2026-06-12
 
 ### Fixed
