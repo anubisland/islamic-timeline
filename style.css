@@ -1092,7 +1092,9 @@ body::after {
 #abbasid-screen:not(.hidden) ~ .wrap,
 #abbasid-screen:not(.hidden) ~ .tl-foot,
 #umawi-screen:not(.hidden) ~ .wrap,
-#umawi-screen:not(.hidden) ~ .tl-foot {
+#umawi-screen:not(.hidden) ~ .tl-foot,
+#muq-screen:not(.hidden) ~ .wrap,
+#muq-screen:not(.hidden) ~ .tl-foot {
   display: none !important;
 }
 
@@ -2114,6 +2116,7 @@ body::after {
 .ottoman-screen.hidden { display: none; }
 #abbasid-screen.hidden { display: none; }
 #umawi-screen.hidden { display: none; }
+#muq-screen.hidden { display: none; }
 
 .ottoman-bg {
   position: fixed;

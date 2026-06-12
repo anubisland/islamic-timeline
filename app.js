@@ -187,10 +187,29 @@
 
   function showMuqScreen() {
     MODE = 'home';
+    PHASE_RANGE = null;
     const home = $('home-screen');
     if (home) home.classList.add('home-hidden');
+    const splash = $('splash');
+    if (splash) splash.classList.add('hidden');
+    const imamScr = $('imam-screen');
+    if (imamScr) imamScr.classList.add('hidden');
+    const ottomanScr = $('ottoman-screen');
+    if (ottomanScr) ottomanScr.classList.add('hidden');
+    const abbScr = $('abbasid-screen');
+    if (abbScr) abbScr.classList.add('hidden');
+    const umScr = $('umawi-screen');
+    if (umScr) umScr.classList.add('hidden');
     const muqScr = $('muq-screen');
     if (muqScr) muqScr.classList.remove('hidden');
+    const hdr = $('site-header');
+    if (hdr) hdr.classList.remove('visible');
+    const slb = $('splash-lang-toggle');
+    if (slb) slb.classList.remove('hidden');
+    stopAudio();
+    document.body.style.background = '#060b0f';
+    document.body.style.overflow = 'hidden';
+    document.querySelector('meta[name=theme-color]').content = '#060b0f';
     const diag = $('focus-diag');
     if (diag) diag.style.display = 'none';
   }
