@@ -4,6 +4,11 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.7] — 2026-06-12
+
+### Fixed
+- **Completed the flagged pending task: regenerated muq + uthmani Arabic/English narration audio.** The v3.6.4/v3.6.5 narration-text repairs (muq punctuation + ~80 vocalization fixes; uthmani's 28 entries rewritten from scratch after being mechanically fake-vocalized) had shipped with **stale MP3s still narrating the old flawed text**, because the cloud agent's egress proxy blocks the edge-tts hosts. Regenerated all 360 clips (8 muq + 28 uthmani steps × 5 voices × AR+EN) from the corrected sidecar in a local environment, rebuilt the manifest, and verified zero empty files. Removed the 🚨 PENDING TASK section from CLAUDE.md/AGENTS.md per its own instructions.
+
 ## [3.6.6] — 2026-06-12
 
 ### Fixed
