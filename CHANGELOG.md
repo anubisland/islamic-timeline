@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.2] — 2026-06-12
+
+### Fixed
+- **Umayyad home card led to the wrong page** — while adding the muq-hide line to `showUmawiScreen()` in v3.6.0, the adjacent line was accidentally flipped from `umScr.classList.remove('hidden')` to `add('hidden')`, so the function hid every overlay *including the Umayyad phase screen itself* and the user fell through to the bare era view underneath.
+- **Stale `#muq-screen` covering other screens** — `showHome()`, `showSplash()`, `showImamScreen()`, `showOttomanScreen()`, and `showAbbasidScreen()` did not hide `#muq-screen` (rule 12 violation). After visiting the Independent States screen and returning home, clicking the Seerah card opened the splash (z-index 100) *underneath* the still-visible muq screen (z-index 105), so the muq phase cards appeared instead. All `show*()` functions now hide `#muq-screen` explicitly.
+
 ## [3.6.1] — 2026-06-12
 
 ### Fixed

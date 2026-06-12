@@ -122,6 +122,8 @@
     if (abbScr) abbScr.classList.add('hidden');
     const umScr = $('umawi-screen');
     if (umScr) umScr.classList.add('hidden');
+    const muqScr = $('muq-screen');
+    if (muqScr) muqScr.classList.add('hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.remove('visible');
     // Keep splash lang toggle visible on home screen
@@ -266,6 +268,8 @@
     if (abbScr) abbScr.classList.add('hidden');
     const umScr = $('umawi-screen');
     if (umScr) umScr.classList.add('hidden');
+    const muqScr = $('muq-screen');
+    if (muqScr) muqScr.classList.add('hidden');
     const hdr = $('site-header');
     if (hdr) hdr.classList.remove('visible');
     const slb = $('splash-lang-toggle');
@@ -297,6 +301,8 @@
     if (abbScr) abbScr.classList.add('hidden');
     const umScr = $('umawi-screen');
     if (umScr) umScr.classList.add('hidden');
+    const muqScr = $('muq-screen');
+    if (muqScr) muqScr.classList.add('hidden');
     const imamScr = $('imam-screen');
     if (imamScr) imamScr.classList.remove('hidden');
     const hdr = $('site-header');
@@ -335,6 +341,8 @@
     if (abbScr) abbScr.classList.add('hidden');
     const umScr = $('umawi-screen');
     if (umScr) umScr.classList.add('hidden');
+    const muqScr = $('muq-screen');
+    if (muqScr) muqScr.classList.add('hidden');
     const ottomanScr = $('ottoman-screen');
     if (ottomanScr) ottomanScr.classList.remove('hidden');
     const hdr = $('site-header');
@@ -367,6 +375,8 @@
     if (ottomanScr) ottomanScr.classList.add('hidden');
     const umScr = $('umawi-screen');
     if (umScr) umScr.classList.add('hidden');
+    const muqScr = $('muq-screen');
+    if (muqScr) muqScr.classList.add('hidden');
     const abbScr = $('abbasid-screen');
     if (abbScr) abbScr.classList.remove('hidden');
     const hdr = $('site-header');
@@ -401,7 +411,7 @@
     const abbScr = $('abbasid-screen');
     if (abbScr) abbScr.classList.add('hidden');
     const umScr = $('umawi-screen');
-    if (umScr) umScr.classList.add('hidden');
+    if (umScr) umScr.classList.remove('hidden');
     const muqScr = $('muq-screen');
     if (muqScr) muqScr.classList.add('hidden');
     const hdr = $('site-header');
