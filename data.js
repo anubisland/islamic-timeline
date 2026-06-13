@@ -5563,7 +5563,7 @@ window.SEERAH_DB = {
         "lessonAr": "لا تبنى دولة على الابتداع — مهما علت القصور والأزهر يبقى أساسها باطلاً لأنها قامت على غير الحق",
         "lessonEn": "No state built on innovation endures — however grand the palaces and al-Azhar, a false foundation cannot stand",
         "srcs": ["ابن الأثير (الكامل في التاريخ)", "ابن خلدون (كتاب العبر)", "د. الصلابي (الدولة الفاطمية)"],
-        "mapFocus": {"x":480,"y":280,"scale":1.0}
+        "mapFocus": {"x":310,"y":390,"scale":1.0}
       },
       {
         "ayah": "﴿ وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنْتُمُ الْأَعْلَوْنَ إِنْ كُنْتُمْ مُؤْمِنِينَ ﴾",
@@ -5598,7 +5598,7 @@ window.SEERAH_DB = {
         "lessonAr": "من فرض مذهبه بالقوة زرع بذور سقوطه — ومن فرق الأمة اشترى خلافته بثمن دينه",
         "lessonEn": "Whoever imposes his creed by force sows the seeds of his own fall — whoever divides the nation purchases his caliphate at the cost of his faith",
         "srcs": ["ابن الأثير (الكامل في التاريخ)", "ابن خلدون (كتاب العبر)", "د. الصلابي (الدولة الفاطمية)"],
-        "mapFocus": {"x":500,"y":310,"scale":1.0}
+        "mapFocus": {"x":310,"y":390,"scale":1.0}
       },
       {
         "ayah": "﴿ وَأَعِدُّوا لَهُمْ مَا اسْتَطَعْتُمْ مِنْ قُوَّةٍ ﴾",
