@@ -5705,7 +5705,7 @@ window.SEERAH_DB = {
         "lessonAr": "الأزمات العظيمة تصنع القادة العظماء — الشجاعة والمبادأة هما مفتاح النصر في أحلك الظروف",
         "lessonEn": "Great crises forge great leaders — courage and initiative are the keys to victory in the darkest circumstances",
         "srcs": ["ابن كثير (البداية والنهاية)", "د. راغب السرجاني (قصة المماليك)"],
-        "mapFocus": {"x":480,"y":300,"scale":1.0}
+        "mapFocus": {"x":310,"y":390,"scale":1.0}
       },
       {
         "ayah": "﴿ وَيَمْكُرُونَ وَيَمْكُرُ اللَّهُ وَاللَّهُ خَيْرُ الْمَاكِرِينَ ﴾",
