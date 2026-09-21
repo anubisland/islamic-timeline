@@ -1,13 +1,14 @@
 {
   "name": "الخط الزمني الإسلامي",
   "short_name": "التاريخ الإسلامي",
-  "start_url": "./index.html",
+  "start_url": "/islamic-timeline/",
+  "scope": "/islamic-timeline/",
   "display": "standalone",
   "background_color": "#0d1f18",
   "theme_color": "#0d1f18",
   "icons": [
     {
-      "src": "icon-512.png",
+      "src": "/islamic-timeline/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

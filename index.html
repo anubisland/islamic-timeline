@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/islamic-timeline/manifest.json">
 <!-- أيقونة التبويب في المتصفح -->
 <link rel="icon" type="image/png" href="icon-512.png">
 
@@ -2734,5 +2734,12 @@
   <script src="data.js?v=3.6.7"></script>
   <script src="data_imams.js?v=3.6.7"></script>
   <script src="app.js?v=3.6.7"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/islamic-timeline/sw.js');
+    });
+  }
+</script>
 </body>
 </html>
